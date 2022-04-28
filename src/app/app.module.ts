@@ -23,6 +23,11 @@ import { YesNoQuestionComponent } from './common/yes-no-question/yes-no-question
 import { InputAreaComponent } from './common/input-area/input-area.component';
 import { DialogService } from './common/dialog';
 import { AdminGuard } from "./users/AdminGuard";
+import { EmployeesComponent } from './employees/employees.component';
+import { AssignEmployeeComponent } from './assign-employee/assign-employee.component';
+import { ComputersComponent } from './computers/computers.component';
+import { TrashComponent } from './trash/trash.component';
+import { OkComponent } from './ok/ok.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +35,13 @@ import { AdminGuard } from "./users/AdminGuard";
     UsersComponent,
     HomeComponent,
     YesNoQuestionComponent,
-    InputAreaComponent
+    InputAreaComponent,
+    EmployeesComponent,
+    AssignEmployeeComponent,
+    ComputersComponent,
+
+    TrashComponent,
+    OkComponent
   ],
   imports: [
     BrowserModule,
@@ -55,3 +66,5 @@ import { AdminGuard } from "./users/AdminGuard";
   entryComponents: [YesNoQuestionComponent, InputAreaComponent]
 })
 export class AppModule { }
+
+

@@ -1,3 +1,5 @@
+import { Validators } from "remult";
+
 export const terms = {
     username: "שם משתמש",
     signIn: "כניסה",
@@ -20,3 +22,6 @@ export const terms = {
     invalidSignIn: "פרטי כניסה לא תקינים",
     signOut: 'התנתק'
 }
+
+Validators.required.defaultMessage = 'ערך חסר';
+Validators.unique.defaultMessage = 'קיים כבר ערך זהה';

@@ -8,6 +8,8 @@ import * as helmet from 'helmet';
 import * as jwt from 'express-jwt';
 import * as compression from 'compression';
 import { getJwtTokenSignKey } from '../app/users/user';
+import { Employee } from '../app/employees/employee';
+import { Computer } from '../app/computers/computer';
 
 
 async function startup() {
@@ -27,6 +29,7 @@ async function startup() {
         return undefined;
     }
     let api = remultExpress({
+        entities: [Employee, Computer],
         dataProvider
     });
     app.use(api);

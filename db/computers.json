@@ -1,0 +1,17 @@
+[
+  {
+    "id": "1d001209-b41d-429b-83db-3a44c2b256de",
+    "barcode": "12345",
+    "status": "assigned",
+    "employee": "9e32ac04-f834-416c-83f1-e92af954d84c",
+    "createDate": "2022-04-28T14:34:36.302Z"
+  },
+  {
+    "id": "a928363e-d866-4242-bc6f-3cc9169e0041",
+    "barcode": "123",
+    "status": "successfulUpgrade",
+    "employee": "9e32ac04-f834-416c-83f1-e92af954d84c",
+    "cpu": "i5",
+    "createDate": "2022-04-28T14:35:18.206Z"
+  }
+]
