@@ -1,5 +1,6 @@
 import { DataControl } from "@remult/angular/interfaces";
 import { Entity, Field, Fields, IdEntity, Validators, ValueListFieldType } from "remult";
+import { recordChanges } from "../change-log/change-log";
 import { Employee } from "../employees/employee";
 
 
@@ -28,6 +29,11 @@ export class CPUType {
     allowApiCrud: true,
     defaultOrderBy: {
         createDate: "desc"
+    }
+
+}, (options, remult) => {
+    options.saving = async (self) => {
+        await recordChanges(remult, self)
     }
 })
 export class Computer extends IdEntity {

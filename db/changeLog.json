@@ -1,0 +1,25 @@
+[
+  {
+    "id": "0250e73c-2cf1-4d1e-8e85-d3f4c3cc2bb0",
+    "relatedId": "a928363e-d866-4242-bc6f-3cc9169e0041",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-04-28T14:52:19.385Z",
+    "userId": "",
+    "userName": "",
+    "changes": [
+      {
+        "key": "barcode",
+        "oldDisplayValue": "123",
+        "newDisplayValue": "1234",
+        "newValue": "1234",
+        "oldValue": "123"
+      }
+    ],
+    "changedFields": [
+      "barcode"
+    ]
+  }
+]

@@ -28,6 +28,7 @@ import { AssignEmployeeComponent } from './assign-employee/assign-employee.compo
 import { ComputersComponent } from './computers/computers.component';
 import { TrashComponent } from './trash/trash.component';
 import { OkComponent } from './ok/ok.component';
+import { ChangeLogComponent } from './change-log/change-log.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,7 @@ import { OkComponent } from './ok/ok.component';
     EmployeesComponent,
     AssignEmployeeComponent,
     ComputersComponent,
-
+    ChangeLogComponent,
     TrashComponent,
     OkComponent
   ],
