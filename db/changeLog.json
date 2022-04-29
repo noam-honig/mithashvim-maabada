@@ -21,5 +21,97 @@
     "changedFields": [
       "barcode"
     ]
+  },
+  {
+    "id": "674835c9-e65d-4a48-883f-ba32b9585693",
+    "relatedId": "a928363e-d866-4242-bc6f-3cc9169e0041",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-04-29T05:48:47.452Z",
+    "userId": "",
+    "userName": "",
+    "changes": [
+      {
+        "key": "status",
+        "oldDisplayValue": "שדרוג בהצלחה",
+        "newDisplayValue": "גריטה",
+        "newValue": "trash",
+        "oldValue": "successfulUpgrade"
+      }
+    ],
+    "changedFields": [
+      "status"
+    ]
+  },
+  {
+    "id": "4e9a0f69-7c75-4909-ba1f-4a2cb9cb5c2b",
+    "relatedId": "a928363e-d866-4242-bc6f-3cc9169e0041",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-04-29T05:49:31.502Z",
+    "userId": "",
+    "userName": "",
+    "changes": [
+      {
+        "key": "status",
+        "oldDisplayValue": "גריטה",
+        "newDisplayValue": "שוייך לעובד",
+        "newValue": "assigned",
+        "oldValue": "trash"
+      }
+    ],
+    "changedFields": [
+      "status"
+    ]
+  },
+  {
+    "id": "f55dfeea-1232-4b68-8b40-2a8777fa7667",
+    "relatedId": "a928363e-d866-4242-bc6f-3cc9169e0041",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-04-29T05:50:02.132Z",
+    "userId": "",
+    "userName": "",
+    "changes": [
+      {
+        "key": "status",
+        "oldDisplayValue": "שוייך לעובד",
+        "newDisplayValue": "גריטה",
+        "newValue": "trash",
+        "oldValue": "assigned"
+      }
+    ],
+    "changedFields": [
+      "status"
+    ]
+  },
+  {
+    "id": "629d34b4-d887-48f8-9413-0ed9f9ef33fe",
+    "relatedId": "a928363e-d866-4242-bc6f-3cc9169e0041",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-04-29T05:50:23.155Z",
+    "userId": "",
+    "userName": "",
+    "changes": [
+      {
+        "key": "status",
+        "oldDisplayValue": "גריטה",
+        "newDisplayValue": "שוייך לעובד",
+        "newValue": "assigned",
+        "oldValue": "trash"
+      }
+    ],
+    "changedFields": [
+      "status"
+    ]
   }
 ]

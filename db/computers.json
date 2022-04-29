@@ -9,7 +9,7 @@
   {
     "id": "a928363e-d866-4242-bc6f-3cc9169e0041",
     "barcode": "1234",
-    "status": "successfulUpgrade",
+    "status": "assigned",
     "employee": "9e32ac04-f834-416c-83f1-e92af954d84c",
     "cpu": "i5",
     "createDate": "2022-04-28T14:35:18.206Z"

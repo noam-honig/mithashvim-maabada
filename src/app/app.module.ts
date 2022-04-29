@@ -30,6 +30,7 @@ import { TrashComponent } from './trash/trash.component';
 import { OkComponent } from './ok/ok.component';
 import { ChangeLogComponent } from './change-log/change-log.component';
 import { CardInMiddleComponent } from './card-in-middle/card-in-middle.component';
+import { AutoRefreshListComponent } from './auto-refresh-list/auto-refresh-list.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { CardInMiddleComponent } from './card-in-middle/card-in-middle.component
     ChangeLogComponent,
     TrashComponent,
     OkComponent,
-    CardInMiddleComponent
+    CardInMiddleComponent,
+    AutoRefreshListComponent
   ],
   imports: [
     BrowserModule,
