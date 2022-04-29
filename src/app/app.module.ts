@@ -29,6 +29,7 @@ import { ComputersComponent } from './computers/computers.component';
 import { TrashComponent } from './trash/trash.component';
 import { OkComponent } from './ok/ok.component';
 import { ChangeLogComponent } from './change-log/change-log.component';
+import { CardInMiddleComponent } from './card-in-middle/card-in-middle.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { ChangeLogComponent } from './change-log/change-log.component';
     ComputersComponent,
     ChangeLogComponent,
     TrashComponent,
-    OkComponent
+    OkComponent,
+    CardInMiddleComponent
   ],
   imports: [
     BrowserModule,

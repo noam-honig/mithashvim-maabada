@@ -14,7 +14,7 @@ export const terms = {
     admin: 'מנהל',
     yes: 'כן',
     no: 'לא',
-    ok: 'סבבה',
+    ok: 'אישור',
     areYouSureYouWouldLikeToDelete: "אנא אשר פעולת מחיקה",
     cancel: 'ביטול',
     home: 'בית',
@@ -24,4 +24,4 @@ export const terms = {
 }
 
 Validators.required.defaultMessage = 'ערך חסר';
-Validators.unique.defaultMessage = 'קיים כבר ערך זהה';
+Validators.unique.defaultMessage = 'קיים כבר ערך זהה'; 

@@ -41,7 +41,7 @@ export class Computer extends IdEntity {
     @Fields.string({ inputType: 'phone', caption: 'ברקוד', validate: [Validators.required, Validators.uniqueOnBackend] })
     barcode = '';
     @Field(() => ComputerStatus)
-    @DataControl({ width: '100' })
+    @DataControl({ width: '170' })
     status = ComputerStatus.assigned;
     @Field<Computer>(() => Employee, {
         validate: c => {
@@ -49,7 +49,7 @@ export class Computer extends IdEntity {
                 throw Validators.required.defaultMessage
         }
     })
-    @DataControl({ width: '100' })
+    @DataControl({ width: '170' })
     employee!: Employee;
     @Field<Computer>(() => CPUType, {
         validate: c => {
@@ -57,9 +57,10 @@ export class Computer extends IdEntity {
                 throw Validators.required.defaultMessage
         }
     })
-    @DataControl({ width: '50' })
+    @DataControl({ width: '70' })
     cpu!: CPUType;
     @Fields.date({ caption: 'תאריך קליטה', allowApiUpdate: false })
+    @DataControl({ width: '300' })
     createDate = new Date();
 
 }
