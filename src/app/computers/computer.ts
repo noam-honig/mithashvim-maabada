@@ -6,23 +6,29 @@ import { Employee } from "../employees/employee";
 
 @ValueListFieldType({ caption: 'סטטוס' })
 export class ComputerStatus {
-    static assigned = new ComputerStatus('שוייך לעובד');
-    static trash = new ComputerStatus("גריטה");
-    static successfulUpgrade = new ComputerStatus("שדרוג בהצלחה")
+    static intake = new ComputerStatus("התקבל", { isIntake: true });
+    static waitingForUpgrade = new ComputerStatus("ממתין לשדרוג");
+    static assigned = new ComputerStatus('שוייך לעובד', { updateEmployee: true, inputCpu: true });
+    static trash = new ComputerStatus("ממתין לגריטה");
+    static successfulUpgrade = new ComputerStatus("שודרג בהצלחה")
 
-    constructor(public caption: string) {
-
+    constructor(public caption: string, values?: Partial<ComputerStatus>) {
+        Object.assign(this, values);
     }
+    updateEmployee = false;
+    inputCpu = false;
+    isIntake = false;
 }
-@ValueListFieldType({ caption: 'מעבד' })
+@ValueListFieldType<any, CPUType>({ caption: 'מעבד', displayValue: (_, x) => x?.caption! })
 export class CPUType {
     static i3 = new CPUType();
     static i5 = new CPUType();
     static i7 = new CPUType();
-    constructor() {
+    static pentium = new CPUType('פנטיום');
+    constructor(public caption?: string) {
 
     }
-    public caption?: string;
+
 }
 
 @Entity<Computer>("computers", {
@@ -33,7 +39,8 @@ export class CPUType {
 
 }, (options, remult) => {
     options.saving = async (self) => {
-        await recordChanges(remult, self)
+        self.updateDate = new Date();
+        await recordChanges(remult, self);
     }
 })
 export class Computer extends IdEntity {
@@ -42,26 +49,37 @@ export class Computer extends IdEntity {
     barcode = '';
     @Field(() => ComputerStatus)
     @DataControl({ width: '170' })
-    status = ComputerStatus.assigned;
+    status = ComputerStatus.intake;
+
     @Field<Computer>(() => Employee, {
         validate: c => {
-            if (!c.employee)
+            if (!c.employee && c.status.updateEmployee)
                 throw Validators.required.defaultMessage
-        }
+        },
+        allowNull: true
     })
     @DataControl({ width: '170' })
-    employee!: Employee;
+    employee: Employee | null = null;
     @Field<Computer>(() => CPUType, {
         validate: c => {
-            if (!c.cpu)
+            if (!c.cpu && c.status.inputCpu)
                 throw Validators.required.defaultMessage
         }
     })
     @DataControl({ width: '70' })
     cpu!: CPUType;
+    @Fields.string({ caption: 'מקור תרומה' })
+    @DataControl({ width: '170' })
+    origin = '';
+    @Fields.string({ caption: 'משנע' })
+    @DataControl({ width: '170' })
+    courier = '';
     @Fields.date({ caption: 'תאריך קליטה', allowApiUpdate: false })
     @DataControl({ width: '300' })
     createDate = new Date();
+    @Fields.date({ caption: 'עדכון אחרון', allowApiUpdate: false })
+    @DataControl({ width: '300' })
+    updateDate = new Date();
 
 }
 

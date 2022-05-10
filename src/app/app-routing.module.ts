@@ -10,18 +10,15 @@ import { ShowDialogOnErrorErrorHandler } from './common/dialog';
 import { JwtModule } from '@auth0/angular-jwt';
 import { AuthService } from './auth.service';
 import { terms } from './terms';
-import { Employee } from './employees/employee';
 import { EmployeesComponent } from './employees/employees.component';
 import { ComputersComponent } from './computers/computers.component';
-import { TrashComponent } from './trash/trash.component';
-import { OkComponent } from './ok/ok.component';
 import { AutoRefreshListComponent } from './auto-refresh-list/auto-refresh-list.component';
+import { ConfigComponent } from './config/config.component';
 
-const defaultRoute = 'שיוך לעובד משדרג';
+const defaultRoute = 'מסופון';
 const routes: Routes = [
   { path: defaultRoute, component: HomeComponent },
-  { path: 'עמדת גריטה', component: TrashComponent },
-  { path: 'עמדת שדרוג בהצלחה', component: OkComponent },
+  { path: 'הגדרות מסופון', component: ConfigComponent },
   { path: 'רשימה מתרעננת', component: AutoRefreshListComponent },
   { path: 'מחשבים', component: ComputersComponent },
   { path: 'עובדים', component: EmployeesComponent },

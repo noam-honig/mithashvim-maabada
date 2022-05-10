@@ -4,7 +4,9 @@
     "barcode": "12345",
     "status": "assigned",
     "employee": "9e32ac04-f834-416c-83f1-e92af954d84c",
-    "createDate": "2022-04-28T14:34:36.302Z"
+    "createDate": "2022-04-28T14:34:36.302Z",
+    "origin": "",
+    "courier": ""
   },
   {
     "id": "a928363e-d866-4242-bc6f-3cc9169e0041",
@@ -12,6 +14,64 @@
     "status": "assigned",
     "employee": "9e32ac04-f834-416c-83f1-e92af954d84c",
     "cpu": "i5",
-    "createDate": "2022-04-28T14:35:18.206Z"
+    "createDate": "2022-04-28T14:35:18.206Z",
+    "origin": "",
+    "courier": ""
+  },
+  {
+    "id": "9a6315ac-96d6-40d6-a470-a12c49a10a75",
+    "barcode": "1",
+    "status": "assigned",
+    "employee": "9e32ac04-f834-416c-83f1-e92af954d84c",
+    "origin": "123",
+    "courier": "456",
+    "createDate": "2022-05-10T06:32:34.998Z",
+    "cpu": "i5"
+  },
+  {
+    "id": "e7b6245b-115d-4bfe-a52c-17f085a8e5f2",
+    "barcode": "2",
+    "status": "waitingForUpgrade",
+    "employee": "9e32ac04-f834-416c-83f1-e92af954d84c",
+    "origin": "123",
+    "courier": "456",
+    "createDate": "2022-05-10T06:32:41.611Z"
+  },
+  {
+    "id": "57082017-8a20-40cf-b994-ceb4fd57655b",
+    "barcode": "3",
+    "status": "intake",
+    "employee": "9e32ac04-f834-416c-83f1-e92af954d84c",
+    "origin": "123",
+    "courier": "456",
+    "createDate": "2022-05-10T06:32:46.312Z"
+  },
+  {
+    "id": "6285a73b-8d1f-4a68-9d70-3322e24b8d87",
+    "barcode": "4",
+    "status": "intake",
+    "employee": null,
+    "origin": "",
+    "courier": "",
+    "createDate": "2022-05-10T06:38:59.305Z"
+  },
+  {
+    "id": "49dbdb3a-2e94-445c-ac91-5931e9041f3e",
+    "barcode": "5",
+    "status": "intake",
+    "employee": "9e32ac04-f834-416c-83f1-e92af954d84c",
+    "origin": "123",
+    "courier": "123",
+    "createDate": "2022-05-10T06:40:09.090Z"
+  },
+  {
+    "id": "03a276e2-ba74-4fa3-8df2-01cfdbcefda0",
+    "barcode": "6",
+    "status": "trash",
+    "employee": "9e32ac04-f834-416c-83f1-e92af954d84c",
+    "origin": "123",
+    "courier": "123",
+    "createDate": "2022-05-10T06:40:40.184Z",
+    "cpu": "i5"
   }
 ]

@@ -26,11 +26,10 @@ import { AdminGuard } from "./users/AdminGuard";
 import { EmployeesComponent } from './employees/employees.component';
 import { AssignEmployeeComponent } from './assign-employee/assign-employee.component';
 import { ComputersComponent } from './computers/computers.component';
-import { TrashComponent } from './trash/trash.component';
-import { OkComponent } from './ok/ok.component';
 import { ChangeLogComponent } from './change-log/change-log.component';
 import { CardInMiddleComponent } from './card-in-middle/card-in-middle.component';
 import { AutoRefreshListComponent } from './auto-refresh-list/auto-refresh-list.component';
+import { ConfigComponent } from './config/config.component';
 
 @NgModule({
   declarations: [
@@ -43,10 +42,9 @@ import { AutoRefreshListComponent } from './auto-refresh-list/auto-refresh-list.
     AssignEmployeeComponent,
     ComputersComponent,
     ChangeLogComponent,
-    TrashComponent,
-    OkComponent,
     CardInMiddleComponent,
-    AutoRefreshListComponent
+    AutoRefreshListComponent,
+    ConfigComponent
   ],
   imports: [
     BrowserModule,

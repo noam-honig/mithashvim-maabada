@@ -113,5 +113,181 @@
     "changedFields": [
       "status"
     ]
+  },
+  {
+    "id": "21714234-20a1-4115-8297-776f75822810",
+    "relatedId": "9a6315ac-96d6-40d6-a470-a12c49a10a75",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-05-10T06:32:58.328Z",
+    "userId": "",
+    "userName": "",
+    "changes": [
+      {
+        "key": "status",
+        "oldDisplayValue": "התקבל",
+        "newDisplayValue": "ממתין לשדרוג",
+        "newValue": "waitingForUpgrade",
+        "oldValue": "intake"
+      }
+    ],
+    "changedFields": [
+      "status"
+    ]
+  },
+  {
+    "id": "46c9435b-dc00-4069-8d99-9a4ebfd1b087",
+    "relatedId": "e7b6245b-115d-4bfe-a52c-17f085a8e5f2",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-05-10T06:33:03.012Z",
+    "userId": "",
+    "userName": "",
+    "changes": [
+      {
+        "key": "status",
+        "oldDisplayValue": "התקבל",
+        "newDisplayValue": "ממתין לשדרוג",
+        "newValue": "waitingForUpgrade",
+        "oldValue": "intake"
+      }
+    ],
+    "changedFields": [
+      "status"
+    ]
+  },
+  {
+    "id": "75c3dda3-9a64-4ba8-9484-6581a07b6fd1",
+    "relatedId": "9a6315ac-96d6-40d6-a470-a12c49a10a75",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-05-10T06:36:43.622Z",
+    "userId": "",
+    "userName": "",
+    "changes": [
+      {
+        "key": "status",
+        "oldDisplayValue": "ממתין לשדרוג",
+        "newDisplayValue": "שוייך לעובד",
+        "newValue": "assigned",
+        "oldValue": "waitingForUpgrade"
+      },
+      {
+        "key": "cpu",
+        "newValue": "i5"
+      }
+    ],
+    "changedFields": [
+      "status",
+      "cpu"
+    ]
+  },
+  {
+    "id": "d333c1ef-6ea5-4f7c-b99f-39ed9a19e49c",
+    "relatedId": "03a276e2-ba74-4fa3-8df2-01cfdbcefda0",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-05-10T06:40:49.190Z",
+    "userId": "",
+    "userName": "",
+    "changes": [
+      {
+        "key": "status",
+        "oldDisplayValue": "התקבל",
+        "newDisplayValue": "ממתין לשדרוג",
+        "newValue": "waitingForUpgrade",
+        "oldValue": "intake"
+      }
+    ],
+    "changedFields": [
+      "status"
+    ]
+  },
+  {
+    "id": "fea8a551-fdbd-4cd2-89e8-d573bfa9f3ed",
+    "relatedId": "03a276e2-ba74-4fa3-8df2-01cfdbcefda0",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-05-10T06:42:05.796Z",
+    "userId": "",
+    "userName": "",
+    "changes": [
+      {
+        "key": "status",
+        "oldDisplayValue": "ממתין לשדרוג",
+        "newDisplayValue": "שוייך לעובד",
+        "newValue": "assigned",
+        "oldValue": "waitingForUpgrade"
+      },
+      {
+        "key": "employee",
+        "newDisplayValue": "משה",
+        "newValue": "9e32ac04-f834-416c-83f1-e92af954d84c",
+        "oldValue": null
+      },
+      {
+        "key": "cpu",
+        "newValue": "i7"
+      }
+    ],
+    "changedFields": [
+      "status",
+      "employee",
+      "cpu"
+    ]
+  },
+  {
+    "id": "d3dc7045-86fb-4ced-a731-3d65f0de14aa",
+    "relatedId": "03a276e2-ba74-4fa3-8df2-01cfdbcefda0",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-05-10T06:42:13.935Z",
+    "userId": "",
+    "userName": "",
+    "changes": [
+      {
+        "key": "cpu",
+        "newValue": "i5",
+        "oldValue": "i7"
+      }
+    ],
+    "changedFields": [
+      "cpu"
+    ]
+  },
+  {
+    "id": "1d12d453-a859-4751-a7f0-fefa2a6ad291",
+    "relatedId": "03a276e2-ba74-4fa3-8df2-01cfdbcefda0",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-05-10T06:44:17.960Z",
+    "userId": "",
+    "userName": "",
+    "changes": [
+      {
+        "key": "status",
+        "oldDisplayValue": "שוייך לעובד",
+        "newDisplayValue": "ממתין לגריטה",
+        "newValue": "trash",
+        "oldValue": "assigned"
+      }
+    ],
+    "changedFields": [
+      "status"
+    ]
   }
 ]
