@@ -11,6 +11,8 @@ export class ComputerStatus {
     static assigned = new ComputerStatus('שוייך לעובד', { updateEmployee: true, inputCpu: true });
     static trash = new ComputerStatus("ממתין לגריטה");
     static successfulUpgrade = new ComputerStatus("שודרג בהצלחה")
+    static waitForPack = new ComputerStatus("ממתין לאריזה");
+    static packDone = new ComputerStatus("סיום אריזה");
 
     constructor(public caption: string, values?: Partial<ComputerStatus>) {
         Object.assign(this, values);
