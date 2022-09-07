@@ -7,6 +7,7 @@ import { Employee } from "../employees/employee";
 @ValueListFieldType({ caption: 'סטטוס' })
 export class ComputerStatus {
     static intake = new ComputerStatus("התקבל", { isIntake: true });
+    static intakeTrash = new ComputerStatus("התקבל וממתין לגריטה", { isIntake: true });
     static waitingForUpgrade = new ComputerStatus("ממתין לשדרוג");
     static assigned = new ComputerStatus('שוייך לעובד', { updateEmployee: true, inputCpu: true });
     static trash = new ComputerStatus("ממתין לגריטה");
