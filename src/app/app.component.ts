@@ -41,7 +41,7 @@ export class AppComponent implements OnInit {
         password
       ],
       ok: async () => {
-        this.auth.signIn(user.value, password.value);
+        await this.auth.signIn(user.value, password.value);
       }
     });
   }
