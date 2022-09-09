@@ -16,6 +16,8 @@ export class ComputersComponent implements OnInit {
 
   }
   grid = new GridSettings(this.remult.repo(Computer), {
+    numOfColumnsInGrid: 100,
+    knowTotalRows: true,
     allowCrud: true, rowButtons: [{
       name: 'שינויים', click: c => openDialog(ChangeLogComponent, x => x.args = {
         for: c

@@ -289,5 +289,557 @@
     "changedFields": [
       "status"
     ]
+  },
+  {
+    "id": "6290819a-0391-4ad4-a632-7eae90ab225b",
+    "relatedId": "03a276e2-ba74-4fa3-8df2-01cfdbcefda0",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-09-09T08:46:01.481Z",
+    "userId": "",
+    "userName": "",
+    "changes": [
+      {
+        "key": "status",
+        "oldDisplayValue": "ממתין לגריטה",
+        "newDisplayValue": "תהליך אריזה",
+        "newValue": "packing",
+        "oldValue": "trash"
+      },
+      {
+        "key": "updateDate",
+        "newDisplayValue": "2022-09-09T08:46:01.480Z",
+        "newValue": "2022-09-09T08:46:01.480Z",
+        "oldValue": ""
+      }
+    ],
+    "changedFields": [
+      "status",
+      "updateDate"
+    ]
+  },
+  {
+    "id": "7cce7090-f10f-450a-a59b-ad2f54266e66",
+    "relatedId": "03a276e2-ba74-4fa3-8df2-01cfdbcefda0",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-09-09T08:46:37.562Z",
+    "userId": "",
+    "userName": "",
+    "changes": [
+      {
+        "key": "updateDate",
+        "oldDisplayValue": "2022-09-09T08:46:01.480Z",
+        "newDisplayValue": "2022-09-09T08:46:37.562Z",
+        "newValue": "2022-09-09T08:46:37.562Z",
+        "oldValue": "2022-09-09T08:46:01.480Z"
+      }
+    ],
+    "changedFields": [
+      "updateDate"
+    ]
+  },
+  {
+    "id": "6b123605-ee84-46c6-a047-8aeb2d99c2df",
+    "relatedId": "03a276e2-ba74-4fa3-8df2-01cfdbcefda0",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-09-09T08:47:31.333Z",
+    "userId": "",
+    "userName": "",
+    "changes": [
+      {
+        "key": "updateDate",
+        "oldDisplayValue": "2022-09-09T08:46:37.562Z",
+        "newDisplayValue": "2022-09-09T08:47:31.333Z",
+        "newValue": "2022-09-09T08:47:31.333Z",
+        "oldValue": "2022-09-09T08:46:37.562Z"
+      }
+    ],
+    "changedFields": [
+      "updateDate"
+    ]
+  },
+  {
+    "id": "41217b68-8c35-49d4-9e61-3c5e5d555826",
+    "relatedId": "03a276e2-ba74-4fa3-8df2-01cfdbcefda0",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-09-09T08:48:58.798Z",
+    "userId": "",
+    "userName": "",
+    "changes": [
+      {
+        "key": "packageBarcode",
+        "oldDisplayValue": "",
+        "newDisplayValue": "66",
+        "newValue": "66",
+        "oldValue": ""
+      },
+      {
+        "key": "updateDate",
+        "oldDisplayValue": "2022-09-09T08:47:31.333Z",
+        "newDisplayValue": "2022-09-09T08:48:58.798Z",
+        "newValue": "2022-09-09T08:48:58.798Z",
+        "oldValue": "2022-09-09T08:47:31.333Z"
+      }
+    ],
+    "changedFields": [
+      "packageBarcode",
+      "updateDate"
+    ]
+  },
+  {
+    "id": "697381e0-66cf-4a54-8e1d-4157117d295a",
+    "relatedId": "49dbdb3a-2e94-445c-ac91-5931e9041f3e",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-09-09T08:49:07.136Z",
+    "userId": "",
+    "userName": "",
+    "changes": [
+      {
+        "key": "packageBarcode",
+        "oldDisplayValue": "",
+        "newDisplayValue": "65",
+        "newValue": "65",
+        "oldValue": ""
+      },
+      {
+        "key": "status",
+        "oldDisplayValue": "התקבל",
+        "newDisplayValue": "תהליך אריזה",
+        "newValue": "packing",
+        "oldValue": "intake"
+      },
+      {
+        "key": "updateDate",
+        "newDisplayValue": "2022-09-09T08:49:07.135Z",
+        "newValue": "2022-09-09T08:49:07.135Z",
+        "oldValue": ""
+      }
+    ],
+    "changedFields": [
+      "packageBarcode",
+      "status",
+      "updateDate"
+    ]
+  },
+  {
+    "id": "9d1b9f08-a5dd-49e0-b11b-efa91fa8ea16",
+    "relatedId": "03a276e2-ba74-4fa3-8df2-01cfdbcefda0",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-09-09T08:52:57.685Z",
+    "userId": "",
+    "userName": "",
+    "changes": [
+      {
+        "key": "status",
+        "oldDisplayValue": "תהליך אריזה",
+        "newDisplayValue": "נארז בהצלחה",
+        "newValue": "packDone",
+        "oldValue": "packing"
+      },
+      {
+        "key": "updateDate",
+        "oldDisplayValue": "2022-09-09T08:48:58.798Z",
+        "newDisplayValue": "2022-09-09T08:52:57.685Z",
+        "newValue": "2022-09-09T08:52:57.685Z",
+        "oldValue": "2022-09-09T08:48:58.798Z"
+      }
+    ],
+    "changedFields": [
+      "status",
+      "updateDate"
+    ]
+  },
+  {
+    "id": "32182a28-19c2-4359-aac1-54840ad277af",
+    "relatedId": "6285a73b-8d1f-4a68-9d70-3322e24b8d87",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-09-09T08:57:42.389Z",
+    "userId": "",
+    "userName": "",
+    "changes": [
+      {
+        "key": "packageBarcode",
+        "oldDisplayValue": "",
+        "newDisplayValue": "64",
+        "newValue": "64",
+        "oldValue": ""
+      },
+      {
+        "key": "updateDate",
+        "newDisplayValue": "2022-09-09T08:57:42.389Z",
+        "newValue": "2022-09-09T08:57:42.389Z",
+        "oldValue": ""
+      }
+    ],
+    "changedFields": [
+      "packageBarcode",
+      "updateDate"
+    ]
+  },
+  {
+    "id": "b88aa393-86f6-4751-80b8-109e1da6939a",
+    "relatedId": "57082017-8a20-40cf-b994-ceb4fd57655b",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-09-09T08:57:42.397Z",
+    "userId": "",
+    "userName": "",
+    "changes": [
+      {
+        "key": "packageBarcode",
+        "oldDisplayValue": "",
+        "newDisplayValue": "63",
+        "newValue": "63",
+        "oldValue": ""
+      },
+      {
+        "key": "updateDate",
+        "newDisplayValue": "2022-09-09T08:57:42.397Z",
+        "newValue": "2022-09-09T08:57:42.397Z",
+        "oldValue": ""
+      }
+    ],
+    "changedFields": [
+      "packageBarcode",
+      "updateDate"
+    ]
+  },
+  {
+    "id": "5163677d-0f7f-4120-8824-58fc045b2711",
+    "relatedId": "e7b6245b-115d-4bfe-a52c-17f085a8e5f2",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-09-09T08:57:42.403Z",
+    "userId": "",
+    "userName": "",
+    "changes": [
+      {
+        "key": "packageBarcode",
+        "oldDisplayValue": "",
+        "newDisplayValue": "62",
+        "newValue": "62",
+        "oldValue": ""
+      },
+      {
+        "key": "updateDate",
+        "newDisplayValue": "2022-09-09T08:57:42.403Z",
+        "newValue": "2022-09-09T08:57:42.403Z",
+        "oldValue": ""
+      }
+    ],
+    "changedFields": [
+      "packageBarcode",
+      "updateDate"
+    ]
+  },
+  {
+    "id": "1c12adc4-97ec-443a-904d-86ee41685169",
+    "relatedId": "9a6315ac-96d6-40d6-a470-a12c49a10a75",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-09-09T08:57:42.408Z",
+    "userId": "",
+    "userName": "",
+    "changes": [
+      {
+        "key": "packageBarcode",
+        "oldDisplayValue": "",
+        "newDisplayValue": "61",
+        "newValue": "61",
+        "oldValue": ""
+      },
+      {
+        "key": "updateDate",
+        "newDisplayValue": "2022-09-09T08:57:42.408Z",
+        "newValue": "2022-09-09T08:57:42.408Z",
+        "oldValue": ""
+      }
+    ],
+    "changedFields": [
+      "packageBarcode",
+      "updateDate"
+    ]
+  },
+  {
+    "id": "92395820-2dc8-4b7e-ac52-9b392d803a48",
+    "relatedId": "9a6315ac-96d6-40d6-a470-a12c49a10a75",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-09-09T08:58:37.568Z",
+    "userId": "",
+    "userName": "",
+    "changes": [
+      {
+        "key": "status",
+        "oldDisplayValue": "שוייך לעובד",
+        "newDisplayValue": "ממתין לשינוע לארכיברים",
+        "newValue": "waitForArchive",
+        "oldValue": "assigned"
+      },
+      {
+        "key": "updateDate",
+        "oldDisplayValue": "2022-09-09T08:57:42.408Z",
+        "newDisplayValue": "2022-09-09T08:58:37.568Z",
+        "newValue": "2022-09-09T08:58:37.568Z",
+        "oldValue": "2022-09-09T08:57:42.408Z"
+      }
+    ],
+    "changedFields": [
+      "status",
+      "updateDate"
+    ]
+  },
+  {
+    "id": "739cc98b-bc51-4b21-a0e5-f22b5a06d390",
+    "relatedId": "03a276e2-ba74-4fa3-8df2-01cfdbcefda0",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-09-09T09:01:52.036Z",
+    "userId": "",
+    "userName": "",
+    "changes": [
+      {
+        "key": "status",
+        "oldDisplayValue": "נארז בהצלחה",
+        "newDisplayValue": "ממתין לשינוע למוטב",
+        "newValue": "waitForDelivery",
+        "oldValue": "packDone"
+      },
+      {
+        "key": "recipient",
+        "oldDisplayValue": "",
+        "newDisplayValue": "נועם",
+        "newValue": "נועם",
+        "oldValue": ""
+      },
+      {
+        "key": "updateDate",
+        "oldDisplayValue": "2022-09-09T08:52:57.685Z",
+        "newDisplayValue": "2022-09-09T09:01:52.036Z",
+        "newValue": "2022-09-09T09:01:52.036Z",
+        "oldValue": "2022-09-09T08:52:57.685Z"
+      }
+    ],
+    "changedFields": [
+      "status",
+      "recipient",
+      "updateDate"
+    ]
+  },
+  {
+    "id": "0f12494b-e9ce-45bf-bbf7-4dde872fc7bc",
+    "relatedId": "03a276e2-ba74-4fa3-8df2-01cfdbcefda0",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-09-09T09:02:24.599Z",
+    "userId": "",
+    "userName": "",
+    "changes": [
+      {
+        "key": "updateDate",
+        "oldDisplayValue": "2022-09-09T09:01:52.036Z",
+        "newDisplayValue": "2022-09-09T09:02:24.599Z",
+        "newValue": "2022-09-09T09:02:24.599Z",
+        "oldValue": "2022-09-09T09:01:52.036Z"
+      }
+    ],
+    "changedFields": [
+      "updateDate"
+    ]
+  },
+  {
+    "id": "7071dfbb-4a1a-4d02-bfac-75503cee1c76",
+    "relatedId": "03a276e2-ba74-4fa3-8df2-01cfdbcefda0",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-09-09T09:02:32.413Z",
+    "userId": "",
+    "userName": "",
+    "changes": [
+      {
+        "key": "recipient",
+        "oldDisplayValue": "נועם",
+        "newDisplayValue": "6",
+        "newValue": "6",
+        "oldValue": "נועם"
+      },
+      {
+        "key": "updateDate",
+        "oldDisplayValue": "2022-09-09T09:02:24.599Z",
+        "newDisplayValue": "2022-09-09T09:02:32.413Z",
+        "newValue": "2022-09-09T09:02:32.413Z",
+        "oldValue": "2022-09-09T09:02:24.599Z"
+      }
+    ],
+    "changedFields": [
+      "recipient",
+      "updateDate"
+    ]
+  },
+  {
+    "id": "b038242b-2e0d-4657-93c2-ed9780d103a9",
+    "relatedId": "03a276e2-ba74-4fa3-8df2-01cfdbcefda0",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-09-09T09:02:57.698Z",
+    "userId": "",
+    "userName": "",
+    "changes": [
+      {
+        "key": "updateDate",
+        "oldDisplayValue": "2022-09-09T09:02:32.413Z",
+        "newDisplayValue": "2022-09-09T09:02:57.697Z",
+        "newValue": "2022-09-09T09:02:57.697Z",
+        "oldValue": "2022-09-09T09:02:32.413Z"
+      }
+    ],
+    "changedFields": [
+      "updateDate"
+    ]
+  },
+  {
+    "id": "f916df24-4b78-4b8e-987f-0679ceff8e2a",
+    "relatedId": "49dbdb3a-2e94-445c-ac91-5931e9041f3e",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-09-09T09:02:59.888Z",
+    "userId": "",
+    "userName": "",
+    "changes": [
+      {
+        "key": "status",
+        "oldDisplayValue": "תהליך אריזה",
+        "newDisplayValue": "ממתין לשינוע למוטב",
+        "newValue": "waitForDelivery",
+        "oldValue": "packing"
+      },
+      {
+        "key": "recipient",
+        "oldDisplayValue": "",
+        "newDisplayValue": "6",
+        "newValue": "6",
+        "oldValue": ""
+      },
+      {
+        "key": "updateDate",
+        "oldDisplayValue": "2022-09-09T08:49:07.135Z",
+        "newDisplayValue": "2022-09-09T09:02:59.888Z",
+        "newValue": "2022-09-09T09:02:59.888Z",
+        "oldValue": "2022-09-09T08:49:07.135Z"
+      }
+    ],
+    "changedFields": [
+      "status",
+      "recipient",
+      "updateDate"
+    ]
+  },
+  {
+    "id": "e2a37f06-7abd-4928-9285-9992174f41c5",
+    "relatedId": "6285a73b-8d1f-4a68-9d70-3322e24b8d87",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-09-09T09:03:01.853Z",
+    "userId": "",
+    "userName": "",
+    "changes": [
+      {
+        "key": "status",
+        "oldDisplayValue": "התקבל",
+        "newDisplayValue": "ממתין לשינוע למוטב",
+        "newValue": "waitForDelivery",
+        "oldValue": "intake"
+      },
+      {
+        "key": "recipient",
+        "oldDisplayValue": "",
+        "newDisplayValue": "6",
+        "newValue": "6",
+        "oldValue": ""
+      },
+      {
+        "key": "updateDate",
+        "oldDisplayValue": "2022-09-09T08:57:42.389Z",
+        "newDisplayValue": "2022-09-09T09:03:01.853Z",
+        "newValue": "2022-09-09T09:03:01.853Z",
+        "oldValue": "2022-09-09T08:57:42.389Z"
+      }
+    ],
+    "changedFields": [
+      "status",
+      "recipient",
+      "updateDate"
+    ]
+  },
+  {
+    "id": "71180aec-9d79-4b56-90f1-ac552ba7a80e",
+    "relatedId": "03a276e2-ba74-4fa3-8df2-01cfdbcefda0",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-09-09T09:12:58.356Z",
+    "userId": "",
+    "userName": "",
+    "changes": [
+      {
+        "key": "status",
+        "oldDisplayValue": "ממתין לשינוע למוטב",
+        "newDisplayValue": "תהליך אריזה",
+        "newValue": "packing",
+        "oldValue": "waitForDelivery"
+      },
+      {
+        "key": "updateDate",
+        "oldDisplayValue": "2022-09-09T09:02:57.697Z",
+        "newDisplayValue": "2022-09-09T09:12:58.356Z",
+        "newValue": "2022-09-09T09:12:58.356Z",
+        "oldValue": "2022-09-09T09:02:57.697Z"
+      }
+    ],
+    "changedFields": [
+      "status",
+      "updateDate"
+    ]
   }
 ]

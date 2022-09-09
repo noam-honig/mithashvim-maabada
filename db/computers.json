@@ -6,7 +6,9 @@
     "employee": "9e32ac04-f834-416c-83f1-e92af954d84c",
     "createDate": "2022-04-28T14:34:36.302Z",
     "origin": "",
-    "courier": ""
+    "courier": "",
+    "packageBarcode": "",
+    "recipient": ""
   },
   {
     "id": "a928363e-d866-4242-bc6f-3cc9169e0041",
@@ -16,17 +18,22 @@
     "cpu": "i5",
     "createDate": "2022-04-28T14:35:18.206Z",
     "origin": "",
-    "courier": ""
+    "courier": "",
+    "packageBarcode": "",
+    "recipient": ""
   },
   {
     "id": "9a6315ac-96d6-40d6-a470-a12c49a10a75",
     "barcode": "1",
-    "status": "assigned",
+    "status": "waitForArchive",
     "employee": "9e32ac04-f834-416c-83f1-e92af954d84c",
     "origin": "123",
     "courier": "456",
     "createDate": "2022-05-10T06:32:34.998Z",
-    "cpu": "i5"
+    "cpu": "i5",
+    "packageBarcode": "61",
+    "recipient": "",
+    "updateDate": "2022-09-09T08:58:37.568Z"
   },
   {
     "id": "e7b6245b-115d-4bfe-a52c-17f085a8e5f2",
@@ -35,7 +42,10 @@
     "employee": "9e32ac04-f834-416c-83f1-e92af954d84c",
     "origin": "123",
     "courier": "456",
-    "createDate": "2022-05-10T06:32:41.611Z"
+    "createDate": "2022-05-10T06:32:41.611Z",
+    "packageBarcode": "62",
+    "recipient": "",
+    "updateDate": "2022-09-09T08:57:42.403Z"
   },
   {
     "id": "57082017-8a20-40cf-b994-ceb4fd57655b",
@@ -44,34 +54,46 @@
     "employee": "9e32ac04-f834-416c-83f1-e92af954d84c",
     "origin": "123",
     "courier": "456",
-    "createDate": "2022-05-10T06:32:46.312Z"
+    "createDate": "2022-05-10T06:32:46.312Z",
+    "packageBarcode": "63",
+    "recipient": "",
+    "updateDate": "2022-09-09T08:57:42.397Z"
   },
   {
     "id": "6285a73b-8d1f-4a68-9d70-3322e24b8d87",
     "barcode": "4",
-    "status": "intake",
+    "status": "waitForDelivery",
     "employee": null,
     "origin": "",
     "courier": "",
-    "createDate": "2022-05-10T06:38:59.305Z"
+    "createDate": "2022-05-10T06:38:59.305Z",
+    "packageBarcode": "64",
+    "recipient": "6",
+    "updateDate": "2022-09-09T09:03:01.853Z"
   },
   {
     "id": "49dbdb3a-2e94-445c-ac91-5931e9041f3e",
     "barcode": "5",
-    "status": "intake",
+    "status": "waitForDelivery",
     "employee": "9e32ac04-f834-416c-83f1-e92af954d84c",
     "origin": "123",
     "courier": "123",
-    "createDate": "2022-05-10T06:40:09.090Z"
+    "createDate": "2022-05-10T06:40:09.090Z",
+    "packageBarcode": "65",
+    "updateDate": "2022-09-09T09:02:59.888Z",
+    "recipient": "6"
   },
   {
     "id": "03a276e2-ba74-4fa3-8df2-01cfdbcefda0",
     "barcode": "6",
-    "status": "trash",
+    "status": "packing",
     "employee": "9e32ac04-f834-416c-83f1-e92af954d84c",
     "origin": "123",
     "courier": "123",
     "createDate": "2022-05-10T06:40:40.184Z",
-    "cpu": "i5"
+    "cpu": "i5",
+    "packageBarcode": "66",
+    "updateDate": "2022-09-09T09:12:58.356Z",
+    "recipient": "6"
   }
 ]

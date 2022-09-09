@@ -29,7 +29,11 @@ export class HomeComponent implements OnInit {
       this.input.employee = null;
       await this.input.save();
     } else {
-      const c = await this.compRepo.findFirst({ barcode: this.input.barcode })
+      let c: Computer;
+      if (this.input.status.inputPackageBarcode)
+        c = await this.compRepo.findFirst({ packageBarcode: this.input.packageBarcode })
+      else
+        c = await this.compRepo.findFirst({ barcode: this.input.barcode })
       if (!c) {
         this.ui.error("ברקוד לא נמצא");
         return;
@@ -41,6 +45,14 @@ export class HomeComponent implements OnInit {
         }
         if (c.status.inputCpu) {
           c.cpu = this.input.cpu;
+        }
+        if (c.status.inputRecipient) {
+          c.recipient = this.input.recipient;
+        }
+
+        if (c.status.updatePackageBarcode) {
+
+          c.packageBarcode = this.input.packageBarcode;
         }
         await c.save();
       }
@@ -54,11 +66,13 @@ export class HomeComponent implements OnInit {
     if (prev) {
       this.input.courier = prev.courier;
       this.input.origin = prev.origin;
+      this.input.recipient = prev.recipient;
     }
     this.area = new DataAreaSettings({
       fields: () => [
-        { field: this.input.$.origin, click: () => this.input.origin = '', clickIcon: 'clear' },
-        { field: this.input.$.courier, click: () => this.input.origin = '', clickIcon: 'clear' }
+        { field: this.input.$.origin, click: () => this.input.origin = '', clickIcon: 'clear', visible: () => this.input.status.isIntake },
+        { field: this.input.$.courier, click: () => this.input.origin = '', clickIcon: 'clear', visible: () => this.input.status.isIntake },
+        { field: this.input.$.recipient, click: () => this.input.recipient = '', clickIcon: 'clear', visible: () => this.input.status.inputRecipient },
       ]
     });
     setTimeout(() => {

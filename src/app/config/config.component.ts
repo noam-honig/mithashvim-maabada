@@ -46,6 +46,7 @@ export function getConfig(remult: Remult) {
     const obj = JSON.parse(stored);
     r.$.status.inputValue = obj.status;
     r.$.employee.inputValue = obj.employee;
+    r.$.recipient.inputValue = obj.recipient;
     r.$.employee.load();
   }
   return r;

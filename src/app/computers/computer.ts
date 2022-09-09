@@ -2,6 +2,7 @@ import { DataControl } from "@remult/angular/interfaces";
 import { Entity, Field, Fields, IdEntity, Validators, ValueListFieldType } from "remult";
 import { recordChanges } from "../change-log/change-log";
 import { Employee } from "../employees/employee";
+import { ComputersComponent } from "./computers.component";
 
 
 @ValueListFieldType({ caption: 'סטטוס' })
@@ -13,7 +14,20 @@ export class ComputerStatus {
     static trash = new ComputerStatus("ממתין לגריטה");
     static successfulUpgrade = new ComputerStatus("שודרג בהצלחה")
     static waitForPack = new ComputerStatus("ממתין לאריזה");
-    static packDone = new ComputerStatus("סיום אריזה");
+    static packing = new ComputerStatus("תהליך אריזה", {
+        updatePackageBarcode: true
+    });
+    static packDone = new ComputerStatus("נארז בהצלחה", {
+        inputPackageBarcode: true
+    });
+    static waitForArchive = new ComputerStatus("ממתין לשינוע לארכיברים", {
+        inputPackageBarcode: true
+    });
+    static waitForDelivery = new ComputerStatus("ממתין לשינוע למוטב", {
+        inputPackageBarcode: true,
+        inputRecipient: true
+    });
+
 
     constructor(public caption: string, values?: Partial<ComputerStatus>) {
         Object.assign(this, values);
@@ -21,6 +35,9 @@ export class ComputerStatus {
     updateEmployee = false;
     inputCpu = false;
     isIntake = false;
+    updatePackageBarcode = false;
+    inputPackageBarcode = false;
+    inputRecipient = false;
 }
 @ValueListFieldType<any, CPUType>({ caption: 'מעבד', displayValue: (_, x) => x?.caption! })
 export class CPUType {
@@ -48,8 +65,31 @@ export class CPUType {
 })
 export class Computer extends IdEntity {
 
-    @Fields.string({ inputType: 'phone', caption: 'ברקוד', validate: [Validators.required, Validators.uniqueOnBackend] })
+    @Fields.string({ caption: 'ברקוד מחשב', validate: [Validators.required, Validators.uniqueOnBackend] })
     barcode = '';
+    @Fields.string<Computer>({
+        caption: 'ברקוד אריזה'
+    },
+        (options, remult) => options.
+            validate = async (c, ref) => {
+                if (c.status.updatePackageBarcode) {
+                    Validators.required(c, ref);
+                    c.packageBarcode = c.packageBarcode.trim();
+                    if (!ref.error && await remult.repo(Computer).count({
+                        $or: [
+                            {
+                                id: { "!=": c.id },
+                                packageBarcode: c.packageBarcode
+                            },
+                            { barcode: c.packageBarcode }
+                        ]
+                    }) > 0) {
+                        ref.error = " כבר משוייך למחשב אחר!";
+                    }
+                }
+            }
+    )
+    packageBarcode = '';
     @Field(() => ComputerStatus)
     @DataControl({ width: '170' })
     status = ComputerStatus.intake;
@@ -77,6 +117,16 @@ export class Computer extends IdEntity {
     @Fields.string({ caption: 'משנע' })
     @DataControl({ width: '170' })
     courier = '';
+    @Fields.string<Computer>({
+        caption: 'שם המוטב',
+        validate: c => {
+            if (c.status.inputRecipient) {
+                Validators.required(c, c.$.recipient);
+            }
+        }
+    })
+    @DataControl({ width: '170' })
+    recipient = '';
     @Fields.date({ caption: 'תאריך קליטה', allowApiUpdate: false })
     @DataControl({ width: '300' })
     createDate = new Date();

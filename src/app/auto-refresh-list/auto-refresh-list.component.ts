@@ -18,7 +18,11 @@ export class AutoRefreshListComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.updateSubscription.unsubscribe();
   }
-  grid = new GridSettings(this.remult.repo(Computer), { orderBy: { updateDate: "desc",createDate:"desc" } });
+  grid = new GridSettings(this.remult.repo(Computer), {
+    orderBy: { updateDate: "desc", createDate: "desc" },
+    numOfColumnsInGrid: 100,
+    knowTotalRows: true
+  });
   ngOnInit(): void {
     this.updateSubscription = interval(1000).subscribe(
       (val) => {
