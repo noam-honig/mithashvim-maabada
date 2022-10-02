@@ -1,5 +1,5 @@
 import { DataControl } from "@remult/angular/interfaces";
-import { Entity, Field, Fields, IdEntity, Validators, ValueListFieldType } from "remult";
+import {BackendMethod, Entity, Field, Fields, IdEntity, Remult, Validators, ValueListFieldType} from "remult";
 import { recordChanges } from "../change-log/change-log";
 import { Employee } from "../employees/employee";
 import { ComputersComponent } from "./computers.component";
@@ -64,8 +64,12 @@ export class CPUType {
     }
 })
 export class Computer extends IdEntity {
+  constructor(remult: Remult) {
+    super();
+  }
 
-    @Fields.string({ caption: 'ברקוד מחשב', validate: [Validators.required, Validators.uniqueOnBackend] })
+
+  @Fields.string({ caption: 'ברקוד מחשב', validate: [Validators.required, Validators.uniqueOnBackend] })
     barcode = '';
     @Fields.string<Computer>({
         caption: 'ברקוד אריזה'
@@ -134,6 +138,41 @@ export class Computer extends IdEntity {
     @DataControl({ width: '300' })
     updateDate = new Date();
 
+    @BackendMethod({allowed:true})
+   static async getNewComputers(remult?:Remult): Promise<NewComputersDate[]>{
+      const compRepo = remult!.repo(Computer);
+      const arr: NewComputersDate[] =  [];
+      let lastDate:NewComputersDate|undefined;
+
+      for (let c of await compRepo.find({orderBy:{createDate:"desc"}})) {
+        if (!lastDate||lastDate.date.toDateString()!=c.createDate.toDateString()){
+          lastDate = {
+            date:c.createDate,
+            presentDate:c.createDate.toDateString(),
+            computers:[]
+          }
+          arr.push(lastDate);
+
+          let orig = lastDate.computers.find(x=>x.origin===c.origin);
+          if (!orig){
+            lastDate.computers.push( {
+              origin:c.origin,
+              quantity:1
+            })
+          }else orig.quantity++;
+        }
+      }
+      return arr;
+    }
+
 }
+
+
+export interface NewComputersDate{
+  date:Date;
+  presentDate:string;
+  computers:{origin:string,quantity:number}[]
+}
+
 
 

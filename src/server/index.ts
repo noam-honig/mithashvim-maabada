@@ -30,6 +30,12 @@ async function startup() {
     }
     let api = remultExpress({
         entities: [Employee, Computer],
+
+      initApi: async (remult) => {
+        // const result = await Computer.getNewComputers(remult);
+        // console.log(result)
+      },
+
         dataProvider
     });
     app.use(api);

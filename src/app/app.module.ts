@@ -30,6 +30,8 @@ import { ChangeLogComponent } from './change-log/change-log.component';
 import { CardInMiddleComponent } from './card-in-middle/card-in-middle.component';
 import { AutoRefreshListComponent } from './auto-refresh-list/auto-refresh-list.component';
 import { ConfigComponent } from './config/config.component';
+import {MatTableModule} from "@angular/material/table";
+import { DaysPipe } from './home/days.pipe';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,8 @@ import { ConfigComponent } from './config/config.component';
     ChangeLogComponent,
     CardInMiddleComponent,
     AutoRefreshListComponent,
-    ConfigComponent
+    ConfigComponent,
+    DaysPipe
   ],
   imports: [
     BrowserModule,
@@ -62,6 +65,7 @@ import { ConfigComponent } from './config/config.component';
     MatButtonModule,
     MatIconModule,
     MatMenuModule,
+    MatTableModule,
     RemultModule
   ],
   providers: [DialogService, AdminGuard],

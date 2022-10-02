@@ -841,5 +841,80 @@
       "status",
       "updateDate"
     ]
+  },
+  {
+    "id": "06a29790-49fb-4042-85dc-89067d1eba4d",
+    "relatedId": "458041b4-b2b7-4ee7-a9de-79970b4b2ecd",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-09-29T11:16:11.664Z",
+    "userId": "",
+    "userName": "",
+    "changes": [
+      {
+        "key": "status",
+        "oldDisplayValue": "התקבל",
+        "newDisplayValue": "ממתין לשדרוג",
+        "newValue": "waitingForUpgrade",
+        "oldValue": "intake"
+      },
+      {
+        "key": "updateDate",
+        "oldDisplayValue": "2022-09-29T11:15:46.983Z",
+        "newDisplayValue": "2022-09-29T11:16:11.663Z",
+        "newValue": "2022-09-29T11:16:11.663Z",
+        "oldValue": "2022-09-29T11:15:46.983Z"
+      }
+    ],
+    "changedFields": [
+      "status",
+      "updateDate"
+    ]
+  },
+  {
+    "id": "88835917-52a9-4f7e-9e91-268073550e17",
+    "relatedId": "458041b4-b2b7-4ee7-a9de-79970b4b2ecd",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-09-29T11:16:30.086Z",
+    "userId": "",
+    "userName": "",
+    "changes": [
+      {
+        "key": "status",
+        "oldDisplayValue": "ממתין לשדרוג",
+        "newDisplayValue": "שוייך לעובד",
+        "newValue": "assigned",
+        "oldValue": "waitingForUpgrade"
+      },
+      {
+        "key": "employee",
+        "newDisplayValue": "ליאור",
+        "newValue": "3fe1d2db-1921-4272-bc9b-b5532a8447b7",
+        "oldValue": null
+      },
+      {
+        "key": "cpu",
+        "newDisplayValue": "I7",
+        "newValue": "i7"
+      },
+      {
+        "key": "updateDate",
+        "oldDisplayValue": "2022-09-29T11:16:11.663Z",
+        "newDisplayValue": "2022-09-29T11:16:30.085Z",
+        "newValue": "2022-09-29T11:16:30.085Z",
+        "oldValue": "2022-09-29T11:16:11.663Z"
+      }
+    ],
+    "changedFields": [
+      "status",
+      "employee",
+      "cpu",
+      "updateDate"
+    ]
   }
 ]

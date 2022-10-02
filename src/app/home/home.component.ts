@@ -2,7 +2,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { DataAreaSettings } from '@remult/angular/interfaces';
 import { Fields, getValueList, Remult } from 'remult';
 import { DialogService } from '../common/dialog';
-import { Computer, ComputerStatus, CPUType } from '../computers/computer';
+import {Computer, ComputerStatus, CPUType, NewComputersDate} from '../computers/computer';
 import { getConfig } from '../config/config.component';
 
 @Component({
@@ -16,14 +16,22 @@ export class HomeComponent implements OnInit {
   types = getValueList(CPUType);
   input!: Computer;
   area!: DataAreaSettings;
+  newComputers: NewComputersDate[] = [];
+  displayedColumns: string[] = ['origin', 'quantity'];
 
   @ViewChild('myField') x!: ElementRef;
   constructor(private remult: Remult, private ui: DialogService) { }
 
-  ngOnInit() {
+  async ngOnInit() {
     this.init();
 
+    await this.loadNewComputers();
   }
+
+  private async loadNewComputers() {
+    this.newComputers = await Computer.getNewComputers(this.remult);
+  }
+
   async update() {
     if (this.input.status.isIntake) {
       this.input.employee = null;

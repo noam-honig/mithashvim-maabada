@@ -1,33 +1,34 @@
 <app-card-in-middle>
-    <div
+<div style="display:flex">
+      <div
         style="display:flex;flex-direction:column;gap:8px"
         #myField
-    >
+      >
         <h2>
-            {{input.status.caption +(input.status.updateEmployee?' '+input.employee?.name:'')}}
+          {{input.status.caption +(input.status.updateEmployee?' '+input.employee?.name:'')}}
         </h2>
         <data-control
-            *ngIf="!input.status.inputPackageBarcode"
-            [field]="input.$.barcode"
-            cdkFocusInitial
+          *ngIf="!input.status.inputPackageBarcode"
+          [field]="input.$.barcode"
+          cdkFocusInitial
         ></data-control>
         <data-control
-            [field]="input.$.packageBarcode"
-            *ngIf="input.status.updatePackageBarcode||input.status.inputPackageBarcode"
-            cdkFocusInitial
+          [field]="input.$.packageBarcode"
+          *ngIf="input.status.updatePackageBarcode||input.status.inputPackageBarcode"
+          cdkFocusInitial
         ></data-control>
         <div *ngIf="input.status.inputCpu">
-            מעבד:
-            <div style="display:flex;gap:8px;margin-bottom: 16px;">
-                <button
-                    mat-raised-button
-                    [color]="c===input.cpu?'primary':''"
-                    *ngFor="let c of types"
-                    (click)="input.cpu = c"
-                >
-                    {{c.caption}}
-                </button>
-            </div>
+          מעבד:
+          <div style="display:flex;gap:8px;margin-bottom: 16px;">
+            <button
+              mat-raised-button
+              [color]="c===input.cpu?'primary':''"
+              *ngFor="let c of types"
+              (click)="input.cpu = c"
+            >
+              {{c.caption}}
+            </button>
+          </div>
         </div>
         <data-area [settings]="area"></data-area>
 
@@ -35,12 +36,35 @@
 
 
         <button
-            mat-raised-button
-            color="success"
-            color="primary"
-            (click)="update()"
+          mat-raised-button
+          color="success"
+          color="primary"
+          (click)="update()"
         >
-            עדכן
+          עדכן
         </button>
+      </div>
+      <div style="margin: 20px">
+        <div style="text-align: right; padding: 5px;" *ngFor="let c of newComputers; let i = index">
+          <span style="position: relative;bottom: 5px;margin: 3px;">
+            {{i | days}} - {{ c.date | date: 'dd/MM'}}
+          </span>
+          <table>
+            <thead>
+            <tr>
+              <th>מקור תרומה</th>
+              <th>מחשבים</th>
+            </tr>
+            </thead>
+            <tbody *ngFor="let i of c.computers">
+            <tr>
+              <td>{{i.origin}}</td>
+              <td>{{i.quantity}}</td>
+            </tr>
+            </tbody>
+          </table>
+          <br>
+        </div>
+      </div>
     </div>
 </app-card-in-middle>

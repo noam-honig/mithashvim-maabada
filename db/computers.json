@@ -95,5 +95,42 @@
     "packageBarcode": "66",
     "updateDate": "2022-09-09T09:12:58.356Z",
     "recipient": "6"
+  },
+  {
+    "id": "458041b4-b2b7-4ee7-a9de-79970b4b2ecd",
+    "barcode": "123",
+    "packageBarcode": "",
+    "status": "assigned",
+    "employee": "3fe1d2db-1921-4272-bc9b-b5532a8447b7",
+    "origin": "נאור",
+    "courier": "נועם",
+    "recipient": "",
+    "createDate": "2022-09-29T11:15:46.972Z",
+    "updateDate": "2022-09-29T11:16:30.085Z",
+    "cpu": "i7"
+  },
+  {
+    "id": "1f461348-42ff-43be-b4b4-1921b6d10183",
+    "barcode": "7",
+    "packageBarcode": "",
+    "status": "intake",
+    "employee": null,
+    "origin": "123",
+    "courier": "123",
+    "recipient": "",
+    "createDate": "2022-10-02T13:00:09.369Z",
+    "updateDate": "2022-10-02T13:00:09.384Z"
+  },
+  {
+    "id": "094eaed2-f476-4ee5-9a5d-0e1442e10700",
+    "barcode": "8",
+    "packageBarcode": "",
+    "status": "intake",
+    "employee": null,
+    "origin": "123",
+    "courier": "123",
+    "recipient": "",
+    "createDate": "2022-10-02T13:00:18.633Z",
+    "updateDate": "2022-10-02T13:00:18.634Z"
   }
 ]
