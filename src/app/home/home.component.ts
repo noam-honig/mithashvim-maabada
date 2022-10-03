@@ -2,8 +2,9 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { DataAreaSettings } from '@remult/angular/interfaces';
 import { Fields, getValueList, Remult } from 'remult';
 import { DialogService } from '../common/dialog';
-import {Computer, ComputerStatus, CPUType, NewComputersDate} from '../computers/computer';
+import {Computer, ComputerStatus, CPUType, NewComputersDate, StatusDate} from '../computers/computer';
 import { getConfig } from '../config/config.component';
+import {BusyService} from "@remult/angular";
 
 @Component({
   selector: 'app-home',
@@ -17,19 +18,27 @@ export class HomeComponent implements OnInit {
   input!: Computer;
   area!: DataAreaSettings;
   newComputers: NewComputersDate[] = [];
+  newStatusDates: StatusDate[] = [];
   displayedColumns: string[] = ['origin', 'quantity'];
 
   @ViewChild('myField') x!: ElementRef;
-  constructor(private remult: Remult, private ui: DialogService) { }
+  constructor(private remult: Remult, private ui: DialogService,private busyService:BusyService) { }
 
   async ngOnInit() {
     this.init();
-
-    await this.loadNewComputers();
   }
 
   private async loadNewComputers() {
-    this.newComputers = await Computer.getNewComputers(this.remult);
+    if (this.isStatusEqualsToIntake())
+      await this.busyService.donotWait(async ()=>{
+        this.newComputers = await Computer.getNewComputers(ComputerStatus.intakeTrash===this.input.status)
+      });
+  }
+  private async loadStatusDates() {
+    if (this.isStatusEqualsToSuccessfulUpgrade())
+      await this.busyService.donotWait(async ()=>{
+        this.newStatusDates = await Computer.getStatusChanges()
+      });
   }
 
   async update() {
@@ -63,8 +72,10 @@ export class HomeComponent implements OnInit {
           c.packageBarcode = this.input.packageBarcode;
         }
         await c.save();
+
       }
     }
+
     this.ui.info(`עודכן ${this.input.status.caption} בהצלחה`);
     this.init();
   }
@@ -83,9 +94,20 @@ export class HomeComponent implements OnInit {
         { field: this.input.$.recipient, click: () => this.input.recipient = '', clickIcon: 'clear', visible: () => this.input.status.inputRecipient },
       ]
     });
+    this.loadNewComputers();
+    this.loadStatusDates();
     setTimeout(() => {
       this.x.nativeElement.getElementsByTagName('input')[0].focus()
     }, 0);
+  }
+
+  isStatusEqualsToIntake() {
+    return ComputerStatus.intake===this.input.status||this.input
+      .status===ComputerStatus.intakeTrash;
+  }
+
+  isStatusEqualsToSuccessfulUpgrade() {
+    return ComputerStatus.successfulUpgrade===this.input.status;
   }
 
 }

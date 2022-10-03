@@ -25,7 +25,7 @@
   {
     "id": "9a6315ac-96d6-40d6-a470-a12c49a10a75",
     "barcode": "1",
-    "status": "waitForArchive",
+    "status": "successfulUpgrade",
     "employee": "9e32ac04-f834-416c-83f1-e92af954d84c",
     "origin": "123",
     "courier": "456",
@@ -33,31 +33,31 @@
     "cpu": "i5",
     "packageBarcode": "61",
     "recipient": "",
-    "updateDate": "2022-09-09T08:58:37.568Z"
+    "updateDate": "2022-10-03T08:09:30.767Z"
   },
   {
     "id": "e7b6245b-115d-4bfe-a52c-17f085a8e5f2",
     "barcode": "2",
-    "status": "waitingForUpgrade",
+    "status": "successfulUpgrade",
     "employee": "9e32ac04-f834-416c-83f1-e92af954d84c",
     "origin": "123",
     "courier": "456",
     "createDate": "2022-05-10T06:32:41.611Z",
     "packageBarcode": "62",
     "recipient": "",
-    "updateDate": "2022-09-09T08:57:42.403Z"
+    "updateDate": "2022-10-03T08:09:36.892Z"
   },
   {
     "id": "57082017-8a20-40cf-b994-ceb4fd57655b",
     "barcode": "3",
-    "status": "intake",
+    "status": "successfulUpgrade",
     "employee": "9e32ac04-f834-416c-83f1-e92af954d84c",
     "origin": "123",
     "courier": "456",
     "createDate": "2022-05-10T06:32:46.312Z",
     "packageBarcode": "63",
     "recipient": "",
-    "updateDate": "2022-09-09T08:57:42.397Z"
+    "updateDate": "2022-10-03T08:09:39.029Z"
   },
   {
     "id": "6285a73b-8d1f-4a68-9d70-3322e24b8d87",
@@ -132,5 +132,113 @@
     "recipient": "",
     "createDate": "2022-10-02T13:00:18.633Z",
     "updateDate": "2022-10-02T13:00:18.634Z"
+  },
+  {
+    "id": "a581af75-f600-40fb-8322-d4af30f45a1f",
+    "barcode": "9",
+    "packageBarcode": "",
+    "status": "intake",
+    "employee": null,
+    "origin": "123",
+    "courier": "123",
+    "recipient": "",
+    "createDate": "2022-10-03T07:35:36.023Z",
+    "updateDate": "2022-10-03T07:35:36.034Z"
+  },
+  {
+    "id": "4a0b9e8b-522b-4150-9db9-a26aaa0bb506",
+    "barcode": "10",
+    "packageBarcode": "",
+    "status": "intake",
+    "employee": null,
+    "origin": "123",
+    "courier": "123",
+    "recipient": "",
+    "createDate": "2022-10-03T07:36:55.965Z",
+    "updateDate": "2022-10-03T07:36:55.968Z"
+  },
+  {
+    "id": "39ed4e78-059b-4db8-ae87-10844d15b525",
+    "barcode": "11",
+    "packageBarcode": "",
+    "status": "intake",
+    "employee": null,
+    "origin": "123",
+    "courier": "123",
+    "recipient": "",
+    "createDate": "2022-10-03T07:38:15.994Z",
+    "updateDate": "2022-10-03T07:38:15.995Z"
+  },
+  {
+    "id": "ddaf2636-b6d0-4aba-94ff-55759e244760",
+    "barcode": "12",
+    "packageBarcode": "",
+    "status": "intake",
+    "employee": null,
+    "origin": "123",
+    "courier": "123",
+    "recipient": "",
+    "createDate": "2022-10-03T07:38:21.862Z",
+    "updateDate": "2022-10-03T07:38:21.863Z"
+  },
+  {
+    "id": "a82b2ab4-bdd4-42dc-9c45-8db468fc78a8",
+    "barcode": "13",
+    "packageBarcode": "",
+    "status": "intake",
+    "employee": null,
+    "origin": "123",
+    "courier": "123",
+    "recipient": "",
+    "createDate": "2022-10-03T07:38:24.430Z",
+    "updateDate": "2022-10-03T07:38:24.431Z"
+  },
+  {
+    "id": "6d643c69-1253-4f02-a562-3cf0313d1c6b",
+    "barcode": "14",
+    "packageBarcode": "",
+    "status": "intakeTrash",
+    "employee": null,
+    "origin": "123",
+    "courier": "123",
+    "recipient": "",
+    "createDate": "2022-10-03T08:04:29.950Z",
+    "updateDate": "2022-10-03T08:04:29.951Z"
+  },
+  {
+    "id": "c6268923-0ea8-42c0-a4f0-6755113a31f0",
+    "barcode": "15",
+    "packageBarcode": "",
+    "status": "intakeTrash",
+    "employee": null,
+    "origin": "123",
+    "courier": "123",
+    "recipient": "",
+    "createDate": "2022-10-03T08:04:32.343Z",
+    "updateDate": "2022-10-03T08:04:32.344Z"
+  },
+  {
+    "id": "60360fe1-df33-4f56-bf01-a42dfb7126f8",
+    "barcode": "16",
+    "packageBarcode": "",
+    "status": "intakeTrash",
+    "employee": null,
+    "origin": "124",
+    "courier": "124",
+    "recipient": "",
+    "createDate": "2022-10-03T08:04:38.293Z",
+    "updateDate": "2022-10-03T08:04:38.294Z"
+  },
+  {
+    "id": "92f39d7d-ed05-4f5d-a504-65467d83a8e1",
+    "barcode": "17",
+    "packageBarcode": "",
+    "status": "intakeTrash",
+    "employee": null,
+    "origin": "124",
+    "courier": "124",
+    "recipient": "",
+    "createDate": "2022-10-03T08:04:40.250Z",
+    "updateDate": "2022-10-03T08:04:40.252Z"
   }
 ]
