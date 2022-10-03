@@ -1,8 +1,9 @@
 import { DataControl } from "@remult/angular/interfaces";
 import {BackendMethod, Entity, Field, Fields, IdEntity, Remult, Validators, ValueListFieldType} from "remult";
-import { recordChanges } from "../change-log/change-log";
 import { Employee } from "../employees/employee";
 import { ComputersComponent } from "./computers.component";
+import { ChangeLog, recordChanges } from "../change-log/change-log";
+
 
 
 @ValueListFieldType({ caption: 'סטטוס' })
@@ -64,12 +65,8 @@ export class CPUType {
     }
 })
 export class Computer extends IdEntity {
-  constructor(remult: Remult) {
-    super();
-  }
 
-
-  @Fields.string({ caption: 'ברקוד מחשב', validate: [Validators.required, Validators.uniqueOnBackend] })
+    @Fields.string({ caption: 'ברקוד מחשב', validate: [Validators.required, Validators.uniqueOnBackend] })
     barcode = '';
     @Fields.string<Computer>({
         caption: 'ברקוד אריזה'
@@ -145,7 +142,7 @@ export class Computer extends IdEntity {
       let lastDate:NewComputersDate|undefined;
 
       for (let c of await compRepo.find({orderBy:{createDate:"desc"}})) {
-        if (!lastDate||lastDate.date.toDateString()!=c.createDate.toDateString()){
+              if (!lastDate||lastDate.date.toDateString()!=c.createDate.toDateString()){
           lastDate = {
             date:c.createDate,
             presentDate:c.createDate.toDateString(),
@@ -165,14 +162,54 @@ export class Computer extends IdEntity {
       return arr;
     }
 
+    @BackendMethod({ allowed: true })
+    static async getStatusChanges(remult?: Remult): Promise<StatusDate[]> {
+        let d = new Date();
+        const compRepo = remult!.repo(Computer);
+        const arr: StatusDate[] = [];
+        let lastDate: StatusDate | undefined;
+        d.setDate((d.getDate() - 7));
+        for await (let change of remult!.repo(ChangeLog).query({
+            where: {
+                changeDate: { ">=": d }
+            }
+        })) {
+            if (change.changes.find(c => c.key === "status" && c.newValue === ComputerStatus.successfulUpgrade.id)) {
+                const comp = await compRepo.findId(change.relatedId);
+                if (!lastDate || lastDate.date.toDateString() != comp.createDate.toDateString()) {
+                    lastDate = {
+                        date: comp.createDate,
+                        presentDate: comp.createDate.toDateString(),
+                        computers: []
+                    }
+                    arr.push(lastDate);
+                }
+                let orig = lastDate.computers.find(x => x.barcode === comp.barcode);
+                if (!orig) {
+                    lastDate.computers.push({
+                        barcode: comp.barcode,
+                        employee: comp.employee?.name!
+                    })
+                }
+            }
+
+        } return arr;
+    }
 }
 
 
 export interface NewComputersDate{
-  date:Date;
-  presentDate:string;
-  computers:{origin:string,quantity:number}[]
+    date:Date;
+    presentDate:string;
+    computers:{origin:string,quantity:number}[]
 }
+
+export interface StatusDate {
+  date: Date;
+  presentDate: string;
+  computers: { barcode: string, employee: string }[]
+}
+
 
 
 
