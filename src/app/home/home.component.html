@@ -44,9 +44,7 @@
           עדכן
         </button>
       </div>
-      <div *ngIf="isStatusEqualsToIntake()" style="margin: 20px;
-    max-height: 400px;
-    overflow-y: auto;">
+      <div style="margin: 20px">
         <div style="text-align: right; padding: 5px;" *ngFor="let c of newComputers; let i = index">
           <span style="position: relative;bottom: 5px;margin: 3px;">
             {{i | days}} - {{ c.date | date: 'dd/MM'}}
@@ -54,7 +52,7 @@
           <table>
             <thead>
             <tr>
-              <th>מקור </th>
+              <th>מקור תרומה</th>
               <th>מחשבים</th>
             </tr>
             </thead>
@@ -62,30 +60,6 @@
             <tr>
               <td>{{i.origin}}</td>
               <td>{{i.quantity}}</td>
-            </tr>
-            </tbody>
-          </table>
-          <br>
-        </div>
-      </div>
-      <div *ngIf="isStatusEqualsToSuccessfulUpgrade()" style="margin: 20px;
-    max-height: 400px;
-    overflow-y: auto;">
-        <div style="text-align: right; padding: 5px;" *ngFor="let c of newStatusDates; let i = index">
-          <span style="position: relative;bottom: 5px;margin: 3px;">
-            {{i | days}} - {{ c.date | date: 'dd/MM'}}
-          </span>
-          <table>
-            <thead>
-            <tr>
-              <th>בר קוד</th>
-              <th>עובד</th>
-            </tr>
-            </thead>
-            <tbody *ngFor="let i of c.computers">
-            <tr>
-              <td>{{i.barcode}}</td>
-              <td>{{i.employee}}</td>
             </tr>
             </tbody>
           </table>
