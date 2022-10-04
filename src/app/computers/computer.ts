@@ -1,4 +1,4 @@
-import { BackendMethod, Entity, Field, Fields, IdEntity, Remult, Validators, ValueListFieldType } from "remult";
+import { BackendMethod, Entity, Field, Fields, IdEntity, remult, Remult, Validators, ValueListFieldType } from "remult";
 import { ChangeLog, recordChanges } from "../change-log/change-log";
 import { DataControl } from "../common-ui-elements/interfaces";
 import { Employee } from "../employees/employee";
@@ -136,8 +136,8 @@ export class Computer extends IdEntity {
     updateDate = new Date();
 
     @BackendMethod({ allowed: true })
-    static async getNewComputers(trash: boolean, remult?: Remult): Promise<NewComputersDate[]> {
-        const compRepo = remult!.repo(Computer);
+    static async getNewComputers(trash: boolean): Promise<NewComputersDate[]> {
+        const compRepo = remult.repo(Computer);
         const arr: NewComputersDate[] = [];
         let lastDate: NewComputersDate | undefined;
         const trashStatuses = [ComputerStatus.trash, ComputerStatus.intakeTrash];
@@ -171,13 +171,13 @@ export class Computer extends IdEntity {
     }
 
     @BackendMethod({ allowed: true })
-    static async getStatusChanges(remult?: Remult): Promise<StatusDate[]> {
+    static async getStatusChanges(): Promise<StatusDate[]> {
         let d = new Date();
-        const compRepo = remult!.repo(Computer);
+        const compRepo = remult.repo(Computer);
         const arr: StatusDate[] = [];
         let lastDate: StatusDate | undefined;
         d.setDate((d.getDate() - 7));
-        for await (let change of remult!.repo(ChangeLog).query({
+        for await (let change of remult.repo(ChangeLog).query({
             where: {
                 changeDate: { ">=": d }
             }
