@@ -1,7 +1,8 @@
 import { Entity, EntityBase, FieldRef, Fields, FieldsRef, getEntityRef, IdEntity, isBackend, remult } from "remult";
+import { Roles } from "../users/roles";
 
 @Entity<ChangeLog>("changeLog", {
-    allowApiRead: true,
+    allowApiRead: Roles.viewComputers,
     defaultOrderBy: {
         changeDate: "desc"
     }

@@ -1,5 +1,6 @@
 import { Allow, BackendMethod, Controller, ControllerBase, Fields, remult, Validators } from "remult";
 import { terms } from "../terms";
+import { Roles } from "./roles";
 import { User } from "./user";
 
 @Controller("updatePassword")
@@ -20,7 +21,7 @@ export class UpdatePasswordController extends ControllerBase {
     })
     confirmPassword = '';
 
-    @BackendMethod({ allowed: Allow.authenticated })
+    @BackendMethod({ allowed: Roles.anyManager })
     async updatePassword() {
         const user = await remult.repo(User).findId(remult.user!.id);
         await user.hashAndSetPassword(this.password);

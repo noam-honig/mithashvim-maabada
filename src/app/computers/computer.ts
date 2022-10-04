@@ -1,4 +1,4 @@
-import { Entity, Field, Fields, IdEntity, remult, Validators, ValueListFieldType } from "remult";
+import { Allow, Entity, Field, Fields, IdEntity, remult, Validators, ValueListFieldType } from "remult";
 import { recordChanges } from "../change-log/change-log";
 import '../common/UITools';
 import { dataWasChanged } from "../data-refresh/data-refresh.controller";
@@ -56,7 +56,7 @@ export class CPUType {
 }
 
 @Entity<Computer>("computers", {
-    allowApiCrud: true,
+    allowApiCrud: Allow.authenticated,
     defaultOrderBy: {
         createDate: "desc"
     },

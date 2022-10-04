@@ -1,9 +1,9 @@
-import { BackendMethod } from "remult";
+import { Allow, BackendMethod } from "remult";
 
 let lastUpdate = new Date();
 
 export class DataRefreshController {
-  @BackendMethod({ allowed: true })
+  @BackendMethod({ allowed: Allow.authenticated })
   static async lastUpdate() {
     return lastUpdate.toISOString();
   }
