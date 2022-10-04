@@ -21,10 +21,10 @@ export const terms = {
     userAccounts: 'משתמשים',
     invalidSignIn: "פרטי כניסה לא תקינים",
     signOut: 'התנתק',
-    resetPassword: 'Reset Password',
-    passwordDeletedSuccessful: "Password Deleted",
-    passwordDeleteConfirmOf: "Are you sure you want to delete the password of",
-    rememberOnThisDevice: "Remember on this device?",
+    resetPassword: 'איפוס סיסמה',
+    passwordDeletedSuccessful: "סיסמה אופסה",
+    passwordDeleteConfirmOf: "בטוח לאפס את הסיסמה של ",
+    rememberOnThisDevice: "זכור אותי במחשב זה?",
     RTL: true
 }
 

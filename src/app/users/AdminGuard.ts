@@ -11,3 +11,24 @@ export class AdminGuard extends AuthenticatedGuard {
         return Roles.admin;
     }
 }
+
+@Injectable({ providedIn: 'root' })
+export class ComputersGuard extends AuthenticatedGuard {
+    override isAllowed() {
+        return Roles.viewComputers;
+    }
+}
+
+@Injectable({ providedIn: 'root' })
+export class EmployeesGuard extends AuthenticatedGuard {
+    override isAllowed() {
+        return Roles.manageEmployees;
+    }
+}
+
+@Injectable({ providedIn: 'root' })
+export class AnyManagerGuard extends AuthenticatedGuard {
+    override isAllowed() {
+        return Roles.anyManager;
+    }
+}

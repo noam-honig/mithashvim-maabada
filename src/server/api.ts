@@ -10,7 +10,7 @@ import { DataRefreshController } from '../app/data-refresh/data-refresh.controll
 
 
 export const api = remultExpress({
-    entities: [Employee, Computer, ChangeLog],
+    entities: [Employee, Computer, ChangeLog, User],
     controllers: [SignInController, UpdatePasswordController, DataRefreshController],
     getUser: request => request.session!['user'],
     dataProvider: async () => {

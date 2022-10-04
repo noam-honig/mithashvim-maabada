@@ -10,6 +10,8 @@ import { terms } from './terms';
 import { SignInController } from './users/SignInController';
 import { UpdatePasswordController } from './users/UpdatePasswordController';
 import { remult } from 'remult';
+import { getConfig } from './config/config.component';
+import { Roles } from './users/roles';
 
 @Component({
   selector: 'app-root',
@@ -37,6 +39,38 @@ export class AppComponent implements OnInit {
     });
   }
 
+  isAnyManager() {
+    return remult.isAllowed(Roles.anyManager);
+  }
+
+  async configTerminal() {
+    let input = getConfig();
+    const signIn = new SignInController(remult);
+
+    openDialog(DataAreaDialogComponent, i => i.args = {
+      title: "הגדרת מסופון",
+      fields: [
+        { field: signIn.$.user, visible: () => !this.isAnyManager() },
+        { field: signIn.$.password, visible: () => !this.isAnyManager() },
+        { field: input.$.status, width: "" },
+        { field: input.$.employee, visible: () => input.status.updateEmployee }
+      ],
+      ok: async () => {
+        if (input.status.updateEmployee && !input.employee) {
+          this.uiService.error("חובה לבחור עובד");
+        }
+        else {
+          if (!this.isAnyManager())
+            remult.user = await signIn.configTerminal(input.status);
+          localStorage.setItem('config', JSON.stringify({
+            status: input.$.status.inputValue,
+            employee: input.$.employee.inputValue
+          }));
+        }
+      }
+    });
+  }
+
   ngOnInit(): void {
 
   }
@@ -51,7 +85,7 @@ export class AppComponent implements OnInit {
     let user = await remult.repo(User).findId(remult.user!.id);
     openDialog(DataAreaDialogComponent, i => i.args = {
       title: terms.updateInfo,
-      fields: () => [
+      fields: [
         user.$.name
       ],
       ok: async () => {

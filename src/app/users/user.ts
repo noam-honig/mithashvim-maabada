@@ -31,9 +31,28 @@ export class User extends IdEntity {
 
     @Fields.boolean({
         allowApiUpdate: Roles.admin,
-        caption: terms.admin
+        caption: terms.admin,
+        width: '130'
     })
     admin = false;
+    @Fields.boolean({
+        allowApiUpdate: Roles.admin,
+        caption: "מנהל מלאי",
+        width: '130'
+    })
+    stockAdmin = false;
+    @Fields.boolean({
+        allowApiUpdate: Roles.admin,
+        caption: 'רש"צ שדרוג',
+        width: '130'
+    })
+    upgradeAdmin = false;
+    @Fields.boolean({
+        allowApiUpdate: Roles.admin,
+        caption: 'רש"צ אריזה',
+        width: '130'
+    })
+    packAdmin = false;
 
     async hashAndSetPassword(password: string) {
         this.password = (await import('password-hash')).generate(password);

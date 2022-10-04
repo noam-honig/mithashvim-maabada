@@ -5,21 +5,19 @@ import { HomeComponent } from './home/home.component';
 
 
 import { UsersComponent } from './users/users.component';
-import { AdminGuard } from "./users/AdminGuard";
+import { AdminGuard, AnyManagerGuard, ComputersGuard, EmployeesGuard } from "./users/AdminGuard";
 import { ShowDialogOnErrorErrorHandler } from './common/UIToolsService';
 import { terms } from './terms';
 import { EmployeesComponent } from './employees/employees.component';
 import { ComputersComponent } from './computers/computers.component';
 import { AutoRefreshListComponent } from './auto-refresh-list/auto-refresh-list.component';
-import { ConfigComponent } from './config/config.component';
 
 const defaultRoute = 'מסופון';
 const routes: Routes = [
   { path: defaultRoute, component: HomeComponent },
-  { path: 'הגדרות מסופון', component: ConfigComponent },
-  { path: 'רשימה מתרעננת', component: AutoRefreshListComponent },
-  { path: 'מחשבים', component: ComputersComponent },
-  { path: 'עובדים', component: EmployeesComponent },
+  { path: 'רשימה מתרעננת', component: AutoRefreshListComponent, canActivate: [AnyManagerGuard] },
+  { path: 'מחשבים', component: ComputersComponent, canActivate: [ComputersGuard] },
+  { path: 'עובדים', component: EmployeesComponent, canActivate: [EmployeesGuard] },
   { path: terms.userAccounts, component: UsersComponent, canActivate: [AdminGuard] },
   { path: '**', redirectTo: '/' + defaultRoute, pathMatch: 'full' }
 

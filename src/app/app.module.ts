@@ -32,7 +32,6 @@ import { ComputersComponent } from './computers/computers.component';
 import { ChangeLogComponent } from './change-log/change-log.component';
 import { CardInMiddleComponent } from './card-in-middle/card-in-middle.component';
 import { AutoRefreshListComponent } from './auto-refresh-list/auto-refresh-list.component';
-import { ConfigComponent } from './config/config.component';
 
 @NgModule({
   declarations: [
@@ -47,8 +46,7 @@ import { ConfigComponent } from './config/config.component';
     ComputersComponent,
     ChangeLogComponent,
     CardInMiddleComponent,
-    AutoRefreshListComponent,
-    ConfigComponent
+    AutoRefreshListComponent
   ],
   imports: [
     BrowserModule,

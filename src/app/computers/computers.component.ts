@@ -4,6 +4,7 @@ import { ChangeLogComponent } from '../change-log/change-log.component';
 import { BusyService, openDialog } from '../common-ui-elements';
 import { GridSettings } from '../common-ui-elements/interfaces';
 import { saveToExcel } from '../common-ui-elements/interfaces/src/saveGridToExcel';
+import { Roles } from '../users/roles';
 import { Computer } from './computer';
 
 @Component({
@@ -24,7 +25,7 @@ export class ComputersComponent implements OnInit {
       name: "Excel",
       click: () => saveToExcel(this.grid, "computers", this.busyService)
     }],
-    allowCrud: true, rowButtons: [{
+    allowCrud: remult.isAllowed(Roles.updateComputers), rowButtons: [{
       name: 'שינויים', click: c => openDialog(ChangeLogComponent, x => x.args = {
         for: c
       })

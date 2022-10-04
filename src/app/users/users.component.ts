@@ -35,7 +35,10 @@ export class UsersComponent implements OnInit {
 
     columnSettings: users => [
       users.name,
-      users.admin
+      users.admin,
+      users.stockAdmin,
+      users.upgradeAdmin,
+      users.packAdmin
     ],
     gridButtons: [{
       name: "Excel",

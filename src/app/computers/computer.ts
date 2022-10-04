@@ -1,36 +1,40 @@
-import { Entity, Field, Fields, IdEntity, Validators, ValueListFieldType } from "remult";
+import { Entity, Field, Fields, IdEntity, remult, Validators, ValueListFieldType } from "remult";
 import { recordChanges } from "../change-log/change-log";
 import '../common/UITools';
 import { dataWasChanged } from "../data-refresh/data-refresh.controller";
 import { Employee } from "../employees/employee";
+import { Roles } from "../users/roles";
 
 
 @ValueListFieldType({ caption: 'סטטוס' })
 export class ComputerStatus {
-    static intake = new ComputerStatus("התקבל", { isIntake: true });
-    static intakeTrash = new ComputerStatus("התקבל וממתין לגריטה", { isIntake: true });
-    static waitingForUpgrade = new ComputerStatus("ממתין לשדרוג");
-    static assigned = new ComputerStatus('שוייך לעובד', { updateEmployee: true, inputCpu: true });
-    static trash = new ComputerStatus("ממתין לגריטה");
-    static successfulUpgrade = new ComputerStatus("שודרג בהצלחה")
-    static waitForPack = new ComputerStatus("ממתין לאריזה");
-    static packing = new ComputerStatus("תהליך אריזה", {
+    static intake = new ComputerStatus("התקבל", [Roles.stockAdmin], { isIntake: true });
+    static intakeTrash = new ComputerStatus("התקבל וממתין לגריטה", [Roles.stockAdmin], { isIntake: true });
+    static waitingForUpgrade = new ComputerStatus("ממתין לשדרוג", [Roles.stockAdmin]);
+    static assigned = new ComputerStatus('שוייך לעובד', [Roles.upgradeAdmin], { updateEmployee: true, inputCpu: true });
+    static trash = new ComputerStatus("ממתין לגריטה", [Roles.upgradeAdmin]);
+    static successfulUpgrade = new ComputerStatus("שודרג בהצלחה", [Roles.upgradeAdmin])
+    static waitForPack = new ComputerStatus("ממתין לאריזה", [Roles.packAdmin]);
+    static packing = new ComputerStatus("תהליך אריזה", [Roles.packAdmin], {
         updatePackageBarcode: true
     });
-    static packDone = new ComputerStatus("נארז בהצלחה", {
+    static packDone = new ComputerStatus("נארז בהצלחה", [Roles.stockAdmin], {
         inputPackageBarcode: true
     });
-    static waitForArchive = new ComputerStatus("ממתין לשינוע לארכיברים", {
+    static waitForArchive = new ComputerStatus("ממתין לשינוע לארכיברים", [Roles.stockAdmin], {
         inputPackageBarcode: true
     });
-    static waitForDelivery = new ComputerStatus("ממתין לשינוע למוטב", {
+    static waitForDelivery = new ComputerStatus("ממתין לשינוע למוטב", [Roles.stockAdmin], {
         inputPackageBarcode: true,
         inputRecipient: true
     });
 
 
-    constructor(public caption: string, values?: Partial<ComputerStatus>) {
+    constructor(public caption: string, public allowedRoles: string[], values?: Partial<ComputerStatus>) {
         Object.assign(this, values);
+    }
+    allowed() {
+        return remult.isAllowed(this.allowedRoles);
     }
     updateEmployee = false;
     inputCpu = false;
@@ -91,8 +95,8 @@ export class Computer extends IdEntity {
     )
     packageBarcode = '';
     @Field(() => ComputerStatus, {
-         width: '170'
-         })
+        width: '170'
+    })
     status = ComputerStatus.intake;
 
     @Field<Computer>(() => Employee, {
