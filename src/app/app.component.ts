@@ -12,6 +12,7 @@ import { UpdatePasswordController } from './users/UpdatePasswordController';
 import { remult } from 'remult';
 import { getConfig } from './config/config.component';
 import { Roles } from './users/roles';
+import { HomeComponent } from './home/home.component';
 
 @Component({
   selector: 'app-root',
@@ -23,7 +24,8 @@ export class AppComponent implements OnInit {
     public router: Router,
     public activeRoute: ActivatedRoute,
     private routeHelper: RouteHelperService,
-    public uiService: UIToolsService) {
+    public uiService: UIToolsService,
+    private nav: RouteHelperService) {
   }
   terms = terms;
   remult = remult;
@@ -57,7 +59,7 @@ export class AppComponent implements OnInit {
       ],
       ok: async () => {
         if (input.status.updateEmployee && !input.employee) {
-          this.uiService.error("חובה לבחור עובד");
+          throw "חובה לבחור עובד";
         }
         else {
           if (!this.isAnyManager())
@@ -66,6 +68,8 @@ export class AppComponent implements OnInit {
             status: input.$.status.inputValue,
             employee: input.$.employee.inputValue
           }));
+          this.nav.navigateToComponent(HomeComponent);
+          window.location.reload();
         }
       }
     });
