@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { GridSettings } from '@remult/angular/interfaces';
 import { Remult } from 'remult';
+import { GridSettings } from '../common-ui-elements/interfaces';
 import { Employee } from './employee';
 
 @Component({

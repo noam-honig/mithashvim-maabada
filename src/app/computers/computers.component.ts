@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { openDialog } from '@remult/angular';
-import { GridSettings } from '@remult/angular/interfaces';
 import { Remult } from 'remult';
 import { ChangeLogComponent } from '../change-log/change-log.component';
+import { openDialog } from '../common-ui-elements';
+import { GridSettings } from '../common-ui-elements/interfaces';
 import { Computer } from './computer';
 
 @Component({

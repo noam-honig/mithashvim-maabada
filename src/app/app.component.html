@@ -6,10 +6,9 @@
     <span class="toolbar-title">{{currentTitle()}}</span>
     <ng-container *ngIf="!remult.authenticated()">
       <button mat-flat-button color="primary" (click)="signIn()">{{terms.signIn}}</button>
-
     </ng-container>
     <ng-container *ngIf="remult.authenticated()">
-      <button mat-flat-button color="primary" [matMenuTriggerFor]="menu">{{remult.user.name}}</button>
+      <button mat-flat-button color="primary" [matMenuTriggerFor]="menu">{{remult.user!.name}}</button>
       <mat-menu #menu="matMenu">
         <button mat-menu-item (click)="updateInfo()">{{terms.updateInfo}}</button>
         <button mat-menu-item (click)="changePassword()">{{terms.changePassword}}</button>
@@ -18,12 +17,12 @@
     </ng-container>
   </mat-toolbar>
   <mat-sidenav-container class="app-sidenav-container">
-    <mat-sidenav #sidenav class="app-sidenav mat-elevation-z10 no-print" [opened]="!dialogService.isScreenSmall()"
-      [mode]="dialogService.isScreenSmall()?'over':'side'">
+    <mat-sidenav #sidenav class="app-sidenav mat-elevation-z10 no-print" [opened]="!uiService.isScreenSmall()"
+      [mode]="uiService.isScreenSmall()?'over':'side'">
       <div style="width:100%;text-align: center">
 
       </div>
-      <h4 *ngIf="remult.authenticated()">{{terms.hello}} {{remult.user.name}}</h4>
+      <h4 *ngIf="remult.authenticated()">{{terms.hello}} {{remult.user!.name}}</h4>
       <mat-nav-list role="list">
         <ng-container *ngFor="let m of router.config">
           <mat-list-item *ngIf="shouldDisplayRoute(m)" routerLinkActive="active-route">

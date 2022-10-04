@@ -1,20 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
-import { DataAreaFieldsSetting, DataAreaSettings, IDataAreaSettings } from '@remult/angular/interfaces';
+import { DataAreaFieldsSetting, DataAreaSettings, IDataAreaSettings } from 'common-ui-elements/interfaces';
 import { getFields } from 'remult';
 import { terms } from '../../terms';
 
-
-import { DialogService } from '../dialog';
-
-
-
 @Component({
-  selector: 'app-input-area',
-  templateUrl: './input-area.component.html',
-  styleUrls: ['./input-area.component.scss']
+  templateUrl: './data-area-dialog.component.html',
+  styleUrls: ['./data-area-dialog.component.scss']
 })
-export class InputAreaComponent implements OnInit {
+export class DataAreaDialogComponent implements OnInit {
   args!: {
     title: string,
     helpText?: string,
@@ -28,8 +22,7 @@ export class InputAreaComponent implements OnInit {
   };
   terms = terms;
   constructor(
-    public dialogRef: MatDialogRef<any>,
-    private dialog: DialogService
+    public dialogRef: MatDialogRef<any>
 
   ) {
 

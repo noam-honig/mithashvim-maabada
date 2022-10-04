@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -16,13 +16,16 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
-import { RemultModule } from '@remult/angular';
+import { CommonUIElementsModule } from 'common-ui-elements';
 import { UsersComponent } from './users/users.component';
 import { HomeComponent } from './home/home.component';
 import { YesNoQuestionComponent } from './common/yes-no-question/yes-no-question.component';
-import { InputAreaComponent } from './common/input-area/input-area.component';
-import { DialogService } from './common/dialog';
+import { DataAreaDialogComponent } from './common/data-area-dialog/data-area-dialog.component';
+import { UIToolsService } from './common/UIToolsService';
 import { AdminGuard } from "./users/AdminGuard";
+import { remult } from 'remult';
+import { SignInController } from './users/SignInController';
+import { TextAreaDataControlComponent } from './common/textarea-data-control/textarea-data-control.component';
 import { EmployeesComponent } from './employees/employees.component';
 import { AssignEmployeeComponent } from './assign-employee/assign-employee.component';
 import { ComputersComponent } from './computers/computers.component';
@@ -37,7 +40,8 @@ import { ConfigComponent } from './config/config.component';
     UsersComponent,
     HomeComponent,
     YesNoQuestionComponent,
-    InputAreaComponent,
+    DataAreaDialogComponent,
+    TextAreaDataControlComponent,
     EmployeesComponent,
     AssignEmployeeComponent,
     ComputersComponent,
@@ -62,12 +66,20 @@ import { ConfigComponent } from './config/config.component';
     MatButtonModule,
     MatIconModule,
     MatMenuModule,
-    RemultModule
+    CommonUIElementsModule
   ],
-  providers: [DialogService, AdminGuard],
+  providers: [
+    UIToolsService,
+    AdminGuard,
+    { provide: APP_INITIALIZER, useFactory: initApp, multi: true }],
   bootstrap: [AppComponent],
-  entryComponents: [YesNoQuestionComponent, InputAreaComponent]
+  entryComponents: [YesNoQuestionComponent, DataAreaDialogComponent]
 })
 export class AppModule { }
 
-
+export function initApp() {
+  const loadCurrentUserBeforeAppStarts = async () => {
+    remult.user = await SignInController.currentUser();
+  };
+  return loadCurrentUserBeforeAppStarts;
+}

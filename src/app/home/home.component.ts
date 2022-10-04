@@ -1,8 +1,8 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { DataAreaSettings } from '@remult/angular/interfaces';
-import { Fields, getValueList, Remult } from 'remult';
-import { DialogService } from '../common/dialog';
-import { Computer, ComputerStatus, CPUType } from '../computers/computer';
+import { getValueList, Remult } from 'remult';
+import { DataAreaSettings } from '../common-ui-elements/interfaces';
+import { UIToolsService } from '../common/UIToolsService';
+import { Computer, CPUType } from '../computers/computer';
 import { getConfig } from '../config/config.component';
 
 @Component({
@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
   area!: DataAreaSettings;
 
   @ViewChild('myField') x!: ElementRef;
-  constructor(private remult: Remult, private ui: DialogService) { }
+  constructor(private remult: Remult, private ui: UIToolsService) { }
 
   ngOnInit() {
     this.init();
