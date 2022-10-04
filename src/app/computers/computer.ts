@@ -61,7 +61,7 @@ export class CPUType {
 }, (options, remult) => {
     options.saving = async (self) => {
         self.updateDate = new Date();
-        await recordChanges(remult, self);
+        await recordChanges(self);
     }
 })
 export class Computer extends IdEntity {

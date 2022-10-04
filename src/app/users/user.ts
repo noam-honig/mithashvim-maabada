@@ -1,4 +1,4 @@
-import { IdEntity, Entity, Validators, isBackend, Allow, Fields, BackendMethod, Remult, remult } from "remult";
+import { IdEntity, Entity, Validators, isBackend, Allow, Fields, BackendMethod, remult } from "remult";
 import { Roles } from './roles';
 import { terms } from "../terms";
 

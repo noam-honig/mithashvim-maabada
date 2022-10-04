@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { getValueList, Remult } from 'remult';
+import { getValueList, remult } from 'remult';
 import { BusyService } from '../common-ui-elements';
 import { DataAreaSettings } from '../common-ui-elements/interfaces';
 import { UIToolsService } from '../common/UIToolsService';
@@ -14,7 +14,7 @@ import { getConfig } from '../config/config.component';
 })
 export class HomeComponent implements OnInit {
 
-  compRepo = this.remult.repo(Computer);
+  compRepo = remult.repo(Computer);
   types = getValueList(CPUType);
   input!: Computer;
   area!: DataAreaSettings;
@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
   displayedColumns: string[] = ['origin', 'quantity'];
 
   @ViewChild('myField') x!: ElementRef;
-  constructor(private remult: Remult, private ui: UIToolsService,private busyService:BusyService) { }
+  constructor(private ui: UIToolsService,private busyService:BusyService) { }
 
   async ngOnInit() {
     this.init();
@@ -82,7 +82,7 @@ export class HomeComponent implements OnInit {
   }
   private init() {
     let prev = this.input;
-    this.input = getConfig(this.remult);
+    this.input = getConfig();
     if (prev) {
       this.input.courier = prev.courier;
       this.input.origin = prev.origin;

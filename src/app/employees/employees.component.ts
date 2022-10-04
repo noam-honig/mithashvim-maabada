@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Remult } from 'remult';
+import { remult } from 'remult';
 import { GridSettings } from '../common-ui-elements/interfaces';
 import { Employee } from './employee';
 
@@ -10,8 +10,8 @@ import { Employee } from './employee';
 })
 export class EmployeesComponent implements OnInit {
 
-  constructor(private remult: Remult) { }
-  grid = new GridSettings(this.remult.repo(Employee), {
+  constructor() { }
+  grid = new GridSettings(remult.repo(Employee), {
     allowCrud: true
   });
   ngOnInit(): void {

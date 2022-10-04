@@ -1,6 +1,5 @@
 import { Injectable, NgZone, ErrorHandler } from "@angular/core";
 import { MatSnackBar } from "@angular/material/snack-bar";
-import { Remult } from "remult";
 
 import { YesNoQuestionComponent } from "./yes-no-question/yes-no-question.component";
 import { CommonUIElementsPluginsService, openDialog, SelectValueDialogComponent } from "common-ui-elements";
