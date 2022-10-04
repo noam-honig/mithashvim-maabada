@@ -1,10 +1,9 @@
-import { Allow, Entity, Field, Fields, IdEntity, remult, Validators, ValueListFieldType } from "remult";
-import { recordChanges } from "../change-log/change-log";
+import { Allow, Entity, Field, Fields, IdEntity, remult, Validators, ValueListFieldType, BackendMethod } from "remult";
+import { recordChanges, ChangeLog } from "../change-log/change-log";
 import '../common/UITools';
 import { dataWasChanged } from "../data-refresh/data-refresh.controller";
 import { Employee } from "../employees/employee";
 import { Roles } from "../users/roles";
-
 
 @ValueListFieldType({ caption: 'סטטוס' })
 export class ComputerStatus {
@@ -36,6 +35,9 @@ export class ComputerStatus {
     allowed() {
         return remult.isAllowed(this.allowedRoles);
     }
+
+    id!: string;
+
     updateEmployee = false;
     inputCpu = false;
     isIntake = false;
@@ -140,6 +142,89 @@ export class Computer extends IdEntity {
     })
     updateDate = new Date();
 
+    @BackendMethod({ allowed: true })
+    static async getNewComputers(trash: boolean): Promise<NewComputersDate[]> {
+        const compRepo = remult.repo(Computer);
+        const arr: NewComputersDate[] = [];
+        let lastDate: NewComputersDate | undefined;
+        const trashStatuses = [ComputerStatus.trash, ComputerStatus.intakeTrash];
+
+        for await (let c of compRepo.query({
+            orderBy: { createDate: "desc" },
+            where: {
+                status: trash ? trashStatuses : { "!=": trashStatuses }
+            }
+        })) {
+            if (!lastDate || lastDate.date.toDateString() != c.createDate.toDateString()) {
+                lastDate = {
+                    date: c.createDate,
+                    presentDate: c.createDate.toDateString(),
+                    computers: []
+                }
+                arr.push(lastDate);
+            }
+            let orig = lastDate.computers.find(x => x.origin === c.origin);
+
+            if (!orig) {
+                lastDate.computers.push({
+                    origin: c.origin,
+                    quantity: 1
+                })
+            } else {
+                orig.quantity++;
+            }
+        }
+        return arr;
+    }
+
+    @BackendMethod({ allowed: true })
+    static async getStatusChanges(): Promise<StatusDate[]> {
+        let d = new Date();
+        const compRepo = remult.repo(Computer);
+        const arr: StatusDate[] = [];
+        let lastDate: StatusDate | undefined;
+        d.setDate((d.getDate() - 7));
+        for await (let change of remult.repo(ChangeLog).query({
+            where: {
+                changeDate: { ">=": d }
+            }
+        })) {
+            if (change.changes.find(c => c.key === "status" && c.newValue === ComputerStatus.successfulUpgrade.id)) {
+                const comp = await compRepo.findId(change.relatedId);
+                if (!lastDate || lastDate.date.toDateString() != comp.createDate.toDateString()) {
+                    lastDate = {
+                        date: comp.createDate,
+                        presentDate: comp.createDate.toDateString(),
+                        computers: []
+                    }
+                    arr.push(lastDate);
+                }
+                let orig = lastDate.computers.find(x => x.barcode === comp.barcode);
+                if (!orig) {
+                    lastDate.computers.push({
+                        barcode: comp.barcode,
+                        employee: comp.employee?.name!
+                    })
+                }
+            }
+
+        } return arr;
+    }
 }
+
+
+export interface NewComputersDate {
+    date: Date;
+    presentDate: string;
+    computers: { origin: string, quantity: number }[]
+}
+
+export interface StatusDate {
+    date: Date;
+    presentDate: string;
+    computers: { barcode: string, employee: string }[]
+}
+
+
 
 

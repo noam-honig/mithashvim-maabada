@@ -32,6 +32,8 @@ import { ComputersComponent } from './computers/computers.component';
 import { ChangeLogComponent } from './change-log/change-log.component';
 import { CardInMiddleComponent } from './card-in-middle/card-in-middle.component';
 import { AutoRefreshListComponent } from './auto-refresh-list/auto-refresh-list.component';
+import {MatTableModule} from "@angular/material/table";
+import { DaysPipe } from './home/days.pipe';
 
 @NgModule({
   declarations: [
@@ -46,7 +48,8 @@ import { AutoRefreshListComponent } from './auto-refresh-list/auto-refresh-list.
     ComputersComponent,
     ChangeLogComponent,
     CardInMiddleComponent,
-    AutoRefreshListComponent
+    AutoRefreshListComponent,
+    DaysPipe
   ],
   imports: [
     BrowserModule,
@@ -64,6 +67,7 @@ import { AutoRefreshListComponent } from './auto-refresh-list/auto-refresh-list.
     MatButtonModule,
     MatIconModule,
     MatMenuModule,
+    MatTableModule,
     CommonUIElementsModule
   ],
   providers: [
