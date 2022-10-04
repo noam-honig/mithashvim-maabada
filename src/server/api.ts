@@ -6,11 +6,12 @@ import { UpdatePasswordController } from '../app/users/UpdatePasswordController'
 import { Employee } from '../app/employees/employee';
 import { Computer } from '../app/computers/computer';
 import { ChangeLog } from '../app/change-log/change-log';
+import { DataRefreshController } from '../app/data-refresh/data-refresh.controller';
 
 
 export const api = remultExpress({
     entities: [Employee, Computer, ChangeLog],
-    controllers: [SignInController, UpdatePasswordController],
+    controllers: [SignInController, UpdatePasswordController, DataRefreshController],
     getUser: request => request.session!['user'],
     dataProvider: async () => {
         if (process.env['NODE_ENV'] === "production")

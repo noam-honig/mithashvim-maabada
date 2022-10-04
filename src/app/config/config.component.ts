@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { remult } from 'remult';
+import { defer, repeat } from 'rxjs';
 import { RouteHelperService } from '../common-ui-elements';
 import { DataAreaSettings } from '../common-ui-elements/interfaces';
 import { UIToolsService } from '../common/UIToolsService';
 import { Computer } from '../computers/computer';
+import { DataRefreshService } from '../data-refresh/data-refresh.service';
 import { HomeComponent } from '../home/home.component';
 
 @Component({
@@ -14,10 +16,11 @@ import { HomeComponent } from '../home/home.component';
 export class ConfigComponent implements OnInit {
 
   constructor(private routeHelper: RouteHelperService, private dialog: UIToolsService) { }
+
   input = getConfig();
   area = new DataAreaSettings({
     fields: () => [
-      { field: this.input.$.status },
+      { field: this.input.$.status, width: "" },
       { field: this.input.$.employee, visible: () => this.input.status.updateEmployee }
     ]
   })

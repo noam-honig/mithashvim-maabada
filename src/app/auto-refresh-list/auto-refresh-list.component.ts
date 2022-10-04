@@ -5,6 +5,7 @@ import { Observable, Subscription, interval } from 'rxjs';
 import { GridSettings } from '../common-ui-elements/interfaces';
 import { BusyService } from '../common-ui-elements';
 import { saveToExcel } from '../common-ui-elements/interfaces/src/saveGridToExcel';
+import { DataRefreshService } from '../data-refresh/data-refresh.service';
 
 
 @Component({
@@ -15,7 +16,7 @@ import { saveToExcel } from '../common-ui-elements/interfaces/src/saveGridToExce
 export class AutoRefreshListComponent implements OnInit, OnDestroy {
   private updateSubscription!: Subscription;
 
-  constructor(private remult: Remult, private busy: BusyService) { }
+  constructor(private remult: Remult, private busy: BusyService, private data: DataRefreshService) { }
   ngOnDestroy(): void {
     this.updateSubscription.unsubscribe();
   }
@@ -28,8 +29,8 @@ export class AutoRefreshListComponent implements OnInit, OnDestroy {
     }],
   });
   ngOnInit(): void {
-    this.updateSubscription = interval(1000).subscribe(
-      (val) => {
+    this.updateSubscription = this.data.dataChanged$.subscribe(
+      () => {
         this.busy.donotWait(async () => {
           await this.grid.reloadData();
         });

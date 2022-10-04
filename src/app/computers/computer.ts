@@ -1,6 +1,7 @@
 import { Entity, Field, Fields, IdEntity, Validators, ValueListFieldType } from "remult";
 import { recordChanges } from "../change-log/change-log";
 import '../common/UITools';
+import { dataWasChanged } from "../data-refresh/data-refresh.controller";
 import { Employee } from "../employees/employee";
 
 
@@ -54,13 +55,13 @@ export class CPUType {
     allowApiCrud: true,
     defaultOrderBy: {
         createDate: "desc"
-    }
-
-}, (options, remult) => {
-    options.saving = async (self) => {
+    },
+    saving: async (self) => {
         self.updateDate = new Date();
         await recordChanges(self);
+        dataWasChanged();
     }
+
 })
 export class Computer extends IdEntity {
 
@@ -89,7 +90,9 @@ export class Computer extends IdEntity {
             }
     )
     packageBarcode = '';
-    @Field(() => ComputerStatus, { width: '170' })
+    @Field(() => ComputerStatus, {
+         width: '170'
+         })
     status = ComputerStatus.intake;
 
     @Field<Computer>(() => Employee, {

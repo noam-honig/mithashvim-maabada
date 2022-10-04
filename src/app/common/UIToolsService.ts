@@ -58,7 +58,7 @@ export class UIToolsService implements UITools {
                 });
             }
             if (fieldMetadata.options.width)
-                if (!options.width)
+                if (options.width===undefined)
                     options.width = fieldMetadata.options.width;
         };
     }
