@@ -4,6 +4,7 @@ import { Computer } from '../computers/computer';
 import { Observable, Subscription, interval } from 'rxjs';
 import { GridSettings } from '../common-ui-elements/interfaces';
 import { BusyService } from '../common-ui-elements';
+import { saveToExcel } from '../common-ui-elements/interfaces/src/saveGridToExcel';
 
 
 @Component({
@@ -18,10 +19,13 @@ export class AutoRefreshListComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.updateSubscription.unsubscribe();
   }
-  grid = new GridSettings(this.remult.repo(Computer), {
+  grid: GridSettings<Computer> = new GridSettings(this.remult.repo(Computer), {
     orderBy: { updateDate: "desc", createDate: "desc" },
-    numOfColumnsInGrid: 100,
-    knowTotalRows: true
+    columnOrderStateKey: 'auto-refresh',
+    gridButtons: [{
+      name: "Excel",
+      click: () => saveToExcel(this.grid, "auto-refresh", this.busy)
+    }],
   });
   ngOnInit(): void {
     this.updateSubscription = interval(1000).subscribe(
