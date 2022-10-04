@@ -23,5 +23,6 @@ declare module 'remult' {
   export interface FieldOptions<entityType, valueType> {
     clickWithUI?: (ui: UITools, entity: entityType, fieldRef: FieldRef<valueType>) => void;
     customInput?: (inputOptions: customInputOptions) => void;
+    width?: string;
   }
 }

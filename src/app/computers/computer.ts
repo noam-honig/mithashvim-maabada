@@ -1,7 +1,6 @@
-
 import { Entity, Field, Fields, IdEntity, Validators, ValueListFieldType } from "remult";
 import { recordChanges } from "../change-log/change-log";
-import { DataControl } from "../common-ui-elements/interfaces";
+import '../common/UITools';
 import { Employee } from "../employees/employee";
 
 
@@ -90,8 +89,7 @@ export class Computer extends IdEntity {
             }
     )
     packageBarcode = '';
-    @Field(() => ComputerStatus)
-    @DataControl({ width: '170' })
+    @Field(() => ComputerStatus, { width: '170' })
     status = ComputerStatus.intake;
 
     @Field<Computer>(() => Employee, {
@@ -99,23 +97,20 @@ export class Computer extends IdEntity {
             if (!c.employee && c.status.updateEmployee)
                 throw Validators.required.defaultMessage
         },
-        allowNull: true
+        allowNull: true,
+        width: '170'
     })
-    @DataControl({ width: '170' })
     employee: Employee | null = null;
     @Field<Computer>(() => CPUType, {
         validate: c => {
             if (!c.cpu && c.status.inputCpu)
                 throw Validators.required.defaultMessage
-        }
+        }, width: '70'
     })
-    @DataControl({ width: '70' })
     cpu!: CPUType;
-    @Fields.string({ caption: 'מקור תרומה' })
-    @DataControl({ width: '170' })
+    @Fields.string({ caption: 'מקור תרומה', width: '170' })
     origin = '';
-    @Fields.string({ caption: 'משנע' })
-    @DataControl({ width: '170' })
+    @Fields.string({ caption: 'משנע', width: '170' })
     courier = '';
     @Fields.string<Computer>({
         caption: 'שם המוטב',
@@ -123,15 +118,19 @@ export class Computer extends IdEntity {
             if (c.status.inputRecipient) {
                 Validators.required(c, c.$.recipient);
             }
-        }
+        },
+        width: '170'
     })
-    @DataControl({ width: '170' })
     recipient = '';
-    @Fields.date({ caption: 'תאריך קליטה', allowApiUpdate: false })
-    @DataControl({ width: '300' })
+    @Fields.date({
+        caption: 'תאריך קליטה', allowApiUpdate: false,
+        width: '300'
+    })
     createDate = new Date();
-    @Fields.date({ caption: 'עדכון אחרון', allowApiUpdate: false })
-    @DataControl({ width: '300' })
+    @Fields.date({
+        caption: 'עדכון אחרון', allowApiUpdate: false,
+        width: '300'
+    })
     updateDate = new Date();
 
 }
