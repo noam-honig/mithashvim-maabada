@@ -1,10 +1,11 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { DataAreaSettings } from '@remult/angular/interfaces';
-import { Fields, getValueList, Remult } from 'remult';
-import { DialogService } from '../common/dialog';
+import { getValueList, Remult } from 'remult';
+import { BusyService } from '../common-ui-elements';
+import { DataAreaSettings } from '../common-ui-elements/interfaces';
+import { UIToolsService } from '../common/UIToolsService';
 import {Computer, ComputerStatus, CPUType, NewComputersDate, StatusDate} from '../computers/computer';
 import { getConfig } from '../config/config.component';
-import {BusyService} from "@remult/angular";
+
 
 @Component({
   selector: 'app-home',
@@ -22,7 +23,7 @@ export class HomeComponent implements OnInit {
   displayedColumns: string[] = ['origin', 'quantity'];
 
   @ViewChild('myField') x!: ElementRef;
-  constructor(private remult: Remult, private ui: DialogService,private busyService:BusyService) { }
+  constructor(private remult: Remult, private ui: UIToolsService,private busyService:BusyService) { }
 
   async ngOnInit() {
     this.init();

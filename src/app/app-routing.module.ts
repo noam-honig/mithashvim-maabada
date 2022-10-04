@@ -1,4 +1,4 @@
-import { RemultModule } from '@remult/angular';
+import { CommonUIElementsModule } from 'common-ui-elements';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
@@ -6,9 +6,7 @@ import { HomeComponent } from './home/home.component';
 
 import { UsersComponent } from './users/users.component';
 import { AdminGuard } from "./users/AdminGuard";
-import { ShowDialogOnErrorErrorHandler } from './common/dialog';
-import { JwtModule } from '@auth0/angular-jwt';
-import { AuthService } from './auth.service';
+import { ShowDialogOnErrorErrorHandler } from './common/UIToolsService';
 import { terms } from './terms';
 import { EmployeesComponent } from './employees/employees.component';
 import { ComputersComponent } from './computers/computers.component';
@@ -29,10 +27,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes),
-    RemultModule,
-  JwtModule.forRoot({
-    config: { tokenGetter: () => AuthService.fromStorage() }
-  })],
+    CommonUIElementsModule],
   providers: [AdminGuard, { provide: ErrorHandler, useClass: ShowDialogOnErrorErrorHandler }],
   exports: [RouterModule]
 })

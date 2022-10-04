@@ -1,4 +1,3 @@
-
 import { Entity, EntityBase, EntityMetadata, EntityRef, FieldRef, Fields, FieldsRef, FieldType, getEntityRef, IdEntity, isBackend, Remult } from "remult";
 
 @Entity<ChangeLog>("changeLog", {
@@ -82,8 +81,8 @@ export async function recordChanges<entityType extends EntityBase>(remult: Remul
                 entity: self._.metadata.key,
                 relatedId: self._.getId().toString(),
                 relatedName: self.$.find("name")?.value,
-                userId: remult.user.id,
-                userName: remult.user.name,
+                userId: remult.user?.id || '',
+                userName: remult.user?.name || '',
 
             })
         }

@@ -1,9 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { GridSettings } from '@remult/angular/interfaces';
 import { Remult } from 'remult';
 import { Computer } from '../computers/computer';
 import { Observable, Subscription, interval } from 'rxjs';
-import { BusyService } from '@remult/angular';
+import { GridSettings } from '../common-ui-elements/interfaces';
+import { BusyService } from '../common-ui-elements';
 
 
 @Component({

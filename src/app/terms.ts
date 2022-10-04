@@ -20,7 +20,12 @@ export const terms = {
     home: 'בית',
     userAccounts: 'משתמשים',
     invalidSignIn: "פרטי כניסה לא תקינים",
-    signOut: 'התנתק'
+    signOut: 'התנתק',
+    resetPassword: 'Reset Password',
+    passwordDeletedSuccessful: "Password Deleted",
+    passwordDeleteConfirmOf: "Are you sure you want to delete the password of",
+    rememberOnThisDevice: "Remember on this device?",
+    RTL: true
 }
 
 Validators.required.defaultMessage = 'ערך חסר';

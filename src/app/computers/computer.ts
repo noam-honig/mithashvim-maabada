@@ -1,9 +1,7 @@
-import { DataControl } from "@remult/angular/interfaces";
 import { BackendMethod, Entity, Field, Fields, IdEntity, Remult, Validators, ValueListFieldType } from "remult";
 import { ChangeLog, recordChanges } from "../change-log/change-log";
+import { DataControl } from "../common-ui-elements/interfaces";
 import { Employee } from "../employees/employee";
-import { ComputersComponent } from "./computers.component";
-
 
 @ValueListFieldType({ caption: 'סטטוס' })
 export class ComputerStatus {
@@ -42,7 +40,7 @@ export class ComputerStatus {
     inputPackageBarcode = false;
     inputRecipient = false;
 }
-@ValueListFieldType<any, CPUType>({ caption: 'מעבד', displayValue: (_, x) => x?.caption! })
+@ValueListFieldType<CPUType>({ caption: 'מעבד', displayValue: (_, x) => x?.caption! })
 export class CPUType {
     static i3 = new CPUType();
     static i5 = new CPUType();
