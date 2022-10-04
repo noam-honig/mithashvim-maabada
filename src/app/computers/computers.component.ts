@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Remult } from 'remult';
+import { remult } from 'remult';
 import { ChangeLogComponent } from '../change-log/change-log.component';
 import { openDialog } from '../common-ui-elements';
 import { GridSettings } from '../common-ui-elements/interfaces';
@@ -12,10 +12,10 @@ import { Computer } from './computer';
 })
 export class ComputersComponent implements OnInit {
 
-  constructor(private remult: Remult) {
+  constructor() {
 
   }
-  grid = new GridSettings(this.remult.repo(Computer), {
+  grid = new GridSettings(remult.repo(Computer), {
     numOfColumnsInGrid: 100,
     knowTotalRows: true,
     allowCrud: true, rowButtons: [{
