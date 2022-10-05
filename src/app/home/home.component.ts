@@ -3,8 +3,9 @@ import { getValueList, remult } from 'remult';
 import { BusyService } from '../common-ui-elements';
 import { DataAreaSettings } from '../common-ui-elements/interfaces';
 import { UIToolsService } from '../common/UIToolsService';
-import {Computer, ComputerStatus, CPUType, NewComputersDate, StatusDate} from '../computers/computer';
+import { Computer, ComputerStatus, CPUType, NewComputersDate, StatusDate } from '../computers/computer';
 import { getConfig } from '../config/config.component';
+import { Roles } from '../users/roles';
 
 
 @Component({
@@ -23,21 +24,24 @@ export class HomeComponent implements OnInit {
   displayedColumns: string[] = ['origin', 'quantity'];
 
   @ViewChild('myField') x!: ElementRef;
-  constructor(private ui: UIToolsService,private busyService:BusyService) { }
+  constructor(private ui: UIToolsService, private busyService: BusyService) { }
 
   async ngOnInit() {
     this.init();
   }
+  allowedForManager() {
+    return !remult.isAllowed(Roles.anyManager) || this.input.status.allowed();
+  }
 
   private async loadNewComputers() {
     if (this.isStatusEqualsToIntake())
-      await this.busyService.donotWait(async ()=>{
-        this.newComputers = await Computer.getNewComputers(ComputerStatus.intakeTrash===this.input.status)
+      await this.busyService.donotWait(async () => {
+        this.newComputers = await Computer.getNewComputers(ComputerStatus.intakeTrash === this.input.status)
       });
   }
   private async loadStatusDates() {
     if (this.isStatusEqualsToSuccessfulUpgrade())
-      await this.busyService.donotWait(async ()=>{
+      await this.busyService.donotWait(async () => {
         this.newStatusDates = await Computer.getStatusChanges()
       });
   }
@@ -98,17 +102,18 @@ export class HomeComponent implements OnInit {
     this.loadNewComputers();
     this.loadStatusDates();
     setTimeout(() => {
-      this.x.nativeElement.getElementsByTagName('input')[0].focus()
+      if (this.allowedForManager())
+        this.x.nativeElement.getElementsByTagName('input')[0].focus()
     }, 0);
   }
 
   isStatusEqualsToIntake() {
-    return ComputerStatus.intake===this.input.status||this.input
-      .status===ComputerStatus.intakeTrash;
+    return ComputerStatus.intake === this.input.status || this.input
+      .status === ComputerStatus.intakeTrash;
   }
 
   isStatusEqualsToSuccessfulUpgrade() {
-    return ComputerStatus.successfulUpgrade===this.input.status;
+    return ComputerStatus.successfulUpgrade === this.input.status;
   }
 
 }

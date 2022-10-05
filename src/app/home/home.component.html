@@ -1,4 +1,11 @@
-<app-card-in-middle>
+<app-card-in-middle *ngIf="!allowedForManager()"><h3>
+ <div>  חסרה הרשאה למסופון {{input.status.caption}},
+</div>
+  <div>
+    להחלפת מסופון לחץ על "הגדרות מסופון"
+  </div>
+</h3></app-card-in-middle>
+<app-card-in-middle *ngIf="allowedForManager()">
 <div style="display:flex">
       <div
         style="display:flex;flex-direction:column;gap:8px"

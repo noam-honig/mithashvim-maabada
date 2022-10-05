@@ -9,6 +9,8 @@ import { DataRefreshController } from './data-refresh.controller';
 export class DataRefreshService {
   private lastUpdate = '';
   constructor(busy: BusyService) {
+    // consider using rxjs shared when we switch to server side events
+    // https://rxjs.dev/api/operators/share
     interval(1000).subscribe(async () => {
       if (this.dataChanged$.observed) {
         const z = await busy.donotWait(() => DataRefreshController.lastUpdate());

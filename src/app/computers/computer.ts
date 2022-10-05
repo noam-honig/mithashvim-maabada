@@ -1,4 +1,4 @@
-import { Allow, Entity, Field, Fields, IdEntity, remult, Validators, ValueListFieldType, BackendMethod } from "remult";
+import { Allow, Entity, Field, Fields, IdEntity, remult, Validators, ValueListFieldType, BackendMethod, Remult } from "remult";
 import { recordChanges, ChangeLog } from "../change-log/change-log";
 import '../common/UITools';
 import { dataWasChanged } from "../data-refresh/data-refresh.controller";
@@ -32,8 +32,8 @@ export class ComputerStatus {
     constructor(public caption: string, public allowedRoles: string[], values?: Partial<ComputerStatus>) {
         Object.assign(this, values);
     }
-    allowed() {
-        return remult.isAllowed(this.allowedRoles);
+    allowed(remultForStatusCheck?: Remult) {
+        return (remultForStatusCheck || remult).isAllowed(this.allowedRoles);
     }
 
     id!: string;

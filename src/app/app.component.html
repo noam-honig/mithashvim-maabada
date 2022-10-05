@@ -19,6 +19,8 @@
       <mat-menu #menu="matMenu">
         <button mat-menu-item (click)="updateInfo()" *ngIf="isAnyManager()">{{terms.updateInfo}}</button>
         <button mat-menu-item (click)="changePassword()" *ngIf="isAnyManager()">{{terms.changePassword}}</button>
+        <button mat-menu-item (click)="signIn()" *ngIf="!isAnyManager()">כניסת מנהל</button>
+        <button mat-menu-item (click)="switchToTerminal()" *ngIf="isAnyManager()">התנתק ועבור למצב מסופון</button>
         <button mat-menu-item (click)="signOut()">{{terms.signOut}}</button>
       </mat-menu>
     </ng-container>

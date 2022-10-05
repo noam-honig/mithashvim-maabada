@@ -9,10 +9,12 @@ import { DataAreaDialogComponent } from './common/data-area-dialog/data-area-dia
 import { terms } from './terms';
 import { SignInController } from './users/SignInController';
 import { UpdatePasswordController } from './users/UpdatePasswordController';
-import { remult } from 'remult';
+import { getValueList, Remult, remult } from 'remult';
 import { getConfig } from './config/config.component';
 import { Roles } from './users/roles';
 import { HomeComponent } from './home/home.component';
+import { async } from '@angular/core/testing';
+import { ComputerStatus } from './computers/computer';
 
 @Component({
   selector: 'app-root',
@@ -44,35 +46,56 @@ export class AppComponent implements OnInit {
   isAnyManager() {
     return remult.isAllowed(Roles.anyManager);
   }
-
+  async switchToTerminal() {
+    await SignInController.switchToTerminalMode(getConfig().status);
+    window.location.reload();
+  }
   async configTerminal() {
     let input = getConfig();
     const signIn = new SignInController(remult);
+    const actualConfig = async (remultForStatusCheck?: Remult, setSessionToTerminal?: boolean) => {
+      await openDialog(DataAreaDialogComponent, i => i.args = {
+        title: "הגדרת מסופון",
+        fields: [
+          { field: input.$.status, width: "", valueList: () => getValueList(ComputerStatus).filter(x => x.allowed(remultForStatusCheck)) },
+          { field: input.$.employee, visible: () => input.status.updateEmployee }
+        ],
+        ok: async () => {
+          if (input.status.updateEmployee && !input.employee) {
+            throw "חובה לבחור עובד";
+          }
+          else {
+            if (setSessionToTerminal)
+              remult.user = await signIn.configTerminal(input.status);
+            localStorage.setItem('config', JSON.stringify({
+              status: input.$.status.inputValue,
+              employee: input.$.employee.inputValue
+            }));
+            this.nav.navigateToComponent(HomeComponent);
+            window.location.reload();
+          }
+        }
+      });
+    };
+    if (this.isAnyManager())
+      actualConfig();
+    else
 
-    openDialog(DataAreaDialogComponent, i => i.args = {
-      title: "הגדרת מסופון",
-      fields: [
-        { field: signIn.$.user, visible: () => !this.isAnyManager() },
-        { field: signIn.$.password, visible: () => !this.isAnyManager() },
-        { field: input.$.status, width: "" },
-        { field: input.$.employee, visible: () => input.status.updateEmployee }
-      ],
-      ok: async () => {
-        if (input.status.updateEmployee && !input.employee) {
-          throw "חובה לבחור עובד";
+      await openDialog(DataAreaDialogComponent, i => i.args = {
+        title: "כניסה להגדרת מסופון",
+        fields: [
+          { field: signIn.$.user },
+          { field: signIn.$.password }
+        ],
+        ok: async () => {
+          const manager = await signIn.validateUserButDoNotSignIn();
+          //a temporary remult to check the allowed statuses for this manager
+          const remultForStatusCheck = new Remult();
+          remultForStatusCheck.user = manager;
+          await actualConfig(remultForStatusCheck, true);
         }
-        else {
-          if (!this.isAnyManager())
-            remult.user = await signIn.configTerminal(input.status);
-          localStorage.setItem('config', JSON.stringify({
-            status: input.$.status.inputValue,
-            employee: input.$.employee.inputValue
-          }));
-          this.nav.navigateToComponent(HomeComponent);
-          window.location.reload();
-        }
-      }
-    });
+      })
+
   }
 
   ngOnInit(): void {

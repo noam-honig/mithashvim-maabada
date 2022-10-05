@@ -9,6 +9,7 @@ import { ComputerStatus } from "../computers/computer";
 export class SignInController extends ControllerBase {
 
 
+
     @Fields.string({
         caption: terms.username,
         validate: Validators.required
@@ -35,19 +36,20 @@ export class SignInController extends ControllerBase {
      * 2. When a user that has no password signs in, that password that they've signed in with is set as the users password
      */
     async signIn() {
-        let result: UserInfo | undefined = await this.validateUser();
-        return this.setSessionUser(result); //remember for a year
+        let result: UserInfo | undefined = await this.validateUserButDoNotSignIn();
+        return SignInController.setSessionUser(result,this.rememberOnThisDevice); 
     }
 
-    private setSessionUser(user: UserInfo, remember?: boolean) {
+    private static setSessionUser(user: UserInfo, remember?: boolean) {
         const req = getRequest();
         req.session!['user'] = user;
-        if (this.rememberOnThisDevice || remember)
-            req.sessionOptions.maxAge = 365 * 24 * 60 * 60 * 1000;
+        if ( remember)
+            req.sessionOptions.maxAge = 365 * 24 * 60 * 60 * 1000; //remember for a year
         return user;
     }
 
-    private async validateUser() {
+    @BackendMethod({ allowed: true })
+    async validateUserButDoNotSignIn() {
         let result: UserInfo | undefined;
         const userRepo = remult.repo(User);
         let u = await userRepo.findFirst({ name: this.user });
@@ -84,7 +86,7 @@ export class SignInController extends ControllerBase {
                         Roles.updateComputers,
                         Roles.manageEmployees);
                 if (u.admin || u.packAdmin)
-                    roles.push()
+                    roles.push(Roles.packAdmin)
             }
         }
         if (!result)
@@ -94,17 +96,19 @@ export class SignInController extends ControllerBase {
     @BackendMethod({ allowed: true })
     async configTerminal(status: ComputerStatus): Promise<UserInfo> {
 
-        let result = await this.validateUser();
+        let result = await this.validateUserButDoNotSignIn();
         remult.user = result;
         if (!remult.isAllowed(Roles.anyManager))
             throw "אינך מורשה להגדיר טרמינל";
-        if (!status.allowed())
-            throw "אינך רשאי להגדיר סטטוס זה";
-        return this.setSessionUser({
+        return SignInController.switchToTerminalMode(status);
+
+    }
+    @BackendMethod({ allowed: Roles.anyManager })
+    static async switchToTerminalMode(status: ComputerStatus) {
+        return SignInController.setSessionUser({
             id: "!terminal:" + status.caption,
             name: "מסופון"
         }, true);
-
     }
     @BackendMethod({ allowed: Allow.authenticated })
     static signOut() {
