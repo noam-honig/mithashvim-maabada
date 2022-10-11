@@ -1,5 +1,4 @@
-
-import { Entity, EntityBase, EntityMetadata, EntityRef, FieldRef, Fields, FieldsRef, FieldType, getEntityRef, IdEntity, isBackend, Remult } from "remult";
+import { Entity, EntityBase, FieldRef, Fields, FieldsRef, getEntityRef, IdEntity, isBackend, remult } from "remult";
 
 @Entity<ChangeLog>("changeLog", {
     allowApiRead: true,
@@ -45,10 +44,10 @@ export interface change {
 }
 
 
-export async function recordChanges<entityType extends EntityBase>(remult: Remult, self: entityType, options?: ColumnDeciderArgs<entityType>) {
+export async function recordChanges<entityType extends EntityBase>(self: entityType, options?: ColumnDeciderArgs<entityType>) {
     if (!self.isNew() && isBackend()) {
         let changes = [] as change[];
-        const decider = new FieldDecider(remult, self, options);
+        const decider = new FieldDecider(self, options);
 
         for (const c of decider.fields.filter(c => c.valueChanged())) {
             try {
@@ -82,8 +81,8 @@ export async function recordChanges<entityType extends EntityBase>(remult: Remul
                 entity: self._.metadata.key,
                 relatedId: self._.getId().toString(),
                 relatedName: self.$.find("name")?.value,
-                userId: remult.user.id,
-                userName: remult.user.name,
+                userId: remult.user?.id || '',
+                userName: remult.user?.name || '',
 
             })
         }
@@ -98,7 +97,7 @@ export class FieldDecider<entityType>{
     fields: FieldRef<entityType>[];
     excludedFields: FieldRef<entityType>[];
     excludedValues: FieldRef<entityType>[];
-    constructor(remult: Remult, entity: entityType, options?: ColumnDeciderArgs<entityType>) {
+    constructor(entity: entityType, options?: ColumnDeciderArgs<entityType>) {
         const meta = getEntityRef(entity);
         if (!options?.excludeColumns)
             this.excludedFields = [];

@@ -1,10 +1,7 @@
-import { DataControl } from "@remult/angular/interfaces";
-import {BackendMethod, Entity, Field, Fields, IdEntity, Remult, Validators, ValueListFieldType} from "remult";
-import { Employee } from "../employees/employee";
-import { ComputersComponent } from "./computers.component";
+import { BackendMethod, Entity, Field, Fields, IdEntity, remult, Remult, Validators, ValueListFieldType } from "remult";
 import { ChangeLog, recordChanges } from "../change-log/change-log";
-
-
+import { DataControl } from "../common-ui-elements/interfaces";
+import { Employee } from "../employees/employee";
 
 @ValueListFieldType({ caption: 'סטטוס' })
 export class ComputerStatus {
@@ -28,6 +25,7 @@ export class ComputerStatus {
         inputPackageBarcode: true,
         inputRecipient: true
     });
+  id!: string;
 
 
     constructor(public caption: string, values?: Partial<ComputerStatus>) {
@@ -40,7 +38,7 @@ export class ComputerStatus {
     inputPackageBarcode = false;
     inputRecipient = false;
 }
-@ValueListFieldType<any, CPUType>({ caption: 'מעבד', displayValue: (_, x) => x?.caption! })
+@ValueListFieldType<CPUType>({ caption: 'מעבד', displayValue: (_, x) => x?.caption! })
 export class CPUType {
     static i3 = new CPUType();
     static i5 = new CPUType();
@@ -61,7 +59,7 @@ export class CPUType {
 }, (options, remult) => {
     options.saving = async (self) => {
         self.updateDate = new Date();
-        await recordChanges(remult, self);
+        await recordChanges(self);
     }
 })
 export class Computer extends IdEntity {
@@ -136,8 +134,8 @@ export class Computer extends IdEntity {
     updateDate = new Date();
 
     @BackendMethod({allowed:true})
-   static async getNewComputers(remult?:Remult): Promise<NewComputersDate[]>{
-      const compRepo = remult!.repo(Computer);
+   static async getNewComputers(): Promise<NewComputersDate[]>{
+      const compRepo = remult.repo(Computer);
       const arr: NewComputersDate[] =  [];
       let lastDate:NewComputersDate|undefined;
 
@@ -163,13 +161,13 @@ export class Computer extends IdEntity {
     }
 
     @BackendMethod({ allowed: true })
-    static async getStatusChanges(remult?: Remult): Promise<StatusDate[]> {
+    static async getStatusChanges(): Promise<StatusDate[]> {
         let d = new Date();
-        const compRepo = remult!.repo(Computer);
+        const compRepo = remult.repo(Computer);
         const arr: StatusDate[] = [];
         let lastDate: StatusDate | undefined;
         d.setDate((d.getDate() - 7));
-        for await (let change of remult!.repo(ChangeLog).query({
+        for await (let change of remult.repo(ChangeLog).query({
             where: {
                 changeDate: { ">=": d }
             }

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { RouteHelperService } from '@remult/angular';
-import { DataAreaSettings } from '@remult/angular/interfaces';
-import { ControllerBase, Remult } from 'remult';
-import { DialogService } from '../common/dialog';
+import { remult } from 'remult';
+import { RouteHelperService } from '../common-ui-elements';
+import { DataAreaSettings } from '../common-ui-elements/interfaces';
+import { UIToolsService } from '../common/UIToolsService';
 import { Computer } from '../computers/computer';
 import { HomeComponent } from '../home/home.component';
 
@@ -13,8 +13,8 @@ import { HomeComponent } from '../home/home.component';
 })
 export class ConfigComponent implements OnInit {
 
-  constructor(private remult: Remult, private routeHelper: RouteHelperService, private dialog: DialogService) { }
-  input = getConfig(this.remult);
+  constructor(private routeHelper: RouteHelperService, private dialog: UIToolsService) { }
+  input = getConfig();
   area = new DataAreaSettings({
     fields: () => [
       { field: this.input.$.status },
@@ -39,7 +39,7 @@ export class ConfigComponent implements OnInit {
 }
 
 
-export function getConfig(remult: Remult) {
+export function getConfig() {
   let r = remult.repo(Computer).create();
   let stored = localStorage.getItem("config");
   if (stored) {

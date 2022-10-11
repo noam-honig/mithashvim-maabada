@@ -1,15 +1,15 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router, Route, ActivatedRoute } from '@angular/router';
 import { MatSidenav } from '@angular/material/sidenav';
-import { Remult } from 'remult';
-import { DialogService } from './common/dialog';
-import { openDialog, RouteHelperService } from '@remult/angular';
+
+import { UIToolsService } from './common/UIToolsService';
+import { openDialog, RouteHelperService } from 'common-ui-elements';
 import { User } from './users/user';
-import { PasswordControl } from "./users/PasswordControl";
-import { InputAreaComponent } from './common/input-area/input-area.component';
-import { AuthService } from './auth.service';
+import { DataAreaDialogComponent } from './common/data-area-dialog/data-area-dialog.component';
 import { terms } from './terms';
-import { InputField } from '@remult/angular/interfaces';
+import { SignInController } from './users/SignInController';
+import { UpdatePasswordController } from './users/UpdatePasswordController';
+import { remult } from 'remult';
 
 @Component({
   selector: 'app-root',
@@ -17,31 +17,22 @@ import { InputField } from '@remult/angular/interfaces';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-
-
   constructor(
     public router: Router,
     public activeRoute: ActivatedRoute,
     private routeHelper: RouteHelperService,
-    public dialogService: DialogService,
-    public remult: Remult,
-    public auth: AuthService) {
-
-
+    public uiService: UIToolsService) {
   }
   terms = terms;
+  remult = remult;
 
   async signIn() {
-    let user = new InputField<string>({ caption: terms.username });
-    let password = new PasswordControl();
-    openDialog(InputAreaComponent, i => i.args = {
+    const signIn = new SignInController(remult);
+    openDialog(DataAreaDialogComponent, i => i.args = {
       title: terms.signIn,
-      fields: () => [
-        user,
-        password
-      ],
+      object: signIn,
       ok: async () => {
-        await this.auth.signIn(user.value, password.value);
+        remult.user = await signIn.signIn();
       }
     });
   }
@@ -51,35 +42,14 @@ export class AppComponent implements OnInit {
   }
 
   signOut() {
-    this.auth.signOut();
+    SignInController.signOut();
+    remult.user = undefined;
     this.router.navigate(['/']);
-  }
-  signUp() {
-    let user = this.remult.repo(User).create();
-    let password = new PasswordControl();
-    let confirmPassword = new PasswordControl(terms.confirmPassword);
-    openDialog(InputAreaComponent, i => i.args = {
-      title: terms.signUp,
-      fields: () => [
-        user.$.name,
-        password,
-        confirmPassword
-      ],
-      ok: async () => {
-        if (password.value != confirmPassword.value) {
-          confirmPassword.error = terms.doesNotMatchPassword;
-          throw new Error(confirmPassword.metadata.caption + " " + confirmPassword.error);
-        }
-        await user.create(password.value);
-        this.auth.signIn(user.name, password.value);
-
-      }
-    });
   }
 
   async updateInfo() {
-    let user = await this.remult.repo(User).findId(this.remult.user.id);
-    openDialog(InputAreaComponent, i => i.args = {
+    let user = await remult.repo(User).findId(remult.user!.id);
+    openDialog(DataAreaDialogComponent, i => i.args = {
       title: terms.updateInfo,
       fields: () => [
         user.$.name
@@ -90,22 +60,12 @@ export class AppComponent implements OnInit {
     });
   }
   async changePassword() {
-    let user = await this.remult.repo(User).findId(this.remult.user.id);
-    let password = new PasswordControl();
-    let confirmPassword = new PasswordControl(terms.confirmPassword);
-    openDialog(InputAreaComponent, i => i.args = {
-      title: terms.changePassword,
-      fields: () => [
-        password,
-        confirmPassword
-      ],
+    const updatePassword = new UpdatePasswordController(remult);
+    openDialog(DataAreaDialogComponent, i => i.args = {
+      title: terms.signIn,
+      object: updatePassword,
       ok: async () => {
-        if (password.value != confirmPassword.value) {
-          confirmPassword.error = terms.doesNotMatchPassword;
-          throw new Error(confirmPassword.metadata.caption + " " + confirmPassword.error);
-        }
-        await user.updatePassword(password.value);
-        await user._.save();
+        await updatePassword.updatePassword();
       }
     });
 
@@ -138,10 +98,7 @@ export class AppComponent implements OnInit {
   //@ts-ignore ignoring this to match angular 7 and 8
   @ViewChild('sidenav') sidenav: MatSidenav;
   routeClicked() {
-    if (this.dialogService.isScreenSmall())
+    if (this.uiService.isScreenSmall())
       this.sidenav.close();
-
   }
-
-
 }

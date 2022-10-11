@@ -1,10 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from './user';
-import { BackendMethod, Remult } from 'remult';
 
-import { DialogService } from '../common/dialog';
+import { UIToolsService } from '../common/UIToolsService';
 import { Roles } from './roles';
-import { GridSettings } from '@remult/angular/interfaces';
+
+import { terms } from '../terms';
+import { GridSettings } from 'common-ui-elements/interfaces';
+import { remult } from 'remult';
+import { saveToExcel } from '../common-ui-elements/interfaces/src/saveGridToExcel';
+import { BusyService } from '../common-ui-elements';
+
 
 
 @Component({
@@ -13,17 +18,17 @@ import { GridSettings } from '@remult/angular/interfaces';
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit {
-  constructor(private dialog: DialogService, public remult: Remult) {
+  constructor(private ui: UIToolsService, private busyService: BusyService) {
   }
   isAdmin() {
-    return this.remult.isAllowed(Roles.admin);
+    return remult.isAllowed(Roles.admin);
   }
 
-  users = new GridSettings(this.remult.repo(User), {
+  users: GridSettings<User> = new GridSettings<User>(remult.repo(User), {
     allowDelete: true,
     allowInsert: true,
     allowUpdate: true,
-    numOfColumnsInGrid: 2,
+    columnOrderStateKey: "users",
 
     orderBy: { name: "asc" },
     rowsInPage: 100,
@@ -31,34 +36,26 @@ export class UsersComponent implements OnInit {
     columnSettings: users => [
       users.name,
       users.admin
-
-
     ],
+    gridButtons: [{
+      name: "Excel",
+      click: () => saveToExcel(this.users, "users", this.busyService)
+    }],
     rowButtons: [{
-      name: 'Reset Password',
+      name: terms.resetPassword,
       click: async () => {
 
-        if (await this.dialog.yesNoQuestion("Are you sure you want to delete the password of " + this.users.currentRow.name)) {
-          await UsersComponent.resetPassword(this.users.currentRow.id);
-          this.dialog.info("Password deleted");
+        if (await this.ui.yesNoQuestion(terms.passwordDeleteConfirmOf + " " + this.users.currentRow.name)) {
+          await this.users.currentRow.resetPassword();
+          this.ui.info(terms.passwordDeletedSuccessful);
         };
       }
     }
     ],
     confirmDelete: async (h) => {
-      return await this.dialog.confirmDelete(h.name)
+      return await this.ui.confirmDelete(h.name)
     },
   });
-  @BackendMethod({ allowed: Roles.admin })
-  static async resetPassword(userId: string, remult?: Remult) {
-    let u = await remult!.repo(User).findId(userId);
-    if (u) {
-      u.password = '';
-      await u._.save();
-    }
-  }
-
-
 
   ngOnInit() {
   }
