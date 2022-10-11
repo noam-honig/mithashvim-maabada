@@ -13,7 +13,7 @@ export class ComputerStatus {
     static assigned = new ComputerStatus('שוייך לעובד', [Roles.upgradeAdmin], { updateEmployee: true, inputCpu: true });
     static trash = new ComputerStatus("ממתין לגריטה", [Roles.upgradeAdmin]);
     static successfulUpgrade = new ComputerStatus("שודרג בהצלחה", [Roles.upgradeAdmin])
-    static waitForPack = new ComputerStatus("ממתין לאריזה", [Roles.packAdmin]);
+    static waitForPack = new ComputerStatus("ממתין לאריזה", [Roles.stockAdmin]);
     static packing = new ComputerStatus("תהליך אריזה", [Roles.packAdmin], {
         updatePackageBarcode: true
     });

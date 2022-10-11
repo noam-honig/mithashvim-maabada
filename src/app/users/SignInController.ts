@@ -37,13 +37,13 @@ export class SignInController extends ControllerBase {
      */
     async signIn() {
         let result: UserInfo | undefined = await this.validateUserButDoNotSignIn();
-        return SignInController.setSessionUser(result,this.rememberOnThisDevice); 
+        return SignInController.setSessionUser(result, this.rememberOnThisDevice);
     }
 
     private static setSessionUser(user: UserInfo, remember?: boolean) {
         const req = getRequest();
         req.session!['user'] = user;
-        if ( remember)
+        if (remember)
             req.sessionOptions.maxAge = 365 * 24 * 60 * 60 * 1000; //remember for a year
         return user;
     }
@@ -75,7 +75,7 @@ export class SignInController extends ControllerBase {
                     name: u.name
                 };
                 if (u.admin)
-                    roles.push(Roles.admin);
+                    roles.push(Roles.admin, Roles.updateComputers);
 
                 if (u.admin || u.stockAdmin)
                     roles.push(Roles.stockAdmin,
@@ -83,7 +83,6 @@ export class SignInController extends ControllerBase {
                 if (u.admin || u.upgradeAdmin)
                     roles.push(Roles.upgradeAdmin,
                         Roles.viewComputers,
-                        Roles.updateComputers,
                         Roles.manageEmployees);
                 if (u.admin || u.packAdmin)
                     roles.push(Roles.packAdmin)
