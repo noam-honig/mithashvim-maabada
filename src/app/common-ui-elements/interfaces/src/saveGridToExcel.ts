@@ -86,7 +86,7 @@ export async function saveToExcel<E = any, T extends GridSettings<E> = GridSetti
 
               if (c.metadata.valueType == Date) {
                 if (c.metadata.valueConverter !== <any>ValueConverters.DateOnly) {
-                  addColumn(c.metadata.caption, c.displayValue, "s", true);
+                  addColumn(c.metadata.caption, c.displayValue, "s", false);
                 }
                 else
                   addColumn(c.metadata.caption, c.value ? ValueConverters.DateOnly.toJson!(c.value) : undefined, "d", false);
