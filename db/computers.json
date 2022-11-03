@@ -13,14 +13,15 @@
   {
     "id": "a928363e-d866-4242-bc6f-3cc9169e0041",
     "barcode": "1234",
-    "status": "assigned",
+    "status": "intake",
     "employee": "9e32ac04-f834-416c-83f1-e92af954d84c",
     "cpu": "i5",
     "createDate": "2022-04-28T14:35:18.206Z",
     "origin": "",
     "courier": "",
     "packageBarcode": "",
-    "recipient": ""
+    "recipient": "",
+    "updateDate": "2022-11-02T16:03:52.999Z"
   },
   {
     "id": "9a6315ac-96d6-40d6-a470-a12c49a10a75",
@@ -33,31 +34,31 @@
     "cpu": "i5",
     "packageBarcode": "61",
     "recipient": "",
-    "updateDate": "2022-10-03T08:09:30.767Z"
+    "updateDate": "2022-11-03T16:04:05.473Z"
   },
   {
     "id": "e7b6245b-115d-4bfe-a52c-17f085a8e5f2",
     "barcode": "2",
-    "status": "successfulUpgrade",
+    "status": "trash",
     "employee": "9e32ac04-f834-416c-83f1-e92af954d84c",
     "origin": "123",
     "courier": "456",
     "createDate": "2022-05-10T06:32:41.611Z",
     "packageBarcode": "62",
     "recipient": "",
-    "updateDate": "2022-10-03T08:09:36.892Z"
+    "updateDate": "2022-11-03T16:17:12.663Z"
   },
   {
     "id": "57082017-8a20-40cf-b994-ceb4fd57655b",
     "barcode": "3",
-    "status": "successfulUpgrade",
+    "status": "intake",
     "employee": "9e32ac04-f834-416c-83f1-e92af954d84c",
     "origin": "123",
     "courier": "456",
     "createDate": "2022-05-10T06:32:46.312Z",
     "packageBarcode": "63",
     "recipient": "",
-    "updateDate": "2022-10-03T08:09:39.029Z"
+    "updateDate": "2022-11-03T16:03:52.698Z"
   },
   {
     "id": "6285a73b-8d1f-4a68-9d70-3322e24b8d87",

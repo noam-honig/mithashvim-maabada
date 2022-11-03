@@ -11,8 +11,12 @@ export class ComputerStatus {
     static intakeTrash = new ComputerStatus("התקבל וממתין לגריטה", [Roles.stockAdmin], { isIntake: true });
     static waitingForUpgrade = new ComputerStatus("ממתין לשדרוג", [Roles.stockAdmin]);
     static assigned = new ComputerStatus('שוייך לעובד', [Roles.upgradeAdmin], { updateEmployee: true, inputCpu: true });
-    static trash = new ComputerStatus("ממתין לגריטה", [Roles.upgradeAdmin]);
-    static successfulUpgrade = new ComputerStatus("שודרג בהצלחה", [Roles.upgradeAdmin])
+    static trash = new ComputerStatus("ממתין לגריטה", [Roles.upgradeAdmin], {
+        showStatusHistory: true
+    });
+    static successfulUpgrade = new ComputerStatus("שודרג בהצלחה", [Roles.upgradeAdmin], {
+        showStatusHistory: true
+    })
     static waitForPack = new ComputerStatus("ממתין לאריזה", [Roles.stockAdmin]);
     static packing = new ComputerStatus("תהליך אריזה", [Roles.packAdmin], {
         updatePackageBarcode: true
@@ -42,6 +46,7 @@ export class ComputerStatus {
     inputCpu = false;
     isIntake = false;
     updatePackageBarcode = false;
+    showStatusHistory = false;
     inputPackageBarcode = false;
     inputRecipient = false;
 }
@@ -64,7 +69,9 @@ export class CPUType {
     },
     saving: async (self) => {
         self.updateDate = new Date();
-        await recordChanges(self);
+        await recordChanges(self, {
+            excludeColumns: (e) => [e.updateDate]
+        });
         dataWasChanged();
     }
 
@@ -178,7 +185,7 @@ export class Computer extends IdEntity {
     }
 
     @BackendMethod({ allowed: true })
-    static async getStatusChanges(): Promise<StatusDate[]> {
+    static async getStatusChanges(status: ComputerStatus): Promise<StatusDate[]> {
         let d = new Date();
         const compRepo = remult.repo(Computer);
         const arr: StatusDate[] = [];
@@ -189,12 +196,12 @@ export class Computer extends IdEntity {
                 changeDate: { ">=": d }
             }
         })) {
-            if (change.changes.find(c => c.key === "status" && c.newValue === ComputerStatus.successfulUpgrade.id)) {
+            if (change.changes.find(c => c.key === compRepo.metadata.fields.status.key && c.newValue === status.id)) {
                 const comp = await compRepo.findId(change.relatedId);
-                if (!lastDate || lastDate.date.toDateString() != comp.createDate.toDateString()) {
+                if (!lastDate || lastDate.date.toDateString() != change.changeDate.toDateString()) {
                     lastDate = {
-                        date: comp.createDate,
-                        presentDate: comp.createDate.toDateString(),
+                        date: change.changeDate,
+                        presentDate: change.changeDate.toDateString(),
                         computers: []
                     }
                     arr.push(lastDate);

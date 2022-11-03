@@ -40,9 +40,9 @@ export class HomeComponent implements OnInit {
       });
   }
   private async loadStatusDates() {
-    if (this.isStatusEqualsToSuccessfulUpgrade())
+    if (this.input.status.showStatusHistory)
       await this.busyService.donotWait(async () => {
-        this.newStatusDates = await Computer.getStatusChanges()
+        this.newStatusDates = await Computer.getStatusChanges(this.input.status)
       });
   }
 
@@ -112,9 +112,6 @@ export class HomeComponent implements OnInit {
       .status === ComputerStatus.intakeTrash;
   }
 
-  isStatusEqualsToSuccessfulUpgrade() {
-    return ComputerStatus.successfulUpgrade === this.input.status;
-  }
-
+ 
 }
 
