@@ -87,3 +87,10 @@ input {
 
   }
 }
+
+@media (max-width: 720px) {
+  .container {
+    flex-direction: column;
+    gap:10px;
+  }
+}
