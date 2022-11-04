@@ -1,0 +1,32 @@
+<div style="display:flex;gap:8px;padding: 8px;flex-direction: column;" *ngIf="form.id">
+
+  <div style="align-self:center;" class="mat-title">{{form.name}}</div>
+  <div style="align-self:center;margin-top:-24px;" class="mat-title" *ngIf="form.hospitalName">בית חולים /
+    מחוז:  {{form.hospitalName}}</div>
+  <div style="align-self:center;" class="mat-title">שלום {{form.contact}}, נא לאשר את תכולת הציוד שנאספה עבור מיזם
+    מתחשבים:
+  </div>
+
+
+  <div *ngIf="form.driverSign">
+    <strong>פריטים שנאספו בפועל</strong>
+    <mat-card>
+      <ng-container *ngFor="let item of sortedItems">
+        <div *ngIf="item.actualQuantity">
+
+          {{item.actualQuantity}} {{item.name}} {{item.notes ? " - " + item.notes : undefined}}
+        </div>
+      </ng-container>
+    </mat-card>
+  </div>
+  <div *ngIf="!form.driverSign">הנהג טרם חתם</div>
+  <button mat-raised-button color="primary" *ngIf="form.driverSign&&!form.contactSign" (click)="sign()">חתום ואשר
+    איסוף
+  </button>
+  <div *ngIf="form.contactSign" style="display: flex;
+        flex-direction: column;
+        align-items: center;">
+    ✅ הטופס נחתם ע"י {{form.contact}} ב {{form.$.contactSign.displayValue}}
+  </div>
+  <div *ngIf="!form.id">טופס לא נמצא</div>
+</div>

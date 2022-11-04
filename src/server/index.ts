@@ -32,6 +32,8 @@ async function startup() {
     });
     app.use(getRequestMiddleware);
     app.use(api);
+    app.get('/api/pdf/:id.pdf',
+        (req, res) => res.sendFile((process.cwd() + '/tmp/' + req.params['id'] + '.pdf')))
 
     app.use(express.static('dist/angular-starter-project'));
     app.use('/*', async (req, res) => {

@@ -149,7 +149,7 @@ export class Computer extends IdEntity {
     })
     updateDate = new Date();
 
-    @BackendMethod({ allowed: true })
+    @BackendMethod({ allowed: Allow.authenticated })
     static async getNewComputers(trash: boolean): Promise<NewComputersDate[]> {
         const compRepo = remult.repo(Computer);
         const arr: NewComputersDate[] = [];
@@ -165,12 +165,12 @@ export class Computer extends IdEntity {
             if (!lastDate || lastDate.date.toDateString() != c.createDate.toDateString()) {
                 lastDate = {
                     date: c.createDate,
-                    presentDate: c.createDate.toDateString(),
+                    presentDate: toDisplayDate(c.createDate),
                     computers: []
                 }
                 arr.push(lastDate);
             }
-            let orig = lastDate.computers.find(x => x.origin === c.origin);
+            let orig = lastDate.computers.find(x => x.origin.trim() === c.origin.trim());
 
             if (!orig) {
                 lastDate.computers.push({
@@ -184,7 +184,7 @@ export class Computer extends IdEntity {
         return arr;
     }
 
-    @BackendMethod({ allowed: true })
+    @BackendMethod({ allowed: Allow.authenticated })
     static async getStatusChanges(status: ComputerStatus): Promise<StatusDate[]> {
         let d = new Date();
         const compRepo = remult.repo(Computer);
@@ -201,7 +201,7 @@ export class Computer extends IdEntity {
                 if (!lastDate || lastDate.date.toDateString() != change.changeDate.toDateString()) {
                     lastDate = {
                         date: change.changeDate,
-                        presentDate: change.changeDate.toDateString(),
+                        presentDate: toDisplayDate(change.changeDate),
                         computers: []
                     }
                     arr.push(lastDate);
@@ -235,3 +235,41 @@ export interface StatusDate {
 
 
 
+function toDisplayDate(d: Date) {
+    let result = '';
+    switch (d.getDay()) {
+        case 0:
+            result = 'ראשון';
+            break;
+        case 1:
+            result = 'שני';
+            break;
+        case 2:
+            result = 'שלישי';
+            break;
+        case 3:
+            result = 'רביעי';
+            break;
+        case 4:
+            result = 'חמישי';
+            break;
+        case 5:
+            result = 'שישי';
+            break;
+        case 6:
+            result = 'שבת';
+            break;
+        default:
+            result = 'יום לא ידוע';
+
+            break;
+    }
+
+    result += ' ' + new Intl.DateTimeFormat('he-il', {
+        month: '2-digit',
+        day: '2-digit',
+        
+    }).format(d);
+    return result;
+
+}

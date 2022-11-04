@@ -33,7 +33,9 @@ import { ChangeLogComponent } from './change-log/change-log.component';
 import { CardInMiddleComponent } from './card-in-middle/card-in-middle.component';
 import { AutoRefreshListComponent } from './auto-refresh-list/auto-refresh-list.component';
 import {MatTableModule} from "@angular/material/table";
-import { DaysPipe } from './home/days.pipe';
+import { DriverSignComponent } from './driver-sign/driver-sign.component';
+import { ContactSignComponent } from './contact-sign/contact-sign.component';
+
 
 @NgModule({
   declarations: [
@@ -49,7 +51,8 @@ import { DaysPipe } from './home/days.pipe';
     ChangeLogComponent,
     CardInMiddleComponent,
     AutoRefreshListComponent,
-    DaysPipe
+    DriverSignComponent,
+    ContactSignComponent
   ],
   imports: [
     BrowserModule,

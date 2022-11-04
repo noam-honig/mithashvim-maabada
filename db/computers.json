@@ -39,14 +39,14 @@
   {
     "id": "e7b6245b-115d-4bfe-a52c-17f085a8e5f2",
     "barcode": "2",
-    "status": "trash",
+    "status": "successfulUpgrade",
     "employee": "9e32ac04-f834-416c-83f1-e92af954d84c",
     "origin": "123",
     "courier": "456",
     "createDate": "2022-05-10T06:32:41.611Z",
     "packageBarcode": "62",
     "recipient": "",
-    "updateDate": "2022-11-03T16:17:12.663Z"
+    "updateDate": "2022-11-03T16:36:50.150Z"
   },
   {
     "id": "57082017-8a20-40cf-b994-ceb4fd57655b",

@@ -42,6 +42,10 @@ export class AppComponent implements OnInit {
       }
     });
   }
+  showSpecialRoute(){
+    
+    return window.location.pathname.includes('-sign');
+  }
 
   isAnyManager() {
     return remult.isAllowed(Roles.anyManager);

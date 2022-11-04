@@ -61,6 +61,10 @@ export class HomeComponent implements OnInit {
         return;
       }
       else {
+        if (c.status == this.input.status) {
+          this.ui.error("מחשב זה כבר מעודכן כ" + c.status.caption)
+          return;
+        }
         c.status = this.input.status;
         if (c.status.updateEmployee) {
           c.employee = this.input.employee;
@@ -112,6 +116,6 @@ export class HomeComponent implements OnInit {
       .status === ComputerStatus.intakeTrash;
   }
 
- 
+
 }
 

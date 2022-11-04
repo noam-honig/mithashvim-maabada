@@ -1,103 +1,112 @@
-<app-card-in-middle *ngIf="!allowedForManager()"><h3>
- <div>  חסרה הרשאה למסופון {{input.status.caption}},
-</div>
-  <div>
-    להחלפת מסופון לחץ על "הגדרות מסופון"
-  </div>
-</h3></app-card-in-middle>
-<app-card-in-middle *ngIf="allowedForManager()">
-<div style="display:flex">
-      <div
-        style="display:flex;flex-direction:column;gap:8px"
-        #myField
-      >
-        <h2>
-          {{input.status.caption +(input.status.updateEmployee?' '+input.employee?.name:'')}}
-        </h2>
-        <data-control
-          *ngIf="!input.status.inputPackageBarcode"
-          [field]="input.$.barcode"
-          cdkFocusInitial
-        ></data-control>
-        <data-control
-          [field]="input.$.packageBarcode"
-          *ngIf="input.status.updatePackageBarcode||input.status.inputPackageBarcode"
-          cdkFocusInitial
-        ></data-control>
-        <div *ngIf="input.status.inputCpu">
-          מעבד:
-          <div style="display:flex;gap:8px;margin-bottom: 16px;">
-            <button
-              mat-raised-button
-              [color]="c===input.cpu?'primary':''"
-              *ngFor="let c of types"
-              (click)="input.cpu = c"
-            >
-              {{c.caption}}
-            </button>
-          </div>
+<div style="display: flex; height: 100%; justify-content: space-around">
+  <app-card-in-middle *ngIf="!allowedForManager()">
+    <h3>
+      <div>חסרה הרשאה למסופון {{ input.status.caption }},</div>
+      <div>להחלפת מסופון לחץ על "הגדרות מסופון"</div>
+    </h3>
+  </app-card-in-middle>
+  <app-card-in-middle *ngIf="allowedForManager()">
+    <div style="display: flex; flex-direction: column; gap: 8px" #myField>
+      <h2>
+        {{
+          input.status.caption +
+            (input.status.updateEmployee ? " " + input.employee?.name : "")
+        }}
+      </h2>
+      <data-control
+        *ngIf="!input.status.inputPackageBarcode"
+        [field]="input.$.barcode"
+        cdkFocusInitial
+      ></data-control>
+      <data-control
+        [field]="input.$.packageBarcode"
+        *ngIf="
+          input.status.updatePackageBarcode || input.status.inputPackageBarcode
+        "
+        cdkFocusInitial
+      ></data-control>
+      <div *ngIf="input.status.inputCpu">
+        מעבד:
+        <div style="display: flex; gap: 8px; margin-bottom: 16px">
+          <button
+            mat-raised-button
+            [color]="c === input.cpu ? 'primary' : ''"
+            *ngFor="let c of types"
+            (click)="input.cpu = c"
+          >
+            {{ c.caption }}
+          </button>
         </div>
-        <data-area [settings]="area"></data-area>
-
-
-
-
-        <button
-          mat-raised-button
-          color="success"
-          color="primary"
-          (click)="update()"
-        >
-          עדכן
-        </button>
       </div>
-      <div *ngIf="isStatusEqualsToIntake()" style="margin: 20px;
-    max-height: 400px;
-    overflow-y: auto;">
-        <div style="text-align: right; padding: 5px;" *ngFor="let c of newComputers; let i = index">
-          <span style="position: relative;bottom: 5px;margin: 3px;">
-            {{i | days}} - {{ c.date | date: 'dd/MM'}}
-          </span>
-          <table>
-            <thead>
+      <data-area [settings]="area"></data-area>
+
+      <button
+        mat-raised-button
+        color="success"
+        color="primary"
+        (click)="update()"
+      >
+        עדכן
+      </button>
+    </div>
+  </app-card-in-middle>
+
+  <app-card-in-middle>
+    <div
+      *ngIf="isStatusEqualsToIntake()"
+      style="margin: 20px; overflow-y: auto; max-height: 85vh"
+    >
+      <div
+        style="text-align: right; padding: 5px"
+        *ngFor="let c of newComputers; let i = index"
+      >
+        <span style="bottom: 5px; margin: 3px">
+          {{ c.presentDate }}
+        </span>
+        <table>
+          <thead>
             <tr>
-              <th>מקור </th>
+              <th>מקור</th>
               <th>מחשבים</th>
             </tr>
-            </thead>
-            <tbody *ngFor="let i of c.computers">
+          </thead>
+          <tbody *ngFor="let i of c.computers">
             <tr>
-              <td>{{i.origin}}</td>
-              <td>{{i.quantity}}</td>
+              <td>{{ i.origin }}</td>
+              <td>{{ i.quantity }}</td>
             </tr>
-            </tbody>
-          </table>
-          <br>
-        </div>
+          </tbody>
+        </table>
+        <br />
       </div>
-      <div *ngIf="input.status.showStatusHistory" style="margin: 20px;
-    max-height: 400px;
-    overflow-y: auto;">
-        <div style="text-align: right; padding: 5px;" *ngFor="let c of newStatusDates; let i = index">
-          <span style="position: relative;bottom: 5px;margin: 3px;">
-            {{i | days}} - {{ c.date | date: 'dd/MM'}}
-          </span>
-          <table>
-            <thead>
+    </div>
+    <div
+      *ngIf="input.status.showStatusHistory"
+      style="margin: 20px; overflow-y: auto; max-height: 85vh"
+    >
+      <div
+        style="text-align: right; padding: 5px"
+        *ngFor="let c of newStatusDates; let i = index"
+      >
+        <span style="position: relative; bottom: 5px; margin: 3px">
+          {{ c.presentDate }}
+        </span>
+        <table>
+          <thead>
             <tr>
               <th>בר קוד</th>
               <th>עובד</th>
             </tr>
-            </thead>
-            <tbody *ngFor="let i of c.computers">
+          </thead>
+          <tbody *ngFor="let i of c.computers">
             <tr>
-              <td>{{i.barcode}}</td>
-              <td>{{i.employee}}</td>
+              <td>{{ i.barcode }}</td>
+              <td>{{ i.employee }}</td>
             </tr>
-            </tbody>
-          </table>
-          <br>
-        </div>
+          </tbody>
+        </table>
+        <br />
       </div>
     </div>
-</app-card-in-middle>
+  </app-card-in-middle>
+</div>
