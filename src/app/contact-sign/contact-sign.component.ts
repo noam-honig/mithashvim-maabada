@@ -28,8 +28,9 @@ export class ContactSignComponent implements OnInit {
   }
   async sign() {
 
+    
     await this.form.signByContact();
-    window.open(`/api/pdf/${this.form.id}.pdf`);
+    window.location.href = `/api/pdf/${this.form.id}.pdf`;
   }
 
   sortedItems: Item[] = [];
