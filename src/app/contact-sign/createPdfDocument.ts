@@ -1,6 +1,7 @@
 import { jsPDF } from "jspdf";
 import './NotoSansHebrew';
 import autoTable from "jspdf-autotable";
+import fs from 'fs';
 
 import moment from "moment";
 import { DeliveryFormController } from "../driver-sign/delivery-form.controller";
@@ -108,7 +109,9 @@ export function createPdfDocument(controller: DeliveryFormController) {
     isOutputRtl: true,
     align: 'right'
   });
-
+  if (!fs.existsSync('./tmp')) {
+    fs.mkdirSync('./tmp');
+  }
   doc.save(`./tmp/${d.id}.pdf`);
 }
 
