@@ -2,6 +2,7 @@ import { Allow, Entity, Field, Fields, IdEntity, remult, Validators, ValueListFi
 import { recordChanges, ChangeLog } from "../change-log/change-log";
 import '../common/UITools';
 import { dataWasChanged } from "../data-refresh/data-refresh.controller";
+import { gql } from "../driver-sign/getGraphQL";
 import { Employee } from "../employees/employee";
 import { Roles } from "../users/roles";
 
@@ -124,12 +125,32 @@ export class Computer extends IdEntity {
         }, width: '70'
     })
     cpu!: CPUType;
-    @Fields.string({ caption: 'מקור תרומה', width: '170' })
+    @Fields.string({
+        caption: 'מקור תרומה', width: '170',
+        clickWithUI: async (ui, _, fieldRef) => {
+            ui.selectValuesDialog({
+                title: 'בחירת מקור תרומה',
+                values: await Computer.getDonors(),
+                onSelect: x => {
+                    fieldRef.value = x.caption;
+                }
+            })
+        },
+    })
     origin = '';
     @Fields.string({ caption: 'משנע', width: '170' })
     courier = '';
     @Fields.string<Computer>({
         caption: 'שם המוטב',
+        clickWithUI: async (ui, _, fieldRef) => {
+            ui.selectValuesDialog({
+                title: 'בחירת מוטב',
+                values: await Computer.getRecipients(),
+                onSelect: x => {
+                    fieldRef.value = x.caption;
+                }
+            })
+        },
         validate: c => {
             if (c.status.inputRecipient) {
                 Validators.required(c, c.$.recipient);
@@ -148,6 +169,16 @@ export class Computer extends IdEntity {
         width: '300'
     })
     updateDate = new Date();
+
+    @BackendMethod({ allowed: Allow.authenticated })
+    static async getRecipients() {
+        return await getListFromMonday(2478134523);
+    }
+    @BackendMethod({ allowed: Allow.authenticated })
+    static async getDonors() {
+        return await getListFromMonday(2673923561);
+    }
+
 
     @BackendMethod({ allowed: Allow.authenticated })
     static async getNewComputers(trash: boolean): Promise<NewComputersDate[]> {
@@ -235,6 +266,28 @@ export interface StatusDate {
 
 
 
+async function getListFromMonday(board: number) {
+    const result = await gql({},
+        `#graphql
+query test2 {
+    boards(ids: [${board}]) {
+      id
+      name
+      board_folder_id
+      board_kind
+      items {
+        id
+        name
+      
+      }
+    }
+  }
+`);
+    let out: { caption: string; }[] = result.boards[0].items.map((x: any) => ({ caption: x.name }));
+    out.sort((a, b) => a.caption.localeCompare(b.caption));
+    return out;
+}
+
 function toDisplayDate(d: Date) {
     let result = '';
     switch (d.getDay()) {
@@ -268,7 +321,7 @@ function toDisplayDate(d: Date) {
     result += ' ' + new Intl.DateTimeFormat('he-il', {
         month: '2-digit',
         day: '2-digit',
-        
+
     }).format(d);
     return result;
 

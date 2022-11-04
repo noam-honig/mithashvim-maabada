@@ -21,6 +21,9 @@ export const api = remultExpress({
         if (process.env['NODE_ENV'] === "production")
             return createPostgresConnection({ configuration: "heroku" })
         return undefined;
+    },
+    initApi: async () => {
+        await Computer.getRecipients();
     }
 });
 DeliveryFormController.createPdfAndUpload = async (c) => {

@@ -98,9 +98,9 @@ export class HomeComponent implements OnInit {
     }
     this.area = new DataAreaSettings({
       fields: () => [
-        { field: this.input.$.origin, click: () => this.input.origin = '', clickIcon: 'clear', visible: () => this.input.status.isIntake },
+        { field: this.input.$.origin,  visible: () => this.input.status.isIntake },
         { field: this.input.$.courier, click: () => this.input.origin = '', clickIcon: 'clear', visible: () => this.input.status.isIntake },
-        { field: this.input.$.recipient, click: () => this.input.recipient = '', clickIcon: 'clear', visible: () => this.input.status.inputRecipient },
+        { field: this.input.$.recipient,  visible: () => this.input.status.inputRecipient },
       ]
     });
     this.loadNewComputers();
