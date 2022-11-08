@@ -44,7 +44,7 @@
     <strong>פריטים שנאספו בפועל - יש לעדכן כמויות</strong>
     <mat-card>
       <div *ngFor="let item of sortedItems">
-        <mat-form-field class="example-full-width" appearance="outline" style="width:50px">
+        <mat-form-field class="smaller-field" appearance="outline" style="width:80px">
           <input type="tel" matInput [(ngModel)]="item.actualQuantity" />
         </mat-form-field>
         {{item.name}} {{item.notes?" - "+item.notes:undefined}}

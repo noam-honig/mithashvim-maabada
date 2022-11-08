@@ -1,22 +1,19 @@
 @import "~@angular/material/theming";
 
-$custom-typography: mat-typography-config(
-
-  $font-family:   'Roboto, "Helvetica Neue", sans-serif',
-  $display-4:     mat-typography-level(122px, 112px, 300),
-  $display-3:     mat-typography-level(66px, 56px, 400),
-  $display-2:     mat-typography-level(55px, 48px, 400),
-  $display-1:     mat-typography-level(44px, 40px, 400),
-  $headline:      mat-typography-level(34px, 32px, 400),
-  $title:         mat-typography-level(30px, 32px, 500),
-  $subheading-2:  mat-typography-level(26px, 28px, 400),
-  $subheading-1:  mat-typography-level(25px, 24px, 400),
-  $body-2:        mat-typography-level(24px, 24px, 500),
-  $body-1:        mat-typography-level(24px, 25px, 400),
-  $caption:       mat-typography-level(22px, 20px, 400),
-  $button:        mat-typography-level(24px, 26px, 500),
-  $input:         mat-typography-level(inherit, 1.125, 400)
-);
+$custom-typography: mat-typography-config($font-family: 'Roboto, "Helvetica Neue", sans-serif',
+    $display-4: mat-typography-level(122px, 112px, 300),
+    $display-3: mat-typography-level(66px, 56px, 400),
+    $display-2: mat-typography-level(55px, 48px, 400),
+    $display-1: mat-typography-level(44px, 40px, 400),
+    $headline: mat-typography-level(34px, 32px, 400),
+    $title: mat-typography-level(30px, 32px, 500),
+    $subheading-2: mat-typography-level(26px, 28px, 400),
+    $subheading-1: mat-typography-level(25px, 24px, 400),
+    $body-2: mat-typography-level(24px, 24px, 500),
+    $body-1: mat-typography-level(24px, 25px, 400),
+    $caption: mat-typography-level(22px, 20px, 400),
+    $button: mat-typography-level(24px, 26px, 500),
+    $input: mat-typography-level(inherit, 1.125, 400));
 
 // Plus imports for other components in your app.
 
@@ -27,10 +24,25 @@ $custom-typography: mat-typography-config(
 
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
 
-.mat-form-field-suffix 
-{
-  width:1.5em
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.mat-form-field-suffix {
+  width: 1.5em
+}
+
+.smaller-field>div {
+  padding: 0;
+}
+
+.smaller-field .mat-form-field-infix {
+  padding: 0;
+  padding-bottom: 0.5em;
 }
