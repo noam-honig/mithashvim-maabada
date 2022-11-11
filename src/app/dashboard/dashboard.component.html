@@ -7,7 +7,9 @@
     <tbody>
       <tr *ngFor="let s of statuses | async">
         <td>
-          {{ s.caption }}
+          <a [routerLink]="detailsLink(s)">
+            {{ s.caption }}
+          </a>
         </td>
         <td>
           {{ s.count }}

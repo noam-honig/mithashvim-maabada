@@ -14,12 +14,13 @@ import { ShowDialogOnErrorErrorHandler } from './common/UIToolsService'
 import { terms } from './terms'
 import { EmployeesComponent } from './employees/employees.component'
 import { ComputersComponent } from './computers/computers.component'
-import { AutoRefreshListComponent } from './auto-refresh-list/auto-refresh-list.component'
+import { AutoRefreshListComponent, refreshList } from './auto-refresh-list/auto-refresh-list.component'
 import { ContactSignComponent } from './contact-sign/contact-sign.component'
 import { DriverSignComponent } from './driver-sign/driver-sign.component'
 import { DashboardComponent } from './dashboard/dashboard.component'
 
 const defaultRoute = 'מסופון'
+ 
 const routes: Routes = [
   { path: defaultRoute, component: HomeComponent },
   {
@@ -28,10 +29,16 @@ const routes: Routes = [
     canActivate: [AnyManagerGuard],
   },
   {
-    path: 'רשימה מתרעננת',
+    path: 'רשימה מתרעננת/:status',
     component: AutoRefreshListComponent,
     canActivate: [AnyManagerGuard],
   },
+  {
+    path: refreshList,
+    component: AutoRefreshListComponent,
+    canActivate: [AnyManagerGuard],
+  },
+
   {
     path: 'מחשבים',
     component: ComputersComponent,
