@@ -35,6 +35,7 @@ import { AutoRefreshListComponent } from './auto-refresh-list/auto-refresh-list.
 import {MatTableModule} from "@angular/material/table";
 import { DriverSignComponent } from './driver-sign/driver-sign.component';
 import { ContactSignComponent } from './contact-sign/contact-sign.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 @NgModule({
@@ -52,7 +53,8 @@ import { ContactSignComponent } from './contact-sign/contact-sign.component';
     CardInMiddleComponent,
     AutoRefreshListComponent,
     DriverSignComponent,
-    ContactSignComponent
+    ContactSignComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

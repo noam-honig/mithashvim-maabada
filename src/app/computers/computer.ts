@@ -9,6 +9,7 @@ import {
   ValueListFieldType,
   BackendMethod,
   Remult,
+  getValueList,
 } from 'remult'
 import { recordChanges, ChangeLog } from '../change-log/change-log'
 import { DataControl } from '../common-ui-elements/interfaces'
@@ -170,7 +171,7 @@ export class Computer extends IdEntity {
   cpu!: CPUType
   @DataControl({
     hideDataOnInput: true,
-    getValue:(x,y)=>y.displayValue
+    getValue: (x, y) => y.displayValue,
   })
   @Fields.string({
     caption: 'מקור תרומה',
@@ -190,7 +191,7 @@ export class Computer extends IdEntity {
   courier = ''
   @DataControl({
     hideDataOnInput: true,
-    getValue:(x,y)=>y.displayValue
+    getValue: (x, y) => y.displayValue,
   })
   @Fields.string<Computer>({
     caption: 'שם המוטב',
@@ -273,6 +274,30 @@ export class Computer extends IdEntity {
     return arr
   }
 
+  @BackendMethod({ allowed: Allow.authenticated })
+  static async getDashboard() {
+    const statuses: {
+      id: string
+      caption: string
+      count: number
+    }[] = []
+    for (const status of getValueList(ComputerStatus)) {
+      if (status.allowed() || remult.isAllowed(Roles.stockAdmin)) {
+        statuses.push({
+          id: status.id,
+          caption: status.caption,
+          count: 0,
+        })
+      }
+    }
+    for await (const c of remult.repo(Computer).query()) {
+      const s = statuses.find((x) => x.id === c.status.id)
+      if (s) {
+        s.count++
+      }
+    }
+    return statuses
+  }
   @BackendMethod({ allowed: Allow.authenticated })
   static async getStatusChanges(status: ComputerStatus): Promise<StatusDate[]> {
     let d = new Date()

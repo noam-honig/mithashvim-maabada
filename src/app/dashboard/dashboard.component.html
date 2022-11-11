@@ -1,0 +1,18 @@
+<app-card-in-middle>
+  <table>
+    <thead>
+      <th>סטטוס</th>
+      <th>כמות מחשבים</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let s of statuses | async">
+        <td>
+          {{ s.caption }}
+        </td>
+        <td>
+          {{ s.count }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</app-card-in-middle>
