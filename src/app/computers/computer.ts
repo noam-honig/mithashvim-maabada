@@ -99,7 +99,7 @@ export class CPUType {
   static i5 = new CPUType()
   static i7 = new CPUType()
   static pentium = new CPUType('פנטיום')
-  constructor(public caption?: string) {}
+  constructor(public caption?: string) { }
 }
 
 @Entity<Computer>('computers', {
@@ -126,26 +126,26 @@ export class Computer extends IdEntity {
       caption: 'ברקוד אריזה',
     },
     (options, remult) =>
-      (options.validate = async (c, ref) => {
-        if (c.status.updatePackageBarcode) {
-          Validators.required(c, ref)
-          c.packageBarcode = c.packageBarcode.trim()
-          if (
-            !ref.error &&
-            (await remult.repo(Computer).count({
-              $or: [
-                {
-                  id: { '!=': c.id },
-                  packageBarcode: c.packageBarcode,
-                },
-                { barcode: c.packageBarcode },
-              ],
-            })) > 0
-          ) {
-            ref.error = ' כבר משוייך למחשב אחר!'
-          }
+    (options.validate = async (c, ref) => {
+      if (c.status.updatePackageBarcode) {
+        Validators.required(c, ref)
+        c.packageBarcode = c.packageBarcode.trim()
+        if (
+          !ref.error &&
+          (await remult.repo(Computer).count({
+            $or: [
+              {
+                id: { '!=': c.id },
+                packageBarcode: c.packageBarcode,
+              },
+              { barcode: c.packageBarcode },
+            ],
+          })) > 0
+        ) {
+          ref.error = ' כבר משוייך למחשב אחר!'
         }
-      }),
+      }
+    }),
   )
   packageBarcode = ''
   @Field(() => ComputerStatus, {
@@ -281,7 +281,16 @@ export class Computer extends IdEntity {
       caption: string
       count: number
     }[] = []
-    for (const status of getValueList(ComputerStatus)) {
+
+    let list = getValueList(ComputerStatus);
+    if (remult.isAllowed([Roles.admin, Roles.stockAdmin])) {
+
+    } else if (remult.isAllowed(Roles.upgradeAdmin))
+      list = [ComputerStatus.waitingForUpgrade, ComputerStatus.assigned, ComputerStatus.trash, ComputerStatus.successfulUpgrade];
+    else if (remult.isAllowed(Roles.packAdmin))
+      list = [ComputerStatus.waitForPack, ComputerStatus.packing, ComputerStatus.packDone];
+
+    for (const status of list) {
       if (status.allowed() || remult.isAllowed(Roles.stockAdmin)) {
         statuses.push({
           id: status.id,
