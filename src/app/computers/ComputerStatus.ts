@@ -4,7 +4,8 @@ import { Roles } from '../users/roles';
 
 @ValueListFieldType({ caption: 'סטטוס' })
 export class ComputerStatus {
-  static intake = new ComputerStatus('התקבל', [Roles.stockAdmin], {
+  static intake = new ComputerStatus('התקבל',
+    [Roles.stockAdmin], {
     isIntake: true,
     statusTableByOrigin: true
   });
@@ -25,6 +26,8 @@ export class ComputerStatus {
   static assigned = new ComputerStatus('שוייך לעובד', [Roles.upgradeAdmin], {
     updateEmployee: true,
     inputCpu: true,
+    statusTableByEmployee: true,
+    statusTableCurrentStatusOnly: true
   });
   static trash = new ComputerStatus('ממתין לגריטה', [Roles.upgradeAdmin], {
     statusTableByEmployee: true,
