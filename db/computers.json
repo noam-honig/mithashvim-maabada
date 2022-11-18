@@ -8,7 +8,8 @@
     "origin": "",
     "courier": "",
     "packageBarcode": "",
-    "recipient": ""
+    "recipient": "",
+    "palletBarcode": ""
   },
   {
     "id": "a928363e-d866-4242-bc6f-3cc9169e0041",
@@ -21,7 +22,8 @@
     "courier": "",
     "packageBarcode": "",
     "recipient": "",
-    "updateDate": "2022-11-02T16:03:52.999Z"
+    "updateDate": "2022-11-02T16:03:52.999Z",
+    "palletBarcode": ""
   },
   {
     "id": "9a6315ac-96d6-40d6-a470-a12c49a10a75",
@@ -34,7 +36,8 @@
     "cpu": "i5",
     "packageBarcode": "61",
     "recipient": "",
-    "updateDate": "2022-11-03T16:04:05.473Z"
+    "updateDate": "2022-11-03T16:04:05.473Z",
+    "palletBarcode": ""
   },
   {
     "id": "e7b6245b-115d-4bfe-a52c-17f085a8e5f2",
@@ -46,7 +49,8 @@
     "createDate": "2022-05-10T06:32:41.611Z",
     "packageBarcode": "62",
     "recipient": "",
-    "updateDate": "2022-11-03T16:36:50.150Z"
+    "updateDate": "2022-11-03T16:36:50.150Z",
+    "palletBarcode": ""
   },
   {
     "id": "57082017-8a20-40cf-b994-ceb4fd57655b",
@@ -58,7 +62,8 @@
     "createDate": "2022-05-10T06:32:46.312Z",
     "packageBarcode": "63",
     "recipient": "",
-    "updateDate": "2022-11-03T16:03:52.698Z"
+    "updateDate": "2022-11-03T16:03:52.698Z",
+    "palletBarcode": ""
   },
   {
     "id": "6285a73b-8d1f-4a68-9d70-3322e24b8d87",
@@ -70,7 +75,8 @@
     "createDate": "2022-05-10T06:38:59.305Z",
     "packageBarcode": "64",
     "recipient": "6",
-    "updateDate": "2022-09-09T09:03:01.853Z"
+    "updateDate": "2022-09-09T09:03:01.853Z",
+    "palletBarcode": ""
   },
   {
     "id": "49dbdb3a-2e94-445c-ac91-5931e9041f3e",
@@ -82,7 +88,8 @@
     "createDate": "2022-05-10T06:40:09.090Z",
     "packageBarcode": "65",
     "updateDate": "2022-09-09T09:02:59.888Z",
-    "recipient": "6"
+    "recipient": "6",
+    "palletBarcode": ""
   },
   {
     "id": "03a276e2-ba74-4fa3-8df2-01cfdbcefda0",
@@ -95,7 +102,8 @@
     "cpu": "i5",
     "packageBarcode": "66",
     "updateDate": "2022-10-04T05:51:18.761Z",
-    "recipient": "6"
+    "recipient": "6",
+    "palletBarcode": ""
   },
   {
     "id": "458041b4-b2b7-4ee7-a9de-79970b4b2ecd",
@@ -108,7 +116,8 @@
     "recipient": "",
     "createDate": "2022-09-29T11:15:46.972Z",
     "updateDate": "2022-09-29T11:16:30.085Z",
-    "cpu": "i7"
+    "cpu": "i7",
+    "palletBarcode": ""
   },
   {
     "id": "1f461348-42ff-43be-b4b4-1921b6d10183",
@@ -120,7 +129,8 @@
     "courier": "123",
     "recipient": "",
     "createDate": "2022-10-02T13:00:09.369Z",
-    "updateDate": "2022-10-02T13:00:09.384Z"
+    "updateDate": "2022-10-02T13:00:09.384Z",
+    "palletBarcode": ""
   },
   {
     "id": "094eaed2-f476-4ee5-9a5d-0e1442e10700",
@@ -132,7 +142,8 @@
     "courier": "123",
     "recipient": "",
     "createDate": "2022-10-02T13:00:18.633Z",
-    "updateDate": "2022-10-02T13:00:18.634Z"
+    "updateDate": "2022-10-02T13:00:18.634Z",
+    "palletBarcode": ""
   },
   {
     "id": "a581af75-f600-40fb-8322-d4af30f45a1f",
@@ -144,7 +155,8 @@
     "courier": "123",
     "recipient": "",
     "createDate": "2022-10-03T07:35:36.023Z",
-    "updateDate": "2022-10-03T07:35:36.034Z"
+    "updateDate": "2022-10-03T07:35:36.034Z",
+    "palletBarcode": ""
   },
   {
     "id": "4a0b9e8b-522b-4150-9db9-a26aaa0bb506",
@@ -156,7 +168,8 @@
     "courier": "123",
     "recipient": "",
     "createDate": "2022-10-03T07:36:55.965Z",
-    "updateDate": "2022-10-03T07:36:55.968Z"
+    "updateDate": "2022-10-03T07:36:55.968Z",
+    "palletBarcode": ""
   },
   {
     "id": "39ed4e78-059b-4db8-ae87-10844d15b525",
@@ -168,7 +181,8 @@
     "courier": "123",
     "recipient": "",
     "createDate": "2022-10-03T07:38:15.994Z",
-    "updateDate": "2022-10-03T07:38:15.995Z"
+    "updateDate": "2022-10-03T07:38:15.995Z",
+    "palletBarcode": ""
   },
   {
     "id": "ddaf2636-b6d0-4aba-94ff-55759e244760",
@@ -180,7 +194,8 @@
     "courier": "123",
     "recipient": "",
     "createDate": "2022-10-03T07:38:21.862Z",
-    "updateDate": "2022-10-03T07:38:21.863Z"
+    "updateDate": "2022-10-03T07:38:21.863Z",
+    "palletBarcode": ""
   },
   {
     "id": "a82b2ab4-bdd4-42dc-9c45-8db468fc78a8",
@@ -192,7 +207,8 @@
     "courier": "123",
     "recipient": "",
     "createDate": "2022-10-03T07:38:24.430Z",
-    "updateDate": "2022-10-03T07:38:24.431Z"
+    "updateDate": "2022-10-03T07:38:24.431Z",
+    "palletBarcode": ""
   },
   {
     "id": "6d643c69-1253-4f02-a562-3cf0313d1c6b",
@@ -204,7 +220,8 @@
     "courier": "123",
     "recipient": "",
     "createDate": "2022-10-03T08:04:29.950Z",
-    "updateDate": "2022-10-03T08:04:29.951Z"
+    "updateDate": "2022-10-03T08:04:29.951Z",
+    "palletBarcode": ""
   },
   {
     "id": "c6268923-0ea8-42c0-a4f0-6755113a31f0",
@@ -216,7 +233,8 @@
     "courier": "123",
     "recipient": "",
     "createDate": "2022-10-03T08:04:32.343Z",
-    "updateDate": "2022-10-03T08:04:32.344Z"
+    "updateDate": "2022-10-03T08:04:32.344Z",
+    "palletBarcode": ""
   },
   {
     "id": "60360fe1-df33-4f56-bf01-a42dfb7126f8",
@@ -228,18 +246,59 @@
     "courier": "124",
     "recipient": "",
     "createDate": "2022-10-03T08:04:38.293Z",
-    "updateDate": "2022-10-03T08:04:38.294Z"
+    "updateDate": "2022-10-03T08:04:38.294Z",
+    "palletBarcode": ""
   },
   {
     "id": "92f39d7d-ed05-4f5d-a504-65467d83a8e1",
     "barcode": "M503132",
     "packageBarcode": "",
     "status": "intakeTrash",
-    "employee": null,
+    "employee": "9e32ac04-f834-416c-83f1-e92af954d84c",
     "origin": "124",
     "courier": "124",
     "recipient": "",
     "createDate": "2022-10-03T08:04:40.250Z",
-    "updateDate": "2022-11-18T08:13:43.392Z"
+    "updateDate": "2022-11-18T08:31:44.871Z",
+    "palletBarcode": ""
+  },
+  {
+    "id": "aa1b27fc-3e91-4c0b-a75b-4481f5e58eb6",
+    "barcode": "M503131",
+    "packageBarcode": "",
+    "palletBarcode": "",
+    "status": "successfulUpgrade",
+    "employee": "9e32ac04-f834-416c-83f1-e92af954d84c",
+    "origin": "אוניברסיטת בר אילן",
+    "courier": "1",
+    "recipient": "",
+    "createDate": "2022-11-18T08:19:21.206Z",
+    "updateDate": "2022-11-18T08:31:44.835Z"
+  },
+  {
+    "id": "392013b2-19d4-4e20-bf1a-22db77b0c57c",
+    "barcode": "M503130",
+    "packageBarcode": "",
+    "palletBarcode": "",
+    "status": "successfulUpgrade",
+    "employee": "3fe1d2db-1921-4272-bc9b-b5532a8447b7",
+    "origin": "אוניברסיטת בר אילן",
+    "courier": "1",
+    "recipient": "",
+    "createDate": "2022-11-18T08:19:25.921Z",
+    "updateDate": "2022-11-18T08:31:44.857Z"
+  },
+  {
+    "id": "baef6eb0-c0ef-465e-a0ff-e1972a0e6c52",
+    "barcode": "M503129",
+    "packageBarcode": "",
+    "palletBarcode": "",
+    "status": "successfulUpgrade",
+    "employee": "3fe1d2db-1921-4272-bc9b-b5532a8447b7",
+    "origin": "אוניברסיטת בר אילן",
+    "courier": "1",
+    "recipient": "",
+    "createDate": "2022-11-18T08:19:29.106Z",
+    "updateDate": "2022-11-18T08:31:44.847Z"
   }
 ]

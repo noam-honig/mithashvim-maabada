@@ -1280,5 +1280,162 @@
     "changedFields": [
       "barcode"
     ]
+  },
+  {
+    "id": "0ac27b42-5bd9-463b-b515-0b8b0df23783",
+    "relatedId": "baef6eb0-c0ef-465e-a0ff-e1972a0e6c52",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-11-18T08:19:36.715Z",
+    "userId": "2c4077ec-b861-474b-b5fd-62daa8c9b736",
+    "userName": "נועם",
+    "changes": [
+      {
+        "key": "status",
+        "oldDisplayValue": "התקבל",
+        "newDisplayValue": "שודרג בהצלחה",
+        "newValue": "successfulUpgrade",
+        "oldValue": "intake"
+      }
+    ],
+    "changedFields": [
+      "status"
+    ]
+  },
+  {
+    "id": "0a690056-73c3-413e-bc5b-0dfc93722ae4",
+    "relatedId": "392013b2-19d4-4e20-bf1a-22db77b0c57c",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-11-18T08:19:40.856Z",
+    "userId": "2c4077ec-b861-474b-b5fd-62daa8c9b736",
+    "userName": "נועם",
+    "changes": [
+      {
+        "key": "status",
+        "oldDisplayValue": "התקבל",
+        "newDisplayValue": "שודרג בהצלחה",
+        "newValue": "successfulUpgrade",
+        "oldValue": "intake"
+      }
+    ],
+    "changedFields": [
+      "status"
+    ]
+  },
+  {
+    "id": "eb911980-b821-44da-b023-aa6b704f9403",
+    "relatedId": "aa1b27fc-3e91-4c0b-a75b-4481f5e58eb6",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-11-18T08:19:44.294Z",
+    "userId": "2c4077ec-b861-474b-b5fd-62daa8c9b736",
+    "userName": "נועם",
+    "changes": [
+      {
+        "key": "status",
+        "oldDisplayValue": "התקבל",
+        "newDisplayValue": "שודרג בהצלחה",
+        "newValue": "successfulUpgrade",
+        "oldValue": "intake"
+      }
+    ],
+    "changedFields": [
+      "status"
+    ]
+  },
+  {
+    "id": "179278d3-2409-473f-8362-70ecad7d6522",
+    "relatedId": "aa1b27fc-3e91-4c0b-a75b-4481f5e58eb6",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-11-18T08:31:44.835Z",
+    "userId": "2c4077ec-b861-474b-b5fd-62daa8c9b736",
+    "userName": "נועם",
+    "changes": [
+      {
+        "key": "employee",
+        "newDisplayValue": "משה",
+        "newValue": "9e32ac04-f834-416c-83f1-e92af954d84c",
+        "oldValue": null
+      }
+    ],
+    "changedFields": [
+      "employee"
+    ]
+  },
+  {
+    "id": "273ecc30-1fd8-4cdb-b2e2-c95b7be1f085",
+    "relatedId": "baef6eb0-c0ef-465e-a0ff-e1972a0e6c52",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-11-18T08:31:44.848Z",
+    "userId": "2c4077ec-b861-474b-b5fd-62daa8c9b736",
+    "userName": "נועם",
+    "changes": [
+      {
+        "key": "employee",
+        "newDisplayValue": "ליאור",
+        "newValue": "3fe1d2db-1921-4272-bc9b-b5532a8447b7",
+        "oldValue": null
+      }
+    ],
+    "changedFields": [
+      "employee"
+    ]
+  },
+  {
+    "id": "36defb89-6bba-454c-8b18-c8cc84b879e4",
+    "relatedId": "392013b2-19d4-4e20-bf1a-22db77b0c57c",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-11-18T08:31:44.857Z",
+    "userId": "2c4077ec-b861-474b-b5fd-62daa8c9b736",
+    "userName": "נועם",
+    "changes": [
+      {
+        "key": "employee",
+        "newDisplayValue": "ליאור",
+        "newValue": "3fe1d2db-1921-4272-bc9b-b5532a8447b7",
+        "oldValue": null
+      }
+    ],
+    "changedFields": [
+      "employee"
+    ]
+  },
+  {
+    "id": "9935907f-8c29-48d2-bece-78600dc2f5df",
+    "relatedId": "92f39d7d-ed05-4f5d-a504-65467d83a8e1",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-11-18T08:31:44.871Z",
+    "userId": "2c4077ec-b861-474b-b5fd-62daa8c9b736",
+    "userName": "נועם",
+    "changes": [
+      {
+        "key": "employee",
+        "newDisplayValue": "משה",
+        "newValue": "9e32ac04-f834-416c-83f1-e92af954d84c",
+        "oldValue": null
+      }
+    ],
+    "changedFields": [
+      "employee"
+    ]
   }
 ]

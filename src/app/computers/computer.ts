@@ -131,11 +131,13 @@ export class Computer extends IdEntity {
     {
       caption: 'ברקוד אריזה',
       validate: (_, f) => {
-        f.value = f.value.trim()
-        if (!f.value.startsWith("A"))
-          throw Error(" צריך להתחיל בA");
-        if (f.value.length < 5 || f.value.length > 6)
-          throw Error(" יכול להיות בן 5 או 6 תוים בלבד")
+        if (f.value) {
+          f.value = f.value.trim()
+          if (!f.value.startsWith("A"))
+            throw Error(" צריך להתחיל בA");
+          if (f.value.length < 5 || f.value.length > 6)
+            throw Error(" יכול להיות בן 5 או 6 תוים בלבד")
+        }
       }
     },
     (options, remult) =>
@@ -163,12 +165,14 @@ export class Computer extends IdEntity {
   packageBarcode = ''
   @Fields.string({
     caption: 'ברקוד משטח',
-    validate: [ (_, f) => {
-      f.value = f.value.trim();
-      if (!f.value.startsWith("Z"))
-        throw Error("צריך להתחיל בZ");
-      if (f.value.length != 5)
-        throw Error("צריך להיות בן 7 תוים בדיוק")
+    validate: [(_, f) => {
+      if (f.value) {
+        f.value = f.value.trim();
+        if (!f.value.startsWith("Z"))
+          throw Error("צריך להתחיל בZ");
+        if (f.value.length != 5)
+          throw Error("צריך להיות בן 7 תוים בדיוק")
+      }
     }],
   })
   palletBarcode = ''
@@ -359,15 +363,26 @@ export class Computer extends IdEntity {
             date: change.changeDate,
             presentDate: toDisplayDate(change.changeDate),
             computers: [],
+            workers: []
           }
           arr.push(lastDate)
         }
-        let orig = lastDate.computers.find((x) => x.barcode === comp.barcode)
+
+        lastDate.computers.push({
+          barcode: comp.barcode,
+          employee: comp.employee?.name!,
+        })
+        let orig = lastDate.workers.find(
+          (x) => x.name === comp.employee?.name,
+        )
+
         if (!orig) {
-          lastDate.computers.push({
-            barcode: comp.barcode,
-            employee: comp.employee?.name!,
+          lastDate.workers.push({
+            name: comp.employee?.name!,
+            quantity: 1,
           })
+        } else {
+          orig.quantity++
         }
       }
     }
@@ -385,6 +400,7 @@ export interface StatusDate {
   date: Date
   presentDate: string
   computers: { barcode: string; employee: string }[]
+  workers: { name: string, quantity: number }[]
 }
 
 async function getListFromMonday(board: number) {
