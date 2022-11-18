@@ -66,6 +66,7 @@ export class ComputerStatus {
     {
       inputPackageBarcode: true,
       inputRecipient: true,
+      statusTableByOrigin: true
     }
   );
 
