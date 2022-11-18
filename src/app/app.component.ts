@@ -14,7 +14,7 @@ import { getConfig } from './config/config.component';
 import { Roles } from './users/roles';
 import { HomeComponent } from './home/home.component';
 import { async } from '@angular/core/testing';
-import { ComputerStatus } from './computers/computer';
+import { ComputerStatus } from "./computers/ComputerStatus";
 
 @Component({
   selector: 'app-root',

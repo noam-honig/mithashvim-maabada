@@ -3,7 +3,7 @@ import { terms } from "../terms";
 import { Roles } from "./roles";
 import { User } from "./user";
 import { getRequest } from "../../server/getRequest";
-import { ComputerStatus } from "../computers/computer";
+import { ComputerStatus } from "../computers/ComputerStatus";
 
 @Controller('signIn')
 export class SignInController extends ControllerBase {

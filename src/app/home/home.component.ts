@@ -3,7 +3,9 @@ import { getValueList, remult } from 'remult';
 import { BusyService } from '../common-ui-elements';
 import { DataAreaSettings } from '../common-ui-elements/interfaces';
 import { UIToolsService } from '../common/UIToolsService';
-import { Computer, ComputerStatus, CPUType, StatusDate } from '../computers/computer';
+import { Computer, StatusDate } from '../computers/computer';
+import { CPUType } from "../computers/CPUType";
+import { ComputerStatus } from "../computers/ComputerStatus";
 import { getConfig } from '../config/config.component';
 import { Roles } from '../users/roles';
 

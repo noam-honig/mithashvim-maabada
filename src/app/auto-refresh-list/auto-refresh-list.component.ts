@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core'
 import { Remult, ValueListInfo } from 'remult'
-import { Computer, ComputerStatus } from '../computers/computer'
+import { Computer } from '../computers/computer'
+import { ComputerStatus } from "../computers/ComputerStatus"
 import { Observable, Subscription, interval } from 'rxjs'
 import { GridSettings } from '../common-ui-elements/interfaces'
 import { BusyService } from '../common-ui-elements'
