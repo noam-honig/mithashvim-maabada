@@ -56,35 +56,7 @@
 
   <app-card-in-middle>
     <div
-      *ngIf="isStatusEqualsToIntake()"
-      style="margin: 20px; overflow-y: auto; max-height: 85vh"
-    >
-      <div
-        style="text-align: right; padding: 5px"
-        *ngFor="let c of newComputers; let i = index"
-      >
-        <span style="bottom: 5px; margin: 3px">
-          {{ c.presentDate }}
-        </span>
-        <table>
-          <thead>
-            <tr>
-              <th>מקור</th>
-              <th>מחשבים</th>
-            </tr>
-          </thead>
-          <tbody *ngFor="let i of c.computers">
-            <tr>
-              <td>{{ i.origin }}</td>
-              <td>{{ i.quantity }}</td>
-            </tr>
-          </tbody>
-        </table>
-        <br />
-      </div>
-    </div>
-    <div
-      *ngIf="input.status.showStatusHistory"
+      *ngIf="input.status.showStatusTables"
       style="margin: 20px; overflow-y: auto; max-height: 85vh"
     >
       <div
@@ -94,7 +66,21 @@
         <span style="position: relative; bottom: 5px; margin: 3px">
           {{ c.presentDate }}
         </span>
-        <table>
+        <table *ngIf="input.status.statusTableByOrigin">
+          <thead>
+            <tr>
+              <th>מקור</th>
+              <th>מחשבים</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let i of c.byOrigin">
+            <tr>
+              <td>{{ i.origin }}</td>
+              <td>{{ i.quantity }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <table *ngIf="input.status.statusTableByEmployee">
           <thead>
             <tr>
               <th>עובד</th>
@@ -108,7 +94,7 @@
             </tr>
           </tbody>
         </table>
-        <table>
+        <table *ngIf="input.status.statusTableByEmployee">
           <thead>
             <tr>
               <th>בר קוד</th>

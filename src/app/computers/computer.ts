@@ -23,30 +23,40 @@ import { Roles } from '../users/roles'
 export class ComputerStatus {
   static intake = new ComputerStatus('התקבל', [Roles.stockAdmin], {
     isIntake: true,
+    statusTableByOrigin: true
   })
   static intakeTrash = new ComputerStatus(
     'התקבל וממתין לגריטה',
     [Roles.stockAdmin],
-    { isIntake: true },
+    {
+      isIntake: true,
+      statusTableByOrigin: true
+    },
+
   )
   static waitingForUpgrade = new ComputerStatus('ממתין לשדרוג', [
-    Roles.stockAdmin,
-  ])
+    Roles.stockAdmin
+  ], {
+    statusTableByOrigin: true
+  })
   static assigned = new ComputerStatus('שוייך לעובד', [Roles.upgradeAdmin], {
     updateEmployee: true,
     inputCpu: true,
   })
   static trash = new ComputerStatus('ממתין לגריטה', [Roles.upgradeAdmin], {
-    showStatusHistory: true,
+    statusTableByEmployee: true,
   })
   static successfulUpgrade = new ComputerStatus(
     'שודרג בהצלחה',
     [Roles.upgradeAdmin],
     {
-      showStatusHistory: true,
+      statusTableByEmployee: true,
     },
   )
-  static waitForPack = new ComputerStatus('ממתין לאריזה', [Roles.stockAdmin])
+  static waitForPack = new ComputerStatus('ממתין לאריזה', [Roles.stockAdmin], {
+    statusTableByEmployee: true,
+    statusTableCurrentStatusOnly: true
+  })
   static packing = new ComputerStatus('תהליך אריזה', [Roles.packAdmin], {
     updatePackageBarcode: true,
   })
@@ -86,7 +96,12 @@ export class ComputerStatus {
   inputCpu = false
   isIntake = false
   updatePackageBarcode = false
-  showStatusHistory = false
+  statusTableByOrigin = false;
+  statusTableByEmployee = false;
+  statusTableCurrentStatusOnly = false;
+  get showStatusTables() {
+    return this.statusTableByEmployee || this.statusTableByOrigin
+  }
   inputPackageBarcode = false
   inputRecipient = false
 }
@@ -263,46 +278,6 @@ export class Computer extends IdEntity {
   }
 
   @BackendMethod({ allowed: Allow.authenticated })
-  static async getNewComputers(trash: boolean): Promise<NewComputersDate[]> {
-    const compRepo = remult.repo(Computer)
-    const arr: NewComputersDate[] = []
-    let lastDate: NewComputersDate | undefined
-    const trashStatuses = [ComputerStatus.trash, ComputerStatus.intakeTrash]
-
-    for await (let c of compRepo.query({
-      orderBy: { createDate: 'desc' },
-      where: {
-        status: trash ? trashStatuses : { '!=': trashStatuses },
-      },
-    })) {
-      if (
-        !lastDate ||
-        lastDate.date.toDateString() != c.createDate.toDateString()
-      ) {
-        lastDate = {
-          date: c.createDate,
-          presentDate: toDisplayDate(c.createDate),
-          computers: [],
-        }
-        arr.push(lastDate)
-      }
-      let orig = lastDate.computers.find(
-        (x) => x.origin.trim() === c.origin.trim(),
-      )
-
-      if (!orig) {
-        lastDate.computers.push({
-          origin: c.origin,
-          quantity: 1,
-        })
-      } else {
-        orig.quantity++
-      }
-    }
-    return arr
-  }
-
-  @BackendMethod({ allowed: Allow.authenticated })
   static async getDashboard() {
     const statuses: {
       id: string
@@ -355,6 +330,8 @@ export class Computer extends IdEntity {
         )
       ) {
         const comp = await compRepo.findId(change.relatedId)
+        if (status.statusTableCurrentStatusOnly && comp.status != status)
+          continue;
         if (
           !lastDate ||
           lastDate.date.toDateString() != change.changeDate.toDateString()
@@ -363,7 +340,8 @@ export class Computer extends IdEntity {
             date: change.changeDate,
             presentDate: toDisplayDate(change.changeDate),
             computers: [],
-            workers: []
+            workers: [],
+            byOrigin: []
           }
           arr.push(lastDate)
         }
@@ -372,17 +350,33 @@ export class Computer extends IdEntity {
           barcode: comp.barcode,
           employee: comp.employee?.name!,
         })
-        let orig = lastDate.workers.find(
-          (x) => x.name === comp.employee?.name,
-        )
+        {
+          let orig = lastDate.workers.find(
+            (x) => x.name === comp.employee?.name,
+          )
 
-        if (!orig) {
-          lastDate.workers.push({
-            name: comp.employee?.name!,
-            quantity: 1,
-          })
-        } else {
-          orig.quantity++
+          if (!orig) {
+            lastDate.workers.push({
+              name: comp.employee?.name!,
+              quantity: 1,
+            })
+          } else {
+            orig.quantity++
+          }
+        }
+        {
+          let orig = lastDate.byOrigin.find(
+            (x) => x.origin.trim() === comp.origin.trim(),
+          )
+
+          if (!orig) {
+            lastDate.byOrigin.push({
+              origin: comp.origin,
+              quantity: 1,
+            })
+          } else {
+            orig.quantity++
+          }
         }
       }
     }
@@ -390,17 +384,13 @@ export class Computer extends IdEntity {
   }
 }
 
-export interface NewComputersDate {
-  date: Date
-  presentDate: string
-  computers: { origin: string; quantity: number }[]
-}
 
 export interface StatusDate {
   date: Date
   presentDate: string
   computers: { barcode: string; employee: string }[]
   workers: { name: string, quantity: number }[]
+  byOrigin: { origin: string; quantity: number }[]
 }
 
 async function getListFromMonday(board: number) {

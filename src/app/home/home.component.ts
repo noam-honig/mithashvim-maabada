@@ -3,7 +3,7 @@ import { getValueList, remult } from 'remult';
 import { BusyService } from '../common-ui-elements';
 import { DataAreaSettings } from '../common-ui-elements/interfaces';
 import { UIToolsService } from '../common/UIToolsService';
-import { Computer, ComputerStatus, CPUType, NewComputersDate, StatusDate } from '../computers/computer';
+import { Computer, ComputerStatus, CPUType, StatusDate } from '../computers/computer';
 import { getConfig } from '../config/config.component';
 import { Roles } from '../users/roles';
 
@@ -19,7 +19,6 @@ export class HomeComponent implements OnInit {
   types = getValueList(CPUType);
   input!: Computer;
   area!: DataAreaSettings;
-  newComputers: NewComputersDate[] = [];
   newStatusDates: StatusDate[] = [];
   displayedColumns: string[] = ['origin', 'quantity'];
 
@@ -33,17 +32,11 @@ export class HomeComponent implements OnInit {
     return !remult.isAllowed(Roles.anyManager) || this.input.status.allowed();
   }
 
-  private async loadNewComputers() {
-    if (this.isStatusEqualsToIntake())
-      await this.busyService.donotWait(async () => {
-        this.newComputers = await Computer.getNewComputers(ComputerStatus.intakeTrash === this.input.status)
-      });
-  }
+
   private async loadStatusDates() {
-    if (this.input.status.showStatusHistory)
-      await this.busyService.donotWait(async () => {
-        this.newStatusDates = await Computer.getStatusChanges(this.input.status)
-      });
+    await this.busyService.donotWait(async () => {
+      this.newStatusDates = await Computer.getStatusChanges(this.input.status)
+    });
   }
 
   async update() {
@@ -98,24 +91,16 @@ export class HomeComponent implements OnInit {
     }
     this.area = new DataAreaSettings({
       fields: () => [
-        { field: this.input.$.origin,  visible: () => this.input.status.isIntake },
+        { field: this.input.$.origin, visible: () => this.input.status.isIntake },
         { field: this.input.$.courier, click: () => this.input.origin = '', clickIcon: 'clear', visible: () => this.input.status.isIntake },
-        { field: this.input.$.recipient,  visible: () => this.input.status.inputRecipient },
+        { field: this.input.$.recipient, visible: () => this.input.status.inputRecipient },
       ]
     });
-    this.loadNewComputers();
     this.loadStatusDates();
     setTimeout(() => {
       if (this.allowedForManager())
         this.x.nativeElement.getElementsByTagName('input')[0].focus()
     }, 0);
   }
-
-  isStatusEqualsToIntake() {
-    return ComputerStatus.intake === this.input.status || this.input
-      .status === ComputerStatus.intakeTrash;
-  }
-
-
 }
 

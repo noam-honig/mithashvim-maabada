@@ -1437,5 +1437,51 @@
     "changedFields": [
       "employee"
     ]
+  },
+  {
+    "id": "f22cbbcd-0747-439f-9e05-3e39d83cdc88",
+    "relatedId": "baef6eb0-c0ef-465e-a0ff-e1972a0e6c52",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-11-18T09:07:32.540Z",
+    "userId": "2c4077ec-b861-474b-b5fd-62daa8c9b736",
+    "userName": "נועם",
+    "changes": [
+      {
+        "key": "status",
+        "oldDisplayValue": "שודרג בהצלחה",
+        "newDisplayValue": "ממתין לאריזה",
+        "newValue": "waitForPack",
+        "oldValue": "successfulUpgrade"
+      }
+    ],
+    "changedFields": [
+      "status"
+    ]
+  },
+  {
+    "id": "3478aac1-eb0b-42b5-9be4-9426c7a4a932",
+    "relatedId": "baef6eb0-c0ef-465e-a0ff-e1972a0e6c52",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-11-18T09:08:20.710Z",
+    "userId": "2c4077ec-b861-474b-b5fd-62daa8c9b736",
+    "userName": "נועם",
+    "changes": [
+      {
+        "key": "status",
+        "oldDisplayValue": "ממתין לאריזה",
+        "newDisplayValue": "שודרג בהצלחה",
+        "newValue": "successfulUpgrade",
+        "oldValue": "waitForPack"
+      }
+    ],
+    "changedFields": [
+      "status"
+    ]
   }
 ]
