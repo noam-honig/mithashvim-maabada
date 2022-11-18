@@ -58,6 +58,8 @@ export class ComputerStatus {
     [Roles.stockAdmin],
     {
       inputPackageBarcode: true,
+      statusTableByEmployee: true,
+      statusTableCurrentStatusOnly: true
     }
   );
   static waitForDelivery = new ComputerStatus(
