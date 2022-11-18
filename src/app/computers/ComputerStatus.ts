@@ -45,9 +45,13 @@ export class ComputerStatus {
   });
   static packing = new ComputerStatus('תהליך אריזה', [Roles.packAdmin], {
     updatePackageBarcode: true,
+    statusTableByEmployee: true,
+    statusTableCurrentStatusOnly: true
   });
   static packDone = new ComputerStatus('נארז בהצלחה', [Roles.stockAdmin], {
     inputPackageBarcode: true,
+    statusTableByEmployee: true,
+    statusTableCurrentStatusOnly: true
   });
   static waitForArchive = new ComputerStatus(
     'ממתין לשינוע לארכיברים',
