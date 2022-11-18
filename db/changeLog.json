@@ -1257,5 +1257,28 @@
     "changedFields": [
       "status"
     ]
+  },
+  {
+    "id": "7a882008-fb6d-4c5f-b274-f8219af7666d",
+    "relatedId": "92f39d7d-ed05-4f5d-a504-65467d83a8e1",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-11-18T08:13:43.393Z",
+    "userId": "2c4077ec-b861-474b-b5fd-62daa8c9b736",
+    "userName": "נועם",
+    "changes": [
+      {
+        "key": "barcode",
+        "oldDisplayValue": "17",
+        "newDisplayValue": "M503132",
+        "newValue": "M503132",
+        "oldValue": "17"
+      }
+    ],
+    "changedFields": [
+      "barcode"
+    ]
   }
 ]

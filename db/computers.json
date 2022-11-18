@@ -232,7 +232,7 @@
   },
   {
     "id": "92f39d7d-ed05-4f5d-a504-65467d83a8e1",
-    "barcode": "17",
+    "barcode": "M503132",
     "packageBarcode": "",
     "status": "intakeTrash",
     "employee": null,
@@ -240,6 +240,6 @@
     "courier": "124",
     "recipient": "",
     "createDate": "2022-10-03T08:04:40.250Z",
-    "updateDate": "2022-10-03T08:04:40.252Z"
+    "updateDate": "2022-11-18T08:13:43.392Z"
   }
 ]

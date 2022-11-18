@@ -118,12 +118,25 @@ export class CPUType {
 export class Computer extends IdEntity {
   @Fields.string({
     caption: 'ברקוד מחשב',
-    validate: [Validators.required, Validators.uniqueOnBackend],
+    validate: [Validators.required, Validators.uniqueOnBackend, (_, f) => {
+      f.value = f.value.trim();
+      if (!f.value.startsWith("M") && !f.value.startsWith("W"))
+        throw Error("צריך להתחיל בM או W");
+      if (f.value.length != 7)
+        throw Error("צריך להיות בן 7 תוים בדיוק")
+    }],
   })
   barcode = ''
   @Fields.string<Computer>(
     {
       caption: 'ברקוד אריזה',
+      validate: (_, f) => {
+        f.value = f.value.trim()
+        if (!f.value.startsWith("A"))
+          throw Error(" צריך להתחיל בA");
+        if (f.value.length < 5 || f.value.length > 6)
+          throw Error(" יכול להיות בן 5 או 6 תוים בלבד")
+      }
     },
     (options, remult) =>
     (options.validate = async (c, ref) => {
@@ -148,6 +161,17 @@ export class Computer extends IdEntity {
     }),
   )
   packageBarcode = ''
+  @Fields.string({
+    caption: 'ברקוד משטח',
+    validate: [ (_, f) => {
+      f.value = f.value.trim();
+      if (!f.value.startsWith("Z"))
+        throw Error("צריך להתחיל בZ");
+      if (f.value.length != 5)
+        throw Error("צריך להיות בן 7 תוים בדיוק")
+    }],
+  })
+  palletBarcode = ''
   @Field(() => ComputerStatus, {
     width: '170',
   })
