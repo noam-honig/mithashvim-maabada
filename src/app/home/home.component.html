@@ -13,18 +13,31 @@
       <h2>
         {{
           input.status.caption +
-            (input.status.updateEmployee ? " " + input.employee?.name : "")
+            (input.status.updateEmployee ? " " + input.employee?.name : "") +
+            (input.status.assignPallet ? " למשטח " + input.palletBarcode : "")
         }}
       </h2>
       <data-control
-        *ngIf="!input.status.inputPackageBarcode"
+        *ngIf="input.status.canUpdateCompletePallet"
+        [field]="$.inputMethod"
+      >
+      </data-control>
+      <data-control
+        *ngIf="!input.status.inputPackageBarcode && !inputMethod.pallet"
         [field]="input.$.barcode"
+        cdkFocusInitial
+      ></data-control>
+      <data-control
+        *ngIf="showPallet()"
+        [field]="input.$.palletBarcode"
         cdkFocusInitial
       ></data-control>
       <data-control
         [field]="input.$.packageBarcode"
         *ngIf="
-          input.status.updatePackageBarcode || input.status.inputPackageBarcode
+          !showPallet() &&
+          (input.status.updatePackageBarcode ||
+            input.status.inputPackageBarcode)
         "
         cdkFocusInitial
       ></data-control>
@@ -70,12 +83,14 @@
           <thead>
             <tr>
               <th>מקור</th>
+              <th>משטח</th>
               <th>מחשבים</th>
             </tr>
           </thead>
           <tbody *ngFor="let i of c.byOrigin">
             <tr>
               <td>{{ i.origin }}</td>
+              <td>{{ i.pallet }}</td>
               <td>{{ i.quantity }}</td>
             </tr>
           </tbody>

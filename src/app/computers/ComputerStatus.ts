@@ -6,6 +6,7 @@ export class ComputerStatus {
   static intake = new ComputerStatus('התקבל', [Roles.stockAdmin], {
     isIntake: true,
     statusTableByOrigin: true,
+    inputPallet: true,
   })
   static intakeTrash = new ComputerStatus(
     'התקבל וממתין לגריטה',
@@ -20,6 +21,7 @@ export class ComputerStatus {
     [Roles.stockAdmin],
     {
       statusTableByOrigin: true,
+      canUpdateCompletePallet: true,
     },
   )
   static assigned = new ComputerStatus('שוייך לעובד', [Roles.upgradeAdmin], {
@@ -30,27 +32,32 @@ export class ComputerStatus {
   })
   static trash = new ComputerStatus('ממתין לגריטה', [Roles.upgradeAdmin], {
     statusTableByEmployee: true,
+    clearPallet: true,
   })
   static successfulUpgrade = new ComputerStatus(
     'שודרג בהצלחה',
     [Roles.upgradeAdmin],
     {
       statusTableByEmployee: true,
+      assignPallet: true,
     },
   )
   static waitForPack = new ComputerStatus('ממתין לאריזה', [Roles.stockAdmin], {
     statusTableByEmployee: true,
     statusTableCurrentStatusOnly: true,
+    canUpdateCompletePallet: true,
   })
   static packing = new ComputerStatus('תהליך אריזה', [Roles.packAdmin], {
     updatePackageBarcode: true,
     statusTableByEmployee: true,
     statusTableCurrentStatusOnly: true,
+    assignPallet: true,
   })
   static packDone = new ComputerStatus('נארז בהצלחה', [Roles.stockAdmin], {
     inputPackageBarcode: true,
     statusTableByEmployee: true,
     statusTableCurrentStatusOnly: true,
+    canUpdateCompletePallet: true,
   })
   static waitForArchive = new ComputerStatus(
     'ממתין לשינוע לארכיברים',
@@ -59,6 +66,7 @@ export class ComputerStatus {
       inputPackageBarcode: true,
       statusTableByEmployee: true,
       statusTableCurrentStatusOnly: true,
+      canUpdateCompletePallet:true
     },
   )
   static waitForDelivery = new ComputerStatus(
@@ -68,6 +76,7 @@ export class ComputerStatus {
       inputPackageBarcode: true,
       inputRecipient: true,
       statusTableByOrigin: true,
+      canUpdateCompletePallet: true,
     },
   )
 
@@ -91,6 +100,10 @@ export class ComputerStatus {
   statusTableByOrigin = false
   statusTableByEmployee = false
   statusTableCurrentStatusOnly = false
+  inputPallet = false
+  assignPallet = false
+  clearPallet = false
+  canUpdateCompletePallet = false
   get showStatusTables() {
     return this.statusTableByEmployee || this.statusTableByOrigin
   }

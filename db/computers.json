@@ -253,14 +253,14 @@
     "id": "92f39d7d-ed05-4f5d-a504-65467d83a8e1",
     "barcode": "M503132",
     "packageBarcode": "",
-    "status": "intakeTrash",
+    "status": "successfulUpgrade",
     "employee": "9e32ac04-f834-416c-83f1-e92af954d84c",
     "origin": "124",
     "courier": "124",
     "recipient": "",
     "createDate": "2022-10-03T08:04:40.250Z",
-    "updateDate": "2022-11-18T08:31:44.871Z",
-    "palletBarcode": ""
+    "updateDate": "2022-11-20T13:52:55.577Z",
+    "palletBarcode": "Z2234"
   },
   {
     "id": "aa1b27fc-3e91-4c0b-a75b-4481f5e58eb6",
@@ -300,5 +300,44 @@
     "recipient": "",
     "createDate": "2022-11-18T08:19:29.106Z",
     "updateDate": "2022-11-18T09:08:20.710Z"
+  },
+  {
+    "id": "6926e108-9921-4efb-80e3-903d1eb57ee8",
+    "barcode": "M503133",
+    "packageBarcode": "",
+    "palletBarcode": "Z1234",
+    "status": "waitingForUpgrade",
+    "employee": null,
+    "origin": "אופיר טורס",
+    "courier": "123123",
+    "recipient": "",
+    "createDate": "2022-11-20T12:41:20.836Z",
+    "updateDate": "2022-11-20T13:45:08.546Z"
+  },
+  {
+    "id": "3c33f38a-f1e9-40aa-83dd-8aff6dfa46ed",
+    "barcode": "M503134",
+    "packageBarcode": "",
+    "palletBarcode": "Z1234",
+    "status": "waitingForUpgrade",
+    "employee": null,
+    "origin": "אופיר טורס",
+    "courier": "123123",
+    "recipient": "",
+    "createDate": "2022-11-20T12:41:23.980Z",
+    "updateDate": "2022-11-20T13:45:08.296Z"
+  },
+  {
+    "id": "e5db4e0e-9576-4a49-b339-65b484e507e1",
+    "barcode": "M503135",
+    "packageBarcode": "",
+    "palletBarcode": "Z1234",
+    "status": "waitingForUpgrade",
+    "employee": null,
+    "origin": "אופיר טורס",
+    "courier": "123123",
+    "recipient": "",
+    "createDate": "2022-11-20T12:41:27.884Z",
+    "updateDate": "2022-11-20T13:45:07.964Z"
   }
 ]

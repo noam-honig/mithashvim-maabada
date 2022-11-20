@@ -89,7 +89,7 @@ export class Computer extends IdEntity {
         if (f.value) {
           f.value = f.value.trim()
           if (!f.value.startsWith('Z')) throw Error('צריך להתחיל בZ')
-          if (f.value.length != 5) throw Error('צריך להיות בן 7 תוים בדיוק')
+          if (f.value.length != 5) throw Error('צריך להיות בן 5 תוים בדיוק')
         }
       },
     ],
@@ -278,12 +278,15 @@ export class Computer extends IdEntity {
         }
         {
           let orig = lastDate.byOrigin.find(
-            (x) => x.origin.trim() === comp.origin.trim(),
+            (x) =>
+              x.origin.trim() === comp.origin.trim() &&
+              x.pallet.trim() === comp.palletBarcode.trim(),
           )
 
           if (!orig) {
             lastDate.byOrigin.push({
               origin: comp.origin,
+              pallet: comp.palletBarcode,
               quantity: 1,
             })
           } else {
@@ -301,7 +304,7 @@ export interface StatusDate {
   presentDate: string
   computers: { barcode: string; employee: string }[]
   workers: { name: string; quantity: number }[]
-  byOrigin: { origin: string; quantity: number }[]
+  byOrigin: { origin: string; pallet: string; quantity: number }[]
 }
 
 async function getListFromMonday(board: number) {
