@@ -35,13 +35,16 @@ import { CPUType } from './CPUType'
 export class Computer extends IdEntity {
   @Fields.string({
     caption: 'ברקוד מחשב',
-    validate: [Validators.required, Validators.uniqueOnBackend, (_, f) => {
-      f.value = f.value.trim();
-      if (!f.value.startsWith("M") && !f.value.startsWith("W"))
-        throw Error("צריך להתחיל בM או W");
-      if (f.value.length != 7)
-        throw Error("צריך להיות בן 7 תוים בדיוק")
-    }],
+    validate: [
+      Validators.required,
+      Validators.uniqueOnBackend,
+      (_, f) => {
+        f.value = f.value.trim()
+        if (!f.value.startsWith('M') && !f.value.startsWith('W'))
+          throw Error('צריך להתחיל בM או W')
+        if (f.value.length != 7) throw Error('צריך להיות בן 7 תוים בדיוק')
+      },
+    ],
   })
   barcode = ''
   @Fields.string<Computer>(
@@ -50,47 +53,46 @@ export class Computer extends IdEntity {
       validate: (_, f) => {
         if (f.value) {
           f.value = f.value.trim()
-          if (!f.value.startsWith("A"))
-            throw Error(" צריך להתחיל בA");
+          if (!f.value.startsWith('A')) throw Error(' צריך להתחיל בA')
           if (f.value.length < 5 || f.value.length > 6)
-            throw Error(" יכול להיות בן 5 או 6 תוים בלבד")
+            throw Error(' יכול להיות בן 5 או 6 תוים בלבד')
         }
-      }
+      },
     },
     (options, remult) =>
-    (options.validate = async (c, ref) => {
-      if (c.status.updatePackageBarcode) {
-        Validators.required(c, ref)
-        c.packageBarcode = c.packageBarcode.trim()
-        if (
-          !ref.error &&
-          (await remult.repo(Computer).count({
-            $or: [
-              {
-                id: { '!=': c.id },
-                packageBarcode: c.packageBarcode,
-              },
-              { barcode: c.packageBarcode },
-            ],
-          })) > 0
-        ) {
-          ref.error = ' כבר משוייך למחשב אחר!'
+      (options.validate = async (c, ref) => {
+        if (c.status.updatePackageBarcode) {
+          Validators.required(c, ref)
+          c.packageBarcode = c.packageBarcode.trim()
+          if (
+            !ref.error &&
+            (await remult.repo(Computer).count({
+              $or: [
+                {
+                  id: { '!=': c.id },
+                  packageBarcode: c.packageBarcode,
+                },
+                { barcode: c.packageBarcode },
+              ],
+            })) > 0
+          ) {
+            ref.error = ' כבר משוייך למחשב אחר!'
+          }
         }
-      }
-    }),
+      }),
   )
   packageBarcode = ''
   @Fields.string({
     caption: 'ברקוד משטח',
-    validate: [(_, f) => {
-      if (f.value) {
-        f.value = f.value.trim();
-        if (!f.value.startsWith("Z"))
-          throw Error("צריך להתחיל בZ");
-        if (f.value.length != 5)
-          throw Error("צריך להיות בן 7 תוים בדיוק")
-      }
-    }],
+    validate: [
+      (_, f) => {
+        if (f.value) {
+          f.value = f.value.trim()
+          if (!f.value.startsWith('Z')) throw Error('צריך להתחיל בZ')
+          if (f.value.length != 5) throw Error('צריך להיות בן 7 תוים בדיוק')
+        }
+      },
+    ],
   })
   palletBarcode = ''
   @Field(() => ComputerStatus, {
@@ -187,13 +189,21 @@ export class Computer extends IdEntity {
       count: number
     }[] = []
 
-    let list = getValueList(ComputerStatus);
+    let list = getValueList(ComputerStatus)
     if (remult.isAllowed([Roles.admin, Roles.stockAdmin])) {
-
     } else if (remult.isAllowed(Roles.upgradeAdmin))
-      list = [ComputerStatus.waitingForUpgrade, ComputerStatus.assigned, ComputerStatus.trash, ComputerStatus.successfulUpgrade];
+      list = [
+        ComputerStatus.waitingForUpgrade,
+        ComputerStatus.assigned,
+        ComputerStatus.trash,
+        ComputerStatus.successfulUpgrade,
+      ]
     else if (remult.isAllowed(Roles.packAdmin))
-      list = [ComputerStatus.waitForPack, ComputerStatus.packing, ComputerStatus.packDone];
+      list = [
+        ComputerStatus.waitForPack,
+        ComputerStatus.packing,
+        ComputerStatus.packDone,
+      ]
 
     for (const status of list) {
       if (status.allowed() || remult.isAllowed(Roles.stockAdmin)) {
@@ -233,7 +243,7 @@ export class Computer extends IdEntity {
       ) {
         const comp = await compRepo.findId(change.relatedId)
         if (status.statusTableCurrentStatusOnly && comp.status != status)
-          continue;
+          continue
         if (
           !lastDate ||
           lastDate.date.toDateString() != change.changeDate.toDateString()
@@ -243,7 +253,7 @@ export class Computer extends IdEntity {
             presentDate: toDisplayDate(change.changeDate),
             computers: [],
             workers: [],
-            byOrigin: []
+            byOrigin: [],
           }
           arr.push(lastDate)
         }
@@ -286,12 +296,11 @@ export class Computer extends IdEntity {
   }
 }
 
-
 export interface StatusDate {
   date: Date
   presentDate: string
   computers: { barcode: string; employee: string }[]
-  workers: { name: string, quantity: number }[]
+  workers: { name: string; quantity: number }[]
   byOrigin: { origin: string; quantity: number }[]
 }
 

@@ -1483,5 +1483,2458 @@
     "changedFields": [
       "status"
     ]
+  },
+  {
+    "id": "e8c0a0d0-8b1b-4c05-822a-34f2fc1e9158",
+    "relatedId": "baef6eb0-c0ef-465e-a0ff-e1972a0e6c52",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-11-18T08:19:29.106Z",
+    "userId": "",
+    "userName": "",
+    "changes": [
+      {
+        "key": "id",
+        "oldDisplayValue": "baef6eb0-c0ef-465e-a0ff-e1972a0e6c52",
+        "newDisplayValue": "baef6eb0-c0ef-465e-a0ff-e1972a0e6c52",
+        "newValue": "baef6eb0-c0ef-465e-a0ff-e1972a0e6c52",
+        "oldValue": "baef6eb0-c0ef-465e-a0ff-e1972a0e6c52"
+      },
+      {
+        "key": "barcode",
+        "oldDisplayValue": "M503129",
+        "newDisplayValue": "M503129",
+        "newValue": "M503129",
+        "oldValue": "M503129"
+      },
+      {
+        "key": "packageBarcode",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "palletBarcode",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "status",
+        "oldDisplayValue": "שודרג בהצלחה",
+        "newDisplayValue": "שודרג בהצלחה",
+        "newValue": "successfulUpgrade",
+        "oldValue": "successfulUpgrade"
+      },
+      {
+        "key": "employee",
+        "oldDisplayValue": "ליאור",
+        "newDisplayValue": "ליאור",
+        "newValue": "3fe1d2db-1921-4272-bc9b-b5532a8447b7",
+        "oldValue": "3fe1d2db-1921-4272-bc9b-b5532a8447b7"
+      },
+      {
+        "key": "cpu"
+      },
+      {
+        "key": "origin",
+        "oldDisplayValue": "אוניברסיטת בר אילן",
+        "newDisplayValue": "אוניברסיטת בר אילן",
+        "newValue": "אוניברסיטת בר אילן",
+        "oldValue": "אוניברסיטת בר אילן"
+      },
+      {
+        "key": "courier",
+        "oldDisplayValue": "1",
+        "newDisplayValue": "1",
+        "newValue": "1",
+        "oldValue": "1"
+      },
+      {
+        "key": "recipient",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "createDate",
+        "oldDisplayValue": "2022-11-18T08:19:29.106Z",
+        "newDisplayValue": "2022-11-18T08:19:29.106Z",
+        "newValue": "2022-11-18T08:19:29.106Z",
+        "oldValue": "2022-11-18T08:19:29.106Z"
+      },
+      {
+        "key": "updateDate",
+        "oldDisplayValue": "2022-11-18T09:08:20.710Z",
+        "newDisplayValue": "2022-11-18T09:08:20.710Z",
+        "newValue": "2022-11-18T09:08:20.710Z",
+        "oldValue": "2022-11-18T09:08:20.710Z"
+      }
+    ],
+    "changedFields": [
+      "id",
+      "barcode",
+      "packageBarcode",
+      "palletBarcode",
+      "status",
+      "employee",
+      "cpu",
+      "origin",
+      "courier",
+      "recipient",
+      "createDate",
+      "updateDate"
+    ]
+  },
+  {
+    "id": "2f5aeb4f-1adc-48fe-8e4f-1cf5ecf08550",
+    "relatedId": "392013b2-19d4-4e20-bf1a-22db77b0c57c",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-11-18T08:19:25.921Z",
+    "userId": "",
+    "userName": "",
+    "changes": [
+      {
+        "key": "id",
+        "oldDisplayValue": "392013b2-19d4-4e20-bf1a-22db77b0c57c",
+        "newDisplayValue": "392013b2-19d4-4e20-bf1a-22db77b0c57c",
+        "newValue": "392013b2-19d4-4e20-bf1a-22db77b0c57c",
+        "oldValue": "392013b2-19d4-4e20-bf1a-22db77b0c57c"
+      },
+      {
+        "key": "barcode",
+        "oldDisplayValue": "M503130",
+        "newDisplayValue": "M503130",
+        "newValue": "M503130",
+        "oldValue": "M503130"
+      },
+      {
+        "key": "packageBarcode",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "palletBarcode",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "status",
+        "oldDisplayValue": "שודרג בהצלחה",
+        "newDisplayValue": "שודרג בהצלחה",
+        "newValue": "successfulUpgrade",
+        "oldValue": "successfulUpgrade"
+      },
+      {
+        "key": "employee",
+        "oldDisplayValue": "ליאור",
+        "newDisplayValue": "ליאור",
+        "newValue": "3fe1d2db-1921-4272-bc9b-b5532a8447b7",
+        "oldValue": "3fe1d2db-1921-4272-bc9b-b5532a8447b7"
+      },
+      {
+        "key": "cpu"
+      },
+      {
+        "key": "origin",
+        "oldDisplayValue": "אוניברסיטת בר אילן",
+        "newDisplayValue": "אוניברסיטת בר אילן",
+        "newValue": "אוניברסיטת בר אילן",
+        "oldValue": "אוניברסיטת בר אילן"
+      },
+      {
+        "key": "courier",
+        "oldDisplayValue": "1",
+        "newDisplayValue": "1",
+        "newValue": "1",
+        "oldValue": "1"
+      },
+      {
+        "key": "recipient",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "createDate",
+        "oldDisplayValue": "2022-11-18T08:19:25.921Z",
+        "newDisplayValue": "2022-11-18T08:19:25.921Z",
+        "newValue": "2022-11-18T08:19:25.921Z",
+        "oldValue": "2022-11-18T08:19:25.921Z"
+      },
+      {
+        "key": "updateDate",
+        "oldDisplayValue": "2022-11-18T08:31:44.857Z",
+        "newDisplayValue": "2022-11-18T08:31:44.857Z",
+        "newValue": "2022-11-18T08:31:44.857Z",
+        "oldValue": "2022-11-18T08:31:44.857Z"
+      }
+    ],
+    "changedFields": [
+      "id",
+      "barcode",
+      "packageBarcode",
+      "palletBarcode",
+      "status",
+      "employee",
+      "cpu",
+      "origin",
+      "courier",
+      "recipient",
+      "createDate",
+      "updateDate"
+    ]
+  },
+  {
+    "id": "e1337989-21f4-43aa-8f76-9866bd4bc8d8",
+    "relatedId": "aa1b27fc-3e91-4c0b-a75b-4481f5e58eb6",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-11-18T08:19:21.206Z",
+    "userId": "",
+    "userName": "",
+    "changes": [
+      {
+        "key": "id",
+        "oldDisplayValue": "aa1b27fc-3e91-4c0b-a75b-4481f5e58eb6",
+        "newDisplayValue": "aa1b27fc-3e91-4c0b-a75b-4481f5e58eb6",
+        "newValue": "aa1b27fc-3e91-4c0b-a75b-4481f5e58eb6",
+        "oldValue": "aa1b27fc-3e91-4c0b-a75b-4481f5e58eb6"
+      },
+      {
+        "key": "barcode",
+        "oldDisplayValue": "M503131",
+        "newDisplayValue": "M503131",
+        "newValue": "M503131",
+        "oldValue": "M503131"
+      },
+      {
+        "key": "packageBarcode",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "palletBarcode",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "status",
+        "oldDisplayValue": "שודרג בהצלחה",
+        "newDisplayValue": "שודרג בהצלחה",
+        "newValue": "successfulUpgrade",
+        "oldValue": "successfulUpgrade"
+      },
+      {
+        "key": "employee",
+        "oldDisplayValue": "משה",
+        "newDisplayValue": "משה",
+        "newValue": "9e32ac04-f834-416c-83f1-e92af954d84c",
+        "oldValue": "9e32ac04-f834-416c-83f1-e92af954d84c"
+      },
+      {
+        "key": "cpu"
+      },
+      {
+        "key": "origin",
+        "oldDisplayValue": "אוניברסיטת בר אילן",
+        "newDisplayValue": "אוניברסיטת בר אילן",
+        "newValue": "אוניברסיטת בר אילן",
+        "oldValue": "אוניברסיטת בר אילן"
+      },
+      {
+        "key": "courier",
+        "oldDisplayValue": "1",
+        "newDisplayValue": "1",
+        "newValue": "1",
+        "oldValue": "1"
+      },
+      {
+        "key": "recipient",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "createDate",
+        "oldDisplayValue": "2022-11-18T08:19:21.206Z",
+        "newDisplayValue": "2022-11-18T08:19:21.206Z",
+        "newValue": "2022-11-18T08:19:21.206Z",
+        "oldValue": "2022-11-18T08:19:21.206Z"
+      },
+      {
+        "key": "updateDate",
+        "oldDisplayValue": "2022-11-18T08:31:44.835Z",
+        "newDisplayValue": "2022-11-18T08:31:44.835Z",
+        "newValue": "2022-11-18T08:31:44.835Z",
+        "oldValue": "2022-11-18T08:31:44.835Z"
+      }
+    ],
+    "changedFields": [
+      "id",
+      "barcode",
+      "packageBarcode",
+      "palletBarcode",
+      "status",
+      "employee",
+      "cpu",
+      "origin",
+      "courier",
+      "recipient",
+      "createDate",
+      "updateDate"
+    ]
+  },
+  {
+    "id": "64f27ee4-a1c3-42d3-84dd-c3b5ec8c1f45",
+    "relatedId": "92f39d7d-ed05-4f5d-a504-65467d83a8e1",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-10-03T08:04:40.250Z",
+    "userId": "",
+    "userName": "",
+    "changes": [
+      {
+        "key": "id",
+        "oldDisplayValue": "92f39d7d-ed05-4f5d-a504-65467d83a8e1",
+        "newDisplayValue": "92f39d7d-ed05-4f5d-a504-65467d83a8e1",
+        "newValue": "92f39d7d-ed05-4f5d-a504-65467d83a8e1",
+        "oldValue": "92f39d7d-ed05-4f5d-a504-65467d83a8e1"
+      },
+      {
+        "key": "barcode",
+        "oldDisplayValue": "M503132",
+        "newDisplayValue": "M503132",
+        "newValue": "M503132",
+        "oldValue": "M503132"
+      },
+      {
+        "key": "packageBarcode",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "palletBarcode",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "status",
+        "oldDisplayValue": "התקבל וממתין לגריטה",
+        "newDisplayValue": "התקבל וממתין לגריטה",
+        "newValue": "intakeTrash",
+        "oldValue": "intakeTrash"
+      },
+      {
+        "key": "employee",
+        "oldDisplayValue": "משה",
+        "newDisplayValue": "משה",
+        "newValue": "9e32ac04-f834-416c-83f1-e92af954d84c",
+        "oldValue": "9e32ac04-f834-416c-83f1-e92af954d84c"
+      },
+      {
+        "key": "cpu"
+      },
+      {
+        "key": "origin",
+        "oldDisplayValue": "124",
+        "newDisplayValue": "124",
+        "newValue": "124",
+        "oldValue": "124"
+      },
+      {
+        "key": "courier",
+        "oldDisplayValue": "124",
+        "newDisplayValue": "124",
+        "newValue": "124",
+        "oldValue": "124"
+      },
+      {
+        "key": "recipient",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "createDate",
+        "oldDisplayValue": "2022-10-03T08:04:40.250Z",
+        "newDisplayValue": "2022-10-03T08:04:40.250Z",
+        "newValue": "2022-10-03T08:04:40.250Z",
+        "oldValue": "2022-10-03T08:04:40.250Z"
+      },
+      {
+        "key": "updateDate",
+        "oldDisplayValue": "2022-11-18T08:31:44.871Z",
+        "newDisplayValue": "2022-11-18T08:31:44.871Z",
+        "newValue": "2022-11-18T08:31:44.871Z",
+        "oldValue": "2022-11-18T08:31:44.871Z"
+      }
+    ],
+    "changedFields": [
+      "id",
+      "barcode",
+      "packageBarcode",
+      "palletBarcode",
+      "status",
+      "employee",
+      "cpu",
+      "origin",
+      "courier",
+      "recipient",
+      "createDate",
+      "updateDate"
+    ]
+  },
+  {
+    "id": "e6e7d1dc-9919-48d5-b58e-71e4e87e6bdd",
+    "relatedId": "60360fe1-df33-4f56-bf01-a42dfb7126f8",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-10-03T08:04:38.293Z",
+    "userId": "",
+    "userName": "",
+    "changes": [
+      {
+        "key": "id",
+        "oldDisplayValue": "60360fe1-df33-4f56-bf01-a42dfb7126f8",
+        "newDisplayValue": "60360fe1-df33-4f56-bf01-a42dfb7126f8",
+        "newValue": "60360fe1-df33-4f56-bf01-a42dfb7126f8",
+        "oldValue": "60360fe1-df33-4f56-bf01-a42dfb7126f8"
+      },
+      {
+        "key": "barcode",
+        "oldDisplayValue": "16",
+        "newDisplayValue": "16",
+        "newValue": "16",
+        "oldValue": "16"
+      },
+      {
+        "key": "packageBarcode",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "palletBarcode",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "status",
+        "oldDisplayValue": "התקבל וממתין לגריטה",
+        "newDisplayValue": "התקבל וממתין לגריטה",
+        "newValue": "intakeTrash",
+        "oldValue": "intakeTrash"
+      },
+      {
+        "key": "employee",
+        "newValue": null,
+        "oldValue": null
+      },
+      {
+        "key": "cpu"
+      },
+      {
+        "key": "origin",
+        "oldDisplayValue": "124",
+        "newDisplayValue": "124",
+        "newValue": "124",
+        "oldValue": "124"
+      },
+      {
+        "key": "courier",
+        "oldDisplayValue": "124",
+        "newDisplayValue": "124",
+        "newValue": "124",
+        "oldValue": "124"
+      },
+      {
+        "key": "recipient",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "createDate",
+        "oldDisplayValue": "2022-10-03T08:04:38.293Z",
+        "newDisplayValue": "2022-10-03T08:04:38.293Z",
+        "newValue": "2022-10-03T08:04:38.293Z",
+        "oldValue": "2022-10-03T08:04:38.293Z"
+      },
+      {
+        "key": "updateDate",
+        "oldDisplayValue": "2022-10-03T08:04:38.294Z",
+        "newDisplayValue": "2022-10-03T08:04:38.294Z",
+        "newValue": "2022-10-03T08:04:38.294Z",
+        "oldValue": "2022-10-03T08:04:38.294Z"
+      }
+    ],
+    "changedFields": [
+      "id",
+      "barcode",
+      "packageBarcode",
+      "palletBarcode",
+      "status",
+      "employee",
+      "cpu",
+      "origin",
+      "courier",
+      "recipient",
+      "createDate",
+      "updateDate"
+    ]
+  },
+  {
+    "id": "253ab89f-e1c2-401a-9e6e-be8e400b039c",
+    "relatedId": "c6268923-0ea8-42c0-a4f0-6755113a31f0",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-10-03T08:04:32.343Z",
+    "userId": "",
+    "userName": "",
+    "changes": [
+      {
+        "key": "id",
+        "oldDisplayValue": "c6268923-0ea8-42c0-a4f0-6755113a31f0",
+        "newDisplayValue": "c6268923-0ea8-42c0-a4f0-6755113a31f0",
+        "newValue": "c6268923-0ea8-42c0-a4f0-6755113a31f0",
+        "oldValue": "c6268923-0ea8-42c0-a4f0-6755113a31f0"
+      },
+      {
+        "key": "barcode",
+        "oldDisplayValue": "15",
+        "newDisplayValue": "15",
+        "newValue": "15",
+        "oldValue": "15"
+      },
+      {
+        "key": "packageBarcode",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "palletBarcode",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "status",
+        "oldDisplayValue": "התקבל וממתין לגריטה",
+        "newDisplayValue": "התקבל וממתין לגריטה",
+        "newValue": "intakeTrash",
+        "oldValue": "intakeTrash"
+      },
+      {
+        "key": "employee",
+        "newValue": null,
+        "oldValue": null
+      },
+      {
+        "key": "cpu"
+      },
+      {
+        "key": "origin",
+        "oldDisplayValue": "123",
+        "newDisplayValue": "123",
+        "newValue": "123",
+        "oldValue": "123"
+      },
+      {
+        "key": "courier",
+        "oldDisplayValue": "123",
+        "newDisplayValue": "123",
+        "newValue": "123",
+        "oldValue": "123"
+      },
+      {
+        "key": "recipient",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "createDate",
+        "oldDisplayValue": "2022-10-03T08:04:32.343Z",
+        "newDisplayValue": "2022-10-03T08:04:32.343Z",
+        "newValue": "2022-10-03T08:04:32.343Z",
+        "oldValue": "2022-10-03T08:04:32.343Z"
+      },
+      {
+        "key": "updateDate",
+        "oldDisplayValue": "2022-10-03T08:04:32.344Z",
+        "newDisplayValue": "2022-10-03T08:04:32.344Z",
+        "newValue": "2022-10-03T08:04:32.344Z",
+        "oldValue": "2022-10-03T08:04:32.344Z"
+      }
+    ],
+    "changedFields": [
+      "id",
+      "barcode",
+      "packageBarcode",
+      "palletBarcode",
+      "status",
+      "employee",
+      "cpu",
+      "origin",
+      "courier",
+      "recipient",
+      "createDate",
+      "updateDate"
+    ]
+  },
+  {
+    "id": "0765d4ce-fa80-4a73-8314-1b154d175171",
+    "relatedId": "6d643c69-1253-4f02-a562-3cf0313d1c6b",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-10-03T08:04:29.950Z",
+    "userId": "",
+    "userName": "",
+    "changes": [
+      {
+        "key": "id",
+        "oldDisplayValue": "6d643c69-1253-4f02-a562-3cf0313d1c6b",
+        "newDisplayValue": "6d643c69-1253-4f02-a562-3cf0313d1c6b",
+        "newValue": "6d643c69-1253-4f02-a562-3cf0313d1c6b",
+        "oldValue": "6d643c69-1253-4f02-a562-3cf0313d1c6b"
+      },
+      {
+        "key": "barcode",
+        "oldDisplayValue": "14",
+        "newDisplayValue": "14",
+        "newValue": "14",
+        "oldValue": "14"
+      },
+      {
+        "key": "packageBarcode",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "palletBarcode",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "status",
+        "oldDisplayValue": "התקבל וממתין לגריטה",
+        "newDisplayValue": "התקבל וממתין לגריטה",
+        "newValue": "intakeTrash",
+        "oldValue": "intakeTrash"
+      },
+      {
+        "key": "employee",
+        "newValue": null,
+        "oldValue": null
+      },
+      {
+        "key": "cpu"
+      },
+      {
+        "key": "origin",
+        "oldDisplayValue": "123",
+        "newDisplayValue": "123",
+        "newValue": "123",
+        "oldValue": "123"
+      },
+      {
+        "key": "courier",
+        "oldDisplayValue": "123",
+        "newDisplayValue": "123",
+        "newValue": "123",
+        "oldValue": "123"
+      },
+      {
+        "key": "recipient",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "createDate",
+        "oldDisplayValue": "2022-10-03T08:04:29.950Z",
+        "newDisplayValue": "2022-10-03T08:04:29.950Z",
+        "newValue": "2022-10-03T08:04:29.950Z",
+        "oldValue": "2022-10-03T08:04:29.950Z"
+      },
+      {
+        "key": "updateDate",
+        "oldDisplayValue": "2022-10-03T08:04:29.951Z",
+        "newDisplayValue": "2022-10-03T08:04:29.951Z",
+        "newValue": "2022-10-03T08:04:29.951Z",
+        "oldValue": "2022-10-03T08:04:29.951Z"
+      }
+    ],
+    "changedFields": [
+      "id",
+      "barcode",
+      "packageBarcode",
+      "palletBarcode",
+      "status",
+      "employee",
+      "cpu",
+      "origin",
+      "courier",
+      "recipient",
+      "createDate",
+      "updateDate"
+    ]
+  },
+  {
+    "id": "ddf5f820-f142-47ac-80d6-f983a4941093",
+    "relatedId": "a82b2ab4-bdd4-42dc-9c45-8db468fc78a8",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-10-03T07:38:24.430Z",
+    "userId": "",
+    "userName": "",
+    "changes": [
+      {
+        "key": "id",
+        "oldDisplayValue": "a82b2ab4-bdd4-42dc-9c45-8db468fc78a8",
+        "newDisplayValue": "a82b2ab4-bdd4-42dc-9c45-8db468fc78a8",
+        "newValue": "a82b2ab4-bdd4-42dc-9c45-8db468fc78a8",
+        "oldValue": "a82b2ab4-bdd4-42dc-9c45-8db468fc78a8"
+      },
+      {
+        "key": "barcode",
+        "oldDisplayValue": "13",
+        "newDisplayValue": "13",
+        "newValue": "13",
+        "oldValue": "13"
+      },
+      {
+        "key": "packageBarcode",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "palletBarcode",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "status",
+        "oldDisplayValue": "התקבל",
+        "newDisplayValue": "התקבל",
+        "newValue": "intake",
+        "oldValue": "intake"
+      },
+      {
+        "key": "employee",
+        "newValue": null,
+        "oldValue": null
+      },
+      {
+        "key": "cpu"
+      },
+      {
+        "key": "origin",
+        "oldDisplayValue": "123",
+        "newDisplayValue": "123",
+        "newValue": "123",
+        "oldValue": "123"
+      },
+      {
+        "key": "courier",
+        "oldDisplayValue": "123",
+        "newDisplayValue": "123",
+        "newValue": "123",
+        "oldValue": "123"
+      },
+      {
+        "key": "recipient",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "createDate",
+        "oldDisplayValue": "2022-10-03T07:38:24.430Z",
+        "newDisplayValue": "2022-10-03T07:38:24.430Z",
+        "newValue": "2022-10-03T07:38:24.430Z",
+        "oldValue": "2022-10-03T07:38:24.430Z"
+      },
+      {
+        "key": "updateDate",
+        "oldDisplayValue": "2022-10-03T07:38:24.431Z",
+        "newDisplayValue": "2022-10-03T07:38:24.431Z",
+        "newValue": "2022-10-03T07:38:24.431Z",
+        "oldValue": "2022-10-03T07:38:24.431Z"
+      }
+    ],
+    "changedFields": [
+      "id",
+      "barcode",
+      "packageBarcode",
+      "palletBarcode",
+      "status",
+      "employee",
+      "cpu",
+      "origin",
+      "courier",
+      "recipient",
+      "createDate",
+      "updateDate"
+    ]
+  },
+  {
+    "id": "d731dc5a-5f5f-4108-b684-a92c40d28ed9",
+    "relatedId": "ddaf2636-b6d0-4aba-94ff-55759e244760",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-10-03T07:38:21.862Z",
+    "userId": "",
+    "userName": "",
+    "changes": [
+      {
+        "key": "id",
+        "oldDisplayValue": "ddaf2636-b6d0-4aba-94ff-55759e244760",
+        "newDisplayValue": "ddaf2636-b6d0-4aba-94ff-55759e244760",
+        "newValue": "ddaf2636-b6d0-4aba-94ff-55759e244760",
+        "oldValue": "ddaf2636-b6d0-4aba-94ff-55759e244760"
+      },
+      {
+        "key": "barcode",
+        "oldDisplayValue": "12",
+        "newDisplayValue": "12",
+        "newValue": "12",
+        "oldValue": "12"
+      },
+      {
+        "key": "packageBarcode",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "palletBarcode",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "status",
+        "oldDisplayValue": "התקבל",
+        "newDisplayValue": "התקבל",
+        "newValue": "intake",
+        "oldValue": "intake"
+      },
+      {
+        "key": "employee",
+        "newValue": null,
+        "oldValue": null
+      },
+      {
+        "key": "cpu"
+      },
+      {
+        "key": "origin",
+        "oldDisplayValue": "123",
+        "newDisplayValue": "123",
+        "newValue": "123",
+        "oldValue": "123"
+      },
+      {
+        "key": "courier",
+        "oldDisplayValue": "123",
+        "newDisplayValue": "123",
+        "newValue": "123",
+        "oldValue": "123"
+      },
+      {
+        "key": "recipient",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "createDate",
+        "oldDisplayValue": "2022-10-03T07:38:21.862Z",
+        "newDisplayValue": "2022-10-03T07:38:21.862Z",
+        "newValue": "2022-10-03T07:38:21.862Z",
+        "oldValue": "2022-10-03T07:38:21.862Z"
+      },
+      {
+        "key": "updateDate",
+        "oldDisplayValue": "2022-10-03T07:38:21.863Z",
+        "newDisplayValue": "2022-10-03T07:38:21.863Z",
+        "newValue": "2022-10-03T07:38:21.863Z",
+        "oldValue": "2022-10-03T07:38:21.863Z"
+      }
+    ],
+    "changedFields": [
+      "id",
+      "barcode",
+      "packageBarcode",
+      "palletBarcode",
+      "status",
+      "employee",
+      "cpu",
+      "origin",
+      "courier",
+      "recipient",
+      "createDate",
+      "updateDate"
+    ]
+  },
+  {
+    "id": "fadab919-e6b0-4887-a417-b46044a0372a",
+    "relatedId": "39ed4e78-059b-4db8-ae87-10844d15b525",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-10-03T07:38:15.994Z",
+    "userId": "",
+    "userName": "",
+    "changes": [
+      {
+        "key": "id",
+        "oldDisplayValue": "39ed4e78-059b-4db8-ae87-10844d15b525",
+        "newDisplayValue": "39ed4e78-059b-4db8-ae87-10844d15b525",
+        "newValue": "39ed4e78-059b-4db8-ae87-10844d15b525",
+        "oldValue": "39ed4e78-059b-4db8-ae87-10844d15b525"
+      },
+      {
+        "key": "barcode",
+        "oldDisplayValue": "11",
+        "newDisplayValue": "11",
+        "newValue": "11",
+        "oldValue": "11"
+      },
+      {
+        "key": "packageBarcode",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "palletBarcode",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "status",
+        "oldDisplayValue": "התקבל",
+        "newDisplayValue": "התקבל",
+        "newValue": "intake",
+        "oldValue": "intake"
+      },
+      {
+        "key": "employee",
+        "newValue": null,
+        "oldValue": null
+      },
+      {
+        "key": "cpu"
+      },
+      {
+        "key": "origin",
+        "oldDisplayValue": "123",
+        "newDisplayValue": "123",
+        "newValue": "123",
+        "oldValue": "123"
+      },
+      {
+        "key": "courier",
+        "oldDisplayValue": "123",
+        "newDisplayValue": "123",
+        "newValue": "123",
+        "oldValue": "123"
+      },
+      {
+        "key": "recipient",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "createDate",
+        "oldDisplayValue": "2022-10-03T07:38:15.994Z",
+        "newDisplayValue": "2022-10-03T07:38:15.994Z",
+        "newValue": "2022-10-03T07:38:15.994Z",
+        "oldValue": "2022-10-03T07:38:15.994Z"
+      },
+      {
+        "key": "updateDate",
+        "oldDisplayValue": "2022-10-03T07:38:15.995Z",
+        "newDisplayValue": "2022-10-03T07:38:15.995Z",
+        "newValue": "2022-10-03T07:38:15.995Z",
+        "oldValue": "2022-10-03T07:38:15.995Z"
+      }
+    ],
+    "changedFields": [
+      "id",
+      "barcode",
+      "packageBarcode",
+      "palletBarcode",
+      "status",
+      "employee",
+      "cpu",
+      "origin",
+      "courier",
+      "recipient",
+      "createDate",
+      "updateDate"
+    ]
+  },
+  {
+    "id": "625e207f-2444-4301-bd7e-ed45c79ed252",
+    "relatedId": "4a0b9e8b-522b-4150-9db9-a26aaa0bb506",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-10-03T07:36:55.965Z",
+    "userId": "",
+    "userName": "",
+    "changes": [
+      {
+        "key": "id",
+        "oldDisplayValue": "4a0b9e8b-522b-4150-9db9-a26aaa0bb506",
+        "newDisplayValue": "4a0b9e8b-522b-4150-9db9-a26aaa0bb506",
+        "newValue": "4a0b9e8b-522b-4150-9db9-a26aaa0bb506",
+        "oldValue": "4a0b9e8b-522b-4150-9db9-a26aaa0bb506"
+      },
+      {
+        "key": "barcode",
+        "oldDisplayValue": "10",
+        "newDisplayValue": "10",
+        "newValue": "10",
+        "oldValue": "10"
+      },
+      {
+        "key": "packageBarcode",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "palletBarcode",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "status",
+        "oldDisplayValue": "התקבל",
+        "newDisplayValue": "התקבל",
+        "newValue": "intake",
+        "oldValue": "intake"
+      },
+      {
+        "key": "employee",
+        "newValue": null,
+        "oldValue": null
+      },
+      {
+        "key": "cpu"
+      },
+      {
+        "key": "origin",
+        "oldDisplayValue": "123",
+        "newDisplayValue": "123",
+        "newValue": "123",
+        "oldValue": "123"
+      },
+      {
+        "key": "courier",
+        "oldDisplayValue": "123",
+        "newDisplayValue": "123",
+        "newValue": "123",
+        "oldValue": "123"
+      },
+      {
+        "key": "recipient",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "createDate",
+        "oldDisplayValue": "2022-10-03T07:36:55.965Z",
+        "newDisplayValue": "2022-10-03T07:36:55.965Z",
+        "newValue": "2022-10-03T07:36:55.965Z",
+        "oldValue": "2022-10-03T07:36:55.965Z"
+      },
+      {
+        "key": "updateDate",
+        "oldDisplayValue": "2022-10-03T07:36:55.968Z",
+        "newDisplayValue": "2022-10-03T07:36:55.968Z",
+        "newValue": "2022-10-03T07:36:55.968Z",
+        "oldValue": "2022-10-03T07:36:55.968Z"
+      }
+    ],
+    "changedFields": [
+      "id",
+      "barcode",
+      "packageBarcode",
+      "palletBarcode",
+      "status",
+      "employee",
+      "cpu",
+      "origin",
+      "courier",
+      "recipient",
+      "createDate",
+      "updateDate"
+    ]
+  },
+  {
+    "id": "0926cf0d-d925-444d-88ef-ba613c1c6dad",
+    "relatedId": "a581af75-f600-40fb-8322-d4af30f45a1f",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-10-03T07:35:36.023Z",
+    "userId": "",
+    "userName": "",
+    "changes": [
+      {
+        "key": "id",
+        "oldDisplayValue": "a581af75-f600-40fb-8322-d4af30f45a1f",
+        "newDisplayValue": "a581af75-f600-40fb-8322-d4af30f45a1f",
+        "newValue": "a581af75-f600-40fb-8322-d4af30f45a1f",
+        "oldValue": "a581af75-f600-40fb-8322-d4af30f45a1f"
+      },
+      {
+        "key": "barcode",
+        "oldDisplayValue": "9",
+        "newDisplayValue": "9",
+        "newValue": "9",
+        "oldValue": "9"
+      },
+      {
+        "key": "packageBarcode",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "palletBarcode",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "status",
+        "oldDisplayValue": "התקבל",
+        "newDisplayValue": "התקבל",
+        "newValue": "intake",
+        "oldValue": "intake"
+      },
+      {
+        "key": "employee",
+        "newValue": null,
+        "oldValue": null
+      },
+      {
+        "key": "cpu"
+      },
+      {
+        "key": "origin",
+        "oldDisplayValue": "123",
+        "newDisplayValue": "123",
+        "newValue": "123",
+        "oldValue": "123"
+      },
+      {
+        "key": "courier",
+        "oldDisplayValue": "123",
+        "newDisplayValue": "123",
+        "newValue": "123",
+        "oldValue": "123"
+      },
+      {
+        "key": "recipient",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "createDate",
+        "oldDisplayValue": "2022-10-03T07:35:36.023Z",
+        "newDisplayValue": "2022-10-03T07:35:36.023Z",
+        "newValue": "2022-10-03T07:35:36.023Z",
+        "oldValue": "2022-10-03T07:35:36.023Z"
+      },
+      {
+        "key": "updateDate",
+        "oldDisplayValue": "2022-10-03T07:35:36.034Z",
+        "newDisplayValue": "2022-10-03T07:35:36.034Z",
+        "newValue": "2022-10-03T07:35:36.034Z",
+        "oldValue": "2022-10-03T07:35:36.034Z"
+      }
+    ],
+    "changedFields": [
+      "id",
+      "barcode",
+      "packageBarcode",
+      "palletBarcode",
+      "status",
+      "employee",
+      "cpu",
+      "origin",
+      "courier",
+      "recipient",
+      "createDate",
+      "updateDate"
+    ]
+  },
+  {
+    "id": "16079d57-9586-452b-8c40-b118d03feba6",
+    "relatedId": "094eaed2-f476-4ee5-9a5d-0e1442e10700",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-10-02T13:00:18.633Z",
+    "userId": "",
+    "userName": "",
+    "changes": [
+      {
+        "key": "id",
+        "oldDisplayValue": "094eaed2-f476-4ee5-9a5d-0e1442e10700",
+        "newDisplayValue": "094eaed2-f476-4ee5-9a5d-0e1442e10700",
+        "newValue": "094eaed2-f476-4ee5-9a5d-0e1442e10700",
+        "oldValue": "094eaed2-f476-4ee5-9a5d-0e1442e10700"
+      },
+      {
+        "key": "barcode",
+        "oldDisplayValue": "8",
+        "newDisplayValue": "8",
+        "newValue": "8",
+        "oldValue": "8"
+      },
+      {
+        "key": "packageBarcode",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "palletBarcode",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "status",
+        "oldDisplayValue": "התקבל",
+        "newDisplayValue": "התקבל",
+        "newValue": "intake",
+        "oldValue": "intake"
+      },
+      {
+        "key": "employee",
+        "newValue": null,
+        "oldValue": null
+      },
+      {
+        "key": "cpu"
+      },
+      {
+        "key": "origin",
+        "oldDisplayValue": "123",
+        "newDisplayValue": "123",
+        "newValue": "123",
+        "oldValue": "123"
+      },
+      {
+        "key": "courier",
+        "oldDisplayValue": "123",
+        "newDisplayValue": "123",
+        "newValue": "123",
+        "oldValue": "123"
+      },
+      {
+        "key": "recipient",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "createDate",
+        "oldDisplayValue": "2022-10-02T13:00:18.633Z",
+        "newDisplayValue": "2022-10-02T13:00:18.633Z",
+        "newValue": "2022-10-02T13:00:18.633Z",
+        "oldValue": "2022-10-02T13:00:18.633Z"
+      },
+      {
+        "key": "updateDate",
+        "oldDisplayValue": "2022-10-02T13:00:18.634Z",
+        "newDisplayValue": "2022-10-02T13:00:18.634Z",
+        "newValue": "2022-10-02T13:00:18.634Z",
+        "oldValue": "2022-10-02T13:00:18.634Z"
+      }
+    ],
+    "changedFields": [
+      "id",
+      "barcode",
+      "packageBarcode",
+      "palletBarcode",
+      "status",
+      "employee",
+      "cpu",
+      "origin",
+      "courier",
+      "recipient",
+      "createDate",
+      "updateDate"
+    ]
+  },
+  {
+    "id": "ab68c478-f444-4d92-be9e-b6a06516b10c",
+    "relatedId": "1f461348-42ff-43be-b4b4-1921b6d10183",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-10-02T13:00:09.369Z",
+    "userId": "",
+    "userName": "",
+    "changes": [
+      {
+        "key": "id",
+        "oldDisplayValue": "1f461348-42ff-43be-b4b4-1921b6d10183",
+        "newDisplayValue": "1f461348-42ff-43be-b4b4-1921b6d10183",
+        "newValue": "1f461348-42ff-43be-b4b4-1921b6d10183",
+        "oldValue": "1f461348-42ff-43be-b4b4-1921b6d10183"
+      },
+      {
+        "key": "barcode",
+        "oldDisplayValue": "7",
+        "newDisplayValue": "7",
+        "newValue": "7",
+        "oldValue": "7"
+      },
+      {
+        "key": "packageBarcode",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "palletBarcode",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "status",
+        "oldDisplayValue": "התקבל",
+        "newDisplayValue": "התקבל",
+        "newValue": "intake",
+        "oldValue": "intake"
+      },
+      {
+        "key": "employee",
+        "newValue": null,
+        "oldValue": null
+      },
+      {
+        "key": "cpu"
+      },
+      {
+        "key": "origin",
+        "oldDisplayValue": "123",
+        "newDisplayValue": "123",
+        "newValue": "123",
+        "oldValue": "123"
+      },
+      {
+        "key": "courier",
+        "oldDisplayValue": "123",
+        "newDisplayValue": "123",
+        "newValue": "123",
+        "oldValue": "123"
+      },
+      {
+        "key": "recipient",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "createDate",
+        "oldDisplayValue": "2022-10-02T13:00:09.369Z",
+        "newDisplayValue": "2022-10-02T13:00:09.369Z",
+        "newValue": "2022-10-02T13:00:09.369Z",
+        "oldValue": "2022-10-02T13:00:09.369Z"
+      },
+      {
+        "key": "updateDate",
+        "oldDisplayValue": "2022-10-02T13:00:09.384Z",
+        "newDisplayValue": "2022-10-02T13:00:09.384Z",
+        "newValue": "2022-10-02T13:00:09.384Z",
+        "oldValue": "2022-10-02T13:00:09.384Z"
+      }
+    ],
+    "changedFields": [
+      "id",
+      "barcode",
+      "packageBarcode",
+      "palletBarcode",
+      "status",
+      "employee",
+      "cpu",
+      "origin",
+      "courier",
+      "recipient",
+      "createDate",
+      "updateDate"
+    ]
+  },
+  {
+    "id": "6cb7d728-2998-4986-8b28-8f926ba6fe89",
+    "relatedId": "458041b4-b2b7-4ee7-a9de-79970b4b2ecd",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-09-29T11:15:46.972Z",
+    "userId": "",
+    "userName": "",
+    "changes": [
+      {
+        "key": "id",
+        "oldDisplayValue": "458041b4-b2b7-4ee7-a9de-79970b4b2ecd",
+        "newDisplayValue": "458041b4-b2b7-4ee7-a9de-79970b4b2ecd",
+        "newValue": "458041b4-b2b7-4ee7-a9de-79970b4b2ecd",
+        "oldValue": "458041b4-b2b7-4ee7-a9de-79970b4b2ecd"
+      },
+      {
+        "key": "barcode",
+        "oldDisplayValue": "123",
+        "newDisplayValue": "123",
+        "newValue": "123",
+        "oldValue": "123"
+      },
+      {
+        "key": "packageBarcode",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "palletBarcode",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "status",
+        "oldDisplayValue": "שוייך לעובד",
+        "newDisplayValue": "שוייך לעובד",
+        "newValue": "assigned",
+        "oldValue": "assigned"
+      },
+      {
+        "key": "employee",
+        "oldDisplayValue": "ליאור",
+        "newDisplayValue": "ליאור",
+        "newValue": "3fe1d2db-1921-4272-bc9b-b5532a8447b7",
+        "oldValue": "3fe1d2db-1921-4272-bc9b-b5532a8447b7"
+      },
+      {
+        "key": "cpu",
+        "oldDisplayValue": "I7",
+        "newDisplayValue": "I7",
+        "newValue": "i7",
+        "oldValue": "i7"
+      },
+      {
+        "key": "origin",
+        "oldDisplayValue": "נאור",
+        "newDisplayValue": "נאור",
+        "newValue": "נאור",
+        "oldValue": "נאור"
+      },
+      {
+        "key": "courier",
+        "oldDisplayValue": "נועם",
+        "newDisplayValue": "נועם",
+        "newValue": "נועם",
+        "oldValue": "נועם"
+      },
+      {
+        "key": "recipient",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "createDate",
+        "oldDisplayValue": "2022-09-29T11:15:46.972Z",
+        "newDisplayValue": "2022-09-29T11:15:46.972Z",
+        "newValue": "2022-09-29T11:15:46.972Z",
+        "oldValue": "2022-09-29T11:15:46.972Z"
+      },
+      {
+        "key": "updateDate",
+        "oldDisplayValue": "2022-09-29T11:16:30.085Z",
+        "newDisplayValue": "2022-09-29T11:16:30.085Z",
+        "newValue": "2022-09-29T11:16:30.085Z",
+        "oldValue": "2022-09-29T11:16:30.085Z"
+      }
+    ],
+    "changedFields": [
+      "id",
+      "barcode",
+      "packageBarcode",
+      "palletBarcode",
+      "status",
+      "employee",
+      "cpu",
+      "origin",
+      "courier",
+      "recipient",
+      "createDate",
+      "updateDate"
+    ]
+  },
+  {
+    "id": "8d3792e6-6d86-42e6-8faa-bdbd86ac1db9",
+    "relatedId": "03a276e2-ba74-4fa3-8df2-01cfdbcefda0",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-05-10T06:40:40.184Z",
+    "userId": "",
+    "userName": "",
+    "changes": [
+      {
+        "key": "id",
+        "oldDisplayValue": "03a276e2-ba74-4fa3-8df2-01cfdbcefda0",
+        "newDisplayValue": "03a276e2-ba74-4fa3-8df2-01cfdbcefda0",
+        "newValue": "03a276e2-ba74-4fa3-8df2-01cfdbcefda0",
+        "oldValue": "03a276e2-ba74-4fa3-8df2-01cfdbcefda0"
+      },
+      {
+        "key": "barcode",
+        "oldDisplayValue": "6",
+        "newDisplayValue": "6",
+        "newValue": "6",
+        "oldValue": "6"
+      },
+      {
+        "key": "packageBarcode",
+        "oldDisplayValue": "66",
+        "newDisplayValue": "66",
+        "newValue": "66",
+        "oldValue": "66"
+      },
+      {
+        "key": "palletBarcode",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "status",
+        "oldDisplayValue": "תהליך אריזה",
+        "newDisplayValue": "תהליך אריזה",
+        "newValue": "packing",
+        "oldValue": "packing"
+      },
+      {
+        "key": "employee",
+        "oldDisplayValue": "משה",
+        "newDisplayValue": "משה",
+        "newValue": "9e32ac04-f834-416c-83f1-e92af954d84c",
+        "oldValue": "9e32ac04-f834-416c-83f1-e92af954d84c"
+      },
+      {
+        "key": "cpu",
+        "oldDisplayValue": "I5",
+        "newDisplayValue": "I5",
+        "newValue": "i5",
+        "oldValue": "i5"
+      },
+      {
+        "key": "origin",
+        "oldDisplayValue": "123",
+        "newDisplayValue": "123",
+        "newValue": "123",
+        "oldValue": "123"
+      },
+      {
+        "key": "courier",
+        "oldDisplayValue": "123",
+        "newDisplayValue": "123",
+        "newValue": "123",
+        "oldValue": "123"
+      },
+      {
+        "key": "recipient",
+        "oldDisplayValue": "6",
+        "newDisplayValue": "6",
+        "newValue": "6",
+        "oldValue": "6"
+      },
+      {
+        "key": "createDate",
+        "oldDisplayValue": "2022-05-10T06:40:40.184Z",
+        "newDisplayValue": "2022-05-10T06:40:40.184Z",
+        "newValue": "2022-05-10T06:40:40.184Z",
+        "oldValue": "2022-05-10T06:40:40.184Z"
+      },
+      {
+        "key": "updateDate",
+        "oldDisplayValue": "2022-10-04T05:51:18.761Z",
+        "newDisplayValue": "2022-10-04T05:51:18.761Z",
+        "newValue": "2022-10-04T05:51:18.761Z",
+        "oldValue": "2022-10-04T05:51:18.761Z"
+      }
+    ],
+    "changedFields": [
+      "id",
+      "barcode",
+      "packageBarcode",
+      "palletBarcode",
+      "status",
+      "employee",
+      "cpu",
+      "origin",
+      "courier",
+      "recipient",
+      "createDate",
+      "updateDate"
+    ]
+  },
+  {
+    "id": "a4a67ee2-7cf9-4745-ad55-df0199621379",
+    "relatedId": "49dbdb3a-2e94-445c-ac91-5931e9041f3e",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-05-10T06:40:09.090Z",
+    "userId": "",
+    "userName": "",
+    "changes": [
+      {
+        "key": "id",
+        "oldDisplayValue": "49dbdb3a-2e94-445c-ac91-5931e9041f3e",
+        "newDisplayValue": "49dbdb3a-2e94-445c-ac91-5931e9041f3e",
+        "newValue": "49dbdb3a-2e94-445c-ac91-5931e9041f3e",
+        "oldValue": "49dbdb3a-2e94-445c-ac91-5931e9041f3e"
+      },
+      {
+        "key": "barcode",
+        "oldDisplayValue": "5",
+        "newDisplayValue": "5",
+        "newValue": "5",
+        "oldValue": "5"
+      },
+      {
+        "key": "packageBarcode",
+        "oldDisplayValue": "65",
+        "newDisplayValue": "65",
+        "newValue": "65",
+        "oldValue": "65"
+      },
+      {
+        "key": "palletBarcode",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "status",
+        "oldDisplayValue": "ממתין לשינוע למוטב",
+        "newDisplayValue": "ממתין לשינוע למוטב",
+        "newValue": "waitForDelivery",
+        "oldValue": "waitForDelivery"
+      },
+      {
+        "key": "employee",
+        "oldDisplayValue": "משה",
+        "newDisplayValue": "משה",
+        "newValue": "9e32ac04-f834-416c-83f1-e92af954d84c",
+        "oldValue": "9e32ac04-f834-416c-83f1-e92af954d84c"
+      },
+      {
+        "key": "cpu"
+      },
+      {
+        "key": "origin",
+        "oldDisplayValue": "123",
+        "newDisplayValue": "123",
+        "newValue": "123",
+        "oldValue": "123"
+      },
+      {
+        "key": "courier",
+        "oldDisplayValue": "123",
+        "newDisplayValue": "123",
+        "newValue": "123",
+        "oldValue": "123"
+      },
+      {
+        "key": "recipient",
+        "oldDisplayValue": "6",
+        "newDisplayValue": "6",
+        "newValue": "6",
+        "oldValue": "6"
+      },
+      {
+        "key": "createDate",
+        "oldDisplayValue": "2022-05-10T06:40:09.090Z",
+        "newDisplayValue": "2022-05-10T06:40:09.090Z",
+        "newValue": "2022-05-10T06:40:09.090Z",
+        "oldValue": "2022-05-10T06:40:09.090Z"
+      },
+      {
+        "key": "updateDate",
+        "oldDisplayValue": "2022-09-09T09:02:59.888Z",
+        "newDisplayValue": "2022-09-09T09:02:59.888Z",
+        "newValue": "2022-09-09T09:02:59.888Z",
+        "oldValue": "2022-09-09T09:02:59.888Z"
+      }
+    ],
+    "changedFields": [
+      "id",
+      "barcode",
+      "packageBarcode",
+      "palletBarcode",
+      "status",
+      "employee",
+      "cpu",
+      "origin",
+      "courier",
+      "recipient",
+      "createDate",
+      "updateDate"
+    ]
+  },
+  {
+    "id": "92246d80-e3be-4748-80df-0eb168a4c24d",
+    "relatedId": "6285a73b-8d1f-4a68-9d70-3322e24b8d87",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-05-10T06:38:59.305Z",
+    "userId": "",
+    "userName": "",
+    "changes": [
+      {
+        "key": "id",
+        "oldDisplayValue": "6285a73b-8d1f-4a68-9d70-3322e24b8d87",
+        "newDisplayValue": "6285a73b-8d1f-4a68-9d70-3322e24b8d87",
+        "newValue": "6285a73b-8d1f-4a68-9d70-3322e24b8d87",
+        "oldValue": "6285a73b-8d1f-4a68-9d70-3322e24b8d87"
+      },
+      {
+        "key": "barcode",
+        "oldDisplayValue": "4",
+        "newDisplayValue": "4",
+        "newValue": "4",
+        "oldValue": "4"
+      },
+      {
+        "key": "packageBarcode",
+        "oldDisplayValue": "64",
+        "newDisplayValue": "64",
+        "newValue": "64",
+        "oldValue": "64"
+      },
+      {
+        "key": "palletBarcode",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "status",
+        "oldDisplayValue": "ממתין לשינוע למוטב",
+        "newDisplayValue": "ממתין לשינוע למוטב",
+        "newValue": "waitForDelivery",
+        "oldValue": "waitForDelivery"
+      },
+      {
+        "key": "employee",
+        "newValue": null,
+        "oldValue": null
+      },
+      {
+        "key": "cpu"
+      },
+      {
+        "key": "origin",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "courier",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "recipient",
+        "oldDisplayValue": "6",
+        "newDisplayValue": "6",
+        "newValue": "6",
+        "oldValue": "6"
+      },
+      {
+        "key": "createDate",
+        "oldDisplayValue": "2022-05-10T06:38:59.305Z",
+        "newDisplayValue": "2022-05-10T06:38:59.305Z",
+        "newValue": "2022-05-10T06:38:59.305Z",
+        "oldValue": "2022-05-10T06:38:59.305Z"
+      },
+      {
+        "key": "updateDate",
+        "oldDisplayValue": "2022-09-09T09:03:01.853Z",
+        "newDisplayValue": "2022-09-09T09:03:01.853Z",
+        "newValue": "2022-09-09T09:03:01.853Z",
+        "oldValue": "2022-09-09T09:03:01.853Z"
+      }
+    ],
+    "changedFields": [
+      "id",
+      "barcode",
+      "packageBarcode",
+      "palletBarcode",
+      "status",
+      "employee",
+      "cpu",
+      "origin",
+      "courier",
+      "recipient",
+      "createDate",
+      "updateDate"
+    ]
+  },
+  {
+    "id": "9300e925-ddb3-41aa-99bb-cbd2af2536a4",
+    "relatedId": "57082017-8a20-40cf-b994-ceb4fd57655b",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-05-10T06:32:46.312Z",
+    "userId": "",
+    "userName": "",
+    "changes": [
+      {
+        "key": "id",
+        "oldDisplayValue": "57082017-8a20-40cf-b994-ceb4fd57655b",
+        "newDisplayValue": "57082017-8a20-40cf-b994-ceb4fd57655b",
+        "newValue": "57082017-8a20-40cf-b994-ceb4fd57655b",
+        "oldValue": "57082017-8a20-40cf-b994-ceb4fd57655b"
+      },
+      {
+        "key": "barcode",
+        "oldDisplayValue": "3",
+        "newDisplayValue": "3",
+        "newValue": "3",
+        "oldValue": "3"
+      },
+      {
+        "key": "packageBarcode",
+        "oldDisplayValue": "63",
+        "newDisplayValue": "63",
+        "newValue": "63",
+        "oldValue": "63"
+      },
+      {
+        "key": "palletBarcode",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "status",
+        "oldDisplayValue": "התקבל",
+        "newDisplayValue": "התקבל",
+        "newValue": "intake",
+        "oldValue": "intake"
+      },
+      {
+        "key": "employee",
+        "oldDisplayValue": "משה",
+        "newDisplayValue": "משה",
+        "newValue": "9e32ac04-f834-416c-83f1-e92af954d84c",
+        "oldValue": "9e32ac04-f834-416c-83f1-e92af954d84c"
+      },
+      {
+        "key": "cpu"
+      },
+      {
+        "key": "origin",
+        "oldDisplayValue": "123",
+        "newDisplayValue": "123",
+        "newValue": "123",
+        "oldValue": "123"
+      },
+      {
+        "key": "courier",
+        "oldDisplayValue": "456",
+        "newDisplayValue": "456",
+        "newValue": "456",
+        "oldValue": "456"
+      },
+      {
+        "key": "recipient",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "createDate",
+        "oldDisplayValue": "2022-05-10T06:32:46.312Z",
+        "newDisplayValue": "2022-05-10T06:32:46.312Z",
+        "newValue": "2022-05-10T06:32:46.312Z",
+        "oldValue": "2022-05-10T06:32:46.312Z"
+      },
+      {
+        "key": "updateDate",
+        "oldDisplayValue": "2022-11-03T16:03:52.698Z",
+        "newDisplayValue": "2022-11-03T16:03:52.698Z",
+        "newValue": "2022-11-03T16:03:52.698Z",
+        "oldValue": "2022-11-03T16:03:52.698Z"
+      }
+    ],
+    "changedFields": [
+      "id",
+      "barcode",
+      "packageBarcode",
+      "palletBarcode",
+      "status",
+      "employee",
+      "cpu",
+      "origin",
+      "courier",
+      "recipient",
+      "createDate",
+      "updateDate"
+    ]
+  },
+  {
+    "id": "06e115d8-36eb-4b4e-9479-56b9b7295308",
+    "relatedId": "e7b6245b-115d-4bfe-a52c-17f085a8e5f2",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-05-10T06:32:41.611Z",
+    "userId": "",
+    "userName": "",
+    "changes": [
+      {
+        "key": "id",
+        "oldDisplayValue": "e7b6245b-115d-4bfe-a52c-17f085a8e5f2",
+        "newDisplayValue": "e7b6245b-115d-4bfe-a52c-17f085a8e5f2",
+        "newValue": "e7b6245b-115d-4bfe-a52c-17f085a8e5f2",
+        "oldValue": "e7b6245b-115d-4bfe-a52c-17f085a8e5f2"
+      },
+      {
+        "key": "barcode",
+        "oldDisplayValue": "2",
+        "newDisplayValue": "2",
+        "newValue": "2",
+        "oldValue": "2"
+      },
+      {
+        "key": "packageBarcode",
+        "oldDisplayValue": "62",
+        "newDisplayValue": "62",
+        "newValue": "62",
+        "oldValue": "62"
+      },
+      {
+        "key": "palletBarcode",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "status",
+        "oldDisplayValue": "שודרג בהצלחה",
+        "newDisplayValue": "שודרג בהצלחה",
+        "newValue": "successfulUpgrade",
+        "oldValue": "successfulUpgrade"
+      },
+      {
+        "key": "employee",
+        "oldDisplayValue": "משה",
+        "newDisplayValue": "משה",
+        "newValue": "9e32ac04-f834-416c-83f1-e92af954d84c",
+        "oldValue": "9e32ac04-f834-416c-83f1-e92af954d84c"
+      },
+      {
+        "key": "cpu"
+      },
+      {
+        "key": "origin",
+        "oldDisplayValue": "123",
+        "newDisplayValue": "123",
+        "newValue": "123",
+        "oldValue": "123"
+      },
+      {
+        "key": "courier",
+        "oldDisplayValue": "456",
+        "newDisplayValue": "456",
+        "newValue": "456",
+        "oldValue": "456"
+      },
+      {
+        "key": "recipient",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "createDate",
+        "oldDisplayValue": "2022-05-10T06:32:41.611Z",
+        "newDisplayValue": "2022-05-10T06:32:41.611Z",
+        "newValue": "2022-05-10T06:32:41.611Z",
+        "oldValue": "2022-05-10T06:32:41.611Z"
+      },
+      {
+        "key": "updateDate",
+        "oldDisplayValue": "2022-11-03T16:36:50.150Z",
+        "newDisplayValue": "2022-11-03T16:36:50.150Z",
+        "newValue": "2022-11-03T16:36:50.150Z",
+        "oldValue": "2022-11-03T16:36:50.150Z"
+      }
+    ],
+    "changedFields": [
+      "id",
+      "barcode",
+      "packageBarcode",
+      "palletBarcode",
+      "status",
+      "employee",
+      "cpu",
+      "origin",
+      "courier",
+      "recipient",
+      "createDate",
+      "updateDate"
+    ]
+  },
+  {
+    "id": "35615fb8-ee84-4ad4-9f6c-28a83b646363",
+    "relatedId": "9a6315ac-96d6-40d6-a470-a12c49a10a75",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-05-10T06:32:34.998Z",
+    "userId": "",
+    "userName": "",
+    "changes": [
+      {
+        "key": "id",
+        "oldDisplayValue": "9a6315ac-96d6-40d6-a470-a12c49a10a75",
+        "newDisplayValue": "9a6315ac-96d6-40d6-a470-a12c49a10a75",
+        "newValue": "9a6315ac-96d6-40d6-a470-a12c49a10a75",
+        "oldValue": "9a6315ac-96d6-40d6-a470-a12c49a10a75"
+      },
+      {
+        "key": "barcode",
+        "oldDisplayValue": "1",
+        "newDisplayValue": "1",
+        "newValue": "1",
+        "oldValue": "1"
+      },
+      {
+        "key": "packageBarcode",
+        "oldDisplayValue": "61",
+        "newDisplayValue": "61",
+        "newValue": "61",
+        "oldValue": "61"
+      },
+      {
+        "key": "palletBarcode",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "status",
+        "oldDisplayValue": "שודרג בהצלחה",
+        "newDisplayValue": "שודרג בהצלחה",
+        "newValue": "successfulUpgrade",
+        "oldValue": "successfulUpgrade"
+      },
+      {
+        "key": "employee",
+        "oldDisplayValue": "משה",
+        "newDisplayValue": "משה",
+        "newValue": "9e32ac04-f834-416c-83f1-e92af954d84c",
+        "oldValue": "9e32ac04-f834-416c-83f1-e92af954d84c"
+      },
+      {
+        "key": "cpu",
+        "oldDisplayValue": "I5",
+        "newDisplayValue": "I5",
+        "newValue": "i5",
+        "oldValue": "i5"
+      },
+      {
+        "key": "origin",
+        "oldDisplayValue": "123",
+        "newDisplayValue": "123",
+        "newValue": "123",
+        "oldValue": "123"
+      },
+      {
+        "key": "courier",
+        "oldDisplayValue": "456",
+        "newDisplayValue": "456",
+        "newValue": "456",
+        "oldValue": "456"
+      },
+      {
+        "key": "recipient",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "createDate",
+        "oldDisplayValue": "2022-05-10T06:32:34.998Z",
+        "newDisplayValue": "2022-05-10T06:32:34.998Z",
+        "newValue": "2022-05-10T06:32:34.998Z",
+        "oldValue": "2022-05-10T06:32:34.998Z"
+      },
+      {
+        "key": "updateDate",
+        "oldDisplayValue": "2022-11-03T16:04:05.473Z",
+        "newDisplayValue": "2022-11-03T16:04:05.473Z",
+        "newValue": "2022-11-03T16:04:05.473Z",
+        "oldValue": "2022-11-03T16:04:05.473Z"
+      }
+    ],
+    "changedFields": [
+      "id",
+      "barcode",
+      "packageBarcode",
+      "palletBarcode",
+      "status",
+      "employee",
+      "cpu",
+      "origin",
+      "courier",
+      "recipient",
+      "createDate",
+      "updateDate"
+    ]
+  },
+  {
+    "id": "32fa6bed-939b-464c-93ed-f072730bd91f",
+    "relatedId": "a928363e-d866-4242-bc6f-3cc9169e0041",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-04-28T14:35:18.206Z",
+    "userId": "",
+    "userName": "",
+    "changes": [
+      {
+        "key": "id",
+        "oldDisplayValue": "a928363e-d866-4242-bc6f-3cc9169e0041",
+        "newDisplayValue": "a928363e-d866-4242-bc6f-3cc9169e0041",
+        "newValue": "a928363e-d866-4242-bc6f-3cc9169e0041",
+        "oldValue": "a928363e-d866-4242-bc6f-3cc9169e0041"
+      },
+      {
+        "key": "barcode",
+        "oldDisplayValue": "1234",
+        "newDisplayValue": "1234",
+        "newValue": "1234",
+        "oldValue": "1234"
+      },
+      {
+        "key": "packageBarcode",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "palletBarcode",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "status",
+        "oldDisplayValue": "התקבל",
+        "newDisplayValue": "התקבל",
+        "newValue": "intake",
+        "oldValue": "intake"
+      },
+      {
+        "key": "employee",
+        "oldDisplayValue": "משה",
+        "newDisplayValue": "משה",
+        "newValue": "9e32ac04-f834-416c-83f1-e92af954d84c",
+        "oldValue": "9e32ac04-f834-416c-83f1-e92af954d84c"
+      },
+      {
+        "key": "cpu",
+        "oldDisplayValue": "I5",
+        "newDisplayValue": "I5",
+        "newValue": "i5",
+        "oldValue": "i5"
+      },
+      {
+        "key": "origin",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "courier",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "recipient",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "createDate",
+        "oldDisplayValue": "2022-04-28T14:35:18.206Z",
+        "newDisplayValue": "2022-04-28T14:35:18.206Z",
+        "newValue": "2022-04-28T14:35:18.206Z",
+        "oldValue": "2022-04-28T14:35:18.206Z"
+      },
+      {
+        "key": "updateDate",
+        "oldDisplayValue": "2022-11-02T16:03:52.999Z",
+        "newDisplayValue": "2022-11-02T16:03:52.999Z",
+        "newValue": "2022-11-02T16:03:52.999Z",
+        "oldValue": "2022-11-02T16:03:52.999Z"
+      }
+    ],
+    "changedFields": [
+      "id",
+      "barcode",
+      "packageBarcode",
+      "palletBarcode",
+      "status",
+      "employee",
+      "cpu",
+      "origin",
+      "courier",
+      "recipient",
+      "createDate",
+      "updateDate"
+    ]
+  },
+  {
+    "id": "2a8ce86e-b010-4401-ac4f-a92f5acf548a",
+    "relatedId": "1d001209-b41d-429b-83db-3a44c2b256de",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-04-28T14:34:36.302Z",
+    "userId": "",
+    "userName": "",
+    "changes": [
+      {
+        "key": "id",
+        "oldDisplayValue": "1d001209-b41d-429b-83db-3a44c2b256de",
+        "newDisplayValue": "1d001209-b41d-429b-83db-3a44c2b256de",
+        "newValue": "1d001209-b41d-429b-83db-3a44c2b256de",
+        "oldValue": "1d001209-b41d-429b-83db-3a44c2b256de"
+      },
+      {
+        "key": "barcode",
+        "oldDisplayValue": "12345",
+        "newDisplayValue": "12345",
+        "newValue": "12345",
+        "oldValue": "12345"
+      },
+      {
+        "key": "packageBarcode",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "palletBarcode",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "status",
+        "oldDisplayValue": "שוייך לעובד",
+        "newDisplayValue": "שוייך לעובד",
+        "newValue": "assigned",
+        "oldValue": "assigned"
+      },
+      {
+        "key": "employee",
+        "oldDisplayValue": "משה",
+        "newDisplayValue": "משה",
+        "newValue": "9e32ac04-f834-416c-83f1-e92af954d84c",
+        "oldValue": "9e32ac04-f834-416c-83f1-e92af954d84c"
+      },
+      {
+        "key": "cpu"
+      },
+      {
+        "key": "origin",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "courier",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "recipient",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "createDate",
+        "oldDisplayValue": "2022-04-28T14:34:36.302Z",
+        "newDisplayValue": "2022-04-28T14:34:36.302Z",
+        "newValue": "2022-04-28T14:34:36.302Z",
+        "oldValue": "2022-04-28T14:34:36.302Z"
+      },
+      {
+        "key": "updateDate",
+        "newValue": "",
+        "oldValue": ""
+      }
+    ],
+    "changedFields": [
+      "id",
+      "barcode",
+      "packageBarcode",
+      "palletBarcode",
+      "status",
+      "employee",
+      "cpu",
+      "origin",
+      "courier",
+      "recipient",
+      "createDate",
+      "updateDate"
+    ]
   }
 ]
