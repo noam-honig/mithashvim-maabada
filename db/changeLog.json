@@ -4465,5 +4465,28 @@
       "palletBarcode",
       "status"
     ]
+  },
+  {
+    "id": "a81d7654-f05c-4963-a18f-35aae9d6f44f",
+    "relatedId": "baef6eb0-c0ef-465e-a0ff-e1972a0e6c52",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-11-20T14:11:28.330Z",
+    "userId": "2c4077ec-b861-474b-b5fd-62daa8c9b736",
+    "userName": "נועם",
+    "changes": [
+      {
+        "key": "palletBarcode",
+        "oldDisplayValue": "",
+        "newDisplayValue": "Z1234",
+        "newValue": "Z1234",
+        "oldValue": ""
+      }
+    ],
+    "changedFields": [
+      "palletBarcode"
+    ]
   }
 ]

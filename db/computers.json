@@ -292,14 +292,14 @@
     "id": "baef6eb0-c0ef-465e-a0ff-e1972a0e6c52",
     "barcode": "M503129",
     "packageBarcode": "",
-    "palletBarcode": "",
+    "palletBarcode": "Z1234",
     "status": "successfulUpgrade",
     "employee": "3fe1d2db-1921-4272-bc9b-b5532a8447b7",
     "origin": "אוניברסיטת בר אילן",
     "courier": "1",
     "recipient": "",
     "createDate": "2022-11-18T08:19:29.106Z",
-    "updateDate": "2022-11-18T09:08:20.710Z"
+    "updateDate": "2022-11-20T14:11:28.330Z"
   },
   {
     "id": "6926e108-9921-4efb-80e3-903d1eb57ee8",

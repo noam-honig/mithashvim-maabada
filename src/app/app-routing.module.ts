@@ -9,20 +9,26 @@ import {
   AnyManagerGuard,
   ComputersGuard,
   EmployeesGuard,
+  StockAdminGuard,
 } from './users/AdminGuard'
 import { ShowDialogOnErrorErrorHandler } from './common/UIToolsService'
 import { terms } from './terms'
 import { EmployeesComponent } from './employees/employees.component'
 import { ComputersComponent } from './computers/computers.component'
-import { AutoRefreshListComponent, refreshList } from './auto-refresh-list/auto-refresh-list.component'
+import {
+  AutoRefreshListComponent,
+  refreshList,
+} from './auto-refresh-list/auto-refresh-list.component'
 import { ContactSignComponent } from './contact-sign/contact-sign.component'
 import { DriverSignComponent } from './driver-sign/driver-sign.component'
 import { DashboardComponent } from './dashboard/dashboard.component'
+import { AssignToPalletComponent } from './assign-to-pallet/assign-to-pallet.component'
 
 const defaultRoute = 'מסופון'
- 
+
 const routes: Routes = [
   { path: defaultRoute, component: HomeComponent },
+  { path: 'שיוך מחשב למשטח', component: AssignToPalletComponent },
   {
     path: 'dashboard',
     component: DashboardComponent,
@@ -31,7 +37,7 @@ const routes: Routes = [
   {
     path: 'רשימה מתרעננת/:status',
     component: AutoRefreshListComponent,
-    canActivate: [AnyManagerGuard],
+    canActivate: [StockAdminGuard],
   },
   {
     path: refreshList,

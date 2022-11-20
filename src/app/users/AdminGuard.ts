@@ -32,3 +32,9 @@ export class AnyManagerGuard extends AuthenticatedGuard {
         return Roles.anyManager;
     }
 }
+@Injectable({ providedIn: 'root' })
+export class StockAdminGuard extends AuthenticatedGuard {
+    override isAllowed() {
+        return Roles.stockAdmin;
+    }
+}

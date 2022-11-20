@@ -36,6 +36,7 @@ import {MatTableModule} from "@angular/material/table";
 import { DriverSignComponent } from './driver-sign/driver-sign.component';
 import { ContactSignComponent } from './contact-sign/contact-sign.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { AssignToPalletComponent } from './assign-to-pallet/assign-to-pallet.component';
 
 
 @NgModule({
@@ -54,7 +55,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     AutoRefreshListComponent,
     DriverSignComponent,
     ContactSignComponent,
-    DashboardComponent
+    DashboardComponent,
+    AssignToPalletComponent
   ],
   imports: [
     BrowserModule,
