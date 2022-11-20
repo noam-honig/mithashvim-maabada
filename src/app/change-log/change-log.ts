@@ -46,11 +46,13 @@ export interface change {
 
 
 export async function recordChanges<entityType extends EntityBase>(self: entityType, options?: ColumnDeciderArgs<entityType>) {
-    if (!self.isNew() && isBackend()) {
+    if (isBackend()) {
         let changes = [] as change[];
         const decider = new FieldDecider(self, options);
+        const isNew = options?.forceNew||self.isNew()
+        const changeDate =options?.forceDate||new Date();
 
-        for (const c of decider.fields.filter(c => c.valueChanged())) {
+        for (const c of decider.fields.filter(c => c.valueChanged() || isNew)) {
             try {
                 let transValue = (val: any) => val;
                 if (c.metadata.options.displayValue)
@@ -76,7 +78,7 @@ export async function recordChanges<entityType extends EntityBase>(self: entityT
 
         if (changes.length > 0) {
             await remult.repo(ChangeLog).insert({
-                changeDate: new Date(),
+                changeDate,
                 changedFields: changes.map(x => x.key),
                 changes,
                 entity: self._.metadata.key,
@@ -92,7 +94,9 @@ export async function recordChanges<entityType extends EntityBase>(self: entityT
 }
 interface ColumnDeciderArgs<entityType> {
     excludeColumns?: (e: FieldsRef<entityType>) => FieldRef<any>[],
-    excludeValues?: (e: FieldsRef<entityType>) => FieldRef<any>[]
+    excludeValues?: (e: FieldsRef<entityType>) => FieldRef<any>[],
+    forceDate?:Date,
+    forceNew?:boolean
 }
 export class FieldDecider<entityType>{
     fields: FieldRef<entityType>[];

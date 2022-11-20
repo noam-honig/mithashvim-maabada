@@ -10,6 +10,7 @@ import { DataRefreshController } from '../app/data-refresh/data-refresh.controll
 import { DeliveryFormController } from '../app/driver-sign/delivery-form.controller';
 import { createPdfDocument } from '../app/contact-sign/createPdfDocument';
 import { graphqlUploadFile } from '../app/contact-sign/graphqlUploadFile';
+import { versionUpdate } from './version';
 
 
 export const api = remultExpress({
@@ -23,7 +24,7 @@ export const api = remultExpress({
         return undefined;
     },
     initApi: async () => {
-        await Computer.getRecipients();
+        await versionUpdate();
     }
 });
 DeliveryFormController.createPdfAndUpload = async (c) => {
