@@ -21,6 +21,7 @@ import { CPUType } from './CPUType'
 
 @Entity<Computer>('computers', {
   allowApiCrud: Allow.authenticated,
+  allowApiDelete: false,
   defaultOrderBy: {
     createDate: 'desc',
   },
@@ -242,6 +243,7 @@ export class Computer extends IdEntity {
         )
       ) {
         const comp = await compRepo.findId(change.relatedId)
+        if (!comp) continue
         if (status.statusTableCurrentStatusOnly && comp.status != status)
           continue
         if (
