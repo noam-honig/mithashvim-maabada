@@ -9,6 +9,7 @@ import {
   BackendMethod,
   getValueList,
 } from 'remult'
+import { getHeapStatistics } from 'v8'
 import { recordChanges, ChangeLog } from '../change-log/change-log'
 import { DataControl } from '../common-ui-elements/interfaces'
 import '../common/UITools'
@@ -224,7 +225,10 @@ export class Computer extends IdEntity {
     return statuses
   }
   @BackendMethod({ allowed: Allow.authenticated })
-  static async getStatusChanges(status: ComputerStatus): Promise<StatusDate[]> {
+  static async getStatusChanges(
+    status: ComputerStatus,
+    employeeId?: string,
+  ): Promise<StatusDate[]> {
     let d = new Date()
     const compRepo = remult.repo(Computer)
     const arr: StatusDate[] = []
@@ -245,6 +249,11 @@ export class Computer extends IdEntity {
         const comp = await compRepo.findId(change.relatedId)
         if (!comp) continue
         if (status.statusTableCurrentStatusOnly && comp.status != status)
+          continue
+        if (
+          status.statusTableCurrentEmployeeOnly &&
+          comp.employee?.id != employeeId
+        )
           continue
         if (
           !lastDate ||

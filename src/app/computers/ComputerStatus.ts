@@ -29,6 +29,7 @@ export class ComputerStatus {
     inputCpu: true,
     statusTableByEmployee: true,
     statusTableCurrentStatusOnly: true,
+    statusTableCurrentEmployeeOnly: true,
   })
   static trash = new ComputerStatus('ממתין לגריטה', [Roles.upgradeAdmin], {
     statusTableByEmployee: true,
@@ -66,7 +67,7 @@ export class ComputerStatus {
       inputPackageBarcode: true,
       statusTableByEmployee: true,
       statusTableCurrentStatusOnly: true,
-      canUpdateCompletePallet:true
+      canUpdateCompletePallet: true,
     },
   )
   static waitForDelivery = new ComputerStatus(
@@ -100,6 +101,7 @@ export class ComputerStatus {
   statusTableByOrigin = false
   statusTableByEmployee = false
   statusTableCurrentStatusOnly = false
+  statusTableCurrentEmployeeOnly = false
   inputPallet = false
   assignPallet = false
   clearPallet = false

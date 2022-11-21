@@ -52,7 +52,10 @@ export class HomeComponent implements OnInit {
 
   private async loadStatusDates() {
     await this.busyService.donotWait(async () => {
-      this.newStatusDates = await Computer.getStatusChanges(this.input.status)
+      this.newStatusDates = await Computer.getStatusChanges(
+        this.input.status,
+        this.input.employee?.id,
+      )
     })
   }
 

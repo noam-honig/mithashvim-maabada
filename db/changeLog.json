@@ -4488,5 +4488,113 @@
     "changedFields": [
       "palletBarcode"
     ]
+  },
+  {
+    "id": "1a215834-59f2-444e-979f-58aa3487ced2",
+    "relatedId": "6926e108-9921-4efb-80e3-903d1eb57ee8",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-11-21T05:29:14.999Z",
+    "userId": "2c4077ec-b861-474b-b5fd-62daa8c9b736",
+    "userName": "נועם",
+    "changes": [
+      {
+        "key": "status",
+        "oldDisplayValue": "ממתין לשדרוג",
+        "newDisplayValue": "שוייך לעובד",
+        "newValue": "assigned",
+        "oldValue": "waitingForUpgrade"
+      },
+      {
+        "key": "employee",
+        "newDisplayValue": "משה",
+        "newValue": "9e32ac04-f834-416c-83f1-e92af954d84c",
+        "oldValue": null
+      },
+      {
+        "key": "cpu",
+        "newDisplayValue": "I5",
+        "newValue": "i5"
+      }
+    ],
+    "changedFields": [
+      "status",
+      "employee",
+      "cpu"
+    ]
+  },
+  {
+    "id": "b25315ed-8772-4935-8fc3-c9d281bf6d18",
+    "relatedId": "3c33f38a-f1e9-40aa-83dd-8aff6dfa46ed",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-11-21T05:29:20.217Z",
+    "userId": "2c4077ec-b861-474b-b5fd-62daa8c9b736",
+    "userName": "נועם",
+    "changes": [
+      {
+        "key": "status",
+        "oldDisplayValue": "ממתין לשדרוג",
+        "newDisplayValue": "שוייך לעובד",
+        "newValue": "assigned",
+        "oldValue": "waitingForUpgrade"
+      },
+      {
+        "key": "employee",
+        "newDisplayValue": "משה",
+        "newValue": "9e32ac04-f834-416c-83f1-e92af954d84c",
+        "oldValue": null
+      },
+      {
+        "key": "cpu",
+        "newDisplayValue": "I5",
+        "newValue": "i5"
+      }
+    ],
+    "changedFields": [
+      "status",
+      "employee",
+      "cpu"
+    ]
+  },
+  {
+    "id": "c764df76-b385-402c-ba78-ac7b232bf03d",
+    "relatedId": "e5db4e0e-9576-4a49-b339-65b484e507e1",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-11-21T05:29:28.220Z",
+    "userId": "2c4077ec-b861-474b-b5fd-62daa8c9b736",
+    "userName": "נועם",
+    "changes": [
+      {
+        "key": "status",
+        "oldDisplayValue": "ממתין לשדרוג",
+        "newDisplayValue": "שוייך לעובד",
+        "newValue": "assigned",
+        "oldValue": "waitingForUpgrade"
+      },
+      {
+        "key": "employee",
+        "newDisplayValue": "ליאור",
+        "newValue": "3fe1d2db-1921-4272-bc9b-b5532a8447b7",
+        "oldValue": null
+      },
+      {
+        "key": "cpu",
+        "newDisplayValue": "I5",
+        "newValue": "i5"
+      }
+    ],
+    "changedFields": [
+      "status",
+      "employee",
+      "cpu"
+    ]
   }
 ]
