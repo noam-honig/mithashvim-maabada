@@ -4596,5 +4596,102 @@
       "employee",
       "cpu"
     ]
+  },
+  {
+    "id": "17060484-2506-401e-9e36-f7d3bef3cc5c",
+    "relatedId": "096c3096-9b5f-4dbc-a5a0-61685fa26187",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-11-24T07:03:23.538Z",
+    "userId": "90fa111a-f48a-44e4-909c-af25f9140a5c",
+    "userName": "נועם",
+    "changes": [
+      {
+        "key": "id",
+        "oldDisplayValue": "096c3096-9b5f-4dbc-a5a0-61685fa26187",
+        "newDisplayValue": "096c3096-9b5f-4dbc-a5a0-61685fa26187",
+        "newValue": "096c3096-9b5f-4dbc-a5a0-61685fa26187",
+        "oldValue": "096c3096-9b5f-4dbc-a5a0-61685fa26187"
+      },
+      {
+        "key": "barcode",
+        "oldDisplayValue": "",
+        "newDisplayValue": "M123456",
+        "newValue": "M123456",
+        "oldValue": ""
+      },
+      {
+        "key": "packageBarcode",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "palletBarcode",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "status",
+        "oldDisplayValue": "התקבל",
+        "newDisplayValue": "התקבל",
+        "newValue": "intake",
+        "oldValue": "intake"
+      },
+      {
+        "key": "employee",
+        "newValue": null,
+        "oldValue": null
+      },
+      {
+        "key": "cpu"
+      },
+      {
+        "key": "origin",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "courier",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "recipient",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "createDate",
+        "oldDisplayValue": "2022-11-24T07:03:23.532Z",
+        "newDisplayValue": "2022-11-24T07:03:23.532Z",
+        "newValue": "2022-11-24T07:03:23.532Z",
+        "oldValue": "2022-11-24T07:03:23.532Z"
+      }
+    ],
+    "changedFields": [
+      "id",
+      "barcode",
+      "packageBarcode",
+      "palletBarcode",
+      "status",
+      "employee",
+      "cpu",
+      "origin",
+      "courier",
+      "recipient",
+      "createDate"
+    ]
   }
 ]

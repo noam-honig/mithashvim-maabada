@@ -342,5 +342,18 @@
     "createDate": "2022-11-20T12:41:27.884Z",
     "updateDate": "2022-11-21T05:29:28.220Z",
     "cpu": "i5"
+  },
+  {
+    "id": "096c3096-9b5f-4dbc-a5a0-61685fa26187",
+    "barcode": "M123456",
+    "packageBarcode": "",
+    "palletBarcode": "",
+    "status": "intake",
+    "employee": null,
+    "origin": "",
+    "courier": "",
+    "recipient": "",
+    "createDate": "2022-11-24T07:03:23.532Z",
+    "updateDate": "2022-11-24T07:03:23.537Z"
   }
 ]

@@ -37,6 +37,11 @@ export class HomeComponent implements OnInit {
       this.input.status.inputPallet
     )
   }
+  submit(){
+    if (this.input.status===ComputerStatus.intake){
+      this.update()
+    }
+  }
 
   @ViewChild('myField') x!: ElementRef
   constructor(private ui: UIToolsService, private busyService: BusyService) {}

@@ -22,11 +22,13 @@
         [field]="$.inputMethod"
       >
       </data-control>
-      <data-control
-        *ngIf="!input.status.inputPackageBarcode && !inputMethod.pallet"
-        [field]="input.$.barcode"
-        cdkFocusInitial
-      ></data-control>
+      <form (submit)="submit()">
+        <data-control
+          *ngIf="!input.status.inputPackageBarcode && !inputMethod.pallet"
+          [field]="input.$.barcode"
+          cdkFocusInitial
+        ></data-control>
+      </form>
       <data-control
         *ngIf="showPallet()"
         [field]="input.$.palletBarcode"
