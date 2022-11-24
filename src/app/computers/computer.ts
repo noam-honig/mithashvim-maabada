@@ -208,13 +208,11 @@ export class Computer extends IdEntity {
       ]
 
     for (const status of list) {
-      if (status.allowed() || remult.isAllowed(Roles.stockAdmin)) {
-        statuses.push({
-          id: status.id,
-          caption: status.caption,
-          count: 0,
-        })
-      }
+      statuses.push({
+        id: status.id,
+        caption: status.caption,
+        count: 0,
+      })
     }
     for await (const c of remult.repo(Computer).query()) {
       const s = statuses.find((x) => x.id === c.status.id)
