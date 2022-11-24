@@ -90,7 +90,9 @@ export class AppComponent implements OnInit {
             ok: async () => {
               if (input.status.updateEmployee && !input.employee) {
                 throw 'חובה לבחור עובד'
-              } else {
+              } else if (input.status.assignPallet && !input.palletBarcode)
+                throw 'חובה לבחור משטח'
+              else {
                 if (setSessionToTerminal)
                   remult.user = await signIn.configTerminal(input.status)
                 localStorage.setItem(
