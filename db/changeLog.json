@@ -4716,5 +4716,51 @@
     "changedFields": [
       "palletBarcode"
     ]
+  },
+  {
+    "id": "5f975ff0-2e58-4a5a-93d8-34e7ef79769c",
+    "relatedId": "096c3096-9b5f-4dbc-a5a0-61685fa26187",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-11-24T08:09:26.884Z",
+    "userId": "90fa111a-f48a-44e4-909c-af25f9140a5c",
+    "userName": "נועם",
+    "changes": [
+      {
+        "key": "packageBarcode",
+        "oldDisplayValue": "",
+        "newDisplayValue": "12",
+        "newValue": "12",
+        "oldValue": ""
+      }
+    ],
+    "changedFields": [
+      "packageBarcode"
+    ]
+  },
+  {
+    "id": "cbbdabe0-0218-4c9a-b66e-e460fc4b751d",
+    "relatedId": "096c3096-9b5f-4dbc-a5a0-61685fa26187",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-11-24T08:12:08.800Z",
+    "userId": "90fa111a-f48a-44e4-909c-af25f9140a5c",
+    "userName": "נועם",
+    "changes": [
+      {
+        "key": "packageBarcode",
+        "oldDisplayValue": "12",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": "12"
+      }
+    ],
+    "changedFields": [
+      "packageBarcode"
+    ]
   }
 ]

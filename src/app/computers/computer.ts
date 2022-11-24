@@ -49,40 +49,35 @@ export class Computer extends IdEntity {
     ],
   })
   barcode = ''
-  @Fields.string<Computer>(
-    {
-      caption: 'ברקוד אריזה',
-      validate: (_, f) => {
-        if (f.value) {
-          f.value = f.value.trim()
-          if (!f.value.startsWith('A')) throw Error(' צריך להתחיל בA')
-          if (f.value.length < 5 || f.value.length > 6)
-            throw Error(' יכול להיות בן 5 או 6 תוים בלבד')
+  @Fields.string<Computer>({
+    caption: 'ברקוד אריזה',
+    validate: async (c, ref) => {
+      if (ref.value) {
+        ref.value = ref.value.trim()
+        if (!ref.value.startsWith('A')) throw Error(' צריך להתחיל בA')
+        if (ref.value.length < 5 || ref.value.length > 6)
+          throw Error(' יכול להיות בן 5 או 6 תוים בלבד')
+      }
+      if (c.status.updatePackageBarcode) {
+        Validators.required(c, ref)
+        c.packageBarcode = c.packageBarcode.trim()
+        if (
+          !ref.error &&
+          (await remult.repo(Computer).count({
+            $or: [
+              {
+                id: { '!=': c.id },
+                packageBarcode: c.packageBarcode,
+              },
+              { barcode: c.packageBarcode },
+            ],
+          })) > 0
+        ) {
+          ref.error = ' כבר משוייך למחשב אחר!'
         }
-      },
+      }
     },
-    (options, remult) =>
-      (options.validate = async (c, ref) => {
-        if (c.status.updatePackageBarcode) {
-          Validators.required(c, ref)
-          c.packageBarcode = c.packageBarcode.trim()
-          if (
-            !ref.error &&
-            (await remult.repo(Computer).count({
-              $or: [
-                {
-                  id: { '!=': c.id },
-                  packageBarcode: c.packageBarcode,
-                },
-                { barcode: c.packageBarcode },
-              ],
-            })) > 0
-          ) {
-            ref.error = ' כבר משוייך למחשב אחר!'
-          }
-        }
-      }),
-  )
+  })
   packageBarcode = ''
   @Fields.string({
     caption: 'ברקוד משטח',
