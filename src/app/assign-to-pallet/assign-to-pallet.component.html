@@ -1,9 +1,21 @@
 <app-card-in-middle>
   <div style="display: flex; flex-direction: column; gap: 8px" #myField>
     <h2>שנה שיוך מחשב למשטח</h2>
-
-    <data-area [settings]="area"></data-area>
-
+    <data-control
+      [field]="$.inputMethod"
+      *ngIf="allowSelectMethod()"
+    ></data-control>
+    <data-control [field]="input.$.palletBarcode"></data-control>
+    <form (submit)="submit()">
+      <data-control
+        [field]="input.$.barcode"
+        *ngIf="!inputMethod.packageBarcode"
+      ></data-control>
+      <data-control
+        [field]="input.$.packageBarcode"
+        *ngIf="inputMethod.packageBarcode"
+      ></data-control>
+    </form>
     <button
       mat-raised-button
       color="success"

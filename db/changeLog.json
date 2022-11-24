@@ -4693,5 +4693,28 @@
       "recipient",
       "createDate"
     ]
+  },
+  {
+    "id": "61b12934-dafc-45c5-a42e-021d43281f3c",
+    "relatedId": "e5db4e0e-9576-4a49-b339-65b484e507e1",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-11-24T07:39:33.438Z",
+    "userId": "90fa111a-f48a-44e4-909c-af25f9140a5c",
+    "userName": "נועם",
+    "changes": [
+      {
+        "key": "palletBarcode",
+        "oldDisplayValue": "Z1234",
+        "newDisplayValue": "Z1111",
+        "newValue": "Z1111",
+        "oldValue": "Z1234"
+      }
+    ],
+    "changedFields": [
+      "palletBarcode"
+    ]
   }
 ]

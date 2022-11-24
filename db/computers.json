@@ -333,14 +333,14 @@
     "id": "e5db4e0e-9576-4a49-b339-65b484e507e1",
     "barcode": "M503135",
     "packageBarcode": "",
-    "palletBarcode": "Z1234",
+    "palletBarcode": "Z1111",
     "status": "assigned",
     "employee": "3fe1d2db-1921-4272-bc9b-b5532a8447b7",
     "origin": "אופיר טורס",
     "courier": "123123",
     "recipient": "",
     "createDate": "2022-11-20T12:41:27.884Z",
-    "updateDate": "2022-11-21T05:29:28.220Z",
+    "updateDate": "2022-11-24T07:39:33.438Z",
     "cpu": "i5"
   },
   {
