@@ -56,7 +56,7 @@ export class ComputerStatus {
   static packing = new ComputerStatus('תהליך אריזה', [Roles.packAdmin], {
     updatePackageBarcode: true,
     groupBy: ['palletBarcode'],
-    listFields: ['packageBarcode', 'palletBarcode'],
+    listFields: ['barcode','packageBarcode', 'palletBarcode'],
     statusTableCurrentStatusOnly: true,
     assignPallet: true,
   })
