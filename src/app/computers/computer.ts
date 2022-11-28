@@ -131,6 +131,28 @@ export class Computer extends IdEntity {
     },
   })
   origin = ''
+  @Fields.boolean({ caption: 'מחשב נייד' })
+  isLaptop = false
+  @DataControl({
+    valueList: [
+      'ACER',
+      'ADATA',
+      'ASUS',
+      'APPLE ',
+      'DELL',
+      'FUJITSU',
+      'HP',
+      'HUAWEI',
+      'LENOVO',
+      'LG',
+      'MSI',
+      'SAMSUNG SONY TOSHIBA',
+    ],
+  })
+  @Fields.string({ caption: 'יצרן', width: '170' })
+  make = ''
+  @Fields.string({ caption: 'דגם', width: '170' })
+  model = ''
   @Fields.string({ caption: 'משנע', width: '170' })
   courier = ''
   @DataControl({

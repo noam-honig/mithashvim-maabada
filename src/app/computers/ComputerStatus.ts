@@ -4,15 +4,30 @@ import type { Computer } from './computer'
 
 @ValueListFieldType({ caption: 'סטטוס' })
 export class ComputerStatus {
-  static intake = new ComputerStatus('התקבל', [Roles.stockAdmin], {
+  static intake = new ComputerStatus('התקבל - מחשב נייח', [Roles.stockAdmin], {
     isIntake: true,
     groupBy: ['origin', 'palletBarcode'],
     inputPallet: true,
   })
   static intakeTrash = new ComputerStatus(
-    'התקבל וממתין לגריטה',
+    'התקבל וממתין לגריטה - מחשב נייח',
     [Roles.stockAdmin],
     {
+      isIntake: true,
+      groupBy: ['origin', 'palletBarcode'],
+    },
+  )
+  static intakeLaptop = new ComputerStatus('התקבל - מחשב נייד💻', [Roles.stockAdmin], {
+    isIntake: true,
+    laptopIntake:true,
+    groupBy: ['origin', 'palletBarcode'],
+    inputPallet: true,
+  })
+  static intakeTrashLaptop = new ComputerStatus(
+    'התקבל וממתין לגריטה - מחשב נייד💻',
+    [Roles.stockAdmin],
+    {
+      laptopIntake:true,
       isIntake: true,
       groupBy: ['origin', 'palletBarcode'],
     },
@@ -56,14 +71,14 @@ export class ComputerStatus {
   static packing = new ComputerStatus('תהליך אריזה', [Roles.packAdmin], {
     updatePackageBarcode: true,
     groupBy: ['palletBarcode'],
-    listFields: ['barcode','packageBarcode', 'palletBarcode'],
+    listFields: ['barcode', 'packageBarcode', 'palletBarcode'],
     statusTableCurrentStatusOnly: true,
     assignPallet: true,
   })
   static packDone = new ComputerStatus('נארז בהצלחה', [Roles.stockAdmin], {
     inputPackageBarcode: true,
     groupBy: ['palletBarcode'],
-    listFields: ['packageBarcode','palletBarcode'],
+    listFields: ['packageBarcode', 'palletBarcode'],
     statusTableCurrentStatusOnly: true,
     canUpdateCompletePallet: true,
   })
@@ -104,6 +119,7 @@ export class ComputerStatus {
   updateEmployee = false
   inputCpu = false
   isIntake = false
+  laptopIntake = false
   updatePackageBarcode = false
   statusTableCurrentStatusOnly = false
   statusTableCurrentEmployeeOnly = false

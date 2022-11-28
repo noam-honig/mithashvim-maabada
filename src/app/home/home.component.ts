@@ -154,12 +154,20 @@ export class HomeComponent implements OnInit {
     this.area = new DataAreaSettings({
       fields: () => [
         {
+          field: this.input.$.make,
+          visible: () => this.input.status.laptopIntake,
+        },
+        {
+          field: this.input.$.model,
+          visible: () => this.input.status.laptopIntake,
+        },
+        {
           field: this.input.$.origin,
           visible: () => this.input.status.isIntake,
         },
         {
           field: this.input.$.courier,
-          click: () => (this.input.origin = ''),
+          click: () => (this.input.courier = ''),
           clickIcon: 'clear',
           visible: () => this.input.status.isIntake,
         },
