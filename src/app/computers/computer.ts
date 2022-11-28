@@ -227,6 +227,7 @@ export class Computer extends IdEntity {
     const arr: StatusDate[] = []
     let lastDate: StatusDate | undefined
     d.setDate(d.getDate() - 7)
+
     for await (let change of remult.repo(ChangeLog).query({
       where: {
         changeDate: { '>=': d },
@@ -256,43 +257,30 @@ export class Computer extends IdEntity {
             date: change.changeDate,
             presentDate: toDisplayDate(change.changeDate),
             computers: [],
-            workers: [],
             byOrigin: [],
           }
           arr.push(lastDate)
         }
-
-        lastDate.computers.push({
-          barcode: comp.barcode,
-          employee: comp.employee?.name!,
-        })
-        {
-          let orig = lastDate.workers.find(
-            (x) => x.name === comp.employee?.name,
-          )
-
-          if (!orig) {
-            lastDate.workers.push({
-              name: comp.employee?.name!,
-              quantity: 1,
-            })
-          } else {
-            orig.quantity++
-          }
+        let item: { [key: string]: string } = {}
+        for (const field of status.listFields) {
+          item[field] = comp.$.find(field).displayValue
         }
+        lastDate.computers.push(item)
         {
-          let orig = lastDate.byOrigin.find(
-            (x) =>
-              x.origin.trim() === comp.origin.trim() &&
-              x.pallet.trim() === comp.palletBarcode.trim(),
-          )
+          let orig = lastDate.byOrigin.find((x) => {
+            for (const field of status.groupBy) {
+              if (x.keys[field] !== comp.$.find(field).displayValue)
+                return false
+            }
+            return true
+          })
 
           if (!orig) {
-            lastDate.byOrigin.push({
-              origin: comp.origin,
-              pallet: comp.palletBarcode,
-              quantity: 1,
-            })
+            let item: any = { quantity: 1, keys: {} }
+            for (const field of status.groupBy) {
+              item.keys[field] = comp.$.find(field).displayValue
+            }
+            lastDate.byOrigin.push(item)
           } else {
             orig.quantity++
           }
@@ -306,9 +294,8 @@ export class Computer extends IdEntity {
 export interface StatusDate {
   date: Date
   presentDate: string
-  computers: { barcode: string; employee: string }[]
-  workers: { name: string; quantity: number }[]
-  byOrigin: { origin: string; pallet: string; quantity: number }[]
+  computers: { [key: string]: string }[]
+  byOrigin: { quantity: number; keys: { [key: string]: string } }[]
 }
 
 async function getListFromMonday(board: number) {

@@ -1,11 +1,12 @@
 import { remult, ValueListFieldType, Remult } from 'remult'
 import { Roles } from '../users/roles'
+import type { Computer } from './computer'
 
 @ValueListFieldType({ caption: 'סטטוס' })
 export class ComputerStatus {
   static intake = new ComputerStatus('התקבל', [Roles.stockAdmin], {
     isIntake: true,
-    statusTableByOrigin: true,
+    groupBy: ['origin', 'palletBarcode'],
     inputPallet: true,
   })
   static intakeTrash = new ComputerStatus(
@@ -13,50 +14,56 @@ export class ComputerStatus {
     [Roles.stockAdmin],
     {
       isIntake: true,
-      statusTableByOrigin: true,
+      groupBy: ['origin', 'palletBarcode'],
     },
   )
   static waitingForUpgrade = new ComputerStatus(
     'ממתין לשדרוג',
     [Roles.stockAdmin],
     {
-      statusTableByOrigin: true,
+      groupBy: ['origin', 'palletBarcode'],
       canUpdateCompletePallet: true,
     },
   )
   static assigned = new ComputerStatus('שוייך לעובד', [Roles.upgradeAdmin], {
     updateEmployee: true,
     inputCpu: true,
-    statusTableByEmployee: true,
+    groupBy: ['employee'],
+    listFields: ['barcode', 'employee'],
     statusTableCurrentStatusOnly: true,
     statusTableCurrentEmployeeOnly: true,
   })
   static trash = new ComputerStatus('ממתין לגריטה', [Roles.upgradeAdmin], {
-    statusTableByEmployee: true,
+    groupBy: ['employee'],
+    listFields: ['barcode'],
     clearPallet: true,
   })
   static successfulUpgrade = new ComputerStatus(
     'שודרג בהצלחה',
     [Roles.upgradeAdmin],
     {
-      statusTableByEmployee: true,
+      groupBy: ['employee'],
+      listFields: ['barcode', 'employee'],
       assignPallet: true,
     },
   )
   static waitForPack = new ComputerStatus('ממתין לאריזה', [Roles.stockAdmin], {
-    statusTableByEmployee: true,
+    groupBy: ['employee'],
+    listFields: ['barcode', 'employee'],
     statusTableCurrentStatusOnly: true,
     canUpdateCompletePallet: true,
   })
   static packing = new ComputerStatus('תהליך אריזה', [Roles.packAdmin], {
     updatePackageBarcode: true,
-    statusTableByEmployee: true,
+    groupBy: ['palletBarcode'],
+    listFields: ['packageBarcode', 'palletBarcode'],
     statusTableCurrentStatusOnly: true,
     assignPallet: true,
   })
   static packDone = new ComputerStatus('נארז בהצלחה', [Roles.stockAdmin], {
     inputPackageBarcode: true,
-    statusTableByEmployee: true,
+    groupBy: ['palletBarcode'],
+    listFields: ['packageBarcode','palletBarcode'],
     statusTableCurrentStatusOnly: true,
     canUpdateCompletePallet: true,
   })
@@ -65,7 +72,7 @@ export class ComputerStatus {
     [Roles.stockAdmin],
     {
       inputPackageBarcode: true,
-      statusTableByEmployee: true,
+      listFields: ['packageBarcode'],
       statusTableCurrentStatusOnly: true,
       canUpdateCompletePallet: true,
     },
@@ -76,7 +83,7 @@ export class ComputerStatus {
     {
       inputPackageBarcode: true,
       inputRecipient: true,
-      statusTableByOrigin: true,
+      groupBy: ['recipient', 'palletBarcode'],
       canUpdateCompletePallet: true,
     },
   )
@@ -98,16 +105,16 @@ export class ComputerStatus {
   inputCpu = false
   isIntake = false
   updatePackageBarcode = false
-  statusTableByOrigin = false
-  statusTableByEmployee = false
   statusTableCurrentStatusOnly = false
   statusTableCurrentEmployeeOnly = false
   inputPallet = false
   assignPallet = false
   clearPallet = false
   canUpdateCompletePallet = false
+  groupBy: (keyof Computer)[] = []
+  listFields: (keyof Computer)[] = []
   get showStatusTables() {
-    return this.statusTableByEmployee || this.statusTableByOrigin
+    return this.listFields.length > 0 || this.groupBy.length > 0
   }
   inputPackageBarcode = false
   inputRecipient = false

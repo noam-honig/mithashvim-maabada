@@ -26,7 +26,6 @@ export class HomeComponent implements OnInit {
   input!: Computer
   area!: DataAreaSettings
   newStatusDates: StatusDate[] = []
-  displayedColumns: string[] = ['origin', 'quantity']
 
   @Field(() => inputType, { caption: 'שיטת עדכון' })
   inputMethod = inputType.pallet

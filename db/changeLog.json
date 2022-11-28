@@ -4762,5 +4762,28 @@
     "changedFields": [
       "packageBarcode"
     ]
+  },
+  {
+    "id": "d2fdb2c9-8218-44c8-a9b7-bbc8f36e6420",
+    "relatedId": "096c3096-9b5f-4dbc-a5a0-61685fa26187",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-11-28T16:15:10.708Z",
+    "userId": "2c4077ec-b861-474b-b5fd-62daa8c9b736",
+    "userName": "נועם",
+    "changes": [
+      {
+        "key": "palletBarcode",
+        "oldDisplayValue": "",
+        "newDisplayValue": "Z1111",
+        "newValue": "Z1111",
+        "oldValue": ""
+      }
+    ],
+    "changedFields": [
+      "palletBarcode"
+    ]
   }
 ]

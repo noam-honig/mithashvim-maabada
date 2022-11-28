@@ -69,11 +69,10 @@
     </div>
   </app-card-in-middle>
 
-  <app-card-in-middle>
-    <div
-      *ngIf="input.status.showStatusTables"
-      style="margin: 20px; overflow-y: auto; max-height: 85vh"
-    >
+  <app-card-in-middle
+    *ngIf="input.status.showStatusTables && newStatusDates.length > 0"
+  >
+    <div style="margin: 20px; overflow-y: auto; max-height: 85vh">
       <div
         style="text-align: right; padding: 5px"
         *ngFor="let c of newStatusDates; let i = index"
@@ -81,47 +80,33 @@
         <span style="position: relative; bottom: 5px; margin: 3px">
           {{ c.presentDate }}
         </span>
-        <table *ngIf="input.status.statusTableByOrigin">
+        <table *ngIf="input.status.groupBy.length > 0">
           <thead>
             <tr>
-              <th>מקור</th>
-              <th>משטח</th>
+              <th *ngFor="let f of input.status.groupBy">
+                {{ compRepo.metadata.fields.find(f).caption }}
+              </th>
               <th>מחשבים</th>
             </tr>
           </thead>
           <tbody *ngFor="let i of c.byOrigin">
             <tr>
-              <td>{{ i.origin }}</td>
-              <td>{{ i.pallet }}</td>
+              <td *ngFor="let f of input.status.groupBy">{{ i.keys[f] }}</td>
               <td>{{ i.quantity }}</td>
             </tr>
           </tbody>
         </table>
-        <table *ngIf="input.status.statusTableByEmployee">
+        <table *ngIf="input.status.listFields.length > 0">
           <thead>
             <tr>
-              <th>עובד</th>
-              <th>מחשבים</th>
-            </tr>
-          </thead>
-          <tbody *ngFor="let i of c.workers">
-            <tr>
-              <td>{{ i.name }}</td>
-              <td>{{ i.quantity }}</td>
-            </tr>
-          </tbody>
-        </table>
-        <table *ngIf="input.status.statusTableByEmployee">
-          <thead>
-            <tr>
-              <th>בר קוד</th>
-              <th>עובד</th>
+              <th *ngFor="let f of input.status.listFields">
+                {{ compRepo.metadata.fields.find(f).caption }}
+              </th>
             </tr>
           </thead>
           <tbody *ngFor="let i of c.computers">
             <tr>
-              <td>{{ i.barcode }}</td>
-              <td>{{ i.employee }}</td>
+              <td *ngFor="let f of input.status.listFields">{{ i[f] }}</td>
             </tr>
           </tbody>
         </table>
