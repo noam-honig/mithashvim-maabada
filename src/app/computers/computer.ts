@@ -146,7 +146,9 @@ export class Computer extends IdEntity {
       'LENOVO',
       'LG',
       'MSI',
-      'SAMSUNG SONY TOSHIBA',
+      'SAMSUNG',
+      'SONY',
+      'TOSHIBA',
     ],
   })
   @Fields.string({ caption: 'יצרן', width: '170' })
