@@ -156,6 +156,7 @@ export class HomeComponent implements OnInit {
       this.input.recipient = prev.recipient
       this.input.model = prev.model
       this.input.make = prev.make
+      this.input.palletBarcode = prev.palletBarcode
       if (this.input.status.inputPallet)
         this.input.palletBarcode = prev.palletBarcode
     }
