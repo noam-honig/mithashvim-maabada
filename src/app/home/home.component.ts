@@ -142,7 +142,7 @@ export class HomeComponent implements OnInit {
     this.ui.info(`עודכן ${this.input.status.caption} בהצלחה`)
     this.init()
 
-  
+
   }
   get $() {
     return getFields(this)
@@ -154,6 +154,8 @@ export class HomeComponent implements OnInit {
       this.input.courier = prev.courier
       this.input.origin = prev.origin
       this.input.recipient = prev.recipient
+      this.input.model = prev.model
+      this.input.make = prev.make
       if (this.input.status.inputPallet)
         this.input.palletBarcode = prev.palletBarcode
     }
