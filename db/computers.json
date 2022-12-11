@@ -9,7 +9,10 @@
     "courier": "",
     "packageBarcode": "",
     "recipient": "",
-    "palletBarcode": ""
+    "palletBarcode": "",
+    "isLaptop": false,
+    "make": "",
+    "model": ""
   },
   {
     "id": "a928363e-d866-4242-bc6f-3cc9169e0041",
@@ -23,7 +26,10 @@
     "packageBarcode": "",
     "recipient": "",
     "updateDate": "2022-11-02T16:03:52.999Z",
-    "palletBarcode": ""
+    "palletBarcode": "",
+    "isLaptop": false,
+    "make": "",
+    "model": ""
   },
   {
     "id": "9a6315ac-96d6-40d6-a470-a12c49a10a75",
@@ -37,7 +43,10 @@
     "packageBarcode": "61",
     "recipient": "",
     "updateDate": "2022-11-03T16:04:05.473Z",
-    "palletBarcode": ""
+    "palletBarcode": "",
+    "isLaptop": false,
+    "make": "",
+    "model": ""
   },
   {
     "id": "e7b6245b-115d-4bfe-a52c-17f085a8e5f2",
@@ -50,7 +59,10 @@
     "packageBarcode": "62",
     "recipient": "",
     "updateDate": "2022-11-03T16:36:50.150Z",
-    "palletBarcode": ""
+    "palletBarcode": "",
+    "isLaptop": false,
+    "make": "",
+    "model": ""
   },
   {
     "id": "57082017-8a20-40cf-b994-ceb4fd57655b",
@@ -63,7 +75,10 @@
     "packageBarcode": "63",
     "recipient": "",
     "updateDate": "2022-11-03T16:03:52.698Z",
-    "palletBarcode": ""
+    "palletBarcode": "",
+    "isLaptop": false,
+    "make": "",
+    "model": ""
   },
   {
     "id": "6285a73b-8d1f-4a68-9d70-3322e24b8d87",
@@ -76,7 +91,10 @@
     "packageBarcode": "64",
     "recipient": "6",
     "updateDate": "2022-09-09T09:03:01.853Z",
-    "palletBarcode": ""
+    "palletBarcode": "",
+    "isLaptop": false,
+    "make": "",
+    "model": ""
   },
   {
     "id": "49dbdb3a-2e94-445c-ac91-5931e9041f3e",
@@ -89,7 +107,10 @@
     "packageBarcode": "65",
     "updateDate": "2022-09-09T09:02:59.888Z",
     "recipient": "6",
-    "palletBarcode": ""
+    "palletBarcode": "",
+    "isLaptop": false,
+    "make": "",
+    "model": ""
   },
   {
     "id": "03a276e2-ba74-4fa3-8df2-01cfdbcefda0",
@@ -103,7 +124,10 @@
     "packageBarcode": "66",
     "updateDate": "2022-10-04T05:51:18.761Z",
     "recipient": "6",
-    "palletBarcode": ""
+    "palletBarcode": "",
+    "isLaptop": false,
+    "make": "",
+    "model": ""
   },
   {
     "id": "458041b4-b2b7-4ee7-a9de-79970b4b2ecd",
@@ -117,7 +141,10 @@
     "createDate": "2022-09-29T11:15:46.972Z",
     "updateDate": "2022-09-29T11:16:30.085Z",
     "cpu": "i7",
-    "palletBarcode": ""
+    "palletBarcode": "",
+    "isLaptop": false,
+    "make": "",
+    "model": ""
   },
   {
     "id": "1f461348-42ff-43be-b4b4-1921b6d10183",
@@ -130,7 +157,10 @@
     "recipient": "",
     "createDate": "2022-10-02T13:00:09.369Z",
     "updateDate": "2022-10-02T13:00:09.384Z",
-    "palletBarcode": ""
+    "palletBarcode": "",
+    "isLaptop": false,
+    "make": "",
+    "model": ""
   },
   {
     "id": "094eaed2-f476-4ee5-9a5d-0e1442e10700",
@@ -143,7 +173,10 @@
     "recipient": "",
     "createDate": "2022-10-02T13:00:18.633Z",
     "updateDate": "2022-10-02T13:00:18.634Z",
-    "palletBarcode": ""
+    "palletBarcode": "",
+    "isLaptop": false,
+    "make": "",
+    "model": ""
   },
   {
     "id": "a581af75-f600-40fb-8322-d4af30f45a1f",
@@ -156,7 +189,10 @@
     "recipient": "",
     "createDate": "2022-10-03T07:35:36.023Z",
     "updateDate": "2022-10-03T07:35:36.034Z",
-    "palletBarcode": ""
+    "palletBarcode": "",
+    "isLaptop": false,
+    "make": "",
+    "model": ""
   },
   {
     "id": "4a0b9e8b-522b-4150-9db9-a26aaa0bb506",
@@ -169,7 +205,10 @@
     "recipient": "",
     "createDate": "2022-10-03T07:36:55.965Z",
     "updateDate": "2022-10-03T07:36:55.968Z",
-    "palletBarcode": ""
+    "palletBarcode": "",
+    "isLaptop": false,
+    "make": "",
+    "model": ""
   },
   {
     "id": "39ed4e78-059b-4db8-ae87-10844d15b525",
@@ -182,7 +221,10 @@
     "recipient": "",
     "createDate": "2022-10-03T07:38:15.994Z",
     "updateDate": "2022-10-03T07:38:15.995Z",
-    "palletBarcode": ""
+    "palletBarcode": "",
+    "isLaptop": false,
+    "make": "",
+    "model": ""
   },
   {
     "id": "ddaf2636-b6d0-4aba-94ff-55759e244760",
@@ -195,7 +237,10 @@
     "recipient": "",
     "createDate": "2022-10-03T07:38:21.862Z",
     "updateDate": "2022-10-03T07:38:21.863Z",
-    "palletBarcode": ""
+    "palletBarcode": "",
+    "isLaptop": false,
+    "make": "",
+    "model": ""
   },
   {
     "id": "a82b2ab4-bdd4-42dc-9c45-8db468fc78a8",
@@ -208,7 +253,10 @@
     "recipient": "",
     "createDate": "2022-10-03T07:38:24.430Z",
     "updateDate": "2022-10-03T07:38:24.431Z",
-    "palletBarcode": ""
+    "palletBarcode": "",
+    "isLaptop": false,
+    "make": "",
+    "model": ""
   },
   {
     "id": "6d643c69-1253-4f02-a562-3cf0313d1c6b",
@@ -221,7 +269,10 @@
     "recipient": "",
     "createDate": "2022-10-03T08:04:29.950Z",
     "updateDate": "2022-10-03T08:04:29.951Z",
-    "palletBarcode": ""
+    "palletBarcode": "",
+    "isLaptop": false,
+    "make": "",
+    "model": ""
   },
   {
     "id": "c6268923-0ea8-42c0-a4f0-6755113a31f0",
@@ -234,7 +285,10 @@
     "recipient": "",
     "createDate": "2022-10-03T08:04:32.343Z",
     "updateDate": "2022-10-03T08:04:32.344Z",
-    "palletBarcode": ""
+    "palletBarcode": "",
+    "isLaptop": false,
+    "make": "",
+    "model": ""
   },
   {
     "id": "60360fe1-df33-4f56-bf01-a42dfb7126f8",
@@ -247,7 +301,10 @@
     "recipient": "",
     "createDate": "2022-10-03T08:04:38.293Z",
     "updateDate": "2022-10-03T08:04:38.294Z",
-    "palletBarcode": ""
+    "palletBarcode": "",
+    "isLaptop": false,
+    "make": "",
+    "model": ""
   },
   {
     "id": "92f39d7d-ed05-4f5d-a504-65467d83a8e1",
@@ -260,7 +317,10 @@
     "recipient": "",
     "createDate": "2022-10-03T08:04:40.250Z",
     "updateDate": "2022-11-20T13:52:55.577Z",
-    "palletBarcode": "Z2234"
+    "palletBarcode": "Z2234",
+    "isLaptop": false,
+    "make": "",
+    "model": ""
   },
   {
     "id": "aa1b27fc-3e91-4c0b-a75b-4481f5e58eb6",
@@ -273,7 +333,10 @@
     "courier": "1",
     "recipient": "",
     "createDate": "2022-11-18T08:19:21.206Z",
-    "updateDate": "2022-11-18T08:31:44.835Z"
+    "updateDate": "2022-11-18T08:31:44.835Z",
+    "isLaptop": false,
+    "make": "",
+    "model": ""
   },
   {
     "id": "392013b2-19d4-4e20-bf1a-22db77b0c57c",
@@ -286,7 +349,10 @@
     "courier": "1",
     "recipient": "",
     "createDate": "2022-11-18T08:19:25.921Z",
-    "updateDate": "2022-11-18T08:31:44.857Z"
+    "updateDate": "2022-11-18T08:31:44.857Z",
+    "isLaptop": false,
+    "make": "",
+    "model": ""
   },
   {
     "id": "baef6eb0-c0ef-465e-a0ff-e1972a0e6c52",
@@ -299,7 +365,10 @@
     "courier": "1",
     "recipient": "",
     "createDate": "2022-11-18T08:19:29.106Z",
-    "updateDate": "2022-11-20T14:11:28.330Z"
+    "updateDate": "2022-11-20T14:11:28.330Z",
+    "isLaptop": false,
+    "make": "",
+    "model": ""
   },
   {
     "id": "6926e108-9921-4efb-80e3-903d1eb57ee8",
@@ -313,7 +382,10 @@
     "recipient": "",
     "createDate": "2022-11-20T12:41:20.836Z",
     "updateDate": "2022-11-21T05:29:14.999Z",
-    "cpu": "i5"
+    "cpu": "i5",
+    "isLaptop": false,
+    "make": "",
+    "model": ""
   },
   {
     "id": "3c33f38a-f1e9-40aa-83dd-8aff6dfa46ed",
@@ -327,33 +399,42 @@
     "recipient": "",
     "createDate": "2022-11-20T12:41:23.980Z",
     "updateDate": "2022-11-21T05:29:20.217Z",
-    "cpu": "i5"
+    "cpu": "i5",
+    "isLaptop": false,
+    "make": "",
+    "model": ""
   },
   {
     "id": "e5db4e0e-9576-4a49-b339-65b484e507e1",
     "barcode": "M503135",
     "packageBarcode": "",
     "palletBarcode": "Z1111",
-    "status": "assigned",
+    "status": "waitForDelivery",
     "employee": "3fe1d2db-1921-4272-bc9b-b5532a8447b7",
     "origin": "אופיר טורס",
     "courier": "123123",
-    "recipient": "",
+    "recipient": "אבן סינא",
     "createDate": "2022-11-20T12:41:27.884Z",
-    "updateDate": "2022-11-24T07:39:33.438Z",
-    "cpu": "i5"
+    "updateDate": "2022-12-11T10:37:00.447Z",
+    "cpu": "i5",
+    "isLaptop": false,
+    "make": "",
+    "model": ""
   },
   {
     "id": "096c3096-9b5f-4dbc-a5a0-61685fa26187",
     "barcode": "M123456",
     "packageBarcode": "",
     "palletBarcode": "Z1111",
-    "status": "intake",
+    "status": "waitForDelivery",
     "employee": null,
     "origin": "",
     "courier": "",
-    "recipient": "",
+    "recipient": "אבן סינא",
     "createDate": "2022-11-24T07:03:23.532Z",
-    "updateDate": "2022-11-28T16:15:10.708Z"
+    "updateDate": "2022-12-11T10:37:00.195Z",
+    "isLaptop": false,
+    "make": "",
+    "model": ""
   }
 ]

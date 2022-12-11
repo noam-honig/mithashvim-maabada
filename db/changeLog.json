@@ -4785,5 +4785,67 @@
     "changedFields": [
       "palletBarcode"
     ]
+  },
+  {
+    "id": "8107d856-5746-4146-8d79-12c7ad75546d",
+    "relatedId": "096c3096-9b5f-4dbc-a5a0-61685fa26187",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-12-11T10:37:00.195Z",
+    "userId": "2c4077ec-b861-474b-b5fd-62daa8c9b736",
+    "userName": "נועם",
+    "changes": [
+      {
+        "key": "status",
+        "oldDisplayValue": "התקבל - מחשב נייח",
+        "newDisplayValue": "ממתין לשינוע למוטב",
+        "newValue": "waitForDelivery",
+        "oldValue": "intake"
+      },
+      {
+        "key": "recipient",
+        "oldDisplayValue": "",
+        "newDisplayValue": "אבן סינא",
+        "newValue": "אבן סינא",
+        "oldValue": ""
+      }
+    ],
+    "changedFields": [
+      "status",
+      "recipient"
+    ]
+  },
+  {
+    "id": "217e967f-a831-4169-aebf-5b68511e5774",
+    "relatedId": "e5db4e0e-9576-4a49-b339-65b484e507e1",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-12-11T10:37:00.447Z",
+    "userId": "2c4077ec-b861-474b-b5fd-62daa8c9b736",
+    "userName": "נועם",
+    "changes": [
+      {
+        "key": "status",
+        "oldDisplayValue": "שוייך לעובד",
+        "newDisplayValue": "ממתין לשינוע למוטב",
+        "newValue": "waitForDelivery",
+        "oldValue": "assigned"
+      },
+      {
+        "key": "recipient",
+        "oldDisplayValue": "",
+        "newDisplayValue": "אבן סינא",
+        "newValue": "אבן סינא",
+        "oldValue": ""
+      }
+    ],
+    "changedFields": [
+      "status",
+      "recipient"
+    ]
   }
 ]

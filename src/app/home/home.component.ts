@@ -36,14 +36,14 @@ export class HomeComponent implements OnInit {
       this.input.status.inputPallet
     )
   }
-  submit(){
-    if (this.input.status===ComputerStatus.intake){
+  submit() {
+    if (this.input.status === ComputerStatus.intake) {
       this.update()
     }
   }
 
   @ViewChild('myField') x!: ElementRef
-  constructor(private ui: UIToolsService, private busyService: BusyService) {}
+  constructor(private ui: UIToolsService, private busyService: BusyService) { }
 
   async ngOnInit() {
     this.init()
@@ -64,6 +64,28 @@ export class HomeComponent implements OnInit {
   }
 
   async update() {
+    const updateComputerBasedOnInput = (c: Computer) => {
+      c.status = this.input.status
+      if (c.status.updateEmployee) {
+        c.employee = this.input.employee
+      }
+      if (c.status.inputCpu) {
+        c.cpu = this.input.cpu
+      }
+      if (c.status.inputRecipient) {
+        c.recipient = this.input.recipient
+      }
+
+      if (c.status.updatePackageBarcode) {
+        c.packageBarcode = this.input.packageBarcode
+      }
+      if (c.status.assignPallet) {
+        c.palletBarcode = this.input.palletBarcode
+      } else if (c.status.clearPallet) {
+        c.palletBarcode = ''
+      }
+    }
+
     if (this.input.status.isIntake) {
       this.input.employee = null
       await this.input.save()
@@ -82,16 +104,16 @@ export class HomeComponent implements OnInit {
           if (
             !(await this.ui.yesNoQuestion(
               'האם לעדכן ' +
-                count +
-                ' מחשבים לסטטוס ' +
-                this.input.status.caption +
-                '?',
+              count +
+              ' מחשבים לסטטוס ' +
+              this.input.status.caption +
+              '?',
             ))
           ) {
             return
           }
           for await (const c of computersInPallet) {
-            c.status = this.input.status
+            updateComputerBasedOnInput(c)
             await c.save()
           }
         }
@@ -110,25 +132,7 @@ export class HomeComponent implements OnInit {
             this.ui.error('מחשב זה כבר מעודכן כ' + c.status.caption)
             return
           }
-          c.status = this.input.status
-          if (c.status.updateEmployee) {
-            c.employee = this.input.employee
-          }
-          if (c.status.inputCpu) {
-            c.cpu = this.input.cpu
-          }
-          if (c.status.inputRecipient) {
-            c.recipient = this.input.recipient
-          }
-
-          if (c.status.updatePackageBarcode) {
-            c.packageBarcode = this.input.packageBarcode
-          }
-          if (c.status.assignPallet) {
-            c.palletBarcode = this.input.palletBarcode
-          } else if (c.status.clearPallet) {
-            c.palletBarcode = ''
-          }
+          updateComputerBasedOnInput(c)
 
           await c.save()
         }
@@ -137,6 +141,8 @@ export class HomeComponent implements OnInit {
 
     this.ui.info(`עודכן ${this.input.status.caption} בהצלחה`)
     this.init()
+
+  
   }
   get $() {
     return getFields(this)
@@ -190,5 +196,5 @@ class inputType {
   static pallet = new inputType('עדכן משטח', true)
   static computer = new inputType('עדכן מחשב יחיד', false)
   id!: string
-  constructor(public caption: string, public pallet: boolean) {}
+  constructor(public caption: string, public pallet: boolean) { }
 }
