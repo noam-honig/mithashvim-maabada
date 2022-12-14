@@ -4,8 +4,9 @@ import { MatSnackBar } from "@angular/material/snack-bar";
 import { YesNoQuestionComponent } from "./yes-no-question/yes-no-question.component";
 import { CommonUIElementsPluginsService, openDialog, SelectValueDialogComponent } from "common-ui-elements";
 import { terms } from "../terms";
-import { UITools } from "./UITools";
+import { SelectDonorArgs, UITools } from "./UITools";
 import { TextAreaDataControlComponent } from "./textarea-data-control/textarea-data-control.component";
+import { SelectDonorComponent } from "../select-donor/select-donor.component";
 
 
 @Injectable()
@@ -41,6 +42,9 @@ export class UIToolsService implements UITools {
     async selectValuesDialog<T extends { caption?: string; }>(args: { values: T[]; onSelect: (selected: T) => void; title?: string; }): Promise<void> {
         await openDialog(SelectValueDialogComponent, x => x.args(args))
     }
+    async selectDonor(args: SelectDonorArgs) {
+        await openDialog(SelectDonorComponent, x => x.args = args);
+    }
     private enhanceFieldOptionsAndDataControlOptions(commonUIPlugin: CommonUIElementsPluginsService) {
         commonUIPlugin.dataControlAugmenter = (fieldMetadata, options) => {
             if (fieldMetadata.options.clickWithUI) {
@@ -58,7 +62,7 @@ export class UIToolsService implements UITools {
                 });
             }
             if (fieldMetadata.options.width)
-                if (options.width===undefined)
+                if (options.width === undefined)
                     options.width = fieldMetadata.options.width;
         };
     }

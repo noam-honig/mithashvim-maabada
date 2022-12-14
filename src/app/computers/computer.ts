@@ -9,11 +9,11 @@ import {
   BackendMethod,
   getValueList,
 } from 'remult'
-import { getHeapStatistics } from 'v8'
 import { recordChanges, ChangeLog } from '../change-log/change-log'
 import { DataControl } from '../common-ui-elements/interfaces'
 import '../common/UITools'
 import { dataWasChanged } from '../data-refresh/data-refresh.controller'
+import { DeliveryFormController } from '../driver-sign/delivery-form.controller'
 import { gql } from '../driver-sign/getGraphQL'
 import { Employee } from '../employees/employee'
 import { Roles } from '../users/roles'
@@ -117,20 +117,24 @@ export class Computer extends IdEntity {
     hideDataOnInput: true,
     getValue: (x, y) => y.displayValue,
   })
-  @Fields.string({
+  @Fields.string<Computer>({
     caption: 'מקור תרומה',
     width: '170',
     clickWithUI: async (ui, _, fieldRef) => {
-      ui.selectValuesDialog({
-        title: 'בחירת מקור תרומה',
-        values: await Computer.getDonors(),
+      ui.selectDonor({
         onSelect: (x) => {
           fieldRef.value = x.caption
+          _.originId = x.id
         },
       })
     },
   })
   origin = ''
+  @DataControl({
+    readonly: true
+  })
+  @Fields.string()
+  originId = '';
   @Fields.boolean({ caption: 'מחשב נייד' })
   isLaptop = false
   @DataControl({
@@ -198,8 +202,74 @@ export class Computer extends IdEntity {
     return await getListFromMonday(2478134523)
   }
   @BackendMethod({ allowed: Allow.authenticated })
-  static async getDonors() {
-    return await getListFromMonday(2673923561)
+  static async getDonors(forCount?: boolean) {
+    const result = await gql(
+      {},
+      `#graphql
+  query test2 {
+      boards(ids: [${2673923561}]) {
+        id
+        name
+        board_folder_id
+        board_kind
+        items {
+          id
+          name
+          column_values{
+            id
+            title
+            value
+        }
+        }
+      }
+    }
+  `,
+    );
+    const f = new DeliveryFormController(remult);
+    let r: Donor[] = (result.boards[0].items.map((x: any) => {
+      const r: Partial<Donor> = {
+        caption: x.name,
+        id: x.id,
+        signatureCounter: 0,
+        countCounter: 0
+      }
+      for (const val of x.column_values) {
+        if (val.value) {
+          let v = JSON.parse(val.value);
+          switch (val.id) {
+            case f.$.hospitalName.metadata.options.monday:
+              r.hospital = v;
+              break;
+            case f.$.signatureCounter.metadata.options.monday:
+              r.signatureCounter = +v || 0;
+              break;
+            case f.$.countCounter.metadata.options.monday:
+              r.countCounter = +v || 0;
+              break;
+            case f.$.driverSign.metadata.options.monday:
+              if (val.value) {
+                let z: string = v.date;
+                if (z) {
+                  r.driverSignDate = z;
+                }
+              }
+              break;
+          }
+        }
+
+      }
+      return r as Donor;
+    }))
+    if (forCount)
+      r = r.filter(x => x.signatureCounter > 0 && x.countCounter == 0)
+    r.sort((a, b) => {
+      const r = a.caption.localeCompare(b.caption);
+      if (r != 0)
+        return r;
+      return (b.driverSignDate || "").localeCompare(a.driverSignDate || "")
+    });
+    return r;
+
   }
 
   @BackendMethod({ allowed: Allow.authenticated })
@@ -335,7 +405,6 @@ query test2 {
       items {
         id
         name
-      
       }
     }
   }
@@ -385,4 +454,12 @@ function toDisplayDate(d: Date) {
       day: '2-digit',
     }).format(d)
   return result
+}
+export interface Donor {
+  id: string,
+  caption: string,
+  hospital: string,
+  driverSignDate: string
+  signatureCounter: number
+  countCounter: number
 }

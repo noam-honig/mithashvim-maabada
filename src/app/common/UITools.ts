@@ -1,4 +1,5 @@
 import { FieldRef } from "remult";
+import type { Donor } from "../computers/computer";
 
 export interface UITools {
   selectValuesDialog<T extends {
@@ -8,9 +9,15 @@ export interface UITools {
     onSelect: (selected: T) => void;
     title?: string;
   }): Promise<void>;
+  selectDonor(args: SelectDonorArgs): Promise<void>;
   yesNoQuestion: (question: string) => Promise<boolean>;
   info: (info: string) => void;
   error: (err: any) => void;
+}
+export interface SelectDonorArgs {
+  onSelect: (selected: Donor) => void;
+  forCount?: boolean
+
 }
 
 

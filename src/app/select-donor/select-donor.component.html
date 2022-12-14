@@ -1,0 +1,50 @@
+<h1 mat-dialog-title>תורמים</h1>
+
+<div mat-dialog-content>
+  <form (submit)="selectFirst()">
+    <mat-form-field>
+      <input
+        matInput
+        [(ngModel)]="searchString"
+        [ngModelOptions]="{ standalone: true }"
+      />
+    </mat-form-field>
+  </form>
+  <table>
+    <thead>
+      <tr>
+        <th>שם הגוף</th>
+        <th>שם בית חולים/שם מחוז</th>
+        <th>מועד חתימת נהג</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let o of values">
+        <tr
+          role="listitem"
+          style="height: 36px"
+          *ngIf="matchesFilter(o)"
+          (click)="select(o)"
+        >
+          <td>{{ o.caption }}</td>
+          <td>{{ o.hospital }}</td>
+          <td>
+            {{
+              o.driverSignDate &&
+                o.driverSignDate.substring(8, 10) +
+                  "/" +
+                  o.driverSignDate.substring(5, 7) +
+                  "/" +
+                  o.driverSignDate.substring(0, 4)
+            }}
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</div>
+<div mat-dialog-actions>
+  <button mat-icon-button mat-dialog-close>
+    <mat-icon>clear</mat-icon>
+  </button>
+</div>

@@ -23,12 +23,18 @@ import { ContactSignComponent } from './contact-sign/contact-sign.component'
 import { DriverSignComponent } from './driver-sign/driver-sign.component'
 import { DashboardComponent } from './dashboard/dashboard.component'
 import { AssignToPalletComponent } from './assign-to-pallet/assign-to-pallet.component'
+import { CountItemsComponent } from './count-items/count-items.component'
 
 const defaultRoute = 'מסופון'
 
 const routes: Routes = [
   { path: defaultRoute, component: HomeComponent },
   { path: 'שיוך מחשב למשטח', component: AssignToPalletComponent },
+  {
+    path: 'ספירת ציוד מתרומה',
+    component: CountItemsComponent,
+    canActivate: [StockAdminGuard],
+  },
   {
     path: 'dashboard',
     component: DashboardComponent,
@@ -81,4 +87,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

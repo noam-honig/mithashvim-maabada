@@ -153,6 +153,7 @@ export class HomeComponent implements OnInit {
     if (prev) {
       this.input.courier = prev.courier
       this.input.origin = prev.origin
+      this.input.originId = prev.originId
       this.input.recipient = prev.recipient
       this.input.model = prev.model
       this.input.make = prev.make

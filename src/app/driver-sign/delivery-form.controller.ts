@@ -7,6 +7,7 @@ export type Item = {
     name: string;
     quantity: number;
     actualQuantity: string;
+    countQuantity: number;
     notes: string;
 };
 
@@ -75,6 +76,8 @@ export class DeliveryFormController extends ControllerBase {
 
     @Fields.integer({ monday: 'numbers8' })
     signatureCounter = 0;
+    @Fields.integer({ monday: 'numbers_1' })
+    countCounter = 0;
     @Fields.string()
     tempSmsResult = '';
 
@@ -131,6 +134,8 @@ query ($id: Int!) {
             let notes = '';
             let quantity = 0;
             let actualQuantity = null;
+            let countQuantity = 0;
+            //console.log(subItem.column_values);
             for (const col of subItem.column_values) {
                 switch (col.id) {
                     case "numbers":
@@ -142,6 +147,9 @@ query ($id: Int!) {
                     case "dup__of_____":
                         actualQuantity = JSON.parse(col.value);
                         break;
+                    case "numbers8":
+                        countQuantity = JSON.parse(col.value||"0");
+                        break;
 
                 }
             }
@@ -152,7 +160,8 @@ query ($id: Int!) {
                 name: subItem.name,
                 quantity,
                 notes,
-                actualQuantity
+                actualQuantity,
+                countQuantity
             })
         }
 
@@ -198,6 +207,18 @@ query ($id: Int!) {
             `שלום ${this.contact}, נא לאשר את תכולת הציוד שנאספה עבור מיזם מתחשבים בקישור הבא:
 https://mitchashvim-labs.herokuapp.com/contact-sign/${this.id}`
             , this.remult);
+    }
+    @BackendMethod({ allowed: true })
+    async updateCount() {
+        for (const item of this.items) {
+            await this.update(2673928289, item.id, "numbers8", item.countQuantity.toString());
+        }
+        let counter = +this.countCounter;
+        if (!counter)
+            counter = 1
+        else
+            counter++;
+        await this.update(2673923561, this.id, this.$.countCounter.metadata.options.monday!, counter.toString());
     }
     @BackendMethod({ allowed: true })
     async cancelSign() {

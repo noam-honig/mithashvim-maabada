@@ -37,6 +37,8 @@ import { DriverSignComponent } from './driver-sign/driver-sign.component';
 import { ContactSignComponent } from './contact-sign/contact-sign.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AssignToPalletComponent } from './assign-to-pallet/assign-to-pallet.component';
+import { CountItemsComponent } from './count-items/count-items.component';
+import { SelectDonorComponent } from './select-donor/select-donor.component';
 
 
 @NgModule({
@@ -56,7 +58,9 @@ import { AssignToPalletComponent } from './assign-to-pallet/assign-to-pallet.com
     DriverSignComponent,
     ContactSignComponent,
     DashboardComponent,
-    AssignToPalletComponent
+    AssignToPalletComponent,
+    CountItemsComponent,
+    SelectDonorComponent
   ],
   imports: [
     BrowserModule,

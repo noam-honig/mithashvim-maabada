@@ -25,6 +25,8 @@ export const api = remultExpress({
     },
     initApi: async () => {
         await versionUpdate();
+        await Computer.getDonors()
+        
     }
 });
 DeliveryFormController.createPdfAndUpload = async (c) => {
