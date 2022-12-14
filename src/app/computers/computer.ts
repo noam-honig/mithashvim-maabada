@@ -99,7 +99,7 @@ export class Computer extends IdEntity {
 
   @Field<Computer>(() => Employee, {
     validate: (c) => {
-      if (!c.employee && c.status.updateEmployee)
+      if (!c.employee && (c.status.updateEmployee || c.status.validateEmployee))
         throw Validators.required.defaultMessage
     },
     allowNull: true,

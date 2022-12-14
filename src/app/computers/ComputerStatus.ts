@@ -19,7 +19,7 @@ export class ComputerStatus {
   )
   static intakeLaptop = new ComputerStatus('התקבל - מחשב נייד💻', [Roles.stockAdmin], {
     isIntake: true,
-    laptopIntake:true,
+    laptopIntake: true,
     groupBy: ['origin', 'palletBarcode'],
     inputPallet: true,
   })
@@ -27,7 +27,7 @@ export class ComputerStatus {
     'התקבל וממתין לגריטה - מחשב נייד💻',
     [Roles.stockAdmin],
     {
-      laptopIntake:true,
+      laptopIntake: true,
       isIntake: true,
       groupBy: ['origin', 'palletBarcode'],
     },
@@ -60,6 +60,7 @@ export class ComputerStatus {
       groupBy: ['employee'],
       listFields: ['barcode', 'employee'],
       assignPallet: true,
+      validateEmployee: true
     },
   )
   static waitForPack = new ComputerStatus('ממתין לאריזה', [Roles.stockAdmin], {
@@ -117,6 +118,7 @@ export class ComputerStatus {
   id!: string
 
   updateEmployee = false
+  validateEmployee = false
   inputCpu = false
   isIntake = false
   laptopIntake = false
