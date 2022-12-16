@@ -13,7 +13,7 @@ import { recordChanges, ChangeLog } from '../change-log/change-log'
 import { DataControl } from '../common-ui-elements/interfaces'
 import '../common/UITools'
 import { dataWasChanged } from '../data-refresh/data-refresh.controller'
-import { DeliveryFormController } from '../driver-sign/delivery-form.controller'
+import { countStatusColumnInMonday, DeliveryFormController } from '../driver-sign/delivery-form.controller'
 import { gql } from '../driver-sign/getGraphQL'
 import { Employee } from '../employees/employee'
 import { Roles } from '../users/roles'
@@ -231,7 +231,7 @@ export class Computer extends IdEntity {
         caption: x.name,
         id: x.id,
         signatureCounter: 0,
-        countCounter: 0
+        forCount: true
       }
       for (const val of x.column_values) {
         if (val.value) {
@@ -243,8 +243,8 @@ export class Computer extends IdEntity {
             case f.$.signatureCounter.metadata.options.monday:
               r.signatureCounter = +v || 0;
               break;
-            case f.$.countCounter.metadata.options.monday:
-              r.countCounter = +v || 0;
+            case countStatusColumnInMonday:
+              r.forCount = v.index == 5;
               break;
             case f.$.driverSign.metadata.options.monday:
               if (val.value) {
@@ -261,7 +261,7 @@ export class Computer extends IdEntity {
       return r as Donor;
     }))
     if (forCount)
-      r = r.filter(x => x.signatureCounter > 0 && x.countCounter == 0)
+      r = r.filter(x => x.signatureCounter > 0 && x.forCount)
     r.sort((a, b) => {
       const r = a.caption.localeCompare(b.caption);
       if (r != 0)
@@ -461,5 +461,5 @@ export interface Donor {
   hospital: string,
   driverSignDate: string
   signatureCounter: number
-  countCounter: number
+  forCount: boolean
 }

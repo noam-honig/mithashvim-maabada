@@ -76,8 +76,6 @@ export class DeliveryFormController extends ControllerBase {
 
     @Fields.integer({ monday: 'numbers8' })
     signatureCounter = 0;
-    @Fields.integer({ monday: 'numbers_1' })
-    countCounter = 0;
     @Fields.string()
     tempSmsResult = '';
 
@@ -148,7 +146,7 @@ query ($id: Int!) {
                         actualQuantity = JSON.parse(col.value);
                         break;
                     case "numbers8":
-                        countQuantity = JSON.parse(col.value||"0");
+                        countQuantity = JSON.parse(col.value || "0");
                         break;
 
                 }
@@ -213,12 +211,7 @@ https://mitchashvim-labs.herokuapp.com/contact-sign/${this.id}`
         for (const item of this.items) {
             await this.update(2673928289, item.id, "numbers8", item.countQuantity.toString());
         }
-        let counter = +this.countCounter;
-        if (!counter)
-            counter = 1
-        else
-            counter++;
-        await this.update(2673923561, this.id, this.$.countCounter.metadata.options.monday!, counter.toString());
+        await this.update(2673923561, this.id, countStatusColumnInMonday, JSON.stringify({ index: 0 }));
     }
     @BackendMethod({ allowed: true })
     async cancelSign() {
@@ -262,3 +255,5 @@ declare module 'remult' {
         monday?: string
     }
 }
+
+export const countStatusColumnInMonday = "status_1";
