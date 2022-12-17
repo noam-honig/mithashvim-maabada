@@ -231,7 +231,8 @@ export class Computer extends IdEntity {
         caption: x.name,
         id: x.id,
         signatureCounter: 0,
-        forCount: true
+        forCount: true,
+        forIntake: false
       }
       for (const val of x.column_values) {
         if (val.value) {
@@ -245,6 +246,7 @@ export class Computer extends IdEntity {
               break;
             case countStatusColumnInMonday:
               r.forCount = v.index == 5;
+              r.forIntake = v.index == 0;
               break;
             case f.$.driverSign.metadata.options.monday:
               if (val.value) {
@@ -262,6 +264,9 @@ export class Computer extends IdEntity {
     }))
     if (forCount)
       r = r.filter(x => x.signatureCounter > 0 && x.forCount)
+    else
+      r = r.filter(x => x.forIntake);
+
     r.sort((a, b) => {
       const r = a.caption.localeCompare(b.caption);
       if (r != 0)
@@ -462,4 +467,5 @@ export interface Donor {
   driverSignDate: string
   signatureCounter: number
   forCount: boolean
+  forIntake: boolean
 }
