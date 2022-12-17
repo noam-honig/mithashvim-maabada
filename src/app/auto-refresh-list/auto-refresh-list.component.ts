@@ -22,21 +22,20 @@ export class AutoRefreshListComponent implements OnInit, OnDestroy {
     private busy: BusyService,
     private data: DataRefreshService,
     private route: ActivatedRoute,
-  ) {}
+  ) { }
   ngOnDestroy(): void {
     this.updateSubscription.unsubscribe()
   }
   filterStatus = ''
+  filterOriginId = '';
   grid: GridSettings<Computer> = new GridSettings(this.remult.repo(Computer), {
     orderBy: { updateDate: 'desc', createDate: 'desc' },
     columnOrderStateKey: 'auto-refresh',
-    where: () => {
-      if (this.filterStatus)
-        return {
-          status: ValueListInfo.get(ComputerStatus).byId(this.filterStatus),
-        }
-      return {}
-    },
+    where: () => ({
+      status: this.filterStatus ? ValueListInfo.get(ComputerStatus).byId(this.filterStatus) : undefined,
+      originId: this.filterOriginId ? this.filterOriginId : undefined
+    })
+    ,
     gridButtons: [
       {
         name: 'Excel',
@@ -45,11 +44,17 @@ export class AutoRefreshListComponent implements OnInit, OnDestroy {
     ],
   })
   ngOnInit(): void {
+    this.route.queryParamMap.subscribe(async (x) => {
+      this.filterOriginId = x.get('originId')!;
+      try {
+        await this.grid.reloadData()
+      } catch { }
+    })
     this.route.paramMap.subscribe(async (x) => {
       this.filterStatus = x.get('status')!
       try {
         await this.grid.reloadData()
-      } catch {}
+      } catch { }
     })
 
     this.updateSubscription = this.data.dataChanged$.subscribe(() => {
@@ -60,4 +65,4 @@ export class AutoRefreshListComponent implements OnInit, OnDestroy {
   }
 }
 
-export const refreshList= 'רשימה מתרעננת';
+export const refreshList = 'רשימה מתרעננת';

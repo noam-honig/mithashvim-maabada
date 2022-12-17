@@ -145,7 +145,7 @@ query ($id: Int!) {
                     case "dup__of_____":
                         actualQuantity = JSON.parse(col.value);
                         break;
-                    case "numbers8":
+                    case countColumnInItemsInMonday:
                         countQuantity = JSON.parse(col.value || "0");
                         break;
 
@@ -177,7 +177,7 @@ query ($id: Int!) {
             throw "הטופס אינו מוכן לחתימה";
 
         this.contactSign = MondayDate.now();
-        await this.update(2673923561, this.id, this.$.contactSign.metadata.options.monday!, JSON.stringify(this.contactSign));
+        await this.update(deliveriesBoardNumber, this.id, this.$.contactSign.metadata.options.monday!, JSON.stringify(this.contactSign));
         await DeliveryFormController.createPdfAndUpload(this);
     }
     static createPdfAndUpload = async (data: DeliveryFormController) => { };
@@ -192,15 +192,15 @@ query ($id: Int!) {
         let value = JSON.stringify(this.driverSign);
 
         for (const item of this.items) {
-            await this.update(2673928289, item.id, "dup__of_____", item.actualQuantity);
+            await this.update(itemsBoardNumber, item.id, "dup__of_____", item.actualQuantity);
         }
-        await this.update(2673923561, this.id, this.$.driverSign.metadata.options.monday!, value);
+        await this.update(deliveriesBoardNumber, this.id, this.$.driverSign.metadata.options.monday!, value);
         let counter = +this.signatureCounter;
         if (!counter)
             counter = 1
         else
             counter++;
-        await this.update(2673923561, this.id, this.$.signatureCounter.metadata.options.monday!, counter.toString());
+        await this.update(deliveriesBoardNumber, this.id, this.$.signatureCounter.metadata.options.monday!, counter.toString());
         this.tempSmsResult = await sendSms(this.contactPhone,
             `שלום ${this.contact}, נא לאשר את תכולת הציוד שנאספה עבור מיזם מתחשבים בקישור הבא:
 https://mitchashvim-labs.herokuapp.com/contact-sign/${this.id}`
@@ -209,9 +209,9 @@ https://mitchashvim-labs.herokuapp.com/contact-sign/${this.id}`
     @BackendMethod({ allowed: true })
     async updateCount() {
         for (const item of this.items) {
-            await this.update(2673928289, item.id, "numbers8", item.countQuantity.toString());
+            await this.update(itemsBoardNumber, item.id, countColumnInItemsInMonday, item.countQuantity.toString());
         }
-        await this.update(2673923561, this.id, countStatusColumnInMonday, JSON.stringify({ index: 0 }));
+        await this.update(deliveriesBoardNumber, this.id, countStatusColumnInMonday, JSON.stringify({ index: 0 }));
     }
     @BackendMethod({ allowed: true })
     async cancelSign() {
@@ -219,8 +219,8 @@ https://mitchashvim-labs.herokuapp.com/contact-sign/${this.id}`
         await orig.load(this.id);
         if (!orig.driverSign)
             throw "הטופס אינו חתום";
-        await this.update(2673923561, this.id, this.$.driverSign.metadata.options.monday!, "{}");
-        await this.update(2673923561, this.id, this.$.contactSign.metadata.options.monday!, "{}");
+        await this.update(deliveriesBoardNumber, this.id, this.$.driverSign.metadata.options.monday!, "{}");
+        await this.update(deliveriesBoardNumber, this.id, this.$.contactSign.metadata.options.monday!, "{}");
         this.driverSign = null;
     }
     async update(board: number, id: number, column_id: string, value: any) {
@@ -241,8 +241,10 @@ https://mitchashvim-labs.herokuapp.com/contact-sign/${this.id}`
             if (true) {
                 console.log(values, result);
             }
-        } catch (err) {
-            console.error(err);
+        } catch (err: any) {
+            console.error({
+                error: values
+            });
         }
     }
 
@@ -257,3 +259,6 @@ declare module 'remult' {
 }
 
 export const countStatusColumnInMonday = "status_1";
+export const itemsBoardNumber = 2673928289;
+export const deliveriesBoardNumber = 2673923561;
+export const countColumnInItemsInMonday = "numbers8";

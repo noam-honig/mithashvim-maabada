@@ -13,7 +13,7 @@ import { recordChanges, ChangeLog } from '../change-log/change-log'
 import { DataControl } from '../common-ui-elements/interfaces'
 import '../common/UITools'
 import { dataWasChanged } from '../data-refresh/data-refresh.controller'
-import { countStatusColumnInMonday, DeliveryFormController } from '../driver-sign/delivery-form.controller'
+import { countStatusColumnInMonday, deliveriesBoardNumber, DeliveryFormController, itemsBoardNumber } from '../driver-sign/delivery-form.controller'
 import { gql } from '../driver-sign/getGraphQL'
 import { Employee } from '../employees/employee'
 import { Roles } from '../users/roles'
@@ -32,7 +32,61 @@ import { CPUType } from './CPUType'
       excludeColumns: (e) => [e.updateDate],
     })
     dataWasChanged()
+
   },
+  saved: async self => {
+    if (self.originId && self.isNew()) {
+      const computers = await remult.repo(Computer).find({
+        where: {
+          originId: self.originId
+        }
+      });
+      let laptops = 0;
+      let laptopsTrash = 0;
+      let comps = 0;
+      let compsTrash = 0;
+      for (const c of computers) {
+        if (c.isLaptop) {
+          if (c.status === ComputerStatus.intakeTrashLaptop)
+            laptopsTrash++;
+          else laptops++;
+        }
+        else {
+          if (c.status === ComputerStatus.intakeTrashLaptop)
+            compsTrash++;
+          else comps++;
+        }
+      }
+      const form = new DeliveryFormController(remult)
+      form.load(+self.originId).then(() => {
+        let done = 0;
+        {
+          let compItem = form.items.find(i => i.name === "מחשב נייח");
+          if (compItem) {
+            form.update(itemsBoardNumber, compItem.id, "numbers2", comps.toString())
+            form.update(itemsBoardNumber, compItem.id, "numbers5", compsTrash.toString())
+            if (+compItem.countQuantity <= comps + compsTrash)
+              done++;
+          }
+
+        }
+        {
+          let laptopItem = form.items.find(i => i.name === "מחשב נייד");
+          if (laptopItem) {
+            form.update(itemsBoardNumber, laptopItem.id, "numbers2", laptops.toString())
+            form.update(itemsBoardNumber, laptopItem.id, "numbers5", laptopsTrash.toString())
+            if (+laptopItem.countQuantity <= laptops + laptopsTrash)
+              done++;
+
+          }
+        }
+        if (done === 2) {
+          form.update(deliveriesBoardNumber, +self.originId, countStatusColumnInMonday, JSON.stringify({ index: 1 }));
+        }
+
+      });
+    }
+  }
 })
 export class Computer extends IdEntity {
   @Fields.string({

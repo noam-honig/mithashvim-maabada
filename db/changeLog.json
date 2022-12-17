@@ -4847,5 +4847,386 @@
       "status",
       "recipient"
     ]
+  },
+  {
+    "id": "016a26ab-b7ce-443f-ad81-3db92d5eb411",
+    "relatedId": "42e21779-97a3-44ec-9300-d49ed3251d0e",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-12-17T08:10:44.238Z",
+    "userId": "2c4077ec-b861-474b-b5fd-62daa8c9b736",
+    "userName": "נועם",
+    "changes": [
+      {
+        "key": "id",
+        "oldDisplayValue": "42e21779-97a3-44ec-9300-d49ed3251d0e",
+        "newDisplayValue": "42e21779-97a3-44ec-9300-d49ed3251d0e",
+        "newValue": "42e21779-97a3-44ec-9300-d49ed3251d0e",
+        "oldValue": "42e21779-97a3-44ec-9300-d49ed3251d0e"
+      },
+      {
+        "key": "barcode",
+        "oldDisplayValue": "",
+        "newDisplayValue": "M111111",
+        "newValue": "M111111",
+        "oldValue": ""
+      },
+      {
+        "key": "packageBarcode",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "palletBarcode",
+        "oldDisplayValue": "",
+        "newDisplayValue": "Z2234",
+        "newValue": "Z2234",
+        "oldValue": ""
+      },
+      {
+        "key": "status",
+        "oldDisplayValue": "התקבל - מחשב נייח",
+        "newDisplayValue": "התקבל - מחשב נייח",
+        "newValue": "intake",
+        "oldValue": "intake"
+      },
+      {
+        "key": "employee",
+        "newValue": null,
+        "oldValue": null
+      },
+      {
+        "key": "cpu"
+      },
+      {
+        "key": "origin",
+        "oldDisplayValue": "",
+        "newDisplayValue": "בדיקה של נועם לא למחוק",
+        "newValue": "בדיקה של נועם לא למחוק",
+        "oldValue": ""
+      },
+      {
+        "key": "originId",
+        "oldDisplayValue": "",
+        "newDisplayValue": "3649440797",
+        "newValue": "3649440797",
+        "oldValue": ""
+      },
+      {
+        "key": "isLaptop",
+        "oldDisplayValue": "X",
+        "newDisplayValue": "X",
+        "newValue": false,
+        "oldValue": false
+      },
+      {
+        "key": "make",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "model",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "courier",
+        "oldDisplayValue": "",
+        "newDisplayValue": "sdfgsd",
+        "newValue": "sdfgsd",
+        "oldValue": ""
+      },
+      {
+        "key": "recipient",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "createDate",
+        "oldDisplayValue": "2022-12-17T08:10:44.234Z",
+        "newDisplayValue": "2022-12-17T08:10:44.234Z",
+        "newValue": "2022-12-17T08:10:44.234Z",
+        "oldValue": "2022-12-17T08:10:44.234Z"
+      }
+    ],
+    "changedFields": [
+      "id",
+      "barcode",
+      "packageBarcode",
+      "palletBarcode",
+      "status",
+      "employee",
+      "cpu",
+      "origin",
+      "originId",
+      "isLaptop",
+      "make",
+      "model",
+      "courier",
+      "recipient",
+      "createDate"
+    ]
+  },
+  {
+    "id": "fcb8315c-57fc-4c51-aa33-48fb0ac279bb",
+    "relatedId": "42e21779-97a3-44ec-9300-d49ed3251d0e",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-12-17T08:27:06.355Z",
+    "userId": "2c4077ec-b861-474b-b5fd-62daa8c9b736",
+    "userName": "נועם",
+    "changes": [
+      {
+        "key": "employee",
+        "newDisplayValue": "ליאור",
+        "newValue": "3fe1d2db-1921-4272-bc9b-b5532a8447b7",
+        "oldValue": null
+      }
+    ],
+    "changedFields": [
+      "employee"
+    ]
+  },
+  {
+    "id": "65d21245-370e-4370-8b98-80f6b71d7912",
+    "relatedId": "42e21779-97a3-44ec-9300-d49ed3251d0e",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-12-17T08:28:21.301Z",
+    "userId": "2c4077ec-b861-474b-b5fd-62daa8c9b736",
+    "userName": "נועם",
+    "changes": [
+      {
+        "key": "employee",
+        "oldDisplayValue": "ליאור",
+        "newDisplayValue": "משה",
+        "newValue": "9e32ac04-f834-416c-83f1-e92af954d84c",
+        "oldValue": "3fe1d2db-1921-4272-bc9b-b5532a8447b7"
+      }
+    ],
+    "changedFields": [
+      "employee"
+    ]
+  },
+  {
+    "id": "fb33cb56-31d0-46b3-8fea-ce1574c13c8d",
+    "relatedId": "42e21779-97a3-44ec-9300-d49ed3251d0e",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-12-17T08:29:27.207Z",
+    "userId": "2c4077ec-b861-474b-b5fd-62daa8c9b736",
+    "userName": "נועם",
+    "changes": [
+      {
+        "key": "employee",
+        "oldDisplayValue": "משה",
+        "newDisplayValue": "ליאור",
+        "newValue": "3fe1d2db-1921-4272-bc9b-b5532a8447b7",
+        "oldValue": "9e32ac04-f834-416c-83f1-e92af954d84c"
+      }
+    ],
+    "changedFields": [
+      "employee"
+    ]
+  },
+  {
+    "id": "d32f75f5-de60-4e86-b606-c83ede451710",
+    "relatedId": "42e21779-97a3-44ec-9300-d49ed3251d0e",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-12-17T08:30:07.258Z",
+    "userId": "2c4077ec-b861-474b-b5fd-62daa8c9b736",
+    "userName": "נועם",
+    "changes": [
+      {
+        "key": "employee",
+        "oldDisplayValue": "ליאור",
+        "newDisplayValue": "משה",
+        "newValue": "9e32ac04-f834-416c-83f1-e92af954d84c",
+        "oldValue": "3fe1d2db-1921-4272-bc9b-b5532a8447b7"
+      }
+    ],
+    "changedFields": [
+      "employee"
+    ]
+  },
+  {
+    "id": "f46f88b6-0d2f-4feb-b625-02ef15ffb6fd",
+    "relatedId": "42e21779-97a3-44ec-9300-d49ed3251d0e",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-12-17T08:30:52.361Z",
+    "userId": "2c4077ec-b861-474b-b5fd-62daa8c9b736",
+    "userName": "נועם",
+    "changes": [
+      {
+        "key": "employee",
+        "oldDisplayValue": "משה",
+        "newDisplayValue": "מיכל",
+        "newValue": "db902e64-fce8-46ec-ab8f-71c2e5bdf0f9",
+        "oldValue": "9e32ac04-f834-416c-83f1-e92af954d84c"
+      }
+    ],
+    "changedFields": [
+      "employee"
+    ]
+  },
+  {
+    "id": "d52bbfd1-a272-406d-b60f-599b58ab2f1b",
+    "relatedId": "42e21779-97a3-44ec-9300-d49ed3251d0e",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-12-17T08:31:33.809Z",
+    "userId": "2c4077ec-b861-474b-b5fd-62daa8c9b736",
+    "userName": "נועם",
+    "changes": [
+      {
+        "key": "employee",
+        "oldDisplayValue": "מיכל",
+        "newDisplayValue": "משה",
+        "newValue": "9e32ac04-f834-416c-83f1-e92af954d84c",
+        "oldValue": "db902e64-fce8-46ec-ab8f-71c2e5bdf0f9"
+      }
+    ],
+    "changedFields": [
+      "employee"
+    ]
+  },
+  {
+    "id": "60763883-f30a-4de4-9124-9b7cfb4557e9",
+    "relatedId": "42e21779-97a3-44ec-9300-d49ed3251d0e",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-12-17T08:31:54.989Z",
+    "userId": "2c4077ec-b861-474b-b5fd-62daa8c9b736",
+    "userName": "נועם",
+    "changes": [
+      {
+        "key": "employee",
+        "oldDisplayValue": "משה",
+        "newDisplayValue": "מיכל",
+        "newValue": "db902e64-fce8-46ec-ab8f-71c2e5bdf0f9",
+        "oldValue": "9e32ac04-f834-416c-83f1-e92af954d84c"
+      }
+    ],
+    "changedFields": [
+      "employee"
+    ]
+  },
+  {
+    "id": "93b4b900-a1c0-443a-9630-0aacc4dfa9bd",
+    "relatedId": "42e21779-97a3-44ec-9300-d49ed3251d0e",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-12-17T08:39:32.658Z",
+    "userId": "2c4077ec-b861-474b-b5fd-62daa8c9b736",
+    "userName": "נועם",
+    "changes": [
+      {
+        "key": "employee",
+        "oldDisplayValue": "מיכל",
+        "newDisplayValue": "משה",
+        "newValue": "9e32ac04-f834-416c-83f1-e92af954d84c",
+        "oldValue": "db902e64-fce8-46ec-ab8f-71c2e5bdf0f9"
+      }
+    ],
+    "changedFields": [
+      "employee"
+    ]
+  },
+  {
+    "id": "294ad5ca-4ca9-404d-bcac-851e55e4964a",
+    "relatedId": "42e21779-97a3-44ec-9300-d49ed3251d0e",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-12-17T08:43:55.516Z",
+    "userId": "2c4077ec-b861-474b-b5fd-62daa8c9b736",
+    "userName": "נועם",
+    "changes": [
+      {
+        "key": "employee",
+        "oldDisplayValue": "משה",
+        "newDisplayValue": "מיכל",
+        "newValue": "db902e64-fce8-46ec-ab8f-71c2e5bdf0f9",
+        "oldValue": "9e32ac04-f834-416c-83f1-e92af954d84c"
+      }
+    ],
+    "changedFields": [
+      "employee"
+    ]
+  },
+  {
+    "id": "ad6843c9-8273-40ad-a557-2424dc716132",
+    "relatedId": "42e21779-97a3-44ec-9300-d49ed3251d0e",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-12-17T08:44:22.251Z",
+    "userId": "2c4077ec-b861-474b-b5fd-62daa8c9b736",
+    "userName": "נועם",
+    "changes": [
+      {
+        "key": "employee",
+        "oldDisplayValue": "מיכל",
+        "newDisplayValue": "ליאור",
+        "newValue": "3fe1d2db-1921-4272-bc9b-b5532a8447b7",
+        "oldValue": "db902e64-fce8-46ec-ab8f-71c2e5bdf0f9"
+      }
+    ],
+    "changedFields": [
+      "employee"
+    ]
+  },
+  {
+    "id": "d4da1ea1-507b-4eed-8e7e-5fb0346cc303",
+    "relatedId": "42e21779-97a3-44ec-9300-d49ed3251d0e",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-12-17T08:45:14.648Z",
+    "userId": "2c4077ec-b861-474b-b5fd-62daa8c9b736",
+    "userName": "נועם",
+    "changes": [
+      {
+        "key": "employee",
+        "oldDisplayValue": "ליאור",
+        "newDisplayValue": "משה",
+        "newValue": "9e32ac04-f834-416c-83f1-e92af954d84c",
+        "oldValue": "3fe1d2db-1921-4272-bc9b-b5532a8447b7"
+      }
+    ],
+    "changedFields": [
+      "employee"
+    ]
   }
 ]
