@@ -31,11 +31,6 @@ const routes: Routes = [
   { path: defaultRoute, component: HomeComponent },
   { path: 'שיוך מחשב למשטח', component: AssignToPalletComponent },
   {
-    path: 'ספירת ציוד מתרומה',
-    component: CountItemsComponent,
-    canActivate: [StockAdminGuard],
-  },
-  {
     path: 'dashboard',
     component: DashboardComponent,
     canActivate: [AnyManagerGuard],

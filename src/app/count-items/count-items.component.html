@@ -1,36 +1,32 @@
-<mat-card style="display: flex; flex-direction: column">
-  <data-control [field]="$.donor!"></data-control>
-  <table *ngIf="donor">
-    <thead>
-      <th>שם ציוד</th>
-      <th>דווח ע"י המשנע</th>
-      <th>נספר ע"י מנהל המלאי</th>
-    </thead>
-    <tbody>
-      <tr *ngFor="let item of form.items">
-        <td>
-          {{ item.name }} {{ item.notes ? " - " + item.notes : undefined }}
-        </td>
-        <td>{{ item.actualQuantity }}</td>
-        <td>
-          <mat-form-field
-            class="smaller-field"
-            appearance="outline"
-            style="width: 80px"
-          >
-            <input type="number" matInput [(ngModel)]="item.countQuantity" />
-          </mat-form-field>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  <button
-    mat-raised-button
-    color="success"
-    color="primary"
-    (click)="update()"
-    *ngIf="donor"
-  >
-    עדכן
-  </button>
-</mat-card>
+<data-control [field]="$.donor!"></data-control>
+<table *ngIf="donor">
+  <thead>
+    <th>שם ציוד</th>
+    <th>דווח ע"י המשנע</th>
+    <th>נספר ע"י מנהל המלאי</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of form.items">
+      <td>{{ item.name }} {{ item.notes ? " - " + item.notes : undefined }}</td>
+      <td>{{ item.actualQuantity }}</td>
+      <td>
+        <mat-form-field
+          class="smaller-field"
+          appearance="outline"
+          style="width: 80px"
+        >
+          <input type="number" matInput [(ngModel)]="item.countQuantity" />
+        </mat-form-field>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<button
+  mat-raised-button
+  color="success"
+  color="primary"
+  (click)="update()"
+  *ngIf="donor"
+>
+  עדכן
+</button>

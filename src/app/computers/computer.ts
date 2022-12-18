@@ -148,6 +148,10 @@ export class Computer extends IdEntity {
   palletBarcode = ''
   @Field(() => ComputerStatus, {
     width: '170',
+    validate: (_, ref) => {
+      if (ref.value.special)
+        throw Error("לא ניתן לבחור סטטוס " + ref.value.caption)
+    }
   })
   status = ComputerStatus.intake
 

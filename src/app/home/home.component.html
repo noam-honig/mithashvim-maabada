@@ -17,55 +17,58 @@
             (input.status.assignPallet ? " למשטח " + input.palletBarcode : "")
         }}
       </h2>
-      <data-control
-        *ngIf="input.status.canUpdateCompletePallet"
-        [field]="$.inputMethod"
-      >
-      </data-control>
-      <form (submit)="submit()">
+      <app-count-items *ngIf="input.status.special"></app-count-items>
+      <ng-container *ngIf="!input.status.special">
         <data-control
-          *ngIf="!input.status.inputPackageBarcode && !inputMethod.pallet"
-          [field]="input.$.barcode"
+          *ngIf="input.status.canUpdateCompletePallet"
+          [field]="$.inputMethod"
+        >
+        </data-control>
+        <form (submit)="submit()">
+          <data-control
+            *ngIf="!input.status.inputPackageBarcode && !inputMethod.pallet"
+            [field]="input.$.barcode"
+            cdkFocusInitial
+          ></data-control>
+        </form>
+        <data-control
+          *ngIf="showPallet()"
+          [field]="input.$.palletBarcode"
           cdkFocusInitial
         ></data-control>
-      </form>
-      <data-control
-        *ngIf="showPallet()"
-        [field]="input.$.palletBarcode"
-        cdkFocusInitial
-      ></data-control>
-      <data-control
-        [field]="input.$.packageBarcode"
-        *ngIf="
-          !showPallet() &&
-          (input.status.updatePackageBarcode ||
-            input.status.inputPackageBarcode)
-        "
-        cdkFocusInitial
-      ></data-control>
-      <div *ngIf="input.status.inputCpu">
-        מעבד:
-        <div style="display: flex; gap: 8px; margin-bottom: 16px">
-          <button
-            mat-raised-button
-            [color]="c === input.cpu ? 'primary' : ''"
-            *ngFor="let c of types"
-            (click)="input.cpu = c"
-          >
-            {{ c.caption }}
-          </button>
+        <data-control
+          [field]="input.$.packageBarcode"
+          *ngIf="
+            !showPallet() &&
+            (input.status.updatePackageBarcode ||
+              input.status.inputPackageBarcode)
+          "
+          cdkFocusInitial
+        ></data-control>
+        <div *ngIf="input.status.inputCpu">
+          מעבד:
+          <div style="display: flex; gap: 8px; margin-bottom: 16px">
+            <button
+              mat-raised-button
+              [color]="c === input.cpu ? 'primary' : ''"
+              *ngFor="let c of types"
+              (click)="input.cpu = c"
+            >
+              {{ c.caption }}
+            </button>
+          </div>
         </div>
-      </div>
-      <data-area [settings]="area"></data-area>
+        <data-area [settings]="area"></data-area>
 
-      <button
-        mat-raised-button
-        color="success"
-        color="primary"
-        (click)="update()"
-      >
-        עדכן
-      </button>
+        <button
+          mat-raised-button
+          color="success"
+          color="primary"
+          (click)="update()"
+        >
+          עדכן
+        </button>
+      </ng-container>
     </div>
   </app-card-in-middle>
 

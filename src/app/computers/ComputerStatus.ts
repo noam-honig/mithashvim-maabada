@@ -4,6 +4,9 @@ import type { Computer } from './computer'
 
 @ValueListFieldType({ caption: 'סטטוס' })
 export class ComputerStatus {
+  static count = new ComputerStatus('ספירת ציוד מתרומה', [Roles.stockAdmin], {
+    special: true
+  })
   static intake = new ComputerStatus('התקבל - מחשב נייח', [Roles.stockAdmin], {
     isIntake: true,
     groupBy: ['origin', 'palletBarcode'],
@@ -129,6 +132,7 @@ export class ComputerStatus {
   assignPallet = false
   clearPallet = false
   canUpdateCompletePallet = false
+  special = false
   groupBy: (keyof Computer)[] = []
   listFields: (keyof Computer)[] = []
   get showStatusTables() {
