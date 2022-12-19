@@ -84,6 +84,12 @@ import { CPUType } from './CPUType'
           form.update(deliveriesBoardNumber, +self.originId, countStatusColumnInMonday, JSON.stringify({ index: 1 }));
         }
 
+      }, error => {
+        console.log("error finding monday info for " + self.barcode, {
+          origin: self.origin,
+          originId: self.originId,
+          error
+        })
       });
     }
   }
