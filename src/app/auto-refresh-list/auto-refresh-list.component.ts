@@ -39,18 +39,20 @@ export class AutoRefreshListComponent implements OnInit, OnDestroy {
     })
     ,
     gridButtons: [
-      {
-        name: 'רענן נתונים בmonday',
-        click: async () => {
-          this.ui.info(await Computer.updateMondayStats(this.filterOriginId));
-        },
-        visible: () => Boolean(this.filterOriginId)
-      },
+
       {
         name: 'Excel',
         click: () => saveToExcel(this.grid, 'auto-refresh', this.busy),
       },
-    ],
+    ]
+    ,
+    rowButtons: [{
+      name: 'רענן נתונים בmonday',
+      click: async (c) => {
+        this.ui.info(await Computer.updateMondayStats(c.originId));
+      },
+      visible: (c) => Boolean(c.originId)
+    },]
   })
   ngOnInit(): void {
     this.route.queryParamMap.subscribe(async (x) => {
