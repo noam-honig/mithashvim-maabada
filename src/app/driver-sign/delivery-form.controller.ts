@@ -208,10 +208,14 @@ https://mitchashvim-labs.herokuapp.com/contact-sign/${this.id}`
     }
     @BackendMethod({ allowed: true })
     async updateCount() {
+        let computers = 0;
         for (const item of this.items) {
+            if (item.name === "מחשב נייח" || item.name === "מחשב נייד") {
+                computers += +item.countQuantity;
+            }
             await this.update(itemsBoardNumber, item.id, countColumnInItemsInMonday, item.countQuantity.toString());
         }
-        await this.update(deliveriesBoardNumber, this.id, countStatusColumnInMonday, JSON.stringify({ index: 0 }));
+        await this.update(deliveriesBoardNumber, this.id, countStatusColumnInMonday, JSON.stringify({ index: computers === 0 ? 1 : 0 }));
     }
     @BackendMethod({ allowed: true })
     async cancelSign() {
