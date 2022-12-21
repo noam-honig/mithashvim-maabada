@@ -8,6 +8,7 @@ import { BusyService } from '../common-ui-elements'
 import { saveToExcel } from '../common-ui-elements/interfaces/src/saveGridToExcel'
 import { DataRefreshService } from '../data-refresh/data-refresh.service'
 import { ActivatedRoute } from '@angular/router'
+import { UIToolsService } from '../common/UIToolsService'
 
 @Component({
   selector: 'app-auto-refresh-list',
@@ -22,6 +23,7 @@ export class AutoRefreshListComponent implements OnInit, OnDestroy {
     private busy: BusyService,
     private data: DataRefreshService,
     private route: ActivatedRoute,
+    private ui: UIToolsService
   ) { }
   ngOnDestroy(): void {
     this.updateSubscription.unsubscribe()
@@ -37,6 +39,13 @@ export class AutoRefreshListComponent implements OnInit, OnDestroy {
     })
     ,
     gridButtons: [
+      {
+        name: 'רענן נתונים בmonday',
+        click: async () => {
+          this.ui.info(await Computer.updateMondayStats(this.filterOriginId));
+        },
+        visible: () => Boolean(this.filterOriginId)
+      },
       {
         name: 'Excel',
         click: () => saveToExcel(this.grid, 'auto-refresh', this.busy),

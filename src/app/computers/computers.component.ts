@@ -4,6 +4,7 @@ import { ChangeLogComponent } from '../change-log/change-log.component'
 import { BusyService, openDialog } from '../common-ui-elements'
 import { GridSettings } from '../common-ui-elements/interfaces'
 import { saveToExcel } from '../common-ui-elements/interfaces/src/saveGridToExcel'
+import { UIToolsService } from '../common/UIToolsService'
 import { Roles } from '../users/roles'
 import { Computer } from './computer'
 
@@ -13,7 +14,7 @@ import { Computer } from './computer'
   styleUrls: ['./computers.component.scss'],
 })
 export class ComputersComponent implements OnInit {
-  constructor(private busyService: BusyService) {}
+  constructor(private busyService: BusyService, private ui: UIToolsService) { }
   grid: GridSettings<Computer> = new GridSettings(remult.repo(Computer), {
     numOfColumnsInGrid: 100,
     knowTotalRows: true,
@@ -33,18 +34,25 @@ export class ComputersComponent implements OnInit {
     allowCrud: remult.isAllowed(Roles.updateComputers),
     rowButtons: [
       {
+        name: 'רענן נתונים בmonday',
+        click: async (c) => {
+          this.ui.info(await Computer.updateMondayStats(c.originId));
+        },
+        visible: (c) => Boolean(c.originId)
+      },
+      {
         name: 'שינויים',
         click: (c) =>
           openDialog(
             ChangeLogComponent,
             (x) =>
-              (x.args = {
-                for: c,
-              }),
+            (x.args = {
+              for: c,
+            }),
           ),
       },
     ],
   })
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 }

@@ -36,61 +36,7 @@ import { CPUType } from './CPUType'
   },
   saved: async self => {
     if (self.originId && self.isNew()) {
-      const computers = await remult.repo(Computer).find({
-        where: {
-          originId: self.originId
-        }
-      });
-      let laptops = 0;
-      let laptopsTrash = 0;
-      let comps = 0;
-      let compsTrash = 0;
-      for (const c of computers) {
-        if (c.isLaptop) {
-          if (c.status === ComputerStatus.intakeTrashLaptop)
-            laptopsTrash++;
-          else laptops++;
-        }
-        else {
-          if (c.status === ComputerStatus.intakeTrashLaptop)
-            compsTrash++;
-          else comps++;
-        }
-      }
-      const form = new DeliveryFormController(remult)
-      form.load(+self.originId).then(() => {
-        let done = 0;
-        {
-          let compItem = form.items.find(i => i.name === "מחשב נייח");
-          if (compItem) {
-            form.update(itemsBoardNumber, compItem.id, "numbers2", comps.toString())
-            form.update(itemsBoardNumber, compItem.id, "numbers5", compsTrash.toString())
-            if (+compItem.countQuantity <= comps + compsTrash)
-              done++;
-          }
-
-        }
-        {
-          let laptopItem = form.items.find(i => i.name === "מחשב נייד");
-          if (laptopItem) {
-            form.update(itemsBoardNumber, laptopItem.id, "numbers2", laptops.toString())
-            form.update(itemsBoardNumber, laptopItem.id, "numbers5", laptopsTrash.toString())
-            if (+laptopItem.countQuantity <= laptops + laptopsTrash)
-              done++;
-
-          }
-        }
-        if (done === 2) {
-          form.update(deliveriesBoardNumber, +self.originId, countStatusColumnInMonday, JSON.stringify({ index: 1 }));
-        }
-
-      }, error => {
-        console.log("error finding monday info for " + self.barcode, {
-          origin: self.origin,
-          originId: self.originId,
-          error
-        })
-      });
+      Computer.updateMondayStats(self.originId)
     }
   }
 })
@@ -452,6 +398,68 @@ export class Computer extends IdEntity {
     }
     return arr
   }
+  @BackendMethod({ allowed: Allow.authenticated })
+
+  static async updateMondayStats(originId: string) {
+    const form = new DeliveryFormController(remult)
+    const computers = await remult.repo(Computer).find({
+      where: {
+        originId
+      }
+    })
+    let laptops = 0
+    let laptopsTrash = 0
+    let comps = 0
+    let compsTrash = 0
+    for (const c of computers) {
+      if (c.isLaptop) {
+        if (c.status === ComputerStatus.intakeTrashLaptop)
+          laptopsTrash++
+        else
+          laptops++
+      }
+      else {
+        if (c.status === ComputerStatus.intakeTrashLaptop)
+          compsTrash++
+        else
+          comps++
+      }
+    }
+
+    return form.load(+originId).then(async () => {
+      let done = 0
+      {
+        let compItem = form.items.find(i => i.name === "מחשב נייח")
+        if (compItem) {
+          await form.update(itemsBoardNumber, compItem.id, "numbers2", comps.toString())
+          await form.update(itemsBoardNumber, compItem.id, "numbers5", compsTrash.toString())
+          if (+compItem.countQuantity <= comps + compsTrash)
+            done++
+        }
+
+      }
+      {
+        let laptopItem = form.items.find(i => i.name === "מחשב נייד")
+        if (laptopItem) {
+          await form.update(itemsBoardNumber, laptopItem.id, "numbers2", laptops.toString())
+          await form.update(itemsBoardNumber, laptopItem.id, "numbers5", laptopsTrash.toString())
+          if (+laptopItem.countQuantity <= laptops + laptopsTrash)
+            done++
+
+        }
+      }
+      if (done === 2) {
+        await form.update(deliveriesBoardNumber, +originId, countStatusColumnInMonday, JSON.stringify({ index: 1 }))
+      }
+      return "עודכן בהצלחה";
+    }, error => {
+      console.log("error finding monday info for " + originId, {
+        originId: originId,
+        error
+      })
+      return "שגיאה בעדכון"
+    })
+  }
 }
 
 export interface StatusDate {
@@ -460,6 +468,7 @@ export interface StatusDate {
   computers: { [key: string]: string }[]
   byOrigin: { quantity: number; keys: { [key: string]: string } }[]
 }
+
 
 async function getListFromMonday(board: number) {
   const result = await gql(

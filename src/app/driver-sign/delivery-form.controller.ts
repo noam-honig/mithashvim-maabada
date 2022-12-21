@@ -227,7 +227,7 @@ https://mitchashvim-labs.herokuapp.com/contact-sign/${this.id}`
         const values = { id: +id, value, board, column_id };
         try {
             const result = await gql(values, `#graphql
-        mutation ($id: Int!,$value:JSON!,$board:Int!,$column_id:String!) {
+      mutation ($id: Int!,$value:JSON!,$board:Int!,$column_id:String!) {
    change_column_value(
      item_id:$id
      column_id:$column_id,
@@ -235,11 +235,27 @@ https://mitchashvim-labs.herokuapp.com/contact-sign/${this.id}`
      value:$value
    ) {
      id
+    name,
+    column_values(ids:[$column_id]){
+      id
+      value
+    }
    }
- }
+}
          `);
             if (true) {
-                console.log(values, result);
+                var z = undefined;
+                if (result?.change_column_value) {
+                    z = { ...result.change_column_value }
+                    delete z.column_values
+                }
+                console.log(
+                    {
+                        values,
+                        result: z,
+                        column_values: result?.change_column_value?.column_values
+                    });
+
             }
         } catch (err: any) {
             console.error({
