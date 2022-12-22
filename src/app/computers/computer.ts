@@ -132,6 +132,7 @@ export class Computer extends IdEntity {
     width: '170',
     clickWithUI: async (ui, _, fieldRef) => {
       ui.selectDonor({
+        filter: _.filterSelectDialogs,
         onSelect: (x) => {
           fieldRef.value = x.caption
           _.originId = x.id
@@ -180,7 +181,7 @@ export class Computer extends IdEntity {
     clickWithUI: async (ui, _, fieldRef) => {
       ui.selectValuesDialog({
         title: 'בחירת מוטב',
-        values: await Computer.getRecipients(),
+        values: await Computer.getRecipients(_.filterSelectDialogs),
         onSelect: (x) => {
           fieldRef.value = x.caption
           _.recipientId = x.id
@@ -210,8 +211,10 @@ export class Computer extends IdEntity {
   })
   updateDate = new Date()
 
+  filterSelectDialogs = false;
+
   @BackendMethod({ allowed: Allow.authenticated })
-  static async getRecipients() {
+  static async getRecipients(filter?: boolean) {
     const result = await gql(
       {},
       `#graphql
@@ -235,6 +238,8 @@ export class Computer extends IdEntity {
   `,
     )
     let out: { caption: string, id: string }[] = result.boards[0].items.filter((x: any) => {
+      if (!filter)
+        return true;
       const colValues = x.column_values;
       if (!colValues || colValues.length == 0)
         return true;
@@ -248,7 +253,7 @@ export class Computer extends IdEntity {
     return out
   }
   @BackendMethod({ allowed: Allow.authenticated })
-  static async getDonors(forCount?: boolean) {
+  static async getDonors({ forCount, filter }: { forCount?: boolean, filter?: boolean }) {
     const result = await gql(
       {},
       `#graphql
@@ -310,7 +315,7 @@ export class Computer extends IdEntity {
     }))
     if (forCount)
       r = r.filter(x => x.signatureCounter > 0 && x.forCount)
-    else
+    else if (filter)
       r = r.filter(x => x.forIntake);
 
     r.sort((a, b) => {

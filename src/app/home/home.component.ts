@@ -151,6 +151,7 @@ export class HomeComponent implements OnInit {
   private init() {
     let prev = this.input
     this.input = getConfig()
+    this.input.filterSelectDialogs = true
     if (prev) {
       this.input.courier = prev.courier
       this.input.origin = prev.origin

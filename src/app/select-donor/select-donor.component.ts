@@ -19,7 +19,10 @@ export class SelectDonorComponent implements OnInit {
 
 
   ngOnInit(): void {
-    Computer.getDonors(this.args.forCount).then(x => this.values = x);
+    Computer.getDonors({
+      forCount: this.args.forCount,
+      filter: this.args.filter
+    }).then(x => this.values = x);
   }
   searchString = '';
   selectFirst() {

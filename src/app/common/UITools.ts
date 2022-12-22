@@ -17,6 +17,7 @@ export interface UITools {
 export interface SelectDonorArgs {
   onSelect: (selected: Donor) => void;
   forCount?: boolean
+  filter?:boolean
 
 }
 
