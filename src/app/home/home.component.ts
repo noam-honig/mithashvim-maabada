@@ -88,6 +88,7 @@ export class HomeComponent implements OnInit {
 
     if (this.input.status.isIntake) {
       this.input.employee = null
+      this.input.isLaptop = this.input.status.laptopIntake
       await this.input.save()
     } else {
       if (this.inputMethod.pallet) {

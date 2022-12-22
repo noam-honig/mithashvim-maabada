@@ -29,7 +29,7 @@ import { CPUType } from './CPUType'
   saving: async (self) => {
     self.updateDate = new Date()
     await recordChanges(self, {
-      excludeColumns: (e) => [e.updateDate],
+      excludeColumns: (e) => [e.updateDate, e.id],
     })
     dataWasChanged()
 

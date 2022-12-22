@@ -49,8 +49,8 @@ export async function recordChanges<entityType extends EntityBase>(self: entityT
     if (isBackend()) {
         let changes = [] as change[];
         const decider = new FieldDecider(self, options);
-        const isNew = options?.forceNew||self.isNew()
-        const changeDate =options?.forceDate||new Date();
+        const isNew = options?.forceNew || self.isNew()
+        const changeDate = options?.forceDate || new Date();
 
         for (const c of decider.fields.filter(c => c.valueChanged() || isNew)) {
             try {
@@ -63,9 +63,9 @@ export async function recordChanges<entityType extends EntityBase>(self: entityT
                 const noVal = decider.excludedValues.includes(c);
                 changes.push({
                     key: c.metadata.key,
-                    oldDisplayValue: noVal ? "***" : transValue(c.originalValue),
+                    oldDisplayValue: self.isNew() ? "" : noVal ? "***" : transValue(c.originalValue),
                     newDisplayValue: noVal ? "***" : transValue(c.value),
-                    newValue: noVal ? "***" : (c.value instanceof IdEntity) ? c.value.id : c.metadata.options.valueConverter!.toJson!(c.value),
+                    newValue: self.isNew() ? "" : noVal ? "***" : (c.value instanceof IdEntity) ? c.value.id : c.metadata.options.valueConverter!.toJson!(c.value),
                     oldValue: noVal ? "***" : (c.originalValue instanceof IdEntity) ? c.originalValue.id : c.metadata.options.valueConverter!.toJson!(c.originalValue)
                 });
             } catch (err) {
@@ -95,8 +95,8 @@ export async function recordChanges<entityType extends EntityBase>(self: entityT
 interface ColumnDeciderArgs<entityType> {
     excludeColumns?: (e: FieldsRef<entityType>) => FieldRef<any>[],
     excludeValues?: (e: FieldsRef<entityType>) => FieldRef<any>[],
-    forceDate?:Date,
-    forceNew?:boolean
+    forceDate?: Date,
+    forceNew?: boolean
 }
 export class FieldDecider<entityType>{
     fields: FieldRef<entityType>[];
