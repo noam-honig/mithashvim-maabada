@@ -143,7 +143,7 @@ export class Computer extends IdEntity {
   @DataControl({
     readonly: true
   })
-  @Fields.string()
+  @Fields.string({ caption: "id מקור תרומה" })
   originId = '';
   @Fields.boolean({ caption: 'מחשב נייד' })
   isLaptop = false
@@ -183,6 +183,7 @@ export class Computer extends IdEntity {
         values: await Computer.getRecipients(),
         onSelect: (x) => {
           fieldRef.value = x.caption
+          _.recipientId = x.id
         },
       })
     },
@@ -194,6 +195,8 @@ export class Computer extends IdEntity {
     width: '170',
   })
   recipient = ''
+  @Fields.string({ caption: "id מוטב" })
+  recipientId = '';
   @Fields.date({
     caption: 'תאריך קליטה',
     allowApiUpdate: false,
@@ -209,7 +212,40 @@ export class Computer extends IdEntity {
 
   @BackendMethod({ allowed: Allow.authenticated })
   static async getRecipients() {
-    return await getListFromMonday(2478134523)
+    const result = await gql(
+      {},
+      `#graphql
+  query test2 {
+      boards(ids: [${2478134523}]) {
+        id
+        name
+        board_folder_id
+        board_kind
+        items {
+          id
+          name
+          column_values(ids:["______7"]){
+              id
+              title
+              value
+          }
+        }
+      }
+    }
+  `,
+    )
+    let out: { caption: string, id: string }[] = result.boards[0].items.filter((x: any) => {
+      const colValues = x.column_values;
+      if (!colValues || colValues.length == 0)
+        return true;
+      let val = JSON.parse(colValues[0].value);
+      return val.index != 2;
+    }).map((x: any) => ({
+      caption: x.name,
+      id: x.id
+    }))
+    out.sort((a, b) => a.caption.localeCompare(b.caption))
+    return out
   }
   @BackendMethod({ allowed: Allow.authenticated })
   static async getDonors(forCount?: boolean) {
@@ -470,30 +506,6 @@ export interface StatusDate {
 }
 
 
-async function getListFromMonday(board: number) {
-  const result = await gql(
-    {},
-    `#graphql
-query test2 {
-    boards(ids: [${board}]) {
-      id
-      name
-      board_folder_id
-      board_kind
-      items {
-        id
-        name
-      }
-    }
-  }
-`,
-  )
-  let out: { caption: string }[] = result.boards[0].items.map((x: any) => ({
-    caption: x.name,
-  }))
-  out.sort((a, b) => a.caption.localeCompare(b.caption))
-  return out
-}
 
 function toDisplayDate(d: Date) {
   let result = ''

@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export async function gql(variables: any, s: string) {
-    return (await axios.post('https://api.monday.com/v2',
+    const result = (await axios.post('https://api.monday.com/v2',
         JSON.stringify({
             "query": s,
             "variables": variables
@@ -11,7 +11,12 @@ export async function gql(variables: any, s: string) {
                 'authorization': process.env["MONDAY_API_TOKEN"]!,
                 'content-type': 'application/json',
             },
-        })).data.data;
+        }));
+    if (result.data.data === undefined) {
+        console.error("monday undefined response", result);
+
+    }
+    return result.data.data
 
 
 }
