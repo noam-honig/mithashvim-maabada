@@ -13,7 +13,7 @@ export async function gql(variables: any, s: string) {
             },
         }));
     if (result.data.data === undefined) {
-        console.error("monday undefined response", result.data,result.data?.errors);
+        console.error("monday undefined response", variables, result.data, result.data?.errors);
 
     }
     return result.data.data
