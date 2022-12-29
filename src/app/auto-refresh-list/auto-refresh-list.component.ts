@@ -15,19 +15,15 @@ import { UIToolsService } from '../common/UIToolsService'
   templateUrl: './auto-refresh-list.component.html',
   styleUrls: ['./auto-refresh-list.component.scss'],
 })
-export class AutoRefreshListComponent implements OnInit, OnDestroy {
-  private updateSubscription!: Subscription
+export class AutoRefreshListComponent implements OnInit {
 
   constructor(
     private remult: Remult,
     private busy: BusyService,
-    private data: DataRefreshService,
     private route: ActivatedRoute,
     private ui: UIToolsService
   ) { }
-  ngOnDestroy(): void {
-    this.updateSubscription.unsubscribe()
-  }
+
   filterStatus = ''
   filterOriginId = '';
   grid: GridSettings<Computer> = new GridSettings(this.remult.repo(Computer), {
@@ -66,12 +62,6 @@ export class AutoRefreshListComponent implements OnInit, OnDestroy {
       try {
         await this.grid.reloadData()
       } catch { }
-    })
-
-    this.updateSubscription = this.data.dataChanged$.subscribe(() => {
-      this.busy.donotWait(async () => {
-        await this.grid.reloadData()
-      })
     })
   }
 }

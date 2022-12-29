@@ -8,11 +8,12 @@ import {
   Validators,
   BackendMethod,
   getValueList,
+  isBackend,
 } from 'remult'
 import { recordChanges, ChangeLog } from '../change-log/change-log'
 import { DataControl } from '../common-ui-elements/interfaces'
 import '../common/UITools'
-import { dataWasChanged } from '../data-refresh/data-refresh.controller'
+import { dataChangedChannel } from '../data-refresh/data-refresh.controller'
 import { countStatusColumnInMonday, deliveriesBoardNumber, DeliveryFormController, itemsBoardNumber } from '../driver-sign/delivery-form.controller'
 import { gql } from '../driver-sign/getGraphQL'
 import { Employee } from '../employees/employee'
@@ -31,11 +32,12 @@ import { CPUType } from './CPUType'
     await recordChanges(self, {
       excludeColumns: (e) => [e.updateDate, e.id],
     })
-    dataWasChanged()
 
   },
   saved: async self => {
-    if (self.originId && self.isNew()) {
+    if (isBackend())
+      dataChangedChannel.send({});
+    if (self.originId && self.isNew() && isBackend()) {
       Computer.updateMondayStats(self.originId)
     }
   }

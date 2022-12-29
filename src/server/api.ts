@@ -6,7 +6,6 @@ import { UpdatePasswordController } from '../app/users/UpdatePasswordController'
 import { Employee } from '../app/employees/employee';
 import { Computer } from '../app/computers/computer';
 import { ChangeLog } from '../app/change-log/change-log';
-import { DataRefreshController } from '../app/data-refresh/data-refresh.controller';
 import { DeliveryFormController } from '../app/driver-sign/delivery-form.controller';
 import { createPdfDocument } from '../app/contact-sign/createPdfDocument';
 import { graphqlUploadFile } from '../app/contact-sign/graphqlUploadFile';
@@ -15,7 +14,7 @@ import { versionUpdate } from './version';
 
 export const api = remultExpress({
     entities: [Employee, Computer, ChangeLog, User],
-    controllers: [SignInController, UpdatePasswordController, DataRefreshController,
+    controllers: [SignInController, UpdatePasswordController,
         DeliveryFormController],
     getUser: request => request.session!['user'],
     dataProvider: async () => {

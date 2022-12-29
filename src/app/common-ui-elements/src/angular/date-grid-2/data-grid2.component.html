@@ -132,6 +132,10 @@
       <button mat-icon-button *ngIf="settings.allowUpdate &&settings.allowInsert" (click)="settings.addNewRow()">
         <mat-icon>add</mat-icon>
       </button>
+      <button mat-icon-button *ngIf="showSaveAllButton()" (click)="saveAllClick()"
+              style="line-height:36px;max-height:28px">
+              <mat-icon [matTooltip]="saveAllText()" class="row-button" style="font-size:24px">done_all</mat-icon>
+            </button>
     </div>
     <div *ngIf="settings.showSelectColumn" class="selectColumnsArea">
       Select Columns

@@ -1,14 +1,3 @@
-import { Allow, BackendMethod } from "remult";
+import { AMessageChannel } from "remult/live-query";
+export const dataChangedChannel = new AMessageChannel("dataChanged");
 
-let lastUpdate = new Date();
-
-export class DataRefreshController {
-  @BackendMethod({ allowed: Allow.authenticated })
-  static async lastUpdate() {
-    return lastUpdate.toISOString();
-  }
-
-}
-export function dataWasChanged() {
-  lastUpdate = new Date();
-}
