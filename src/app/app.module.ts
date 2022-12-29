@@ -1,4 +1,4 @@
-import { APP_INITIALIZER, NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule, NgZone } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -32,7 +32,7 @@ import { ComputersComponent } from './computers/computers.component';
 import { ChangeLogComponent } from './change-log/change-log.component';
 import { CardInMiddleComponent } from './card-in-middle/card-in-middle.component';
 import { AutoRefreshListComponent } from './auto-refresh-list/auto-refresh-list.component';
-import {MatTableModule} from "@angular/material/table";
+import { MatTableModule } from "@angular/material/table";
 import { DriverSignComponent } from './driver-sign/driver-sign.component';
 import { ContactSignComponent } from './contact-sign/contact-sign.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -88,7 +88,11 @@ import { SelectDonorComponent } from './select-donor/select-donor.component';
   bootstrap: [AppComponent],
   entryComponents: [YesNoQuestionComponent, DataAreaDialogComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(zone: NgZone) {
+    remult.apiClient.wrapMessageHandling = x => zone.run(() => x())
+  }
+}
 
 export function initApp() {
   const loadCurrentUserBeforeAppStarts = async () => {

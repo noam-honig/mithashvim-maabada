@@ -1,5 +1,5 @@
 
-import { Component, OnChanges, Input, ViewChild } from '@angular/core';
+import { Component, OnChanges, Input, ViewChild, OnDestroy } from '@angular/core';
 
 
 import { DataFilterInfoComponent } from '../data-filter-info/data-filter-info.component';
@@ -21,9 +21,12 @@ import { CommonUIElementsPluginsService } from '../CommonUIElementsPluginsServic
 
 
 
-export class DataGrid2Component implements OnChanges {
+export class DataGrid2Component implements OnChanges, OnDestroy {
   constructor(private remult: Remult, dir: Directionality, public plugin: CommonUIElementsPluginsService) {
     this.rightToLeft = dir.value === 'rtl';
+  }
+  ngOnDestroy(): void {
+    this.settings.unsubscribe();
   }
 
   async addCol(c: DataControlSettings) {
@@ -99,8 +102,9 @@ export class DataGrid2Component implements OnChanges {
   @Input() displayButtons = true;
   @Input() displayVCR = true;
 
-  @Input() records: any;
+
   @Input() settings!: GridSettings;
+  prevSettings?: GridSettings;
 
   getAreaSettings() {
     return this.settings as any;
@@ -200,7 +204,9 @@ export class DataGrid2Component implements OnChanges {
 
     if (!this.settings)
       return;
-
+    if (this.prevSettings)
+      this.prevSettings.unsubscribe();
+    this.prevSettings = this.settings;
 
     this.rowButtons = [];
     this.gridButtons = [];
@@ -281,11 +287,8 @@ export class DataGrid2Component implements OnChanges {
       for (let b of this.settings._buttons) {
         this.addButton(b);
       }
-    if (!this.records && this.settings) {
-      this.settings.reloadData().then((r: any) => {
-        this.records = r;
-
-      });
+    if (this.settings && !this.settings.loaded) {
+      this.settings.reloadData()
 
     }
 

@@ -387,19 +387,19 @@ export class GridSettings<rowType = any>  {
 
 
   totalRows!: number;
-
-  private _loaded = false;
+  unsubscribe = () => { };
+   loaded = false;
   async reloadData() {
     let opt: FindOptions<rowType> = await this._internalBuildFindOptions();
     this.columns.autoGenerateColumnsBasedOnData(this.repository.metadata);
-    if (!this._loaded) {
-      this._loaded = true;
+    if (!this.loaded) {
+      this.loaded = true;
       if (this.settings?.columnOrderStateKey) {
         new columnOrderAndWidthSaver(this).load(this.settings.columnOrderStateKey);
       }
     }
-    let result = this.restList.get(opt).then((rows) => {
-
+    this.unsubscribe();
+    this.unsubscribe = this.restList.get(opt, (rows) => {
       this.selectedRows = this.selectedRows.map(s => {
         let id = getEntityRef(s).getId();
         let r = rows.find(r => getEntityRef(r).getId() == id);
@@ -407,16 +407,11 @@ export class GridSettings<rowType = any>  {
           return r;
         return s;
       });
-
       if (this.restList.items.length == 0) {
         this.setCurrentRow(undefined!);
-
       }
       else {
-
-
         this.setCurrentRow(this.restList.items[0]);
-
       }
       if (this.settings?.rowsLoaded) {
         this.settings?.rowsLoaded(this.restList.items);
@@ -428,12 +423,11 @@ export class GridSettings<rowType = any>  {
         this.totalRows = x;
       });
     }
-    return result;
   };
 
 
 
-  private restList: DataList<rowType>;
+  restList: DataList<rowType>;
   async _internalBuildFindOptions() {
     let opt: FindOptions<rowType> = {};
     if (this.settings!.where) {

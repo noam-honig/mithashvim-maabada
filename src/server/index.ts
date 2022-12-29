@@ -1,3 +1,4 @@
+import { getRequestMiddleware } from './getRequestMiddleware';
 import { config } from 'dotenv';
 config(); //loads the configuration from the .env file
 import express from 'express';
@@ -5,7 +6,6 @@ import sslRedirect from 'heroku-ssl-redirect'
 import helmet from 'helmet';
 import compression from 'compression';
 import { api } from './api';
-import { getRequestMiddleware } from './getRequestMiddleware';
 import session from "cookie-session";
 import csrf from "csurf";
 import { SignInController } from '../app/users/SignInController';

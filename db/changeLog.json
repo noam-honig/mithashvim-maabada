@@ -5228,5 +5228,119 @@
     "changedFields": [
       "employee"
     ]
+  },
+  {
+    "id": "d8b1b331-5501-48bd-9693-083adf061959",
+    "relatedId": "096c3096-9b5f-4dbc-a5a0-61685fa26187",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-12-29T13:23:29.588Z",
+    "userId": "2c4077ec-b861-474b-b5fd-62daa8c9b736",
+    "userName": "נועם",
+    "changes": [
+      {
+        "key": "employee",
+        "newDisplayValue": "ליאור",
+        "newValue": "3fe1d2db-1921-4272-bc9b-b5532a8447b7",
+        "oldValue": null
+      }
+    ],
+    "changedFields": [
+      "employee"
+    ]
+  },
+  {
+    "id": "d5acac6d-8084-406d-bd96-ebda1b517e7d",
+    "relatedId": "096c3096-9b5f-4dbc-a5a0-61685fa26187",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-12-29T13:23:34.101Z",
+    "userId": "2c4077ec-b861-474b-b5fd-62daa8c9b736",
+    "userName": "נועם",
+    "changes": [
+      {
+        "key": "employee",
+        "oldDisplayValue": "ליאור",
+        "newDisplayValue": "מיכל",
+        "newValue": "db902e64-fce8-46ec-ab8f-71c2e5bdf0f9",
+        "oldValue": "3fe1d2db-1921-4272-bc9b-b5532a8447b7"
+      }
+    ],
+    "changedFields": [
+      "employee"
+    ]
+  },
+  {
+    "id": "7316a1a9-5933-491d-ac3e-76b24f38ddb8",
+    "relatedId": "3c33f38a-f1e9-40aa-83dd-8aff6dfa46ed",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-12-29T13:23:47.063Z",
+    "userId": "2c4077ec-b861-474b-b5fd-62daa8c9b736",
+    "userName": "נועם",
+    "changes": [
+      {
+        "key": "employee",
+        "oldDisplayValue": "משה",
+        "newDisplayValue": "ליאור",
+        "newValue": "3fe1d2db-1921-4272-bc9b-b5532a8447b7",
+        "oldValue": "9e32ac04-f834-416c-83f1-e92af954d84c"
+      }
+    ],
+    "changedFields": [
+      "employee"
+    ]
+  },
+  {
+    "id": "2456be7a-68e8-4a31-9dbe-2ec816ce6ec8",
+    "relatedId": "42e21779-97a3-44ec-9300-d49ed3251d0e",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-12-29T13:23:52.855Z",
+    "userId": "2c4077ec-b861-474b-b5fd-62daa8c9b736",
+    "userName": "נועם",
+    "changes": [
+      {
+        "key": "employee",
+        "oldDisplayValue": "משה",
+        "newDisplayValue": "ליאור",
+        "newValue": "3fe1d2db-1921-4272-bc9b-b5532a8447b7",
+        "oldValue": "9e32ac04-f834-416c-83f1-e92af954d84c"
+      }
+    ],
+    "changedFields": [
+      "employee"
+    ]
+  },
+  {
+    "id": "df10aa59-4b5a-4c35-8592-870dc07d861f",
+    "relatedId": "42e21779-97a3-44ec-9300-d49ed3251d0e",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-12-29T13:23:57.570Z",
+    "userId": "2c4077ec-b861-474b-b5fd-62daa8c9b736",
+    "userName": "נועם",
+    "changes": [
+      {
+        "key": "employee",
+        "oldDisplayValue": "ליאור",
+        "newDisplayValue": "משה",
+        "newValue": "9e32ac04-f834-416c-83f1-e92af954d84c",
+        "oldValue": "3fe1d2db-1921-4272-bc9b-b5532a8447b7"
+      }
+    ],
+    "changedFields": [
+      "employee"
+    ]
   }
 ]

@@ -12,7 +12,7 @@ export class ChangeLogComponent implements OnInit {
 
   }
   args!: {
-    for: EntityBase
+    for: any
   }
 
   changes!: ChangeLog[];
