@@ -51,7 +51,10 @@ export class DeliveryFormController extends ControllerBase {
     city = '';
     @Fields.string({ monday: 'text' })
     street = '';
-    @Fields.string({ monday: 'text9' })
+    @Fields.string({ monday: 'long_text',
+    valueConverter: {
+        fromDb: x => x?.text
+    } })
     notes = '';
     @Fields.string({ monday: 'text3' })
     contact = '';
@@ -120,10 +123,20 @@ query ($id: Int!) {
         //console.table(item.column_values);
         for (const f of this.$.toArray()) {
             if (f.metadata.options.monday) {
-                let c: any = item.column_values.find((x: any) => x.id == f.metadata.options.monday);
-                f.value = JSON.parse(c.value);
-                if (f.metadata.options.valueConverter?.fromDb)
-                    f.value = f.metadata.options.valueConverter?.fromDb(f.value);
+                try {
+                    let c: any = item.column_values.find((x: any) => x.id == f.metadata.options.monday);
+                    f.value = JSON.parse(c.value);
+                    if (f.metadata.options.valueConverter?.fromDb)
+                        f.value = f.metadata.options.valueConverter?.fromDb(f.value);
+                }
+                catch (err: any) {
+                    console.error("error reading field ", {
+                        key: f.metadata.key,
+                        monday: f.metadata.options.monday
+                    })
+
+                }
+
 
 
             }
