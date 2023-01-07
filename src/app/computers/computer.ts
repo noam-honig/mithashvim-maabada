@@ -36,7 +36,7 @@ import { CPUType } from './CPUType'
   },
   saved: async self => {
     if (isBackend())
-      dataChangedChannel.send({});
+      dataChangedChannel.publish({});
     if (self.originId && self.isNew() && isBackend()) {
       Computer.updateMondayStats(self.originId)
     }

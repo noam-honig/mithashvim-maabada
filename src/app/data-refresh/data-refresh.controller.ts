@@ -1,3 +1,3 @@
-import { AMessageChannel } from "remult/live-query";
-export const dataChangedChannel = new AMessageChannel("dataChanged");
+import { PubSubChannel } from "remult";
+export const dataChangedChannel = new PubSubChannel("dataChanged");
 
