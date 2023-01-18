@@ -1,3 +1,3 @@
-import { PubSubChannel } from "remult";
-export const dataChangedChannel = new PubSubChannel("dataChanged");
+import { SubscriptionChannel } from "remult";
+export const dataChangedChannel = new SubscriptionChannel("dataChanged");
 

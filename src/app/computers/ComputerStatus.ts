@@ -96,6 +96,26 @@ export class ComputerStatus {
       canUpdateCompletePallet: true,
     },
   )
+  static waitKfarSaba = new ComputerStatus(
+    'ממתין לשינוע למעבדת כפר סבא',
+    [Roles.stockAdmin],
+    {
+      inputPackageBarcode: true,
+      listFields: ['packageBarcode'],
+      statusTableCurrentStatusOnly: true,
+      canUpdateCompletePallet: true,
+    },
+  )
+  static waitCentury = new ComputerStatus(
+    'ממתין לשינוע למחסני סנטורי',
+    [Roles.stockAdmin],
+    {
+      inputPackageBarcode: true,
+      listFields: ['packageBarcode'],
+      statusTableCurrentStatusOnly: true,
+      canUpdateCompletePallet: true,
+    },
+  )
   static waitForDelivery = new ComputerStatus(
     'ממתין לשינוע למוטב',
     [Roles.stockAdmin],
