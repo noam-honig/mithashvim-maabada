@@ -1,4 +1,4 @@
-import { EntityFilter, FindOptions,  Repository } from "remult/src/remult3";
+import { EntityFilter, FindOptions, Repository } from "remult/src/remult3";
 
 export class DataList<T> implements Iterable<T>{
   [Symbol.iterator](): Iterator<T> {
@@ -22,27 +22,22 @@ export class DataList<T> implements Iterable<T>{
 
 
 
-  private map(item: T): T {
-    return item;
-  }
-  lastGetId = 0;
   count(where?: EntityFilter<T>) {
     return this.repository.count(where);
   }
-  get(options?: FindOptions<T>) {
-
-    let getId = ++this.lastGetId;
-
-    return this.repository.find(options).then(r => {
-      let x: T[] = r;
-      let result = r.map((x: any) => this.map(x));
-      if (getId == this.lastGetId)
-        this.items = result;
-      return result;
+  get(options: FindOptions<T>, andDo: ((rows: T[]) => void)) {
+    const result = this.repository.liveQuery(options).subscribe(args => {
+      let r = args.items;
+      this.items = r;
+      andDo(r)
+      return r;
     });
+    return () => {
+      result()
+    }
   }
   add(): T {
-    let x = this.map(this.repository.create());
+    let x = this.repository.create();
     this.items.push(x);
     return x;
   }

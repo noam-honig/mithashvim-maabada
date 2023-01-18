@@ -5228,5 +5228,326 @@
     "changedFields": [
       "employee"
     ]
+  },
+  {
+    "id": "d8b1b331-5501-48bd-9693-083adf061959",
+    "relatedId": "096c3096-9b5f-4dbc-a5a0-61685fa26187",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-12-29T13:23:29.588Z",
+    "userId": "2c4077ec-b861-474b-b5fd-62daa8c9b736",
+    "userName": "נועם",
+    "changes": [
+      {
+        "key": "employee",
+        "newDisplayValue": "ליאור",
+        "newValue": "3fe1d2db-1921-4272-bc9b-b5532a8447b7",
+        "oldValue": null
+      }
+    ],
+    "changedFields": [
+      "employee"
+    ]
+  },
+  {
+    "id": "d5acac6d-8084-406d-bd96-ebda1b517e7d",
+    "relatedId": "096c3096-9b5f-4dbc-a5a0-61685fa26187",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-12-29T13:23:34.101Z",
+    "userId": "2c4077ec-b861-474b-b5fd-62daa8c9b736",
+    "userName": "נועם",
+    "changes": [
+      {
+        "key": "employee",
+        "oldDisplayValue": "ליאור",
+        "newDisplayValue": "מיכל",
+        "newValue": "db902e64-fce8-46ec-ab8f-71c2e5bdf0f9",
+        "oldValue": "3fe1d2db-1921-4272-bc9b-b5532a8447b7"
+      }
+    ],
+    "changedFields": [
+      "employee"
+    ]
+  },
+  {
+    "id": "7316a1a9-5933-491d-ac3e-76b24f38ddb8",
+    "relatedId": "3c33f38a-f1e9-40aa-83dd-8aff6dfa46ed",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-12-29T13:23:47.063Z",
+    "userId": "2c4077ec-b861-474b-b5fd-62daa8c9b736",
+    "userName": "נועם",
+    "changes": [
+      {
+        "key": "employee",
+        "oldDisplayValue": "משה",
+        "newDisplayValue": "ליאור",
+        "newValue": "3fe1d2db-1921-4272-bc9b-b5532a8447b7",
+        "oldValue": "9e32ac04-f834-416c-83f1-e92af954d84c"
+      }
+    ],
+    "changedFields": [
+      "employee"
+    ]
+  },
+  {
+    "id": "2456be7a-68e8-4a31-9dbe-2ec816ce6ec8",
+    "relatedId": "42e21779-97a3-44ec-9300-d49ed3251d0e",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-12-29T13:23:52.855Z",
+    "userId": "2c4077ec-b861-474b-b5fd-62daa8c9b736",
+    "userName": "נועם",
+    "changes": [
+      {
+        "key": "employee",
+        "oldDisplayValue": "משה",
+        "newDisplayValue": "ליאור",
+        "newValue": "3fe1d2db-1921-4272-bc9b-b5532a8447b7",
+        "oldValue": "9e32ac04-f834-416c-83f1-e92af954d84c"
+      }
+    ],
+    "changedFields": [
+      "employee"
+    ]
+  },
+  {
+    "id": "df10aa59-4b5a-4c35-8592-870dc07d861f",
+    "relatedId": "42e21779-97a3-44ec-9300-d49ed3251d0e",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-12-29T13:23:57.570Z",
+    "userId": "2c4077ec-b861-474b-b5fd-62daa8c9b736",
+    "userName": "נועם",
+    "changes": [
+      {
+        "key": "employee",
+        "oldDisplayValue": "ליאור",
+        "newDisplayValue": "משה",
+        "newValue": "9e32ac04-f834-416c-83f1-e92af954d84c",
+        "oldValue": "3fe1d2db-1921-4272-bc9b-b5532a8447b7"
+      }
+    ],
+    "changedFields": [
+      "employee"
+    ]
+  },
+  {
+    "id": "c417de6f-3c96-4f3e-b04b-454b5510a73d",
+    "relatedId": "42e21779-97a3-44ec-9300-d49ed3251d0e",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-12-29T14:23:30.455Z",
+    "userId": "2c4077ec-b861-474b-b5fd-62daa8c9b736",
+    "userName": "נועם",
+    "changes": [
+      {
+        "key": "courier",
+        "oldDisplayValue": "sdfgsd",
+        "newDisplayValue": "sdfgsd123123",
+        "newValue": "sdfgsd123123",
+        "oldValue": "sdfgsd"
+      }
+    ],
+    "changedFields": [
+      "courier"
+    ]
+  },
+  {
+    "id": "8201b055-12e0-45b1-8067-c80ffa81240a",
+    "relatedId": "42e21779-97a3-44ec-9300-d49ed3251d0e",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-12-29T14:38:43.474Z",
+    "userId": "2c4077ec-b861-474b-b5fd-62daa8c9b736",
+    "userName": "נועם",
+    "changes": [
+      {
+        "key": "status",
+        "oldDisplayValue": "התקבל - מחשב נייח",
+        "newDisplayValue": "התקבל וממתין לגריטה - מחשב נייח",
+        "newValue": "intakeTrash",
+        "oldValue": "intake"
+      }
+    ],
+    "changedFields": [
+      "status"
+    ]
+  },
+  {
+    "id": "c5a6f3b5-4460-4bf6-89a1-9a56c57335b0",
+    "relatedId": "42e21779-97a3-44ec-9300-d49ed3251d0e",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-12-29T14:38:53.815Z",
+    "userId": "2c4077ec-b861-474b-b5fd-62daa8c9b736",
+    "userName": "נועם",
+    "changes": [
+      {
+        "key": "status",
+        "oldDisplayValue": "התקבל וממתין לגריטה - מחשב נייח",
+        "newDisplayValue": "התקבל - מחשב נייח",
+        "newValue": "intake",
+        "oldValue": "intakeTrash"
+      }
+    ],
+    "changedFields": [
+      "status"
+    ]
+  },
+  {
+    "id": "affbf1a1-acc2-405d-9123-3c86d8c8de1b",
+    "relatedId": "baef6eb0-c0ef-465e-a0ff-e1972a0e6c52",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-12-29T14:54:34.452Z",
+    "userId": "2c4077ec-b861-474b-b5fd-62daa8c9b736",
+    "userName": "נועם",
+    "changes": [
+      {
+        "key": "courier",
+        "oldDisplayValue": "1",
+        "newDisplayValue": "12",
+        "newValue": "12",
+        "oldValue": "1"
+      }
+    ],
+    "changedFields": [
+      "courier"
+    ]
+  },
+  {
+    "id": "69b642af-184f-4598-ae79-b99cbfd45e75",
+    "relatedId": "aa1b27fc-3e91-4c0b-a75b-4481f5e58eb6",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-12-29T14:54:34.468Z",
+    "userId": "2c4077ec-b861-474b-b5fd-62daa8c9b736",
+    "userName": "נועם",
+    "changes": [
+      {
+        "key": "courier",
+        "oldDisplayValue": "1",
+        "newDisplayValue": "14",
+        "newValue": "14",
+        "oldValue": "1"
+      }
+    ],
+    "changedFields": [
+      "courier"
+    ]
+  },
+  {
+    "id": "49ad2a0d-1872-4c0e-96f2-71c36b011576",
+    "relatedId": "392013b2-19d4-4e20-bf1a-22db77b0c57c",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-12-29T14:54:34.489Z",
+    "userId": "2c4077ec-b861-474b-b5fd-62daa8c9b736",
+    "userName": "נועם",
+    "changes": [
+      {
+        "key": "courier",
+        "oldDisplayValue": "1",
+        "newDisplayValue": "13",
+        "newValue": "13",
+        "oldValue": "1"
+      }
+    ],
+    "changedFields": [
+      "courier"
+    ]
+  },
+  {
+    "id": "22b3e504-6820-4bd9-83db-78be5335ada2",
+    "relatedId": "aa1b27fc-3e91-4c0b-a75b-4481f5e58eb6",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-12-29T14:54:38.417Z",
+    "userId": "2c4077ec-b861-474b-b5fd-62daa8c9b736",
+    "userName": "נועם",
+    "changes": [
+      {
+        "key": "courier",
+        "oldDisplayValue": "14",
+        "newDisplayValue": "1",
+        "newValue": "1",
+        "oldValue": "14"
+      }
+    ],
+    "changedFields": [
+      "courier"
+    ]
+  },
+  {
+    "id": "6b9818fa-7919-4810-86ba-da5974843f1f",
+    "relatedId": "baef6eb0-c0ef-465e-a0ff-e1972a0e6c52",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-12-29T14:54:38.429Z",
+    "userId": "2c4077ec-b861-474b-b5fd-62daa8c9b736",
+    "userName": "נועם",
+    "changes": [
+      {
+        "key": "courier",
+        "oldDisplayValue": "12",
+        "newDisplayValue": "1",
+        "newValue": "1",
+        "oldValue": "12"
+      }
+    ],
+    "changedFields": [
+      "courier"
+    ]
+  },
+  {
+    "id": "756337b6-b590-4d01-8612-7088e954d045",
+    "relatedId": "392013b2-19d4-4e20-bf1a-22db77b0c57c",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2022-12-29T14:54:38.442Z",
+    "userId": "2c4077ec-b861-474b-b5fd-62daa8c9b736",
+    "userName": "נועם",
+    "changes": [
+      {
+        "key": "courier",
+        "oldDisplayValue": "13",
+        "newDisplayValue": "1",
+        "newValue": "1",
+        "oldValue": "13"
+      }
+    ],
+    "changedFields": [
+      "courier"
+    ]
   }
 ]
