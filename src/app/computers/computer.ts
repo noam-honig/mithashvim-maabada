@@ -143,7 +143,7 @@ export class Computer extends IdEntity {
     },
   })
   origin = ''
-  
+
   @Fields.string({ caption: "id מקור תרומה" })
   originId = '';
   @Fields.boolean({ caption: 'מחשב נייד' })
@@ -333,7 +333,8 @@ export class Computer extends IdEntity {
     const statuses: {
       id: string
       caption: string
-      count: number
+      count: number,
+      laptops: number
     }[] = []
 
     let list = getValueList(ComputerStatus)
@@ -357,12 +358,16 @@ export class Computer extends IdEntity {
         id: status.id,
         caption: status.caption,
         count: 0,
+        laptops: 0
       })
     }
     for await (const c of remult.repo(Computer).query()) {
       const s = statuses.find((x) => x.id === c.status.id)
       if (s) {
-        s.count++
+        if (c.isLaptop)
+          s.laptops++
+        else
+          s.count++
       }
     }
     return statuses
