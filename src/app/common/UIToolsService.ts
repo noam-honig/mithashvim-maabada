@@ -75,6 +75,8 @@ export class ShowDialogOnErrorErrorHandler extends ErrorHandler {
     lastErrorString = '';
     lastErrorTime!: number;
     override async handleError(error: any) {
+        if (error.message.startsWith("ExpressionChangedAfterItHasBeenCheckedError") || error.message.startsWith("NG0100"))
+            return;
         super.handleError(error);
         if (this.lastErrorString == error.toString() && new Date().valueOf() - this.lastErrorTime < 100)
             return;
