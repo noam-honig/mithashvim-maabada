@@ -38,7 +38,7 @@ export class DriverSignComponent implements OnInit {
       if (item.actualQuantity)
         item.actualQuantity = item.actualQuantity.toString();
     }
-    await this.form.updateDone();
+    await this.form.updateDriverPickup();
     const result = Number(this.form.tempSmsResult);
     if (result === 1 || result === 2) {
       this.dialog.info("הודעת סמס נשלחה ל" + this.form.contact + " עם טופס אישור חתימה");

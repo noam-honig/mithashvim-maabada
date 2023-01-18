@@ -1,4 +1,5 @@
 import { FieldType, Field, BackendMethod, Controller, ControllerBase, Fields } from "remult";
+import { desktop, laptop } from "../computers/computer";
 import { gql } from "./getGraphQL";
 import { sendSms } from "./send-sms";
 
@@ -51,10 +52,12 @@ export class DeliveryFormController extends ControllerBase {
     city = '';
     @Fields.string({ monday: 'text' })
     street = '';
-    @Fields.string({ monday: 'long_text',
-    valueConverter: {
-        fromDb: x => x?.text
-    } })
+    @Fields.string({
+        monday: 'long_text',
+        valueConverter: {
+            fromDb: x => x?.text
+        }
+    })
     notes = '';
     @Fields.string({ monday: 'text3' })
     contact = '';
@@ -195,7 +198,7 @@ query ($id: Int!) {
     }
     static createPdfAndUpload = async (data: DeliveryFormController) => { };
     @BackendMethod({ allowed: true })
-    async updateDone() {
+    async updateDriverPickup() {
         console.table(this.items);
         var orig = new DeliveryFormController(this.remult);
         await orig.load(this.id);
@@ -218,12 +221,21 @@ query ($id: Int!) {
             `שלום ${this.contact}, נא לאשר את תכולת הציוד שנאספה עבור מיזם מתחשבים בקישור הבא:
 https://mitchashvim-labs.herokuapp.com/contact-sign/${this.id}`
             , this.remult);
+        await this.updateDesktopAndLaptopStats()
+    }
+    async updateDesktopAndLaptopStats() {
+        for (const [monday, itemName] of [["numeric", desktop], ["numeric4", laptop], ["numeric3", "מסך"]]) {
+            let z = this.items.find(x => x.name === itemName);
+            if (z) {
+                await this.update(deliveriesBoardNumber, this.id, monday, z.actualQuantity);
+            }
+        }
     }
     @BackendMethod({ allowed: true })
     async updateCount() {
         let computers = 0;
         for (const item of this.items) {
-            if (item.name === "מחשב נייח" || item.name === "מחשב נייד") {
+            if (item.name === desktop || item.name === laptop) {
                 computers += +item.countQuantity;
             }
             await this.update(itemsBoardNumber, item.id, countColumnInItemsInMonday, item.countQuantity.toString());

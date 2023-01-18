@@ -475,7 +475,7 @@ export class Computer extends IdEntity {
     return form.load(+originId).then(async () => {
       let done = 0
       {
-        let compItem = form.items.find(i => i.name === "מחשב נייח")
+        let compItem = form.items.find(i => i.name === desktop)
         if (compItem) {
           await form.update(itemsBoardNumber, compItem.id, "numbers2", comps.toString())
           await form.update(itemsBoardNumber, compItem.id, "numbers5", compsTrash.toString())
@@ -485,7 +485,7 @@ export class Computer extends IdEntity {
 
       }
       {
-        let laptopItem = form.items.find(i => i.name === "מחשב נייד")
+        let laptopItem = form.items.find(i => i.name === laptop)
         if (laptopItem) {
           await form.update(itemsBoardNumber, laptopItem.id, "numbers2", laptops.toString())
           await form.update(itemsBoardNumber, laptopItem.id, "numbers5", laptopsTrash.toString())
@@ -564,3 +564,6 @@ export interface Donor {
   forCount: boolean
   forIntake: boolean
 }
+
+export const desktop = "מחשב נייח"
+export const laptop = "מחשב נייד"

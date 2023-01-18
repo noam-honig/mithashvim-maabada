@@ -24,6 +24,11 @@ export const api = remultExpress({
     },
     initApi: async () => {
         await versionUpdate();
+        if (false) {
+            let f = new DeliveryFormController();
+            await f.load(3683161102);
+            await f.updateDesktopAndLaptopStats();
+        }
     }
 });
 DeliveryFormController.createPdfAndUpload = async (c) => {
