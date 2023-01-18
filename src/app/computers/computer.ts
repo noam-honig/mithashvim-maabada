@@ -141,9 +141,7 @@ export class Computer extends IdEntity {
     },
   })
   origin = ''
-  @DataControl({
-    readonly: true
-  })
+  
   @Fields.string({ caption: "id מקור תרומה" })
   originId = '';
   @Fields.boolean({ caption: 'מחשב נייד' })
