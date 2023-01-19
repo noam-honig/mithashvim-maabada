@@ -10,6 +10,7 @@ import { DeliveryFormController } from '../app/driver-sign/delivery-form.control
 import { createPdfDocument } from '../app/contact-sign/createPdfDocument';
 import { graphqlUploadFile } from '../app/contact-sign/graphqlUploadFile';
 import { versionUpdate } from './version';
+import { gql } from '../app/driver-sign/getGraphQL';
 
 
 export const api = remultExpress({
@@ -25,9 +26,32 @@ export const api = remultExpress({
     initApi: async () => {
         await versionUpdate();
         if (false) {
-            let f = new DeliveryFormController();
-            await f.load(3683161102);
-            await f.updateDesktopAndLaptopStats();
+            
+            const data = await gql({}, `#graphql
+            query  {
+              boards(ids: [2673923561]) {
+                id
+                name
+                board_folder_id
+                board_kind
+                items(limit:1000) {
+                  id
+                  name}}}`);
+            console.log(data.boards[0].items.length);
+
+            for (const item of data.boards[0].items) {
+                if (item.id == "3785315001" || true) {
+                    let f = new DeliveryFormController();
+                    await f.load(+item.id);
+                    await f.updateDesktopAndLaptopStats();
+                    await new Promise((res) => {
+                        setTimeout(() => {
+                            res({})
+                        }, 5000);
+                    })
+                }
+
+            }
         }
     }
 });
@@ -35,3 +59,5 @@ DeliveryFormController.createPdfAndUpload = async (c) => {
     await createPdfDocument(c);
     await graphqlUploadFile(c.id);
 }
+
+

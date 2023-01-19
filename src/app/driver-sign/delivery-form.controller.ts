@@ -1,7 +1,9 @@
 import { FieldType, Field, BackendMethod, Controller, ControllerBase, Fields } from "remult";
-import { desktop, laptop } from "../computers/computer";
 import { gql } from "./getGraphQL";
 import { sendSms } from "./send-sms";
+
+export const desktop = "מחשב נייח"
+export const laptop = "מחשב נייד"
 
 export type Item = {
     id: number;
@@ -63,7 +65,7 @@ export class DeliveryFormController extends ControllerBase {
     contact = '';
     @Fields.string({
         monday: 'phone', valueConverter: {
-            fromDb: x => x.phone
+            fromDb: x => x ? x.phone : ''
         }
     })
     contactPhone = '';
@@ -84,6 +86,13 @@ export class DeliveryFormController extends ControllerBase {
     signatureCounter = 0;
     @Fields.string()
     tempSmsResult = '';
+
+    @Fields.integer({ monday: 'numeric', caption: "מחשב נייח", itemNames: ["מחשב", "נייחים", "מחשב AOI", "שרת"] })
+    desktops = 0;
+    @Fields.integer({ monday: 'numeric4', caption: "מחשב נייד", itemNames: ["לפטופ", "ניידים"] })
+    laptops = 0;
+    @Fields.integer({ monday: 'numeric3', caption: "מסך", itemNames: ["מסך VGA", "מסכים"] })
+    screens = 0;
 
     @BackendMethod({ allowed: true })
     async load(deliveryId: number) {
@@ -128,14 +137,17 @@ query ($id: Int!) {
             if (f.metadata.options.monday) {
                 try {
                     let c: any = item.column_values.find((x: any) => x.id == f.metadata.options.monday);
-                    f.value = JSON.parse(c.value);
-                    if (f.metadata.options.valueConverter?.fromDb)
-                        f.value = f.metadata.options.valueConverter?.fromDb(f.value);
+                    if (c) {
+                        f.value = JSON.parse(c.value);
+                        if (f.metadata.options.valueConverter?.fromDb)
+                            f.value = f.metadata.options.valueConverter?.fromDb(f.value);
+                    }
                 }
                 catch (err: any) {
                     console.error("error reading field ", {
                         key: f.metadata.key,
-                        monday: f.metadata.options.monday
+                        monday: f.metadata.options.monday,
+                        err
                     })
 
                 }
@@ -224,11 +236,10 @@ https://mitchashvim-labs.herokuapp.com/contact-sign/${this.id}`
         await this.updateDesktopAndLaptopStats()
     }
     async updateDesktopAndLaptopStats() {
-        for (const [monday, itemName] of [["numeric", desktop], ["numeric4", laptop], ["numeric3", "מסך"]]) {
-            let z = this.items.find(x => x.name === itemName);
-            if (z) {
-                await this.update(deliveriesBoardNumber, this.id, monday, z.actualQuantity);
-            }
+        for (const f of [this.$.desktops, this.$.laptops, this.$.screens]) {
+            let z = this.items.filter(x => (x.name === f.metadata.caption || f.metadata.options.itemNames?.includes(x.name)) && x.actualQuantity).reduce((prev, x) => prev += +x.actualQuantity, 0);
+            if (z != f.value)
+                await this.update(deliveriesBoardNumber, this.id, f.metadata.options.monday!, z.toString());
         }
     }
     @BackendMethod({ allowed: true })
@@ -288,7 +299,8 @@ https://mitchashvim-labs.herokuapp.com/contact-sign/${this.id}`
             }
         } catch (err: any) {
             console.error({
-                error: values
+                error: values,
+                err
             });
         }
     }
@@ -299,7 +311,8 @@ https://mitchashvim-labs.herokuapp.com/contact-sign/${this.id}`
 
 declare module 'remult' {
     export interface FieldOptions<entityType, valueType> {
-        monday?: string
+        monday?: string,
+        itemNames?: string[]
     }
 }
 

@@ -14,7 +14,7 @@ import { recordChanges, ChangeLog } from '../change-log/change-log'
 import { DataControl } from '../common-ui-elements/interfaces'
 import '../common/UITools'
 import { dataChangedChannel } from '../data-refresh/data-refresh.controller'
-import { countStatusColumnInMonday, deliveriesBoardNumber, DeliveryFormController, itemsBoardNumber } from '../driver-sign/delivery-form.controller'
+import { countStatusColumnInMonday, deliveriesBoardNumber, DeliveryFormController, desktop, itemsBoardNumber, laptop } from '../driver-sign/delivery-form.controller'
 import { gql } from '../driver-sign/getGraphQL'
 import { Employee } from '../employees/employee'
 import { Roles } from '../users/roles'
@@ -565,5 +565,3 @@ export interface Donor {
   forIntake: boolean
 }
 
-export const desktop = "מחשב נייח"
-export const laptop = "מחשב נייד"
