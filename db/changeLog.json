@@ -5549,5 +5549,27 @@
     "changedFields": [
       "courier"
     ]
+  },
+  {
+    "id": "0241eac9-b860-4368-a8c0-9dfe978c9f81",
+    "relatedId": "42e21779-97a3-44ec-9300-d49ed3251d0e",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2023-01-19T12:36:29.178Z",
+    "userId": "2c4077ec-b861-474b-b5fd-62daa8c9b736",
+    "userName": "נועם",
+    "changes": [
+      {
+        "key": "keyboard",
+        "oldDisplayValue": "undefined",
+        "newDisplayValue": "עברית/אנגלית",
+        "newValue": "hebrew"
+      }
+    ],
+    "changedFields": [
+      "keyboard"
+    ]
   }
 ]

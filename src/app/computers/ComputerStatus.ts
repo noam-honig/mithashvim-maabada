@@ -73,6 +73,7 @@ export class ComputerStatus {
     canUpdateCompletePallet: true,
   })
   static packing = new ComputerStatus('תהליך אריזה', [Roles.packAdmin], {
+    inputKeyboard: true,
     updatePackageBarcode: true,
     groupBy: ['palletBarcode'],
     listFields: ['barcode', 'packageBarcode', 'palletBarcode'],
@@ -143,6 +144,7 @@ export class ComputerStatus {
   updateEmployee = false
   validateEmployee = false
   inputCpu = false
+  inputKeyboard = false
   isIntake = false
   laptopIntake = false
   updatePackageBarcode = false
@@ -153,6 +155,7 @@ export class ComputerStatus {
   clearPallet = false
   canUpdateCompletePallet = false
   special = false
+
   groupBy: (keyof Computer)[] = []
   listFields: (keyof Computer)[] = []
   get showStatusTables() {

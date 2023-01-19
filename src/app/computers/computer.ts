@@ -20,6 +20,7 @@ import { Employee } from '../employees/employee'
 import { Roles } from '../users/roles'
 import { ComputerStatus } from './ComputerStatus'
 import { CPUType } from './CPUType'
+import { KeyboardType } from './keyboardType'
 
 @Entity<Computer>('computers', {
   allowApiCrud: Allow.authenticated,
@@ -125,6 +126,9 @@ export class Computer extends IdEntity {
     width: '70',
   })
   cpu!: CPUType
+
+  @Field(()=>KeyboardType)
+  keyboard = KeyboardType.hebrew
   @DataControl({
     hideDataOnInput: true,
     getValue: (x, y) => y.displayValue,

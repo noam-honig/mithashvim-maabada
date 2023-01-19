@@ -160,11 +160,16 @@ export class HomeComponent implements OnInit {
       this.input.model = prev.model
       this.input.make = prev.make
       this.input.palletBarcode = prev.palletBarcode
+      this.input.keyboard = prev.keyboard
       if (this.input.status.inputPallet)
         this.input.palletBarcode = prev.palletBarcode
     }
     this.area = new DataAreaSettings({
       fields: () => [
+        {
+          field: this.input.$.keyboard,
+          visible: () => this.input.status.inputKeyboard,
+        },
         {
           field: this.input.$.make,
           visible: () => this.input.status.laptopIntake,
