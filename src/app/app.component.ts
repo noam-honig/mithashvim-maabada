@@ -28,7 +28,7 @@ export class AppComponent implements OnInit {
     private routeHelper: RouteHelperService,
     public uiService: UIToolsService,
     private nav: RouteHelperService,
-  ) {}
+  ) { }
   terms = terms
   remult = remult
 
@@ -37,13 +37,13 @@ export class AppComponent implements OnInit {
     openDialog(
       DataAreaDialogComponent,
       (i) =>
-        (i.args = {
-          title: terms.signIn,
-          object: signIn,
-          ok: async () => {
-            remult.user = await signIn.signIn()
-          },
-        }),
+      (i.args = {
+        title: terms.signIn,
+        object: signIn,
+        ok: async () => {
+          remult.user = await signIn.signIn()
+        },
+      }),
     )
   }
   showSpecialRoute() {
@@ -67,47 +67,46 @@ export class AppComponent implements OnInit {
       await openDialog(
         DataAreaDialogComponent,
         (i) =>
-          (i.args = {
-            title: 'הגדרת מסופון',
-            fields: [
-              {
-                field: input.$.status,
-                width: '',
-                valueList: () =>
-                  getValueList(ComputerStatus).filter((x) =>
-                    x.allowed(remultForStatusCheck),
-                  ),
-              },
-              {
-                field: input.$.employee,
-                visible: () => input.status.updateEmployee,
-              },
-              {
-                field: input.$.palletBarcode,
-                visible: () => input.status.assignPallet,
-              },
-            ],
-            ok: async () => {
-              if (input.status.updateEmployee && !input.employee) {
-                throw 'חובה לבחור עובד'
-              } else if (input.status.assignPallet && !input.palletBarcode)
-                throw 'חובה לבחור משטח'
-              else {
-                if (setSessionToTerminal)
-                  remult.user = await signIn.configTerminal(input.status)
-                localStorage.setItem(
-                  'config',
-                  JSON.stringify({
-                    status: input.$.status.inputValue,
-                    employee: input.$.employee.inputValue,
-                    palletBarcode: input.$.palletBarcode.inputValue,
-                  }),
-                )
-                this.nav.navigateToComponent(HomeComponent)
-                window.location.reload()
-              }
+        (i.args = {
+          title: 'הגדרת מסופון',
+          fields: [
+            {
+              field: input.$.status,
+              width: '',
+              valueList: () =>
+                getValueList(ComputerStatus).filter((x) =>
+                  x.allowed(remultForStatusCheck),
+                ),
             },
-          }),
+            {
+              field: input.$.employee,
+              visible: () => input.status.updateEmployee,
+            },
+            {
+              field: input.$.palletBarcode,
+              visible: () => input.status.assignPallet,
+            },
+          ],
+          ok: async () => {
+            if (input.status.updateEmployee && !input.employee) {
+              throw 'חובה לבחור עובד'
+            } else if (input.status.assignPallet && !input.palletBarcode)
+              throw 'חובה לבחור משטח'
+            else {
+              if (setSessionToTerminal)
+                remult.user = await signIn.configTerminal(input.status)
+              localStorage.setItem(
+                'config',
+                JSON.stringify({
+                  status: input.$.status.inputValue,
+                  employee: input.$.employee.inputValue,
+                  palletBarcode: input.$.palletBarcode.inputValue,
+                }),
+              )
+              location.href = '/מסופון'
+            }
+          },
+        }),
       )
     }
     if (this.isAnyManager()) actualConfig()
@@ -115,21 +114,21 @@ export class AppComponent implements OnInit {
       await openDialog(
         DataAreaDialogComponent,
         (i) =>
-          (i.args = {
-            title: 'כניסה להגדרת מסופון',
-            fields: [{ field: signIn.$.user }, { field: signIn.$.password }],
-            ok: async () => {
-              const manager = await signIn.validateUserButDoNotSignIn()
-              //a temporary remult to check the allowed statuses for this manager
-              const remultForStatusCheck = new Remult()
-              remultForStatusCheck.user = manager
-              await actualConfig(remultForStatusCheck, true)
-            },
-          }),
+        (i.args = {
+          title: 'כניסה להגדרת מסופון',
+          fields: [{ field: signIn.$.user }, { field: signIn.$.password }],
+          ok: async () => {
+            const manager = await signIn.validateUserButDoNotSignIn()
+            //a temporary remult to check the allowed statuses for this manager
+            const remultForStatusCheck = new Remult()
+            remultForStatusCheck.user = manager
+            await actualConfig(remultForStatusCheck, true)
+          },
+        }),
       )
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   signOut() {
     SignInController.signOut()
@@ -142,13 +141,13 @@ export class AppComponent implements OnInit {
     openDialog(
       DataAreaDialogComponent,
       (i) =>
-        (i.args = {
-          title: terms.updateInfo,
-          fields: [user.$.name],
-          ok: async () => {
-            await user._.save()
-          },
-        }),
+      (i.args = {
+        title: terms.updateInfo,
+        fields: [user.$.name],
+        ok: async () => {
+          await user._.save()
+        },
+      }),
     )
   }
   async changePassword() {
@@ -156,13 +155,13 @@ export class AppComponent implements OnInit {
     openDialog(
       DataAreaDialogComponent,
       (i) =>
-        (i.args = {
-          title: terms.signIn,
-          object: updatePassword,
-          ok: async () => {
-            await updatePassword.updatePassword()
-          },
-        }),
+      (i.args = {
+        title: terms.signIn,
+        object: updatePassword,
+        ok: async () => {
+          await updatePassword.updatePassword()
+        },
+      }),
     )
   }
 
