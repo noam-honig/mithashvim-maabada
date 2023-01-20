@@ -1,5 +1,5 @@
 import { FieldType, Field, BackendMethod, Controller, ControllerBase, Fields } from "remult";
-import { gql } from "./getGraphQL";
+import { gql, update } from "./getGraphQL";
 import { sendSms } from "./send-sms";
 
 export const desktop = "מחשב נייח"
@@ -205,7 +205,7 @@ query ($id: Int!) {
             throw "הטופס אינו מוכן לחתימה";
 
         this.contactSign = MondayDate.now();
-        await this.update(deliveriesBoardNumber, this.id, this.$.contactSign.metadata.options.monday!, JSON.stringify(this.contactSign));
+        await update(deliveriesBoardNumber, this.id, this.$.contactSign.metadata.options.monday!, JSON.stringify(this.contactSign));
         await DeliveryFormController.createPdfAndUpload(this);
     }
     static createPdfAndUpload = async (data: DeliveryFormController) => { };
@@ -220,15 +220,15 @@ query ($id: Int!) {
         let value = JSON.stringify(this.driverSign);
 
         for (const item of this.items) {
-            await this.update(itemsBoardNumber, item.id, "dup__of_____", item.actualQuantity);
+            await update(itemsBoardNumber, item.id, "dup__of_____", item.actualQuantity);
         }
-        await this.update(deliveriesBoardNumber, this.id, this.$.driverSign.metadata.options.monday!, value);
+        await update(deliveriesBoardNumber, this.id, this.$.driverSign.metadata.options.monday!, value);
         let counter = +this.signatureCounter;
         if (!counter)
             counter = 1
         else
             counter++;
-        await this.update(deliveriesBoardNumber, this.id, this.$.signatureCounter.metadata.options.monday!, counter.toString());
+        await update(deliveriesBoardNumber, this.id, this.$.signatureCounter.metadata.options.monday!, counter.toString());
         this.tempSmsResult = await sendSms(this.contactPhone,
             `שלום ${this.contact}, נא לאשר את תכולת הציוד שנאספה עבור מיזם מתחשבים בקישור הבא:
 https://mitchashvim-labs.herokuapp.com/contact-sign/${this.id}`
@@ -239,7 +239,7 @@ https://mitchashvim-labs.herokuapp.com/contact-sign/${this.id}`
         for (const f of [this.$.desktops, this.$.laptops, this.$.screens]) {
             let z = this.items.filter(x => (x.name === f.metadata.caption || f.metadata.options.itemNames?.includes(x.name)) && x.actualQuantity).reduce((prev, x) => prev += +x.actualQuantity, 0);
             if (z != f.value)
-                await this.update(deliveriesBoardNumber, this.id, f.metadata.options.monday!, z.toString());
+                await update(deliveriesBoardNumber, this.id, f.metadata.options.monday!, z.toString());
         }
     }
     @BackendMethod({ allowed: true })
@@ -249,9 +249,9 @@ https://mitchashvim-labs.herokuapp.com/contact-sign/${this.id}`
             if (item.name === desktop || item.name === laptop) {
                 computers += +item.countQuantity;
             }
-            await this.update(itemsBoardNumber, item.id, countColumnInItemsInMonday, item.countQuantity.toString());
+            await update(itemsBoardNumber, item.id, countColumnInItemsInMonday, item.countQuantity.toString());
         }
-        await this.update(deliveriesBoardNumber, this.id, countStatusColumnInMonday, JSON.stringify({ index: computers === 0 ? 1 : 0 }));
+        await update(deliveriesBoardNumber, this.id, countStatusColumnInMonday, JSON.stringify({ index: computers === 0 ? 1 : 0 }));
     }
     @BackendMethod({ allowed: true })
     async cancelSign() {
@@ -259,51 +259,11 @@ https://mitchashvim-labs.herokuapp.com/contact-sign/${this.id}`
         await orig.load(this.id);
         if (!orig.driverSign)
             throw "הטופס אינו חתום";
-        await this.update(deliveriesBoardNumber, this.id, this.$.driverSign.metadata.options.monday!, "{}");
-        await this.update(deliveriesBoardNumber, this.id, this.$.contactSign.metadata.options.monday!, "{}");
+        await update(deliveriesBoardNumber, this.id, this.$.driverSign.metadata.options.monday!, "{}");
+        await update(deliveriesBoardNumber, this.id, this.$.contactSign.metadata.options.monday!, "{}");
         this.driverSign = null;
     }
-    async update(board: number, id: number, column_id: string, value: any) {
-        const values = { id: +id, value, board, column_id };
-        try {
-            const result = await gql(values, `#graphql
-      mutation ($id: Int!,$value:JSON!,$board:Int!,$column_id:String!) {
-   change_column_value(
-     item_id:$id
-     column_id:$column_id,
-     board_id:$board,
-     value:$value
-   ) {
-     id
-    name,
-    column_values(ids:[$column_id]){
-      id
-      value
-    }
-   }
-}
-         `);
-            if (true) {
-                var z = undefined;
-                if (result?.change_column_value) {
-                    z = { ...result.change_column_value }
-                    delete z.column_values
-                }
-                console.log(
-                    {
-                        values,
-                        result: z,
-                        column_values: result?.change_column_value?.column_values
-                    });
 
-            }
-        } catch (err: any) {
-            console.error({
-                error: values,
-                err
-            });
-        }
-    }
 
 }
 

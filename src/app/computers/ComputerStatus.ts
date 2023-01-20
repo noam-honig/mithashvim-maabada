@@ -1,6 +1,6 @@
 import { remult, ValueListFieldType, Remult } from 'remult'
 import { Roles } from '../users/roles'
-import type { Computer } from './computer'
+import { Computer, updateInventory } from './computer'
 
 @ValueListFieldType({ caption: 'סטטוס' })
 export class ComputerStatus {
@@ -63,7 +63,10 @@ export class ComputerStatus {
       groupBy: ['employee'],
       listFields: ['barcode', 'employee'],
       assignPallet: true,
-      validateEmployee: true
+      validateEmployee: true,
+      statusWasChanged: async c => {
+        updateInventory(c.id, [`סה"כ דיסקים`])
+      }
     },
   )
   static waitForPack = new ComputerStatus('ממתין לאריזה', [Roles.stockAdmin], {
@@ -79,6 +82,11 @@ export class ComputerStatus {
     listFields: ['barcode', 'packageBarcode', 'palletBarcode'],
     statusTableCurrentStatusOnly: true,
     assignPallet: true,
+    statusWasChanged: async c => {
+      if (!c.isLaptop) {
+        await updateInventory(c.id, [c.keyboard.stockItemName, "אוזניות", "מצלמות", "דונגלים", "סט כבלים משולב", "אריזות קרטון"])
+      }
+    }
   })
   static packDone = new ComputerStatus('נארז בהצלחה', [Roles.stockAdmin], {
     inputPackageBarcode: true,
@@ -91,6 +99,7 @@ export class ComputerStatus {
     'ממתין לשינוע לארכיברים',
     [Roles.stockAdmin],
     {
+      reducePalletStock: true,
       inputPackageBarcode: true,
       listFields: ['packageBarcode'],
       statusTableCurrentStatusOnly: true,
@@ -101,6 +110,7 @@ export class ComputerStatus {
     'ממתין לשינוע למעבדת כפר סבא',
     [Roles.stockAdmin],
     {
+      reducePalletStock: true,
       inputPackageBarcode: true,
       listFields: ['packageBarcode'],
       statusTableCurrentStatusOnly: true,
@@ -111,6 +121,7 @@ export class ComputerStatus {
     'ממתין לשינוע למחסני סנטורי',
     [Roles.stockAdmin],
     {
+      reducePalletStock: true,
       inputPackageBarcode: true,
       listFields: ['packageBarcode'],
       statusTableCurrentStatusOnly: true,
@@ -121,6 +132,7 @@ export class ComputerStatus {
     'ממתין לשינוע למוטב',
     [Roles.stockAdmin],
     {
+      reducePalletStock: true,
       inputPackageBarcode: true,
       inputRecipient: true,
       groupBy: ['recipient', 'palletBarcode'],
@@ -155,6 +167,8 @@ export class ComputerStatus {
   clearPallet = false
   canUpdateCompletePallet = false
   special = false
+  statusWasChanged = async (c: Computer) => { }
+  reducePalletStock = false;
 
   groupBy: (keyof Computer)[] = []
   listFields: (keyof Computer)[] = []

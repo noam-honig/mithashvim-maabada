@@ -5571,5 +5571,105 @@
     "changedFields": [
       "keyboard"
     ]
+  },
+  {
+    "id": "ddea4c97-6eab-41b1-b741-6252edc9ef51",
+    "relatedId": "42e21779-97a3-44ec-9300-d49ed3251d0e",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2023-01-20T04:32:40.968Z",
+    "userId": "2c4077ec-b861-474b-b5fd-62daa8c9b736",
+    "userName": "נועם",
+    "changes": [
+      {
+        "key": "status",
+        "oldDisplayValue": "התקבל - מחשב נייח",
+        "newDisplayValue": "שודרג בהצלחה",
+        "newValue": "successfulUpgrade",
+        "oldValue": "intake"
+      }
+    ],
+    "changedFields": [
+      "status"
+    ]
+  },
+  {
+    "id": "d9fd390f-9204-4322-b08a-0e451002ad1f",
+    "relatedId": "42e21779-97a3-44ec-9300-d49ed3251d0e",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2023-01-20T04:33:35.053Z",
+    "userId": "2c4077ec-b861-474b-b5fd-62daa8c9b736",
+    "userName": "נועם",
+    "changes": [
+      {
+        "key": "packageBarcode",
+        "oldDisplayValue": "",
+        "newDisplayValue": "A12313",
+        "newValue": "A12313",
+        "oldValue": ""
+      },
+      {
+        "key": "status",
+        "oldDisplayValue": "שודרג בהצלחה",
+        "newDisplayValue": "תהליך אריזה",
+        "newValue": "packing",
+        "oldValue": "successfulUpgrade"
+      }
+    ],
+    "changedFields": [
+      "packageBarcode",
+      "status"
+    ]
+  },
+  {
+    "id": "b49571d2-5790-4c8c-9c1c-73aa1bbf3b17",
+    "relatedId": "42e21779-97a3-44ec-9300-d49ed3251d0e",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2023-01-20T04:41:41.403Z",
+    "userId": "2c4077ec-b861-474b-b5fd-62daa8c9b736",
+    "userName": "נועם",
+    "changes": [
+      {
+        "key": "status",
+        "oldDisplayValue": "תהליך אריזה",
+        "newDisplayValue": "ממתין לשינוע למחסני סנטורי",
+        "newValue": "waitCentury",
+        "oldValue": "packing"
+      }
+    ],
+    "changedFields": [
+      "status"
+    ]
+  },
+  {
+    "id": "c19a4235-63ce-4edc-9999-9e33653a0cf1",
+    "relatedId": "92f39d7d-ed05-4f5d-a504-65467d83a8e1",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2023-01-20T04:41:41.667Z",
+    "userId": "2c4077ec-b861-474b-b5fd-62daa8c9b736",
+    "userName": "נועם",
+    "changes": [
+      {
+        "key": "status",
+        "oldDisplayValue": "שודרג בהצלחה",
+        "newDisplayValue": "ממתין לשינוע למחסני סנטורי",
+        "newValue": "waitCentury",
+        "oldValue": "successfulUpgrade"
+      }
+    ],
+    "changedFields": [
+      "status"
+    ]
   }
 ]

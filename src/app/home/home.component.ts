@@ -117,6 +117,9 @@ export class HomeComponent implements OnInit {
             updateComputerBasedOnInput(c)
             await c.save()
           }
+          if (this.input.status.reducePalletStock){
+            Computer.reducePalletStock(this.input.palletBarcode)
+          }
         }
       } else {
         let c: Computer

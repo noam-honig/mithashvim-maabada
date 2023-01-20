@@ -1,0 +1,345 @@
+[
+  {
+    "id": "3f71b172-fc33-4685-b2ba-6664d0e9acbf",
+    "computerId": "123",
+    "stockItem": "נועם",
+    "createdAt": "2023-01-20T04:14:39.108Z",
+    "mondayResult": {},
+    "stockItemId": ""
+  },
+  {
+    "id": "80372e37-d0c0-423d-85d6-8902a22ef7c9",
+    "computerId": "123",
+    "stockItem": "נועם",
+    "createdAt": "2023-01-20T04:15:08.339Z",
+    "mondayResult": {},
+    "stockItemId": ""
+  },
+  {
+    "id": "bda17318-d26c-47d3-b4dc-d7cb6000d97e",
+    "computerId": "123",
+    "stockItem": "נועם",
+    "createdAt": "2023-01-20T04:15:30.939Z",
+    "mondayResult": {},
+    "stockItemId": ""
+  },
+  {
+    "id": "e6ed4eae-b38f-47b8-b81d-04330bf8db8f",
+    "computerId": "123",
+    "stockItem": "נועם",
+    "createdAt": "2023-01-20T04:15:42.480Z",
+    "stockItemId": ""
+  },
+  {
+    "id": "0cb5c9f1-81fb-44ea-8406-b8591e1eca57",
+    "computerId": "123",
+    "stockItem": "נועם",
+    "createdAt": "2023-01-20T04:16:05.300Z",
+    "stockItemId": ""
+  },
+  {
+    "id": "d4702705-d12b-43a1-88e0-147b881864f1",
+    "computerId": "123",
+    "stockItem": "נועם",
+    "createdAt": "2023-01-20T04:16:19.142Z",
+    "stockItemId": ""
+  },
+  {
+    "id": "d4767de5-f4cc-4dc7-8988-3fb1961c95af",
+    "computerId": "123",
+    "stockItem": "נועם",
+    "createdAt": "2023-01-20T04:18:34.655Z",
+    "mondayResult": {
+      "error": "Request failed with status code 500"
+    },
+    "stockItemId": ""
+  },
+  {
+    "id": "28f3e132-4136-4c92-b643-fd0259fad48d",
+    "computerId": "123",
+    "stockItem": "נועם",
+    "createdAt": "2023-01-20T04:19:03.423Z",
+    "mondayResult": {
+      "error": {
+        "message": "Request failed with status code 500",
+        "name": "AxiosError",
+        "stack": "AxiosError: Request failed with status code 500\n    at settle (C:\\repos\\mithashvim-maabada\\node_modules\\axios\\lib\\core\\settle.js:19:12)\n    at Unzip.handleStreamEnd (C:\\repos\\mithashvim-maabada\\node_modules\\axios\\lib\\adapters\\http.js:495:11)\n    at Unzip.emit (node:events:402:35)\n    at endReadableNT (node:internal/streams/readable:1343:12)\n    at processTicksAndRejections (node:internal/process/task_queues:83:21)",
+        "config": {
+          "transitional": {
+            "silentJSONParsing": true,
+            "forcedJSONParsing": true,
+            "clarifyTimeoutError": false
+          },
+          "transformRequest": [
+            null
+          ],
+          "transformResponse": [
+            null
+          ],
+          "timeout": 0,
+          "xsrfCookieName": "XSRF-TOKEN",
+          "xsrfHeaderName": "X-XSRF-TOKEN",
+          "maxContentLength": -1,
+          "maxBodyLength": -1,
+          "env": {
+            "Blob": null
+          },
+          "headers": {
+            "Accept": "application/json, text/plain, */*",
+            "Content-Type": "application/x-www-form-urlencoded",
+            "authorization": "eyJhbGciOiJIUzI1NiJ9.eyJ0aWQiOjE2NzQ3OTEyNywidWlkIjozMTYyOTYyMSwiaWFkIjoiMjAyMi0wNi0yN1QxMDoxOTozNy41MTJaIiwicGVyIjoibWU6d3JpdGUiLCJhY3RpZCI6MTE2MDM5NDEsInJnbiI6InVzZTEifQ.dc03v3JOiaHr-OOuhRKxHPonJG3b519W3CwFhYAK0KE",
+            "content-type": "application/json",
+            "User-Agent": "axios/1.1.3",
+            "Content-Length": "372",
+            "Accept-Encoding": "gzip, deflate, br"
+          },
+          "method": "post",
+          "url": "https://api.monday.com/v2",
+          "data": "{\"query\":\"#graphql\\n  mutation ($id: Int!,$value:JSON!,$board:Int!,$column_id:String!) {\\nchange_column_value(\\n item_id:$id\\n column_id:$column_id,\\n board_id:$board,\\n value:$value\\n) {\\n id\\nname,\\ncolumn_values(ids:[$column_id]){\\n  id\\n  title\\n  value\\n}\\n}\\n}\\n     \",\"variables\":{\"id\":3837326403,\"value\":98,\"board\":2673879135,\"column_id\":\"dup__of_______________\"}}"
+        },
+        "code": "ERR_BAD_RESPONSE",
+        "status": 500
+      }
+    },
+    "stockItemId": ""
+  },
+  {
+    "id": "c6629f71-fd85-489b-b5fb-4166309738b0",
+    "computerId": "123",
+    "stockItem": "נועם",
+    "createdAt": "2023-01-20T04:20:17.857Z",
+    "mondayResult": {
+      "error": {
+        "message": "Request failed with status code 500",
+        "name": "AxiosError",
+        "stack": "AxiosError: Request failed with status code 500\n    at settle (C:\\repos\\mithashvim-maabada\\node_modules\\axios\\lib\\core\\settle.js:19:12)\n    at Unzip.handleStreamEnd (C:\\repos\\mithashvim-maabada\\node_modules\\axios\\lib\\adapters\\http.js:495:11)\n    at Unzip.emit (node:events:402:35)\n    at endReadableNT (node:internal/streams/readable:1343:12)\n    at processTicksAndRejections (node:internal/process/task_queues:83:21)",
+        "config": {
+          "transitional": {
+            "silentJSONParsing": true,
+            "forcedJSONParsing": true,
+            "clarifyTimeoutError": false
+          },
+          "transformRequest": [
+            null
+          ],
+          "transformResponse": [
+            null
+          ],
+          "timeout": 0,
+          "xsrfCookieName": "XSRF-TOKEN",
+          "xsrfHeaderName": "X-XSRF-TOKEN",
+          "maxContentLength": -1,
+          "maxBodyLength": -1,
+          "env": {
+            "Blob": null
+          },
+          "headers": {
+            "Accept": "application/json, text/plain, */*",
+            "Content-Type": "application/x-www-form-urlencoded",
+            "authorization": "eyJhbGciOiJIUzI1NiJ9.eyJ0aWQiOjE2NzQ3OTEyNywidWlkIjozMTYyOTYyMSwiaWFkIjoiMjAyMi0wNi0yN1QxMDoxOTozNy41MTJaIiwicGVyIjoibWU6d3JpdGUiLCJhY3RpZCI6MTE2MDM5NDEsInJnbiI6InVzZTEifQ.dc03v3JOiaHr-OOuhRKxHPonJG3b519W3CwFhYAK0KE",
+            "content-type": "application/json",
+            "User-Agent": "axios/1.1.3",
+            "Content-Length": "372",
+            "Accept-Encoding": "gzip, deflate, br"
+          },
+          "method": "post",
+          "url": "https://api.monday.com/v2",
+          "data": "{\"query\":\"#graphql\\n  mutation ($id: Int!,$value:JSON!,$board:Int!,$column_id:String!) {\\nchange_column_value(\\n item_id:$id\\n column_id:$column_id,\\n board_id:$board,\\n value:$value\\n) {\\n id\\nname,\\ncolumn_values(ids:[$column_id]){\\n  id\\n  title\\n  value\\n}\\n}\\n}\\n     \",\"variables\":{\"id\":3837326403,\"value\":98,\"board\":2673879135,\"column_id\":\"dup__of_______________\"}}"
+        },
+        "code": "ERR_BAD_RESPONSE",
+        "status": 500
+      }
+    },
+    "stockItemId": ""
+  },
+  {
+    "id": "fc8c6eed-3df1-4d5c-a200-6cc2e1d35eb4",
+    "computerId": "123",
+    "stockItem": "נועם",
+    "createdAt": "2023-01-20T04:22:41.016Z",
+    "mondayResult": {
+      "error": "Request failed with status code 500"
+    },
+    "stockItemId": ""
+  },
+  {
+    "id": "9164276f-ed41-4995-98dd-d9e1e59fb0df",
+    "computerId": "123",
+    "stockItem": "נועם",
+    "createdAt": "2023-01-20T04:22:52.601Z",
+    "mondayResult": {
+      "id": "3837326403",
+      "name": "נועם",
+      "column_values": [
+        {
+          "id": "dup__of_______________",
+          "title": "כמות במשקם",
+          "value": "\"98\""
+        }
+      ]
+    },
+    "stockItemId": ""
+  },
+  {
+    "id": "0747cf03-0002-45cf-8e9d-7f7c60941a54",
+    "computerId": "123",
+    "stockItem": "נועם",
+    "stockItemId": "3837326403",
+    "createdAt": "2023-01-20T04:24:10.838Z",
+    "mondayResult": {
+      "id": "3837326403",
+      "name": "נועם",
+      "column_values": [
+        {
+          "id": "dup__of_______________",
+          "title": "כמות במשקם",
+          "value": "\"97\""
+        }
+      ]
+    }
+  },
+  {
+    "id": "46c311de-8a71-4e99-9254-f9c280214761",
+    "computerId": "42e21779-97a3-44ec-9300-d49ed3251d0e",
+    "stockItem": "סה\"כ דיסקים",
+    "stockItemId": "3835299533",
+    "createdAt": "2023-01-20T04:32:41.901Z",
+    "mondayResult": {
+      "id": "3835299533",
+      "name": "סה\"כ דיסקים",
+      "column_values": [
+        {
+          "id": "dup__of_______________",
+          "title": "כמות במשקם",
+          "value": "\"399\""
+        }
+      ]
+    }
+  },
+  {
+    "id": "0a73ee22-6100-479a-9f42-28ecd2df9e5b",
+    "computerId": "42e21779-97a3-44ec-9300-d49ed3251d0e",
+    "stockItem": "סט מקלדת עברית + עכבר",
+    "stockItemId": "2673892027",
+    "createdAt": "2023-01-20T04:33:35.829Z",
+    "mondayResult": {
+      "id": "2673892027",
+      "name": "סט מקלדת עברית + עכבר",
+      "column_values": [
+        {
+          "id": "dup__of_______________",
+          "title": "כמות במשקם",
+          "value": "\"499\""
+        }
+      ]
+    }
+  },
+  {
+    "id": "719a1458-1c78-45ec-bbfd-1cfe6061f7e0",
+    "computerId": "42e21779-97a3-44ec-9300-d49ed3251d0e",
+    "stockItem": "אוזניות",
+    "stockItemId": "2673892035",
+    "createdAt": "2023-01-20T04:33:36.283Z",
+    "mondayResult": {
+      "id": "2673892035",
+      "name": "אוזניות",
+      "column_values": [
+        {
+          "id": "dup__of_______________",
+          "title": "כמות במשקם",
+          "value": "\"479\""
+        }
+      ]
+    }
+  },
+  {
+    "id": "13a42f84-874e-47a5-a432-40999106fa73",
+    "computerId": "42e21779-97a3-44ec-9300-d49ed3251d0e",
+    "stockItem": "מצלמות",
+    "stockItemId": "2673892050",
+    "createdAt": "2023-01-20T04:33:36.685Z",
+    "mondayResult": {
+      "id": "2673892050",
+      "name": "מצלמות",
+      "column_values": [
+        {
+          "id": "dup__of_______________",
+          "title": "כמות במשקם",
+          "value": "\"639\""
+        }
+      ]
+    }
+  },
+  {
+    "id": "45b9b44a-0448-448e-98b3-d96d7ee27a40",
+    "computerId": "42e21779-97a3-44ec-9300-d49ed3251d0e",
+    "stockItem": "דונגלים",
+    "stockItemId": "2673892040",
+    "createdAt": "2023-01-20T04:33:37.059Z",
+    "mondayResult": {
+      "id": "2673892040",
+      "name": "דונגלים",
+      "column_values": [
+        {
+          "id": "dup__of_______________",
+          "title": "כמות במשקם",
+          "value": "\"604\""
+        }
+      ]
+    }
+  },
+  {
+    "id": "1ea98383-af31-44ae-8bc3-3a230a0c8c00",
+    "computerId": "42e21779-97a3-44ec-9300-d49ed3251d0e",
+    "stockItem": "סט כבלים משולב",
+    "stockItemId": "2673892064",
+    "createdAt": "2023-01-20T04:33:37.524Z",
+    "mondayResult": {
+      "id": "2673892064",
+      "name": "סט כבלים משולב",
+      "column_values": [
+        {
+          "id": "dup__of_______________",
+          "title": "כמות במשקם",
+          "value": "\"1699\""
+        }
+      ]
+    }
+  },
+  {
+    "id": "79a9de36-88f7-4398-9829-d4f3be5f03ae",
+    "computerId": "42e21779-97a3-44ec-9300-d49ed3251d0e",
+    "stockItem": "אריזות קרטון",
+    "stockItemId": "2673892065",
+    "createdAt": "2023-01-20T04:33:38.371Z",
+    "mondayResult": {
+      "id": "2673892065",
+      "name": "אריזות קרטון",
+      "column_values": [
+        {
+          "id": "dup__of_______________",
+          "title": "כמות במשקם",
+          "value": "\"739\""
+        }
+      ]
+    }
+  },
+  {
+    "id": "dc56b659-c5b8-42f4-98d8-3060e9585367",
+    "computerId": "Z2234",
+    "stockItem": "משטחים ריקים",
+    "stockItemId": "3017929902",
+    "createdAt": "2023-01-20T04:41:42.654Z",
+    "mondayResult": {
+      "id": "3017929902",
+      "name": "משטחים ריקים",
+      "column_values": [
+        {
+          "id": "dup__of_______________",
+          "title": "כמות במשקם",
+          "value": "\"49\""
+        }
+      ]
+    }
+  }
+]

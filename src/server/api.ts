@@ -4,7 +4,7 @@ import { User } from '../app/users/user';
 import { SignInController } from '../app/users/SignInController';
 import { UpdatePasswordController } from '../app/users/UpdatePasswordController';
 import { Employee } from '../app/employees/employee';
-import { Computer } from '../app/computers/computer';
+import { Computer, updateInventory } from '../app/computers/computer';
 import { ChangeLog } from '../app/change-log/change-log';
 import { DeliveryFormController } from '../app/driver-sign/delivery-form.controller';
 import { createPdfDocument } from '../app/contact-sign/createPdfDocument';
@@ -25,8 +25,9 @@ export const api = remultExpress({
     },
     initApi: async () => {
         await versionUpdate();
+        //await updateInventory("123");
         if (false) {
-            
+
             const data = await gql({}, `#graphql
             query  {
               boards(ids: [2673923561]) {
@@ -59,5 +60,3 @@ DeliveryFormController.createPdfAndUpload = async (c) => {
     await createPdfDocument(c);
     await graphqlUploadFile(c.id);
 }
-
-

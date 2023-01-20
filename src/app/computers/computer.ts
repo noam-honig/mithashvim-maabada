@@ -15,7 +15,7 @@ import { DataControl } from '../common-ui-elements/interfaces'
 import '../common/UITools'
 import { dataChangedChannel } from '../data-refresh/data-refresh.controller'
 import { countStatusColumnInMonday, deliveriesBoardNumber, DeliveryFormController, desktop, itemsBoardNumber, laptop } from '../driver-sign/delivery-form.controller'
-import { gql } from '../driver-sign/getGraphQL'
+import { gql, MondayItem, update } from '../driver-sign/getGraphQL'
 import { Employee } from '../employees/employee'
 import { Roles } from '../users/roles'
 import { ComputerStatus } from './ComputerStatus'
@@ -36,10 +36,14 @@ import { KeyboardType } from './keyboardType'
 
   },
   saved: async self => {
-    if (isBackend())
+    if (isBackend()) {
       dataChangedChannel.publish({});
-    if (self.originId && self.isNew() && isBackend()) {
-      Computer.updateMondayStats(self.originId)
+      if (self.originId && self.isNew() && isBackend()) {
+        Computer.updateMondayStats(self.originId)
+      }
+      if (self.$.status.valueChanged()) {
+        await self.status.statusWasChanged(self);
+      }
     }
   }
 })
@@ -127,7 +131,7 @@ export class Computer extends IdEntity {
   })
   cpu!: CPUType
 
-  @Field(()=>KeyboardType)
+  @Field(() => KeyboardType)
   keyboard = KeyboardType.hebrew
   @DataControl({
     hideDataOnInput: true,
@@ -449,6 +453,10 @@ export class Computer extends IdEntity {
     return arr
   }
   @BackendMethod({ allowed: Allow.authenticated })
+  static async reducePalletStock(palletBarcode: string) {
+    await updateInventory(palletBarcode, ["משטחים ריקים"]);
+  }
+  @BackendMethod({ allowed: Allow.authenticated })
 
   static async updateMondayStats(originId: string) {
     const form = new DeliveryFormController(remult)
@@ -481,8 +489,8 @@ export class Computer extends IdEntity {
       {
         let compItem = form.items.find(i => i.name === desktop)
         if (compItem) {
-          await form.update(itemsBoardNumber, compItem.id, "numbers2", comps.toString())
-          await form.update(itemsBoardNumber, compItem.id, "numbers5", compsTrash.toString())
+          await update(itemsBoardNumber, compItem.id, "numbers2", comps.toString())
+          await update(itemsBoardNumber, compItem.id, "numbers5", compsTrash.toString())
           if (+compItem.countQuantity <= comps + compsTrash)
             done++
         }
@@ -491,15 +499,15 @@ export class Computer extends IdEntity {
       {
         let laptopItem = form.items.find(i => i.name === laptop)
         if (laptopItem) {
-          await form.update(itemsBoardNumber, laptopItem.id, "numbers2", laptops.toString())
-          await form.update(itemsBoardNumber, laptopItem.id, "numbers5", laptopsTrash.toString())
+          await update(itemsBoardNumber, laptopItem.id, "numbers2", laptops.toString())
+          await update(itemsBoardNumber, laptopItem.id, "numbers5", laptopsTrash.toString())
           if (+laptopItem.countQuantity <= laptops + laptopsTrash)
             done++
 
         }
       }
       if (done === 2) {
-        await form.update(deliveriesBoardNumber, +originId, countStatusColumnInMonday, JSON.stringify({ index: 1 }))
+        await update(deliveriesBoardNumber, +originId, countStatusColumnInMonday, JSON.stringify({ index: 1 }))
       }
       return "עודכן בהצלחה";
     }, error => {
@@ -569,3 +577,54 @@ export interface Donor {
   forIntake: boolean
 }
 
+@Entity("inventory-line")
+export class InventoryLine extends IdEntity {
+  @Fields.string()
+  computerId = '';
+  @Fields.string()
+  stockItem = '';
+  @Fields.string()
+  stockItemId = '';
+  @Fields.createdAt()
+  createdAt = new Date()
+  @Fields.object()
+  mondayResult: any
+}
+
+
+const kamutAtMeshaken = "dup__of_______________";
+const mlaiBoard = 2673879135;
+export async function updateInventory(computerId: string, stockItems: string[]) {
+  const inventory: MondayItem[] = (await gql({}, `#graphql
+{
+  boards(ids: [${mlaiBoard}]) {
+    id
+    name
+    items(limit: 10000) {
+      id
+      name
+      column_values(ids: ["${kamutAtMeshaken}"]) {
+        id
+        title
+        value
+      }
+    }
+  }
+}
+
+ `)).boards[0].items
+
+  for (const stockItem of stockItems) {
+    const item = inventory.find(y => y.name === stockItem);
+    let i = remult.repo(InventoryLine).create({
+      computerId,
+      stockItem
+    })
+    if (item) {
+      i.stockItemId = item.id;
+      let q = +JSON.parse(item!.column_values[0].value);
+      i.mondayResult = await update(mlaiBoard, +item.id, kamutAtMeshaken, (q - 1).toString());
+      await i.save();
+    }
+  }
+}
