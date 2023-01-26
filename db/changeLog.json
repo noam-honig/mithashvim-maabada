@@ -5671,5 +5671,231 @@
     "changedFields": [
       "status"
     ]
+  },
+  {
+    "id": "572e8649-8651-4982-89ef-2e21670e3c97",
+    "relatedId": "65172981-b5b5-4779-91a3-c1ce46b3192f",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2023-01-26T07:24:01.565Z",
+    "userId": "2c4077ec-b861-474b-b5fd-62daa8c9b736",
+    "userName": "נועם",
+    "changes": [
+      {
+        "key": "barcode",
+        "oldDisplayValue": "",
+        "newDisplayValue": "M123451",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "packageBarcode",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "palletBarcode",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "status",
+        "oldDisplayValue": "",
+        "newDisplayValue": "התקבל - מחשב נייח",
+        "newValue": "intake",
+        "oldValue": ""
+      },
+      {
+        "key": "employee",
+        "oldDisplayValue": "",
+        "newValue": "",
+        "oldValue": null
+      },
+      {
+        "key": "cpu",
+        "oldDisplayValue": "",
+        "newValue": ""
+      },
+      {
+        "key": "keyboard",
+        "oldDisplayValue": "",
+        "newDisplayValue": "עברית/אנגלית",
+        "newValue": "",
+        "oldValue": "hebrew"
+      },
+      {
+        "key": "origin",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "originId",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "isLaptop",
+        "oldDisplayValue": "",
+        "newDisplayValue": "X",
+        "newValue": "",
+        "oldValue": false
+      },
+      {
+        "key": "make",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "model",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "courier",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "recipient",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "recipientId",
+        "oldDisplayValue": "",
+        "newDisplayValue": "",
+        "newValue": "",
+        "oldValue": ""
+      },
+      {
+        "key": "createDate",
+        "oldDisplayValue": "",
+        "newDisplayValue": "2023-01-26T07:24:01.558Z",
+        "newValue": "",
+        "oldValue": "2023-01-26T07:24:01.558Z"
+      }
+    ],
+    "changedFields": [
+      "barcode",
+      "packageBarcode",
+      "palletBarcode",
+      "status",
+      "employee",
+      "cpu",
+      "keyboard",
+      "origin",
+      "originId",
+      "isLaptop",
+      "make",
+      "model",
+      "courier",
+      "recipient",
+      "recipientId",
+      "createDate"
+    ]
+  },
+  {
+    "id": "38acde9c-40f6-4968-9647-5fe3c959dbd1",
+    "relatedId": "4d58753f-3f9e-48ba-8deb-5cc0742f9b3b",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2023-01-26T07:25:10.528Z",
+    "userId": "2c4077ec-b861-474b-b5fd-62daa8c9b736",
+    "userName": "נועם",
+    "changes": [
+      {
+        "key": "barcode",
+        "newDisplayValue": "M123452",
+        "oldDisplayValue": "",
+        "newValue": "M123452",
+        "oldValue": ""
+      },
+      {
+        "key": "status",
+        "newDisplayValue": "התקבל - מחשב נייח",
+        "oldDisplayValue": "",
+        "newValue": "intake",
+        "oldValue": ""
+      },
+      {
+        "key": "keyboard",
+        "newDisplayValue": "עברית/אנגלית",
+        "oldDisplayValue": "",
+        "newValue": "hebrew",
+        "oldValue": ""
+      },
+      {
+        "key": "createDate",
+        "newDisplayValue": "2023-01-26T07:25:10.524Z",
+        "oldDisplayValue": "",
+        "newValue": "2023-01-26T07:25:10.524Z",
+        "oldValue": ""
+      }
+    ],
+    "changedFields": [
+      "barcode",
+      "status",
+      "keyboard",
+      "createDate"
+    ]
+  },
+  {
+    "id": "a4ec89b4-736f-4c8f-b802-5beffd176ac8",
+    "relatedId": "23ea2992-53e9-458b-85f5-b4ca62e20865",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2023-01-26T07:25:53.943Z",
+    "userId": "2c4077ec-b861-474b-b5fd-62daa8c9b736",
+    "userName": "נועם",
+    "changes": [
+      {
+        "key": "barcode",
+        "newDisplayValue": "M123453",
+        "oldDisplayValue": "",
+        "newValue": "M123453",
+        "oldValue": ""
+      },
+      {
+        "key": "status",
+        "newDisplayValue": "התקבל - מחשב נייח",
+        "oldDisplayValue": "",
+        "newValue": "intake",
+        "oldValue": ""
+      },
+      {
+        "key": "keyboard",
+        "newDisplayValue": "עברית/אנגלית",
+        "oldDisplayValue": "",
+        "newValue": "hebrew",
+        "oldValue": ""
+      }
+    ],
+    "changedFields": [
+      "barcode",
+      "status",
+      "keyboard"
+    ]
   }
 ]

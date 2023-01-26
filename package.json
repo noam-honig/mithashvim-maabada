@@ -5,7 +5,7 @@
     "dev": "concurrently -k -n \"API,WEB\" -c \"bgBlue.bold,bgGreen.bold\" \"ts-node-dev --inspect -P tsconfig.server.json src/server/\" \"ng serve --proxy-config proxy.conf.json --open\"",
     "ng": "ng",
     "start": "node dist/server/",
-    "build": "ng build && tsc -p tsconfig.server.json",
+    "build": "ng build && tsc -p tsconfig.server.json && node dist/server/run-version.js",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },

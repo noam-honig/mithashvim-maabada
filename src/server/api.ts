@@ -4,13 +4,15 @@ import { User } from '../app/users/user';
 import { SignInController } from '../app/users/SignInController';
 import { UpdatePasswordController } from '../app/users/UpdatePasswordController';
 import { Employee } from '../app/employees/employee';
-import { Computer, updateInventory } from '../app/computers/computer';
+import { Computer } from '../app/computers/computer';
 import { ChangeLog } from '../app/change-log/change-log';
 import { DeliveryFormController } from '../app/driver-sign/delivery-form.controller';
 import { createPdfDocument } from '../app/contact-sign/createPdfDocument';
 import { graphqlUploadFile } from '../app/contact-sign/graphqlUploadFile';
 import { versionUpdate } from './version';
 import { gql } from '../app/driver-sign/getGraphQL';
+import { getValueList, remult } from 'remult';
+import { ComputerStatus } from '../app/computers/ComputerStatus';
 
 
 export const api = remultExpress({
@@ -25,6 +27,10 @@ export const api = remultExpress({
     },
     initApi: async () => {
         await versionUpdate();
+
+
+
+
         //await updateInventory("123");
         if (false) {
 

@@ -1,6 +1,8 @@
 import { remult, ValueListFieldType, Remult } from 'remult'
 import { Roles } from '../users/roles'
-import { Computer, updateInventory } from './computer'
+import type { Computer } from './computer'
+import { updateInventory } from './InventoryLine'
+
 
 @ValueListFieldType({ caption: 'סטטוס' })
 export class ComputerStatus {
@@ -178,3 +180,6 @@ export class ComputerStatus {
   inputPackageBarcode = false
   inputRecipient = false
 }
+
+
+

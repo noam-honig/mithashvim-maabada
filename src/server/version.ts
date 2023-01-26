@@ -1,7 +1,8 @@
-import { Entity, Field, Fields, IdEntity, remult, Remult, SqlDatabase } from "remult";
+import { Entity, Field, Fields, getValueList, IdEntity, remult, Remult, SqlDatabase } from "remult";
 import { PostgresSchemaBuilder } from "remult/postgres";
-import { recordChanges } from "../app/change-log/change-log";
+import { ChangeLog, recordChanges } from "../app/change-log/change-log";
 import { Computer } from "../app/computers/computer";
+import { ComputerStatus } from "../app/computers/ComputerStatus";
 
 @Entity(undefined!, {
   dbName: "versionInfo"
@@ -32,6 +33,21 @@ export async function versionUpdate() {
         forceNew: true
       })
     }
+  });
+  await version(2, async () => {
+    const compRepo = remult.repo(Computer);
+    throw Error("BLA BLA");
+    for await (const change of remult.repo(ChangeLog).query()) {
+      let p = change.changes.find(x => x.key === compRepo.metadata.fields.status.key && !x.newValue && x.oldDisplayValue === ''
+        && x.newDisplayValue !== "");
+      if (p) {
+        let s = getValueList(ComputerStatus).find(y => y.caption === p!.newDisplayValue);
+        p!.newValue = s!.id;
+        p!.oldValue = '';
+        await change.save();
+      }
+    }
+
   });
 
 }

@@ -20,6 +20,7 @@ import { Employee } from '../employees/employee'
 import { Roles } from '../users/roles'
 import { ComputerStatus } from './ComputerStatus'
 import { CPUType } from './CPUType'
+import { InventoryLine, updateInventory } from './InventoryLine'
 import { KeyboardType } from './keyboardType'
 
 @Entity<Computer>('computers', {
@@ -31,7 +32,7 @@ import { KeyboardType } from './keyboardType'
   saving: async (self) => {
     self.updateDate = new Date()
     await recordChanges(self, {
-      excludeColumns: (e) => [e.updateDate, e.id],
+      excludeColumns: (e) => [e.updateDate, e.id, e.createDate],
     })
 
   },
@@ -380,15 +381,16 @@ export class Computer extends IdEntity {
     }
     return statuses
   }
-  @BackendMethod({ allowed: Allow.authenticated })
+  @BackendMethod({ allowed: Allow.authenticated, paramTypes: [ComputerStatus, String] })
   static async getStatusChanges(
     status: ComputerStatus,
     employeeId?: string,
   ): Promise<StatusDate[]> {
-    let d = new Date()
+    
     const compRepo = remult.repo(Computer)
     const arr: StatusDate[] = []
     let lastDate: StatusDate | undefined
+    let d = new Date()
     d.setDate(d.getDate() - 7)
 
     for await (let change of remult.repo(ChangeLog).query({
@@ -577,54 +579,3 @@ export interface Donor {
   forIntake: boolean
 }
 
-@Entity("inventory-line")
-export class InventoryLine extends IdEntity {
-  @Fields.string()
-  computerId = '';
-  @Fields.string()
-  stockItem = '';
-  @Fields.string()
-  stockItemId = '';
-  @Fields.createdAt()
-  createdAt = new Date()
-  @Fields.object()
-  mondayResult: any
-}
-
-
-const kamutAtMeshaken = "dup__of_______________";
-const mlaiBoard = 2673879135;
-export async function updateInventory(computerId: string, stockItems: string[]) {
-  const inventory: MondayItem[] = (await gql({}, `#graphql
-{
-  boards(ids: [${mlaiBoard}]) {
-    id
-    name
-    items(limit: 10000) {
-      id
-      name
-      column_values(ids: ["${kamutAtMeshaken}"]) {
-        id
-        title
-        value
-      }
-    }
-  }
-}
-
- `)).boards[0].items
-
-  for (const stockItem of stockItems) {
-    const item = inventory.find(y => y.name === stockItem);
-    let i = remult.repo(InventoryLine).create({
-      computerId,
-      stockItem
-    })
-    if (item) {
-      i.stockItemId = item.id;
-      let q = +JSON.parse(item!.column_values[0].value);
-      i.mondayResult = await update(mlaiBoard, +item.id, kamutAtMeshaken, (q - 1).toString());
-      await i.save();
-    }
-  }
-}

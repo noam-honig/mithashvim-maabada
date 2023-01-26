@@ -52,7 +52,7 @@ export async function recordChanges<entityType extends EntityBase>(self: entityT
         const isNew = options?.forceNew || self.isNew()
         const changeDate = options?.forceDate || new Date();
 
-        for (const c of decider.fields.filter(c => c.valueChanged() || isNew)) {
+        for (const c of decider.fields.filter(c => c.valueChanged() || isNew&&c.value)) {
             try {
                 let transValue = (val: any) => val;
                 if (c.metadata.options.displayValue)
@@ -63,10 +63,10 @@ export async function recordChanges<entityType extends EntityBase>(self: entityT
                 const noVal = decider.excludedValues.includes(c);
                 changes.push({
                     key: c.metadata.key,
-                    oldDisplayValue: self.isNew() ? "" : noVal ? "***" : transValue(c.originalValue),
                     newDisplayValue: noVal ? "***" : transValue(c.value),
-                    newValue: self.isNew() ? "" : noVal ? "***" : (c.value instanceof IdEntity) ? c.value.id : c.metadata.options.valueConverter!.toJson!(c.value),
-                    oldValue: noVal ? "***" : (c.originalValue instanceof IdEntity) ? c.originalValue.id : c.metadata.options.valueConverter!.toJson!(c.originalValue)
+                    oldDisplayValue: self.isNew() ? "" : noVal ? "***" : transValue(c.originalValue),
+                    newValue: noVal ? "***" : (c.value instanceof IdEntity) ? c.value.id : c.metadata.options.valueConverter!.toJson!(c.value),
+                    oldValue: self.isNew() ? "" : noVal ? "***" : (c.originalValue instanceof IdEntity) ? c.originalValue.id : c.metadata.options.valueConverter!.toJson!(c.originalValue)
                 });
             } catch (err) {
                 console.log(c);
