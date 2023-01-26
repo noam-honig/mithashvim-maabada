@@ -6,7 +6,7 @@ import {
 import { gql, MondayItem, update } from '../driver-sign/getGraphQL';
 
 
-@Entity("inventory-line")
+@Entity("inventoryLine")
 export class InventoryLine extends IdEntity {
   @Fields.string()
   computerId = '';
