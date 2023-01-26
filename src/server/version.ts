@@ -36,7 +36,6 @@ export async function versionUpdate() {
   });
   await version(2, async () => {
     const compRepo = remult.repo(Computer);
-    throw Error("BLA BLA");
     for await (const change of remult.repo(ChangeLog).query()) {
       let p = change.changes.find(x => x.key === compRepo.metadata.fields.status.key && !x.newValue && x.oldDisplayValue === ''
         && x.newDisplayValue !== "");
