@@ -479,7 +479,7 @@ export class Computer extends IdEntity {
           laptops++
       }
       else {
-        if (c.status === ComputerStatus.intakeTrashLaptop)
+        if (c.status === ComputerStatus.intakeTrash)
           compsTrash++
         else
           comps++
