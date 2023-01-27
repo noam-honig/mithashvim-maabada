@@ -94,6 +94,14 @@ export class DeliveryFormController extends ControllerBase {
     @Fields.integer({ monday: 'numeric3', caption: "מסך", itemNames: ["מסך VGA", "מסכים"] })
     screens = 0;
 
+    @Fields.string({
+        monday: 'long_text1', caption: "הערות ספירת מלאי", customInput: x => x.textarea(),
+        valueConverter: {
+            fromDb: x => x?.text
+        }
+    })
+    stockNotes = '';
+
     @BackendMethod({ allowed: true })
     async load(deliveryId: number) {
         const data = await gql({ id: deliveryId }, `#graphql
@@ -252,6 +260,7 @@ https://mitchashvim-labs.herokuapp.com/contact-sign/${this.id}`
             await update(itemsBoardNumber, item.id, countColumnInItemsInMonday, item.countQuantity.toString());
         }
         await update(deliveriesBoardNumber, this.id, countStatusColumnInMonday, JSON.stringify({ index: computers === 0 ? 1 : 0 }));
+        await update(deliveriesBoardNumber, this.id, this.$.stockNotes.metadata.options.monday!, JSON.stringify({text:this.stockNotes}));
     }
     @BackendMethod({ allowed: true })
     async cancelSign() {
@@ -280,3 +289,4 @@ export const countStatusColumnInMonday = "status_1";
 export const itemsBoardNumber = 2673928289;
 export const deliveriesBoardNumber = 2673923561;
 export const countColumnInItemsInMonday = "numbers8";
+
