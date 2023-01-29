@@ -78,6 +78,7 @@ export class Computer extends IdEntity {
         if (
           !ref.error &&
           (await remult.repo(Computer).count({
+            deleted:false,
             $or: [
               {
                 id: { '!=': c.id },
@@ -219,6 +220,9 @@ export class Computer extends IdEntity {
     width: '300',
   })
   updateDate = new Date()
+
+  @Fields.boolean({ allowApiUpdate: Roles.admin })
+  deleted = false;
 
   filterSelectDialogs = false;
 
@@ -370,7 +374,11 @@ export class Computer extends IdEntity {
         laptops: 0
       })
     }
-    for await (const c of remult.repo(Computer).query()) {
+    for await (const c of remult.repo(Computer).query({
+      where: {
+        deleted: false
+      }
+    })) {
       const s = statuses.find((x) => x.id === c.status.id)
       if (s) {
         if (c.isLaptop)
@@ -386,7 +394,7 @@ export class Computer extends IdEntity {
     status: ComputerStatus,
     employeeId?: string,
   ): Promise<StatusDate[]> {
-    
+
     const compRepo = remult.repo(Computer)
     const arr: StatusDate[] = []
     let lastDate: StatusDate | undefined
@@ -406,7 +414,7 @@ export class Computer extends IdEntity {
         )
       ) {
         const comp = await compRepo.findId(change.relatedId)
-        if (!comp) continue
+        if (!comp || comp.deleted) continue
         if (status.statusTableCurrentStatusOnly && comp.status != status)
           continue
         if (
@@ -464,7 +472,8 @@ export class Computer extends IdEntity {
     const form = new DeliveryFormController(remult)
     const computers = await remult.repo(Computer).find({
       where: {
-        originId
+        originId,
+        deleted:false
       }
     })
     let laptops = 0

@@ -94,6 +94,7 @@ export class HomeComponent implements OnInit {
       if (this.inputMethod.pallet) {
         const computersInPallet = this.compRepo.query({
           where: {
+            deleted: false,
             palletBarcode: this.input.palletBarcode,
           },
         })
@@ -117,7 +118,7 @@ export class HomeComponent implements OnInit {
             updateComputerBasedOnInput(c)
             await c.save()
           }
-          if (this.input.status.reducePalletStock){
+          if (this.input.status.reducePalletStock) {
             Computer.reducePalletStock(this.input.palletBarcode)
           }
         }
@@ -126,8 +127,9 @@ export class HomeComponent implements OnInit {
         if (this.input.status.inputPackageBarcode)
           c = await this.compRepo.findFirst({
             packageBarcode: this.input.packageBarcode,
+            deleted: false
           })
-        else c = await this.compRepo.findFirst({ barcode: this.input.barcode })
+        else c = await this.compRepo.findFirst({ barcode: this.input.barcode, deleted: false })
         if (!c) {
           this.ui.error('ברקוד לא נמצא')
           return

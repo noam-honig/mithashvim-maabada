@@ -11,7 +11,7 @@ import { Roles } from '../users/roles'
   styleUrls: ['./assign-to-pallet.component.scss'],
 })
 export class AssignToPalletComponent implements OnInit {
-  constructor(private ui: UIToolsService) {}
+  constructor(private ui: UIToolsService) { }
   compRepo = remult.repo(Computer)
   input = this.compRepo.create()
 
@@ -51,7 +51,7 @@ export class AssignToPalletComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if (remult.isAllowed(Roles.packAdmin)&&!remult.isAllowed(Roles.stockAdmin))
+    if (remult.isAllowed(Roles.packAdmin) && !remult.isAllowed(Roles.stockAdmin))
       this.inputMethod = inputMethod.packageBarcode;
   }
   async update() {
@@ -59,10 +59,12 @@ export class AssignToPalletComponent implements OnInit {
     if (this.inputMethod.packageBarcode) {
       comp = await this.compRepo.findFirst({
         packageBarcode: this.input.packageBarcode,
+        deleted: false
       })
     } else
       comp = await this.compRepo.findFirst({
         barcode: this.input.barcode,
+        deleted: false
       })
     if (!comp) {
       this.ui.error('מחשב לא נמצא')
@@ -81,5 +83,5 @@ class inputMethod {
   static computer = new inputMethod('ברקוד מחשב')
   static packageBarcode = new inputMethod('ברקוד אריזה', true)
   id!: string
-  constructor(public caption: string, public packageBarcode = false) {}
+  constructor(public caption: string, public packageBarcode = false) { }
 }

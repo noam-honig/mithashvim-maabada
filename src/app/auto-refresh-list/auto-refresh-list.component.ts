@@ -2,7 +2,6 @@ import { Component, OnDestroy, OnInit } from '@angular/core'
 import { Remult, ValueListInfo } from 'remult'
 import { Computer } from '../computers/computer'
 import { ComputerStatus } from "../computers/ComputerStatus"
-import { Observable, Subscription, interval } from 'rxjs'
 import { GridSettings } from '../common-ui-elements/interfaces'
 import { BusyService } from '../common-ui-elements'
 import { saveToExcel } from '../common-ui-elements/interfaces/src/saveGridToExcel'
@@ -31,7 +30,8 @@ export class AutoRefreshListComponent implements OnInit {
     columnOrderStateKey: 'auto-refresh',
     where: () => ({
       status: this.filterStatus ? ValueListInfo.get(ComputerStatus).byId(this.filterStatus) : undefined,
-      originId: this.filterOriginId ? this.filterOriginId : undefined
+      originId: this.filterOriginId ? this.filterOriginId : undefined,
+      deleted: false
     })
     ,
     gridButtons: [

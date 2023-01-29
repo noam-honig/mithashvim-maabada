@@ -25,15 +25,26 @@ export class ComputersComponent implements OnInit {
   get $() {
     return getFields(this)
   }
+  showDeleted = false
   constructor(private busyService: BusyService, private ui: UIToolsService) { }
   grid: GridSettings<Computer> = new GridSettings(remult.repo(Computer), {
     numOfColumnsInGrid: 100,
     knowTotalRows: true,
+    allowDelete: false,
     columnOrderStateKey: 'computers',
     where: () => ({
-      origin: this.search ? { $contains: this.search } : undefined
+      origin: this.search ? { $contains: this.search } : undefined,
+      deleted: this.showDeleted ? undefined : false
     }),
     gridButtons: [
+      {
+        name: "הצג מחוקים",
+        click: () => {
+          this.showDeleted = !this.showDeleted
+          this.grid.reloadData()
+        }
+      }
+      ,
       {
         name: 'Excel',
         click: () =>
@@ -46,6 +57,7 @@ export class ComputersComponent implements OnInit {
       },
     ],
     allowCrud: remult.isAllowed(Roles.updateComputers),
+    rowCssClass: c => c.deleted ? 'deleted' : '',
     rowButtons: [
       {
         name: 'רענן נתונים בmonday',
@@ -64,7 +76,14 @@ export class ComputersComponent implements OnInit {
               for: c,
             }),
           ),
-      },
+      }, {
+        name: 'מחק',
+        visible: () => remult.isAllowed(Roles.admin),
+        click: async c => {
+          c.deleted = true;
+          await c.save();
+        }
+      }
     ],
   })
 

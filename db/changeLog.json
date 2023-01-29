@@ -5897,5 +5897,28 @@
       "status",
       "keyboard"
     ]
+  },
+  {
+    "id": "e1ea89a9-420c-406e-ab22-841de71234c5",
+    "relatedId": "92f39d7d-ed05-4f5d-a504-65467d83a8e1",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2023-01-29T15:52:56.226Z",
+    "userId": "2c4077ec-b861-474b-b5fd-62daa8c9b736",
+    "userName": "נועם",
+    "changes": [
+      {
+        "key": "deleted",
+        "newDisplayValue": "V",
+        "oldDisplayValue": "X",
+        "newValue": true,
+        "oldValue": false
+      }
+    ],
+    "changedFields": [
+      "deleted"
+    ]
   }
 ]
