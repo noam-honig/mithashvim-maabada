@@ -38,7 +38,7 @@
     "password-hash": "^1.2.2",
     "pg": "^8.7.3",
     "reflect-metadata": "^0.1.12",
-    "remult": "^0.18.1-exp.6",
+    "remult": "^0.18.1-exp.11",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "xlsx": "^0.18.5",

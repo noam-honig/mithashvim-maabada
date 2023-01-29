@@ -28,6 +28,7 @@ export class CountItemsComponent implements OnInit {
         forCount: true,
         onSelect: x => {
           _.donor = x;
+          _.form = new DeliveryFormController(remult);
           _.form.load(+x.id)
         }
       })
