@@ -3,11 +3,10 @@ import { Roles } from '../users/roles'
 import type { Computer } from './computer'
 import { updateInventory } from './InventoryLine'
 
-
 @ValueListFieldType({ caption: 'סטטוס' })
 export class ComputerStatus {
   static count = new ComputerStatus('ספירת ציוד מתרומה', [Roles.stockAdmin], {
-    special: true
+    special: true,
   })
   static intake = new ComputerStatus('התקבל - מחשב נייח', [Roles.stockAdmin], {
     isIntake: true,
@@ -22,12 +21,16 @@ export class ComputerStatus {
       groupBy: ['origin', 'palletBarcode'],
     },
   )
-  static intakeLaptop = new ComputerStatus('התקבל - מחשב נייד💻', [Roles.stockAdmin], {
-    isIntake: true,
-    laptopIntake: true,
-    groupBy: ['origin', 'palletBarcode'],
-    inputPallet: true,
-  })
+  static intakeLaptop = new ComputerStatus(
+    'התקבל - מחשב נייד💻',
+    [Roles.stockAdmin],
+    {
+      isIntake: true,
+      laptopIntake: true,
+      groupBy: ['origin', 'palletBarcode'],
+      inputPallet: true,
+    },
+  )
   static intakeTrashLaptop = new ComputerStatus(
     'התקבל וממתין לגריטה - מחשב נייד💻',
     [Roles.stockAdmin],
@@ -66,11 +69,15 @@ export class ComputerStatus {
       listFields: ['barcode', 'employee'],
       assignPallet: true,
       validateEmployee: true,
-      statusWasChanged: async c => {
+      statusWasChanged: async (c) => {
         updateInventory(c.id, [`סה"כ דיסקים`])
-      }
+      },
     },
   )
+  static qa = new ComputerStatus('בקרת איכות', [Roles.upgradeAdmin], {
+    groupBy: ['employee'],
+    listFields: ['barcode', 'employee'],
+  })
   static waitForPack = new ComputerStatus('ממתין לאריזה', [Roles.stockAdmin], {
     groupBy: ['employee'],
     listFields: ['barcode', 'employee'],
@@ -84,11 +91,18 @@ export class ComputerStatus {
     listFields: ['barcode', 'packageBarcode', 'palletBarcode'],
     statusTableCurrentStatusOnly: true,
     assignPallet: true,
-    statusWasChanged: async c => {
+    statusWasChanged: async (c) => {
       if (!c.isLaptop) {
-        await updateInventory(c.id, [c.keyboard.stockItemName, "אוזניות", "מצלמות", "דונגלים", "סט כבלים משולב", "אריזות קרטון"])
+        await updateInventory(c.id, [
+          c.keyboard.stockItemName,
+          'אוזניות',
+          'מצלמות',
+          'דונגלים',
+          'סט כבלים משולב',
+          'אריזות קרטון',
+        ])
       }
-    }
+    },
   })
   static packDone = new ComputerStatus('נארז בהצלחה', [Roles.stockAdmin], {
     inputPackageBarcode: true,
@@ -169,8 +183,8 @@ export class ComputerStatus {
   clearPallet = false
   canUpdateCompletePallet = false
   special = false
-  statusWasChanged = async (c: Computer) => { }
-  reducePalletStock = false;
+  statusWasChanged = async (c: Computer) => {}
+  reducePalletStock = false
 
   groupBy: (keyof Computer)[] = []
   listFields: (keyof Computer)[] = []
@@ -180,6 +194,3 @@ export class ComputerStatus {
   inputPackageBarcode = false
   inputRecipient = false
 }
-
-
-
