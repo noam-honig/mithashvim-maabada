@@ -23,6 +23,7 @@ export class InventoryLine extends IdEntity {
 const kamutAtMeshaken = "dup__of_______________";
 const mlaiBoard = 2673879135;
 export async function updateInventory(computerId: string, stockItems: string[]) {
+  return;
   const inventory: MondayItem[] = (await gql({}, `#graphql
 {
   boards(ids: [${mlaiBoard}]) {
