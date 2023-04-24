@@ -24,36 +24,36 @@ const kamutAtMeshaken = "dup__of_______________";
 const mlaiBoard = 2673879135;
 export async function updateInventory(computerId: string, stockItems: string[]) {
   return;
-  const inventory: MondayItem[] = (await gql({}, `#graphql
-{
-  boards(ids: [${mlaiBoard}]) {
-    id
-    name
-    items(limit: 10000) {
-      id
-      name
-      column_values(ids: ["${kamutAtMeshaken}"]) {
-        id
-        title
-        value
-      }
-    }
-  }
-}
+//   const inventory: MondayItem[] = (await gql({}, `#graphql
+// {
+//   boards(ids: [${mlaiBoard}]) {
+//     id
+//     name
+//     items(limit: 10000) {
+//       id
+//       name
+//       column_values(ids: ["${kamutAtMeshaken}"]) {
+//         id
+//         title
+//         value
+//       }
+//     }
+//   }
+// }
 
- `)).boards[0].items
+//  `)).boards[0].items
 
-  for (const stockItem of stockItems) {
-    const item = inventory.find(y => y.name === stockItem);
-    let i = remult.repo(InventoryLine).create({
-      computerId,
-      stockItem
-    })
-    if (item) {
-      i.stockItemId = item.id;
-      let q = +JSON.parse(item!.column_values[0].value);
-      i.mondayResult = await update(mlaiBoard, +item.id, kamutAtMeshaken, (q - 1).toString());
-      await i.save();
-    }
-  }
+//   for (const stockItem of stockItems) {
+//     const item = inventory.find(y => y.name === stockItem);
+//     let i = remult.repo(InventoryLine).create({
+//       computerId,
+//       stockItem
+//     })
+//     if (item) {
+//       i.stockItemId = item.id;
+//       let q = +JSON.parse(item!.column_values[0].value);
+//       i.mondayResult = await update(mlaiBoard, +item.id, kamutAtMeshaken, (q - 1).toString());
+//       await i.save();
+//     }
+//   }
 }
