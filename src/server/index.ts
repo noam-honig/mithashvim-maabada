@@ -10,6 +10,13 @@ import session from "cookie-session";
 import csrf from "csurf";
 import { SignInController } from '../app/users/SignInController';
 
+process.on('unhandledRejection', (reason, p) => {
+    console.log('Unhandled Rejection at: Promise', p, 'reason:', reason)
+    console.trace()
+    // application specific logging, throwing an error, or other logic here
+    //1
+  })
+
 async function startup() {
     const app = express();
     app.use(sslRedirect());
