@@ -5920,5 +5920,304 @@
     "changedFields": [
       "deleted"
     ]
+  },
+  {
+    "id": "1d20868c-2d20-40b1-81f8-aea3974a10bb",
+    "relatedId": "3c33f38a-f1e9-40aa-83dd-8aff6dfa46ed",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2023-06-30T07:33:05.413Z",
+    "userId": "90fa111a-f48a-44e4-909c-af25f9140a5c",
+    "userName": "נועם",
+    "changes": [
+      {
+        "key": "status",
+        "newDisplayValue": "לא ידוע",
+        "oldDisplayValue": "שוייך לעובד",
+        "newValue": "unknown",
+        "oldValue": "assigned"
+      }
+    ],
+    "changedFields": [
+      "status"
+    ]
+  },
+  {
+    "id": "e52720e0-e449-462d-8c4d-4553afe2ceb1",
+    "relatedId": "6926e108-9921-4efb-80e3-903d1eb57ee8",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2023-06-30T07:33:05.429Z",
+    "userId": "90fa111a-f48a-44e4-909c-af25f9140a5c",
+    "userName": "נועם",
+    "changes": [
+      {
+        "key": "status",
+        "newDisplayValue": "לא ידוע",
+        "oldDisplayValue": "שוייך לעובד",
+        "newValue": "unknown",
+        "oldValue": "assigned"
+      }
+    ],
+    "changedFields": [
+      "status"
+    ]
+  },
+  {
+    "id": "15a49be3-035a-4926-9eb8-6929f94ee6ef",
+    "relatedId": "baef6eb0-c0ef-465e-a0ff-e1972a0e6c52",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2023-06-30T07:33:16.557Z",
+    "userId": "90fa111a-f48a-44e4-909c-af25f9140a5c",
+    "userName": "נועם",
+    "changes": [
+      {
+        "key": "status",
+        "newDisplayValue": "לא ידוע",
+        "oldDisplayValue": "שודרג בהצלחה",
+        "newValue": "unknown",
+        "oldValue": "successfulUpgrade"
+      }
+    ],
+    "changedFields": [
+      "status"
+    ]
+  },
+  {
+    "id": "9b3aeff8-c92f-48bf-a01a-e1f0883b7883",
+    "relatedId": "392013b2-19d4-4e20-bf1a-22db77b0c57c",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2023-06-30T07:33:16.574Z",
+    "userId": "90fa111a-f48a-44e4-909c-af25f9140a5c",
+    "userName": "נועם",
+    "changes": [
+      {
+        "key": "status",
+        "newDisplayValue": "לא ידוע",
+        "oldDisplayValue": "שודרג בהצלחה",
+        "newValue": "unknown",
+        "oldValue": "successfulUpgrade"
+      }
+    ],
+    "changedFields": [
+      "status"
+    ]
+  },
+  {
+    "id": "02fe90a6-2c2e-4f49-a754-f676f41dc1dd",
+    "relatedId": "aa1b27fc-3e91-4c0b-a75b-4481f5e58eb6",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2023-06-30T07:33:16.581Z",
+    "userId": "90fa111a-f48a-44e4-909c-af25f9140a5c",
+    "userName": "נועם",
+    "changes": [
+      {
+        "key": "status",
+        "newDisplayValue": "לא ידוע",
+        "oldDisplayValue": "שודרג בהצלחה",
+        "newValue": "unknown",
+        "oldValue": "successfulUpgrade"
+      }
+    ],
+    "changedFields": [
+      "status"
+    ]
+  },
+  {
+    "id": "11ed636e-19f0-44b8-8071-51eeed9eec70",
+    "relatedId": "096c3096-9b5f-4dbc-a5a0-61685fa26187",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2023-06-30T08:01:28.486Z",
+    "userId": "90fa111a-f48a-44e4-909c-af25f9140a5c",
+    "userName": "נועם",
+    "changes": [
+      {
+        "key": "status",
+        "newDisplayValue": "לא ידוע",
+        "oldDisplayValue": "ממתין לשינוע למוטב",
+        "newValue": "unknown",
+        "oldValue": "waitForDelivery"
+      }
+    ],
+    "changedFields": [
+      "status"
+    ]
+  },
+  {
+    "id": "9e00c5cd-5f73-49c6-8168-190ca42ab6df",
+    "relatedId": "e5db4e0e-9576-4a49-b339-65b484e507e1",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2023-06-30T08:01:28.514Z",
+    "userId": "90fa111a-f48a-44e4-909c-af25f9140a5c",
+    "userName": "נועם",
+    "changes": [
+      {
+        "key": "status",
+        "newDisplayValue": "לא ידוע",
+        "oldDisplayValue": "ממתין לשינוע למוטב",
+        "newValue": "unknown",
+        "oldValue": "waitForDelivery"
+      }
+    ],
+    "changedFields": [
+      "status"
+    ]
+  },
+  {
+    "id": "671462d8-cb9b-4401-99aa-6ed085472fb5",
+    "relatedId": "096c3096-9b5f-4dbc-a5a0-61685fa26187",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2023-06-30T08:02:39.993Z",
+    "userId": "90fa111a-f48a-44e4-909c-af25f9140a5c",
+    "userName": "נועם",
+    "changes": [
+      {
+        "key": "status",
+        "newDisplayValue": "התקבל - מחשב נייח",
+        "oldDisplayValue": "לא ידוע",
+        "newValue": "intake",
+        "oldValue": "unknown"
+      }
+    ],
+    "changedFields": [
+      "status"
+    ]
+  },
+  {
+    "id": "04224798-f96e-4c35-be7d-e9d29c167ddb",
+    "relatedId": "e5db4e0e-9576-4a49-b339-65b484e507e1",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2023-06-30T08:02:40.008Z",
+    "userId": "90fa111a-f48a-44e4-909c-af25f9140a5c",
+    "userName": "נועם",
+    "changes": [
+      {
+        "key": "status",
+        "newDisplayValue": "התקבל - מחשב נייח",
+        "oldDisplayValue": "לא ידוע",
+        "newValue": "intake",
+        "oldValue": "unknown"
+      }
+    ],
+    "changedFields": [
+      "status"
+    ]
+  },
+  {
+    "id": "3118e934-eea1-45c7-9a09-904421661a3e",
+    "relatedId": "096c3096-9b5f-4dbc-a5a0-61685fa26187",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2023-06-30T08:03:01.355Z",
+    "userId": "90fa111a-f48a-44e4-909c-af25f9140a5c",
+    "userName": "נועם",
+    "changes": [
+      {
+        "key": "status",
+        "newDisplayValue": "לא ידוע",
+        "oldDisplayValue": "התקבל - מחשב נייח",
+        "newValue": "unknown",
+        "oldValue": "intake"
+      }
+    ],
+    "changedFields": [
+      "status"
+    ]
+  },
+  {
+    "id": "e83e26f5-2b96-4cdc-bfab-6c314b63c4ea",
+    "relatedId": "e5db4e0e-9576-4a49-b339-65b484e507e1",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2023-06-30T08:03:01.390Z",
+    "userId": "90fa111a-f48a-44e4-909c-af25f9140a5c",
+    "userName": "נועם",
+    "changes": [
+      {
+        "key": "status",
+        "newDisplayValue": "לא ידוע",
+        "oldDisplayValue": "התקבל - מחשב נייח",
+        "newValue": "unknown",
+        "oldValue": "intake"
+      }
+    ],
+    "changedFields": [
+      "status"
+    ]
+  },
+  {
+    "id": "4d0baf58-fa42-4089-baa0-1d1a1f5f212a",
+    "relatedId": "e5db4e0e-9576-4a49-b339-65b484e507e1",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2023-06-30T08:03:08.175Z",
+    "userId": "90fa111a-f48a-44e4-909c-af25f9140a5c",
+    "userName": "נועם",
+    "changes": [
+      {
+        "key": "status",
+        "newDisplayValue": "ממתין לשינוע למוטב",
+        "oldDisplayValue": "לא ידוע",
+        "newValue": "waitForDelivery",
+        "oldValue": "unknown"
+      }
+    ],
+    "changedFields": [
+      "status"
+    ]
+  },
+  {
+    "id": "f0ca928c-925e-4fc7-aa26-aea33d8c6a1b",
+    "relatedId": "e5db4e0e-9576-4a49-b339-65b484e507e1",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2023-06-30T08:03:31.564Z",
+    "userId": "90fa111a-f48a-44e4-909c-af25f9140a5c",
+    "userName": "נועם",
+    "changes": [
+      {
+        "key": "status",
+        "newDisplayValue": "לא ידוע",
+        "oldDisplayValue": "ממתין לשינוע למוטב",
+        "newValue": "unknown",
+        "oldValue": "waitForDelivery"
+      }
+    ],
+    "changedFields": [
+      "status"
+    ]
   }
 ]

@@ -8,9 +8,12 @@
     <tbody>
       <tr *ngFor="let s of statuses | async">
         <td>
-          <a [routerLink]="detailsLink(s)">
-            {{ s.caption }}
-          </a>
+          <app-dots-menu
+            [buttons]="buttons"
+            [item]="s"
+            *ngIf="isAdmin()"
+          ></app-dots-menu>
+          <a [routerLink]="detailsLink(s)">{{ s.caption }}</a>
         </td>
         <td>
           {{ s.count }}

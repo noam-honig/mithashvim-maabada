@@ -14,7 +14,14 @@ import { recordChanges, ChangeLog } from '../change-log/change-log'
 import { DataControl } from '../common-ui-elements/interfaces'
 import '../common/UITools'
 import { dataChangedChannel } from '../data-refresh/data-refresh.controller'
-import { countStatusColumnInMonday, deliveriesBoardNumber, DeliveryFormController, desktop, itemsBoardNumber, laptop } from '../driver-sign/delivery-form.controller'
+import {
+  countStatusColumnInMonday,
+  deliveriesBoardNumber,
+  DeliveryFormController,
+  desktop,
+  itemsBoardNumber,
+  laptop,
+} from '../driver-sign/delivery-form.controller'
 import { gql, MondayItem, update } from '../driver-sign/getGraphQL'
 import { Employee } from '../employees/employee'
 import { Roles } from '../users/roles'
@@ -34,19 +41,18 @@ import { KeyboardType } from './keyboardType'
     await recordChanges(self, {
       excludeColumns: (e) => [e.updateDate, e.id, e.createDate],
     })
-
   },
-  saved: async self => {
+  saved: async (self) => {
     if (isBackend()) {
-      dataChangedChannel.publish({});
+      dataChangedChannel.publish({})
       if (self.originId && self.isNew() && isBackend()) {
         Computer.updateMondayStats(self.originId)
       }
       if (self.$.status.valueChanged()) {
-        await self.status.statusWasChanged(self);
+        await self.status.statusWasChanged(self)
       }
     }
-  }
+  },
 })
 export class Computer extends IdEntity {
   @Fields.string({
@@ -78,7 +84,7 @@ export class Computer extends IdEntity {
         if (
           !ref.error &&
           (await remult.repo(Computer).count({
-            deleted:false,
+            deleted: false,
             $or: [
               {
                 id: { '!=': c.id },
@@ -111,8 +117,8 @@ export class Computer extends IdEntity {
     width: '170',
     validate: (_, ref) => {
       if (ref.value.special)
-        throw Error("לא ניתן לבחור סטטוס " + ref.value.caption)
-    }
+        throw Error('לא ניתן לבחור סטטוס ' + ref.value.caption)
+    },
   })
   status = ComputerStatus.intake
 
@@ -154,8 +160,8 @@ export class Computer extends IdEntity {
   })
   origin = ''
   @DataControl({ readonly: true })
-  @Fields.string({ caption: "id מקור תרומה" })
-  originId = '';
+  @Fields.string({ caption: 'id מקור תרומה' })
+  originId = ''
   @Fields.boolean({ caption: 'מחשב נייד' })
   isLaptop = false
   @DataControl({
@@ -206,8 +212,8 @@ export class Computer extends IdEntity {
     width: '170',
   })
   recipient = ''
-  @Fields.string({ caption: "id מוטב" })
-  recipientId = '';
+  @Fields.string({ caption: 'id מוטב' })
+  recipientId = ''
   @Fields.date({
     caption: 'תאריך קליטה',
     allowApiUpdate: false,
@@ -222,9 +228,9 @@ export class Computer extends IdEntity {
   updateDate = new Date()
 
   @Fields.boolean({ allowApiUpdate: Roles.admin })
-  deleted = false;
+  deleted = false
 
-  filterSelectDialogs = false;
+  filterSelectDialogs = false
 
   @BackendMethod({ allowed: Allow.authenticated })
   static async getRecipients(filter?: boolean) {
@@ -250,23 +256,29 @@ export class Computer extends IdEntity {
     }
   `,
     )
-    let out: { caption: string, id: string }[] = result.boards[0].items.filter((x: any) => {
-      if (!filter)
-        return true;
-      const colValues = x.column_values;
-      if (!colValues || colValues.length == 0)
-        return true;
-      let val = JSON.parse(colValues[0].value);
-      return val.index != 2;
-    }).map((x: any) => ({
-      caption: x.name,
-      id: x.id
-    }))
+    let out: { caption: string; id: string }[] = result.boards[0].items
+      .filter((x: any) => {
+        if (!filter) return true
+        const colValues = x.column_values
+        if (!colValues || colValues.length == 0) return true
+        let val = JSON.parse(colValues[0].value)
+        return val.index != 2
+      })
+      .map((x: any) => ({
+        caption: x.name,
+        id: x.id,
+      }))
     out.sort((a, b) => a.caption.localeCompare(b.caption))
     return out
   }
   @BackendMethod({ allowed: Allow.authenticated })
-  static async getDonors({ forCount, filter }: { forCount?: boolean, filter?: boolean }) {
+  static async getDonors({
+    forCount,
+    filter,
+  }: {
+    forCount?: boolean
+    filter?: boolean
+  }) {
     const result = await gql(
       {},
       `#graphql
@@ -288,67 +300,57 @@ export class Computer extends IdEntity {
       }
     }
   `,
-    );
-    const f = new DeliveryFormController(remult);
-    let r: Donor[] = (result.boards[0].items.map((x: any) => {
+    )
+    const f = new DeliveryFormController(remult)
+    let r: Donor[] = result.boards[0].items.map((x: any) => {
       const r: Partial<Donor> = {
         caption: x.name,
         id: x.id,
         signatureCounter: 0,
         forCount: true,
-        forIntake: false
+        forIntake: false,
       }
       for (const val of x.column_values) {
         if (val.value) {
-          let v = JSON.parse(val.value);
+          let v = JSON.parse(val.value)
           switch (val.id) {
             case f.$.hospitalName.metadata.options.monday:
-              r.hospital = v;
-              break;
+              r.hospital = v
+              break
             case f.$.signatureCounter.metadata.options.monday:
-              r.signatureCounter = +v || 0;
-              break;
+              r.signatureCounter = +v || 0
+              break
             case countStatusColumnInMonday:
-              r.forCount = v.index == 5;
-              r.forIntake = v.index == 0;
-              break;
+              r.forCount = v.index == 5
+              r.forIntake = v.index == 0
+              break
             case f.$.driverSign.metadata.options.monday:
               if (val.value) {
-                let z: string = v.date;
+                let z: string = v.date
                 if (z) {
-                  r.driverSignDate = z;
+                  r.driverSignDate = z
                 }
               }
-              break;
+              break
           }
         }
-
       }
-      return r as Donor;
-    }))
-    if (forCount)
-      r = r.filter(x => x.signatureCounter > 0 && x.forCount)
-    else if (filter)
-      r = r.filter(x => x.forIntake);
+      return r as Donor
+    })
+    if (forCount) r = r.filter((x) => x.signatureCounter > 0 && x.forCount)
+    else if (filter) r = r.filter((x) => x.forIntake)
 
     r.sort((a, b) => {
-      const r = a.caption.localeCompare(b.caption);
-      if (r != 0)
-        return r;
-      return (b.driverSignDate || "").localeCompare(a.driverSignDate || "")
-    });
-    return r;
-
+      const r = a.caption.localeCompare(b.caption)
+      if (r != 0) return r
+      return (b.driverSignDate || '').localeCompare(a.driverSignDate || '')
+    })
+    return r
   }
 
   @BackendMethod({ allowed: Allow.authenticated })
   static async getDashboard() {
-    const statuses: {
-      id: string
-      caption: string
-      count: number,
-      laptops: number
-    }[] = []
+    const statuses: StatusInDashboard[] = []
 
     let list = getValueList(ComputerStatus)
     if (remult.isAllowed([Roles.admin, Roles.stockAdmin])) {
@@ -371,30 +373,41 @@ export class Computer extends IdEntity {
         id: status.id,
         caption: status.caption,
         count: 0,
-        laptops: 0
+        laptops: 0,
       })
     }
     for await (const c of remult.repo(Computer).query({
       where: {
-        deleted: false
-      }
+        deleted: false,
+      },
     })) {
       const s = statuses.find((x) => x.id === c.status.id)
       if (s) {
-        if (c.isLaptop)
-          s.laptops++
-        else
-          s.count++
+        if (c.isLaptop) s.laptops++
+        else s.count++
       }
     }
     return statuses
   }
-  @BackendMethod({ allowed: Allow.authenticated, paramTypes: [ComputerStatus, String] })
+  @BackendMethod({ allowed: Roles.admin })
+  static async updateToStatusUnknown(id: string) {
+    const status = getValueList(ComputerStatus).find((x) => x.id === id)
+    if (!status) throw new Error('סטטוס לא נמצא')
+    for await (const comp of await remult.repo(Computer).find({
+      where: { isLaptop: false, status: status },
+    })) {
+      comp.status = ComputerStatus.unknown
+      await comp.save()
+    }
+  }
+  @BackendMethod({
+    allowed: Allow.authenticated,
+    paramTypes: [ComputerStatus, String],
+  })
   static async getStatusChanges(
     status: ComputerStatus,
     employeeId?: string,
   ): Promise<StatusDate[]> {
-
     const compRepo = remult.repo(Computer)
     const arr: StatusDate[] = []
     let lastDate: StatusDate | undefined
@@ -464,17 +477,16 @@ export class Computer extends IdEntity {
   }
   @BackendMethod({ allowed: Allow.authenticated })
   static async reducePalletStock(palletBarcode: string) {
-    await updateInventory(palletBarcode, ["משטחים ריקים"]);
+    await updateInventory(palletBarcode, ['משטחים ריקים'])
   }
   @BackendMethod({ allowed: Allow.authenticated })
-
   static async updateMondayStats(originId: string) {
     const form = new DeliveryFormController(remult)
     const computers = await remult.repo(Computer).find({
       where: {
         originId,
-        deleted:false
-      }
+        deleted: false,
+      },
     })
     let laptops = 0
     let laptopsTrash = 0
@@ -482,52 +494,71 @@ export class Computer extends IdEntity {
     let compsTrash = 0
     for (const c of computers) {
       if (c.isLaptop) {
-        if (c.status === ComputerStatus.intakeTrashLaptop)
-          laptopsTrash++
-        else
-          laptops++
-      }
-      else {
-        if (c.status === ComputerStatus.intakeTrash)
-          compsTrash++
-        else
-          comps++
+        if (c.status === ComputerStatus.intakeTrashLaptop) laptopsTrash++
+        else laptops++
+      } else {
+        if (c.status === ComputerStatus.intakeTrash) compsTrash++
+        else comps++
       }
     }
 
-    return form.load(+originId).then(async () => {
-      let done = 0
-      {
-        let compItem = form.items.find(i => i.name === desktop)
-        if (compItem) {
-          await update(itemsBoardNumber, compItem.id, "numbers2", comps.toString())
-          await update(itemsBoardNumber, compItem.id, "numbers5", compsTrash.toString())
-          if (+compItem.countQuantity <= comps + compsTrash)
-            done++
+    return form.load(+originId).then(
+      async () => {
+        let done = 0
+        {
+          let compItem = form.items.find((i) => i.name === desktop)
+          if (compItem) {
+            await update(
+              itemsBoardNumber,
+              compItem.id,
+              'numbers2',
+              comps.toString(),
+            )
+            await update(
+              itemsBoardNumber,
+              compItem.id,
+              'numbers5',
+              compsTrash.toString(),
+            )
+            if (+compItem.countQuantity <= comps + compsTrash) done++
+          }
         }
-
-      }
-      {
-        let laptopItem = form.items.find(i => i.name === laptop)
-        if (laptopItem) {
-          await update(itemsBoardNumber, laptopItem.id, "numbers2", laptops.toString())
-          await update(itemsBoardNumber, laptopItem.id, "numbers5", laptopsTrash.toString())
-          if (+laptopItem.countQuantity <= laptops + laptopsTrash)
-            done++
-
+        {
+          let laptopItem = form.items.find((i) => i.name === laptop)
+          if (laptopItem) {
+            await update(
+              itemsBoardNumber,
+              laptopItem.id,
+              'numbers2',
+              laptops.toString(),
+            )
+            await update(
+              itemsBoardNumber,
+              laptopItem.id,
+              'numbers5',
+              laptopsTrash.toString(),
+            )
+            if (+laptopItem.countQuantity <= laptops + laptopsTrash) done++
+          }
         }
-      }
-      if (done === 2) {
-        await update(deliveriesBoardNumber, +originId, countStatusColumnInMonday, JSON.stringify({ index: 1 }))
-      }
-      return "עודכן בהצלחה";
-    }, error => {
-      console.log("error finding monday info for " + originId, {
-        originId: originId,
-        error
-      })
-      return "שגיאה בעדכון"
-    })
+        if (done === 2) {
+          await update(
+            deliveriesBoardNumber,
+            +originId,
+            countStatusColumnInMonday,
+            JSON.stringify({ index: 1 }),
+          )
+        }
+        return 'עודכן בהצלחה'
+      },
+      (error) => {
+        console.log('error finding monday info for ' + originId, {
+          originId: originId,
+          error,
+        })
+        return 'שגיאה בעדכון'
+      },
+    )
   }
 }
 
@@ -537,8 +568,6 @@ export interface StatusDate {
   computers: { [key: string]: string }[]
   byOrigin: { quantity: number; keys: { [key: string]: string } }[]
 }
-
-
 
 function toDisplayDate(d: Date) {
   let result = ''
@@ -579,12 +608,18 @@ function toDisplayDate(d: Date) {
   return result
 }
 export interface Donor {
-  id: string,
-  caption: string,
-  hospital: string,
+  id: string
+  caption: string
+  hospital: string
   driverSignDate: string
   signatureCounter: number
   forCount: boolean
   forIntake: boolean
 }
 
+export interface StatusInDashboard {
+  id: string
+  caption: string
+  count: number
+  laptops: number
+}

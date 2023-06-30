@@ -39,6 +39,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { AssignToPalletComponent } from './assign-to-pallet/assign-to-pallet.component';
 import { CountItemsComponent } from './count-items/count-items.component';
 import { SelectDonorComponent } from './select-donor/select-donor.component';
+import { DotsMenuComponent } from './common/dot-menu.component';
+import { UpdatePalletStatusComponent } from './update-pallet-status/update-pallet-status.component';
 
 
 @NgModule({
@@ -60,7 +62,9 @@ import { SelectDonorComponent } from './select-donor/select-donor.component';
     DashboardComponent,
     AssignToPalletComponent,
     CountItemsComponent,
-    SelectDonorComponent
+    SelectDonorComponent,
+    DotsMenuComponent,
+    UpdatePalletStatusComponent
   ],
   imports: [
     BrowserModule,

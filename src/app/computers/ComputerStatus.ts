@@ -155,6 +155,7 @@ export class ComputerStatus {
       canUpdateCompletePallet: true,
     },
   )
+  static unknown = new ComputerStatus('לא ידוע', [Roles.admin])
 
   constructor(
     public caption: string,

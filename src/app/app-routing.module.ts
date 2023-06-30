@@ -24,17 +24,19 @@ import { DriverSignComponent } from './driver-sign/driver-sign.component'
 import { DashboardComponent } from './dashboard/dashboard.component'
 import { AssignToPalletComponent } from './assign-to-pallet/assign-to-pallet.component'
 import { CountItemsComponent } from './count-items/count-items.component'
+import { UpdatePalletStatusComponent } from './update-pallet-status/update-pallet-status.component'
 
 const defaultRoute = 'מסופון'
 
 const routes: Routes = [
   { path: defaultRoute, component: HomeComponent },
   { path: 'שיוך מחשב למשטח', component: AssignToPalletComponent },
-  {
-    path: 'dashboard',
-    component: DashboardComponent,
-    canActivate: [AnyManagerGuard],
-  },
+  { path: 'עדכון סטטוס משטחים', component: UpdatePalletStatusComponent } ,
+    {
+      path: 'dashboard',
+      component: DashboardComponent,
+      canActivate: [AnyManagerGuard],
+    },
   {
     path: 'רשימה מתרעננת/:status',
     component: AutoRefreshListComponent,
@@ -82,4 +84,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
