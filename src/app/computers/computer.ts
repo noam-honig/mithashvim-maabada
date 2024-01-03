@@ -243,31 +243,34 @@ export class Computer extends IdEntity {
         name
         board_folder_id
         board_kind
+        items_page(limit:500,query_params:{
+      order_by:[{column_id:"__creation_log__",direction:desc}]
+    }){
         items {
           id
           name
           column_values(ids:["______7"]){
               id
-              title
               value
           }
         }
-      }
+      }}
     }
   `,
     )
-    let out: { caption: string; id: string }[] = result.boards[0].items
-      .filter((x: any) => {
-        if (!filter) return true
-        const colValues = x.column_values
-        if (!colValues || colValues.length == 0) return true
-        let val = JSON.parse(colValues[0].value)
-        return val.index != 2
-      })
-      .map((x: any) => ({
-        caption: x.name,
-        id: x.id,
-      }))
+    let out: { caption: string; id: string }[] =
+      result.boards[0].items_page.items
+        .filter((x: any) => {
+          if (!filter) return true
+          const colValues = x.column_values
+          if (!colValues || colValues.length == 0) return true
+          let val = JSON.parse(colValues[0].value)
+          return val.index != 2
+        })
+        .map((x: any) => ({
+          caption: x.name,
+          id: x.id,
+        }))
     out.sort((a, b) => a.caption.localeCompare(b.caption))
     return out
   }
@@ -288,21 +291,24 @@ export class Computer extends IdEntity {
         name
         board_folder_id
         board_kind
+        items_page(limit:500,query_params:{
+      order_by:[{column_id:"__creation_log__",direction:desc}]
+    }){
         items {
           id
           name
+          created_at
           column_values{
             id
-            title
             value
         }
         }
-      }
+      }}
     }
   `,
     )
     const f = new DeliveryFormController(remult)
-    let r: Donor[] = result.boards[0].items.map((x: any) => {
+    let r: Donor[] = result.boards[0].items_page.items.map((x: any) => {
       const r: Partial<Donor> = {
         caption: x.name,
         id: x.id,
