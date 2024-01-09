@@ -11,8 +11,6 @@ import { createPdfDocument } from '../app/contact-sign/createPdfDocument'
 import { graphqlUploadFile } from '../app/contact-sign/graphqlUploadFile'
 import { versionUpdate } from './version'
 import { gql } from '../app/driver-sign/getGraphQL'
-import { getValueList, remult } from 'remult'
-import { ComputerStatus } from '../app/computers/ComputerStatus'
 import { UpdatePalletStatusController } from '../app/update-pallet-status/update-pallet-status.controller'
 
 export const api = remultExpress({
@@ -35,7 +33,6 @@ export const api = remultExpress({
     //await updateInventory("123");
     if (false) {
       const data = await gql(
-        {},
         `#graphql
             query  {
               boards(ids: [2673923561]) {

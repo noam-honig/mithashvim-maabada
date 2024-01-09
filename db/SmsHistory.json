@@ -19,5 +19,19 @@
     "message": "שלום null, נא לאשר את תכולת הציוד שנאספה עבור מיזם מתחשבים בקישור הבא:\nhttps://mitchashvim-labs.herokuapp.com/contact-sign/3475204426",
     "apiResponse": "1",
     "phone": "0507330590"
+  },
+  {
+    "id": "1449dbec-ab9c-48bb-99fc-633be6ce274a",
+    "createDate": "2024-01-09T15:40:05.191Z",
+    "message": "שלום null, נא לאשר את תכולת הציוד שנאספה עבור מיזם מתחשבים בקישור הבא:\nhttps://mitchashvim-labs.herokuapp.com/contact-sign/5817866851",
+    "apiResponse": "No valid mobile numbers |cells=",
+    "phone": ""
+  },
+  {
+    "id": "c83623ce-590a-49fe-9382-9b438fc76d08",
+    "createDate": "2024-01-09T15:43:02.769Z",
+    "message": "שלום null, נא לאשר את תכולת הציוד שנאספה עבור מיזם מתחשבים בקישור הבא:\nhttps://mitchashvim-labs.herokuapp.com/contact-sign/5817866851",
+    "apiResponse": "No valid mobile numbers |cells=",
+    "phone": ""
   }
 ]

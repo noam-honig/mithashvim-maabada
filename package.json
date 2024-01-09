@@ -3,6 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "concurrently -k -n \"API,WEB\" -c \"bgBlue.bold,bgGreen.bold\" \"ts-node-dev --inspect -P tsconfig.server.json src/server/\" \"ng serve --proxy-config proxy.conf.json --open\"",
+    "dev-web": "ng serve --proxy-config proxy.conf.json",
+    "dev-api": "ts-node-dev --inspect -P tsconfig.server.json src/server/",
     "ng": "ng",
     "start": "node dist/server/",
     "build": "ng build && tsc -p tsconfig.server.json && node dist/server/run-version.js",

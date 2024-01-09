@@ -235,7 +235,6 @@ export class Computer extends IdEntity {
   @BackendMethod({ allowed: Allow.authenticated })
   static async getRecipients(filter?: boolean) {
     const result = await gql(
-      {},
       `#graphql
   query test2 {
       boards(ids: [${2478134523}]) {
@@ -257,6 +256,7 @@ export class Computer extends IdEntity {
       }}
     }
   `,
+      {},
     )
     let out: { caption: string; id: string }[] =
       result.boards[0].items_page.items
@@ -283,7 +283,6 @@ export class Computer extends IdEntity {
     filter?: boolean
   }) {
     const result = await gql(
-      {},
       `#graphql
   query test2 {
       boards(ids: [${2673923561}]) {
@@ -306,6 +305,7 @@ export class Computer extends IdEntity {
       }}
     }
   `,
+      {},
     )
     const f = new DeliveryFormController(remult)
     let r: Donor[] = result.boards[0].items_page.items.map((x: any) => {
@@ -514,35 +514,20 @@ export class Computer extends IdEntity {
         {
           let compItem = form.items.find((i) => i.name === desktop)
           if (compItem) {
-            await update(
-              itemsBoardNumber,
-              compItem.id,
-              'numbers2',
-              comps.toString(),
-            )
-            await update(
-              itemsBoardNumber,
-              compItem.id,
-              'numbers5',
-              compsTrash.toString(),
-            )
+            await update(itemsBoardNumber, compItem.id, 'numbers2', comps)
+            await update(itemsBoardNumber, compItem.id, 'numbers5', compsTrash)
             if (+compItem.countQuantity <= comps + compsTrash) done++
           }
         }
         {
           let laptopItem = form.items.find((i) => i.name === laptop)
           if (laptopItem) {
-            await update(
-              itemsBoardNumber,
-              laptopItem.id,
-              'numbers2',
-              laptops.toString(),
-            )
+            await update(itemsBoardNumber, laptopItem.id, 'numbers2', laptops)
             await update(
               itemsBoardNumber,
               laptopItem.id,
               'numbers5',
-              laptopsTrash.toString(),
+              laptopsTrash,
             )
             if (+laptopItem.countQuantity <= laptops + laptopsTrash) done++
           }
@@ -552,7 +537,7 @@ export class Computer extends IdEntity {
             deliveriesBoardNumber,
             +originId,
             countStatusColumnInMonday,
-            JSON.stringify({ index: 1 }),
+            { index: 1 },
           )
         }
         return 'עודכן בהצלחה'

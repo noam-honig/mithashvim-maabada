@@ -124,7 +124,6 @@ export class DeliveryFormController extends ControllerBase {
   @BackendMethod({ allowed: true })
   async load(deliveryId: number) {
     const data = await gql(
-      { id: deliveryId },
       `#graphql
 query ($id: ID!) {
   boards(ids: [2673923561]) {
@@ -153,6 +152,7 @@ query ($id: ID!) {
   }
 }
 `,
+      { id: deliveryId },
     )
     const item: {
       id: number
@@ -229,7 +229,7 @@ query ($id: ID!) {
       deliveriesBoardNumber,
       this.id,
       this.$.contactSign.metadata.options.monday!,
-      JSON.stringify(this.contactSign),
+      this.contactSign,
     )
     await DeliveryFormController.createPdfAndUpload(this)
   }
@@ -241,14 +241,14 @@ query ($id: ID!) {
     await orig.load(this.id)
     if (orig.driverSign) throw 'הטופס כבר חתום'
     this.driverSign = MondayDate.now()
-    let value = JSON.stringify(this.driverSign)
+    let value = this.driverSign
 
     for (const item of this.items) {
       await update(
         itemsBoardNumber,
         item.id,
         'dup__of_____',
-        item.actualQuantity,
+        item.actualQuantity || 0,
       )
     }
     await update(
@@ -264,14 +264,18 @@ query ($id: ID!) {
       deliveriesBoardNumber,
       this.id,
       this.$.signatureCounter.metadata.options.monday!,
-      counter.toString(),
+      counter,
     )
-    this.tempSmsResult = await sendSms(
-      this.contactPhone,
-      `שלום ${this.contact}, נא לאשר את תכולת הציוד שנאספה עבור מיזם מתחשבים בקישור הבא:
+    if (this.contactPhone) {
+      this.tempSmsResult = await sendSms(
+        this.contactPhone,
+        `שלום ${this.contact}, נא לאשר את תכולת הציוד שנאספה עבור מיזם מתחשבים בקישור הבא:
 https://mitchashvim-labs.herokuapp.com/contact-sign/${this.id}`,
-      this.remult,
-    )
+        this.remult,
+      )
+    } else {
+      this.tempSmsResult = 'לא מעודכן מספר טלפון של איש הקשר'
+    }
     await this.updateDesktopAndLaptopStats()
   }
   async updateDesktopAndLaptopStats() {
@@ -289,7 +293,7 @@ https://mitchashvim-labs.herokuapp.com/contact-sign/${this.id}`,
           deliveriesBoardNumber,
           this.id,
           f.metadata.options.monday!,
-          z.toString(),
+          z,
         )
     }
   }
@@ -304,20 +308,17 @@ https://mitchashvim-labs.herokuapp.com/contact-sign/${this.id}`,
         itemsBoardNumber,
         item.id,
         countColumnInItemsInMonday,
-        item.countQuantity.toString(),
+        item.countQuantity,
       )
     }
-    await update(
-      deliveriesBoardNumber,
-      this.id,
-      countStatusColumnInMonday,
-      JSON.stringify({ index: computers === 0 ? 1 : 0 }),
-    )
+    await update(deliveriesBoardNumber, this.id, countStatusColumnInMonday, {
+      index: computers === 0 ? 1 : 0,
+    })
     await update(
       deliveriesBoardNumber,
       this.id,
       this.$.stockNotes.metadata.options.monday!,
-      JSON.stringify({ text: this.stockNotes }),
+      { text: this.stockNotes },
     )
   }
   @BackendMethod({ allowed: true })
@@ -329,13 +330,13 @@ https://mitchashvim-labs.herokuapp.com/contact-sign/${this.id}`,
       deliveriesBoardNumber,
       this.id,
       this.$.driverSign.metadata.options.monday!,
-      '{}',
+      {},
     )
     await update(
       deliveriesBoardNumber,
       this.id,
       this.$.contactSign.metadata.options.monday!,
-      '{}',
+      {},
     )
     this.driverSign = null
   }
