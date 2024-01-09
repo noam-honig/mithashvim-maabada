@@ -2,6 +2,8 @@ export async function gql(s: string, variables?: any, authorization?: string) {
   //console.log('monday gql', s, variables);
   const fetch = await import('node-fetch')
   if (!authorization) authorization = process.env['MONDAY_API_TOKEN']!
+  if (!s.includes('complexity'))
+    s = s.replace(/}([^}]*)$/, `complexity{query}}$1`)
   while (true) {
     const result = await fetch.default('https://api.monday.com/v2', {
       body: JSON.stringify({
@@ -41,6 +43,7 @@ export async function gql(s: string, variables?: any, authorization?: string) {
       )
       throw data || result.statusText
     }
+    if (data?.data?.complexity) console.log(data.data.complexity)
     return data.data
   }
 }
@@ -99,12 +102,13 @@ complexity{
         z = { ...result.change_column_value }
         delete z.column_values
       }
-      console.log({
-        values,
-        result: z,
-        column_values: result?.change_column_value?.column_values,
-        comp: result?.complexity,
-      })
+      if (false)
+        console.log({
+          values,
+          result: z,
+          column_values: result?.change_column_value?.column_values,
+          comp: result?.complexity,
+        })
       return result?.change_column_value
     }
   } catch (err: any) {

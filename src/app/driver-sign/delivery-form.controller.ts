@@ -131,7 +131,7 @@ query ($id: ID!) {
     name
     board_folder_id
     board_kind
-    items_page(query_params: {ids: [$id]}) {
+    items_page(query_params: {ids: [$id]},limit:1) {
       items {
         id
         name
