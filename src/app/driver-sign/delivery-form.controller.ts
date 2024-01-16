@@ -110,6 +110,12 @@ export class DeliveryFormController extends ControllerBase {
     itemNames: ['מסך VGA', 'מסכים'],
   })
   screens = 0
+  @Fields.integer({
+    monday: 'numbers_10',
+    caption: 'סה"כ משטחים',
+    itemNames: ['סה"כ משטחים'],
+  })
+  totalPallets = 0
 
   @Fields.string({
     monday: 'long_text1',
@@ -256,6 +262,12 @@ query ($id: ID!) {
       this.id,
       this.$.driverSign.metadata.options.monday!,
       value,
+    )
+    await update(
+      deliveriesBoardNumber,
+      this.id,
+      this.$.totalPallets.metadata.options.monday!,
+      this.totalPallets,
     )
     let counter = +this.signatureCounter
     if (!counter) counter = 1

@@ -1,42 +1,61 @@
-<div style="display:flex;gap:8px;padding: 8px;flex-direction: column;" *ngIf="form.id">
-  <div>שלום {{form.driverName}}, יש לך איסוף מ:</div>
-  <div style="align-self:center;" class="mat-title">{{form.name}}</div>
-  <div style="align-self:center;margin-top:-24px;" class="mat-title"   *ngIf="form.hospitalName">בית חולים / מחוז:  {{form.hospitalName}}</div>
-  
+<div
+  style="display: flex; gap: 8px; padding: 8px; flex-direction: column"
+  *ngIf="form.id"
+>
+  <div>שלום {{ form.driverName }}, יש לך איסוף מ:</div>
+  <div style="align-self: center" class="mat-title">{{ form.name }}</div>
+  <div
+    style="align-self: center; margin-top: -24px"
+    class="mat-title"
+    *ngIf="form.hospitalName"
+  >
+    בית חולים / מחוז: {{ form.hospitalName }}
+  </div>
+
   <div>
     <strong>כתובות</strong>
     <mat-card>
-      <div style="margin-bottom:8px">
-        {{form.street}} {{form.city}}
-      </div>
+      <div style="margin-bottom: 8px">{{ form.street }} {{ form.city }}</div>
       <div>
-        <button mat-raised-button color="primary" (click)="openWaze()">נווט</button>
+        <button mat-raised-button color="primary" (click)="openWaze()">
+          נווט
+        </button>
       </div>
     </mat-card>
   </div>
   <div>
     <strong>איש קשר</strong>
     <mat-card>
-      <div style="margin-bottom:8px">
-        {{form.contact}}, {{form.contactPhone}}
+      <div style="margin-bottom: 8px">
+        {{ form.contact }}, {{ form.contactPhone }}
       </div>
       <div>
-        <button mat-raised-button color="primary" style="margin-left:16px" (click)="call()">חייג</button>
-        <button mat-raised-button color="primary" (click)="whatsApp()">שלח ווטסאפ</button>
+        <button
+          mat-raised-button
+          color="primary"
+          style="margin-left: 16px"
+          (click)="call()"
+        >
+          חייג
+        </button>
+        <button mat-raised-button color="primary" (click)="whatsApp()">
+          שלח ווטסאפ
+        </button>
       </div>
     </mat-card>
   </div>
   <div *ngIf="form.notes">
     <strong>שים לב</strong>
     <mat-card>
-      {{form.notes}}
+      {{ form.notes }}
     </mat-card>
   </div>
   <div>
     <strong>פריטים לאיסוף</strong>
     <mat-card>
       <div *ngFor="let item of expectedItems">
-        {{item.quantity}} {{item.name}} {{item.notes?" - "+item.notes:undefined}}
+        {{ item.quantity }} {{ item.name }}
+        {{ item.notes ? " - " + item.notes : undefined }}
       </div>
     </mat-card>
   </div>
@@ -44,34 +63,59 @@
     <strong>פריטים שנאספו בפועל - יש לעדכן כמויות</strong>
     <mat-card>
       <div *ngFor="let item of sortedItems">
-        <mat-form-field class="smaller-field" appearance="outline" style="width:80px">
+        <mat-form-field
+          class="smaller-field"
+          appearance="outline"
+          style="width: 80px"
+        >
           <input type="tel" matInput [(ngModel)]="item.actualQuantity" />
         </mat-form-field>
-        {{item.name}} {{item.notes?" - "+item.notes:undefined}}
+        {{ item.name }} {{ item.notes ? " - " + item.notes : undefined }}
       </div>
+      <mat-form-field
+        class="smaller-field"
+        appearance="outline"
+        style="width: 80px"
+      >
+        <input type="tel" matInput [(ngModel)]="form.totalPallets" />
+      </mat-form-field>
+      סה"כ משטחים
     </mat-card>
   </div>
   <div *ngIf="form.driverSign">
     <strong>פריטים שנאספו בפועל</strong>
     <mat-card>
       <ng-container *ngFor="let item of sortedItems">
-        <div *ngIf="+item.actualQuantity!=0">
-
-          {{item.actualQuantity}} {{item.name}} {{item.notes?" - "+item.notes:undefined}}
+        <div *ngIf="+item.actualQuantity != 0">
+          {{ item.actualQuantity }} {{ item.name }}
+          {{ item.notes ? " - " + item.notes : undefined }}
         </div>
       </ng-container>
+      <div *ngIf="form.totalPallets">סה"כ משטחים: {{ form.totalPallets }}</div>
     </mat-card>
   </div>
-  <button mat-raised-button color="primary" *ngIf="!form.driverSign" (click)="updateDone()">חתום ואשר איסוף</button>
-  <div *ngIf="form.driverSign" style="display: flex;
-  flex-direction: column;
-  align-items: center;">
-    ✅ הטופס נחתם לאחרונה ע"י {{form.driverName}} ב {{form.$.driverSign.displayValue}}
+  <button
+    mat-raised-button
+    color="primary"
+    *ngIf="!form.driverSign"
+    (click)="updateDone()"
+  >
+    חתום ואשר איסוף
+  </button>
+  <div
+    *ngIf="form.driverSign"
+    style="display: flex; flex-direction: column; align-items: center"
+  >
+    ✅ הטופס נחתם לאחרונה ע"י {{ form.driverName }} ב
+    {{ form.$.driverSign.displayValue }}
 
-    <a *ngIf="sameDate()" (click)="!!form.cancelSign();$event.preventDefault()" href="">לביטול חתימה
-      ועדכון כמויות לחץ כאן</a>
+    <a
+      *ngIf="sameDate()"
+      (click)="!!form.cancelSign(); $event.preventDefault()"
+      href=""
+      >לביטול חתימה ועדכון כמויות לחץ כאן</a
+    >
     <div *ngIf="!sameDate()">הטופס נעול</div>
   </div>
-
 </div>
 <div *ngIf="!form.id">טופס לא נמצא</div>
