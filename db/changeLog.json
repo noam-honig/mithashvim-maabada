@@ -6219,5 +6219,124 @@
     "changedFields": [
       "status"
     ]
+  },
+  {
+    "id": "90b0ab52-baef-4967-b323-6ebb0563b48d",
+    "relatedId": "23ea2992-53e9-458b-85f5-b4ca62e20865",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2024-02-24T09:45:42.967Z",
+    "userId": "2c4077ec-b861-474b-b5fd-62daa8c9b736",
+    "userName": "נועם",
+    "changes": [
+      {
+        "key": "generation",
+        "newDisplayValue": "2",
+        "oldDisplayValue": "",
+        "newValue": "2",
+        "oldValue": ""
+      }
+    ],
+    "changedFields": [
+      "generation"
+    ]
+  },
+  {
+    "id": "edb91e1a-6549-4883-9659-2a167a30efd0",
+    "relatedId": "23ea2992-53e9-458b-85f5-b4ca62e20865",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2024-02-24T09:54:22.624Z",
+    "userId": "2c4077ec-b861-474b-b5fd-62daa8c9b736",
+    "userName": "נועם",
+    "changes": [
+      {
+        "key": "status",
+        "newDisplayValue": "שוייך לעובד",
+        "oldDisplayValue": "התקבל - מחשב נייח",
+        "newValue": "assigned",
+        "oldValue": "intake"
+      },
+      {
+        "key": "employee",
+        "newDisplayValue": "ליאו",
+        "newValue": "3fe1d2db-1921-4272-bc9b-b5532a8447b7",
+        "oldValue": null
+      },
+      {
+        "key": "cpu",
+        "newDisplayValue": "I5",
+        "newValue": "i5"
+      }
+    ],
+    "changedFields": [
+      "status",
+      "employee",
+      "cpu"
+    ]
+  },
+  {
+    "id": "2459166c-f7df-4e26-967d-e5f1b5207259",
+    "relatedId": "4d58753f-3f9e-48ba-8deb-5cc0742f9b3b",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2024-02-24T09:55:43.941Z",
+    "userId": "2c4077ec-b861-474b-b5fd-62daa8c9b736",
+    "userName": "נועם",
+    "changes": [
+      {
+        "key": "status",
+        "newDisplayValue": "שוייך לעובד",
+        "oldDisplayValue": "התקבל - מחשב נייח",
+        "newValue": "assigned",
+        "oldValue": "intake"
+      },
+      {
+        "key": "employee",
+        "newDisplayValue": "ליאו",
+        "newValue": "3fe1d2db-1921-4272-bc9b-b5532a8447b7",
+        "oldValue": null
+      },
+      {
+        "key": "cpu",
+        "newDisplayValue": "I5",
+        "newValue": "i5"
+      },
+      {
+        "key": "generation",
+        "newDisplayValue": "3",
+        "oldDisplayValue": "",
+        "newValue": "3",
+        "oldValue": ""
+      },
+      {
+        "key": "memory",
+        "newDisplayValue": "8",
+        "oldDisplayValue": "",
+        "newValue": "8",
+        "oldValue": ""
+      },
+      {
+        "key": "package",
+        "newDisplayValue": "קטן",
+        "oldDisplayValue": "",
+        "newValue": "קטן",
+        "oldValue": ""
+      }
+    ],
+    "changedFields": [
+      "status",
+      "employee",
+      "cpu",
+      "generation",
+      "memory",
+      "package"
+    ]
   }
 ]

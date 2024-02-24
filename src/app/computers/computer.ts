@@ -9,6 +9,8 @@ import {
   BackendMethod,
   getValueList,
   isBackend,
+  StringFieldOptions,
+  FieldValidator,
 } from 'remult'
 import { recordChanges, ChangeLog } from '../change-log/change-log'
 import { DataControl } from '../common-ui-elements/interfaces'
@@ -29,6 +31,31 @@ import { ComputerStatus } from './ComputerStatus'
 import { CPUType } from './CPUType'
 import { InventoryLine, updateInventory } from './InventoryLine'
 import { KeyboardType } from './keyboardType'
+
+export const GenerationOptions = ['', '2', '3'] as const
+export type Generation = (typeof GenerationOptions)[number]
+export const memoryOptions = ['', '4', '8', '9 ומעלה'] as const
+export type Memory = (typeof memoryOptions)[number]
+export const packageOptions = ['', 'גדול', 'בינוני', 'קטן', 'טייני'] as const
+export type Package = (typeof packageOptions)[number]
+
+function UnionString<entityType, valueType>(
+  valueList: readonly valueType[],
+  options: StringFieldOptions<entityType, valueType>,
+) {
+  const validators: FieldValidator<entityType, valueType>[] = [
+    Validators.in(valueList, () => 'ערך לא מוכר'),
+  ]
+  if (options.validate) {
+    if (!Array.isArray(options.validate)) validators.push(options.validate)
+    else validators.push(...options.validate)
+  }
+  return Fields.string<entityType, valueType>({
+    ...options,
+    valueList: valueList.map((x) => ({ id: x, caption: x })),
+    validate: validators,
+  })
+}
 
 @Entity<Computer>('computers', {
   allowApiCrud: Allow.authenticated,
@@ -139,6 +166,13 @@ export class Computer extends IdEntity {
   })
   cpu!: CPUType
 
+  @UnionString(GenerationOptions, { caption: 'דור' })
+  generation: Generation = ''
+  @UnionString(memoryOptions, { caption: 'זיכרון' })
+  memory: Memory = ''
+  @UnionString(packageOptions, { caption: 'מארז', width: '70' })
+  package: Package = ''
+
   @Field(() => KeyboardType)
   keyboard = KeyboardType.hebrew
   @DataControl({
@@ -204,9 +238,9 @@ export class Computer extends IdEntity {
         },
       })
     },
-    validate: (c) => {
+    validate: (c, e) => {
       if (c.status.inputRecipient) {
-        Validators.required(c, c.$.recipient)
+        Validators.required(c, e)
       }
     },
     width: '170',

@@ -58,6 +58,46 @@
             </button>
           </div>
         </div>
+        <div *ngIf="input.status.inputCpu">
+          {{ input.$.generation.metadata.caption }}:
+          <div style="display: flex; gap: 8px; margin-bottom: 16px">
+            <button
+              mat-raised-button
+              [color]="c.id === input.generation ? 'primary' : ''"
+              *ngFor="let c of values(input.$.generation)"
+              (click)="input.generation = c.id"
+            >
+              {{ c.caption }}
+            </button>
+          </div>
+        </div>
+        <div *ngIf="input.status.inputCpu">
+          {{ input.$.memory.metadata.caption }}:
+          <div style="display: flex; gap: 8px; margin-bottom: 16px">
+            <button
+              mat-raised-button
+              [color]="c.id === input.memory ? 'primary' : ''"
+              *ngFor="let c of values(input.$.memory)"
+              (click)="input.memory = c.id"
+            >
+              {{ c.caption }}
+            </button>
+          </div>
+        </div>
+        <div *ngIf="input.status.inputCpu">
+          {{ input.$.package.metadata.caption }}:
+          <div style="display: flex; gap: 8px; margin-bottom: 16px">
+            <button
+              mat-raised-button
+              [color]="c.id === input.package ? 'primary' : ''"
+              *ngFor="let c of values(input.$.package)"
+              (click)="input.package = c.id"
+            >
+              {{ c.caption }}
+            </button>
+          </div>
+        </div>
+
         <data-area [settings]="area"></data-area>
 
         <button

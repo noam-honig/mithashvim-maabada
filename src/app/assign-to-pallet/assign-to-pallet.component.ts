@@ -11,19 +11,19 @@ import { Roles } from '../users/roles'
   styleUrls: ['./assign-to-pallet.component.scss'],
 })
 export class AssignToPalletComponent implements OnInit {
-  constructor(private ui: UIToolsService) { }
+  constructor(private ui: UIToolsService) {}
   compRepo = remult.repo(Computer)
   input = this.compRepo.create()
 
   get $() {
-    return getFields(this)
+    return getFields<AssignToPalletComponent>(this)
   }
 
   @Field(() => inputMethod, { caption: 'שיטת ברקוד' })
   inputMethod = inputMethod.computer
-  area = new DataAreaSettings({
+  area: DataAreaSettings = new DataAreaSettings({
     fields: () => [
-      getFields(this).inputMethod,
+      this.$.inputMethod,
       this.input.$.palletBarcode,
       {
         field: this.input.$.barcode,
@@ -51,20 +51,23 @@ export class AssignToPalletComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if (remult.isAllowed(Roles.packAdmin) && !remult.isAllowed(Roles.stockAdmin))
-      this.inputMethod = inputMethod.packageBarcode;
+    if (
+      remult.isAllowed(Roles.packAdmin) &&
+      !remult.isAllowed(Roles.stockAdmin)
+    )
+      this.inputMethod = inputMethod.packageBarcode
   }
   async update() {
     let comp: Computer
     if (this.inputMethod.packageBarcode) {
       comp = await this.compRepo.findFirst({
         packageBarcode: this.input.packageBarcode,
-        deleted: false
+        deleted: false,
       })
     } else
       comp = await this.compRepo.findFirst({
         barcode: this.input.barcode,
-        deleted: false
+        deleted: false,
       })
     if (!comp) {
       this.ui.error('מחשב לא נמצא')
@@ -83,5 +86,5 @@ class inputMethod {
   static computer = new inputMethod('ברקוד מחשב')
   static packageBarcode = new inputMethod('ברקוד אריזה', true)
   id!: string
-  constructor(public caption: string, public packageBarcode = false) { }
+  constructor(public caption: string, public packageBarcode = false) {}
 }

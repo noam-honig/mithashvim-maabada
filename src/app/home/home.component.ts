@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core'
 import {
   Field,
+  FieldRef,
   getFields,
   getValueList,
   remult,
@@ -43,7 +44,7 @@ export class HomeComponent implements OnInit {
   }
 
   @ViewChild('myField') x!: ElementRef
-  constructor(private ui: UIToolsService, private busyService: BusyService) { }
+  constructor(private ui: UIToolsService, private busyService: BusyService) {}
 
   async ngOnInit() {
     this.init()
@@ -71,6 +72,9 @@ export class HomeComponent implements OnInit {
       }
       if (c.status.inputCpu) {
         c.cpu = this.input.cpu
+        c.generation = this.input.generation
+        c.memory = this.input.memory
+        c.package = this.input.package
       }
       if (c.status.inputRecipient) {
         c.recipient = this.input.recipient
@@ -106,10 +110,10 @@ export class HomeComponent implements OnInit {
           if (
             !(await this.ui.yesNoQuestion(
               'האם לעדכן ' +
-              count +
-              ' מחשבים לסטטוס ' +
-              this.input.status.caption +
-              '?',
+                count +
+                ' מחשבים לסטטוס ' +
+                this.input.status.caption +
+                '?',
             ))
           ) {
             return
@@ -127,9 +131,13 @@ export class HomeComponent implements OnInit {
         if (this.input.status.inputPackageBarcode)
           c = await this.compRepo.findFirst({
             packageBarcode: this.input.packageBarcode,
-            deleted: false
+            deleted: false,
           })
-        else c = await this.compRepo.findFirst({ barcode: this.input.barcode, deleted: false })
+        else
+          c = await this.compRepo.findFirst({
+            barcode: this.input.barcode,
+            deleted: false,
+          })
         if (!c) {
           this.ui.error('ברקוד לא נמצא')
           return
@@ -147,8 +155,6 @@ export class HomeComponent implements OnInit {
 
     this.ui.info(`עודכן ${this.input.status.caption} בהצלחה`)
     this.init()
-
-
   }
   get $() {
     return getFields(this)
@@ -205,6 +211,9 @@ export class HomeComponent implements OnInit {
         this.x.nativeElement.getElementsByTagName('input')[0].focus()
     }, 0)
   }
+  values(ref: FieldRef) {
+    return ref.metadata.options.valueList?.filter((x) => x.id)
+  }
 }
 
 @ValueListFieldType()
@@ -212,5 +221,5 @@ class inputType {
   static pallet = new inputType('עדכן משטח', true)
   static computer = new inputType('עדכן מחשב יחיד', false)
   id!: string
-  constructor(public caption: string, public pallet: boolean) { }
+  constructor(public caption: string, public pallet: boolean) {}
 }

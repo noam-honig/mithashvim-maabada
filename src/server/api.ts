@@ -12,6 +12,8 @@ import { graphqlUploadFile } from '../app/contact-sign/graphqlUploadFile'
 import { versionUpdate } from './version'
 import { gql } from '../app/driver-sign/getGraphQL'
 import { UpdatePalletStatusController } from '../app/update-pallet-status/update-pallet-status.controller'
+import { remult } from 'remult'
+import { Roles } from '../app/users/roles.js'
 
 export const api = remultExpress({
   entities: [Employee, Computer, ChangeLog, User],
@@ -21,6 +23,7 @@ export const api = remultExpress({
     DeliveryFormController,
     UpdatePalletStatusController,
   ],
+  admin: 'admin',
   getUser: (request) => request.session!['user'],
   dataProvider: async () => {
     if (process.env['NODE_ENV'] === 'production')

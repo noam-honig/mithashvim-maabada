@@ -15,7 +15,10 @@
     "model": "",
     "originId": "",
     "recipientId": "",
-    "deleted": false
+    "deleted": false,
+    "generation": "",
+    "memory": "",
+    "package": ""
   },
   {
     "id": "a928363e-d866-4242-bc6f-3cc9169e0041",
@@ -35,7 +38,10 @@
     "model": "",
     "originId": "",
     "recipientId": "",
-    "deleted": false
+    "deleted": false,
+    "generation": "",
+    "memory": "",
+    "package": ""
   },
   {
     "id": "9a6315ac-96d6-40d6-a470-a12c49a10a75",
@@ -55,7 +61,10 @@
     "model": "",
     "originId": "",
     "recipientId": "",
-    "deleted": false
+    "deleted": false,
+    "generation": "",
+    "memory": "",
+    "package": ""
   },
   {
     "id": "e7b6245b-115d-4bfe-a52c-17f085a8e5f2",
@@ -74,7 +83,10 @@
     "model": "",
     "originId": "",
     "recipientId": "",
-    "deleted": false
+    "deleted": false,
+    "generation": "",
+    "memory": "",
+    "package": ""
   },
   {
     "id": "57082017-8a20-40cf-b994-ceb4fd57655b",
@@ -93,7 +105,10 @@
     "model": "",
     "originId": "",
     "recipientId": "",
-    "deleted": false
+    "deleted": false,
+    "generation": "",
+    "memory": "",
+    "package": ""
   },
   {
     "id": "6285a73b-8d1f-4a68-9d70-3322e24b8d87",
@@ -112,7 +127,10 @@
     "model": "",
     "originId": "",
     "recipientId": "",
-    "deleted": false
+    "deleted": false,
+    "generation": "",
+    "memory": "",
+    "package": ""
   },
   {
     "id": "49dbdb3a-2e94-445c-ac91-5931e9041f3e",
@@ -131,7 +149,10 @@
     "model": "",
     "originId": "",
     "recipientId": "",
-    "deleted": false
+    "deleted": false,
+    "generation": "",
+    "memory": "",
+    "package": ""
   },
   {
     "id": "03a276e2-ba74-4fa3-8df2-01cfdbcefda0",
@@ -151,7 +172,10 @@
     "model": "",
     "originId": "",
     "recipientId": "",
-    "deleted": false
+    "deleted": false,
+    "generation": "",
+    "memory": "",
+    "package": ""
   },
   {
     "id": "458041b4-b2b7-4ee7-a9de-79970b4b2ecd",
@@ -171,7 +195,10 @@
     "model": "",
     "originId": "",
     "recipientId": "",
-    "deleted": false
+    "deleted": false,
+    "generation": "",
+    "memory": "",
+    "package": ""
   },
   {
     "id": "1f461348-42ff-43be-b4b4-1921b6d10183",
@@ -190,7 +217,10 @@
     "model": "",
     "originId": "",
     "recipientId": "",
-    "deleted": false
+    "deleted": false,
+    "generation": "",
+    "memory": "",
+    "package": ""
   },
   {
     "id": "094eaed2-f476-4ee5-9a5d-0e1442e10700",
@@ -209,7 +239,10 @@
     "model": "",
     "originId": "",
     "recipientId": "",
-    "deleted": false
+    "deleted": false,
+    "generation": "",
+    "memory": "",
+    "package": ""
   },
   {
     "id": "a581af75-f600-40fb-8322-d4af30f45a1f",
@@ -228,7 +261,10 @@
     "model": "",
     "originId": "",
     "recipientId": "",
-    "deleted": false
+    "deleted": false,
+    "generation": "",
+    "memory": "",
+    "package": ""
   },
   {
     "id": "4a0b9e8b-522b-4150-9db9-a26aaa0bb506",
@@ -247,7 +283,10 @@
     "model": "",
     "originId": "",
     "recipientId": "",
-    "deleted": false
+    "deleted": false,
+    "generation": "",
+    "memory": "",
+    "package": ""
   },
   {
     "id": "39ed4e78-059b-4db8-ae87-10844d15b525",
@@ -266,7 +305,10 @@
     "model": "",
     "originId": "",
     "recipientId": "",
-    "deleted": false
+    "deleted": false,
+    "generation": "",
+    "memory": "",
+    "package": ""
   },
   {
     "id": "ddaf2636-b6d0-4aba-94ff-55759e244760",
@@ -285,7 +327,10 @@
     "model": "",
     "originId": "",
     "recipientId": "",
-    "deleted": false
+    "deleted": false,
+    "generation": "",
+    "memory": "",
+    "package": ""
   },
   {
     "id": "a82b2ab4-bdd4-42dc-9c45-8db468fc78a8",
@@ -304,7 +349,10 @@
     "model": "",
     "originId": "",
     "recipientId": "",
-    "deleted": false
+    "deleted": false,
+    "generation": "",
+    "memory": "",
+    "package": ""
   },
   {
     "id": "6d643c69-1253-4f02-a562-3cf0313d1c6b",
@@ -323,7 +371,10 @@
     "model": "",
     "originId": "",
     "recipientId": "",
-    "deleted": false
+    "deleted": false,
+    "generation": "",
+    "memory": "",
+    "package": ""
   },
   {
     "id": "c6268923-0ea8-42c0-a4f0-6755113a31f0",
@@ -342,7 +393,10 @@
     "model": "",
     "originId": "",
     "recipientId": "",
-    "deleted": false
+    "deleted": false,
+    "generation": "",
+    "memory": "",
+    "package": ""
   },
   {
     "id": "60360fe1-df33-4f56-bf01-a42dfb7126f8",
@@ -361,7 +415,10 @@
     "model": "",
     "originId": "",
     "recipientId": "",
-    "deleted": false
+    "deleted": false,
+    "generation": "",
+    "memory": "",
+    "package": ""
   },
   {
     "id": "92f39d7d-ed05-4f5d-a504-65467d83a8e1",
@@ -380,7 +437,10 @@
     "model": "",
     "originId": "",
     "recipientId": "",
-    "deleted": true
+    "deleted": true,
+    "generation": "",
+    "memory": "",
+    "package": ""
   },
   {
     "id": "aa1b27fc-3e91-4c0b-a75b-4481f5e58eb6",
@@ -399,7 +459,10 @@
     "model": "",
     "originId": "",
     "recipientId": "",
-    "deleted": false
+    "deleted": false,
+    "generation": "",
+    "memory": "",
+    "package": ""
   },
   {
     "id": "392013b2-19d4-4e20-bf1a-22db77b0c57c",
@@ -418,7 +481,10 @@
     "model": "",
     "originId": "",
     "recipientId": "",
-    "deleted": false
+    "deleted": false,
+    "generation": "",
+    "memory": "",
+    "package": ""
   },
   {
     "id": "baef6eb0-c0ef-465e-a0ff-e1972a0e6c52",
@@ -437,7 +503,10 @@
     "model": "",
     "originId": "",
     "recipientId": "",
-    "deleted": false
+    "deleted": false,
+    "generation": "",
+    "memory": "",
+    "package": ""
   },
   {
     "id": "6926e108-9921-4efb-80e3-903d1eb57ee8",
@@ -457,7 +526,10 @@
     "model": "",
     "originId": "",
     "recipientId": "",
-    "deleted": false
+    "deleted": false,
+    "generation": "",
+    "memory": "",
+    "package": ""
   },
   {
     "id": "3c33f38a-f1e9-40aa-83dd-8aff6dfa46ed",
@@ -477,7 +549,10 @@
     "model": "",
     "originId": "",
     "recipientId": "",
-    "deleted": false
+    "deleted": false,
+    "generation": "",
+    "memory": "",
+    "package": ""
   },
   {
     "id": "e5db4e0e-9576-4a49-b339-65b484e507e1",
@@ -497,7 +572,10 @@
     "model": "",
     "originId": "",
     "recipientId": "",
-    "deleted": false
+    "deleted": false,
+    "generation": "",
+    "memory": "",
+    "package": ""
   },
   {
     "id": "096c3096-9b5f-4dbc-a5a0-61685fa26187",
@@ -516,7 +594,10 @@
     "model": "",
     "originId": "",
     "recipientId": "",
-    "deleted": false
+    "deleted": false,
+    "generation": "",
+    "memory": "",
+    "package": ""
   },
   {
     "id": "42e21779-97a3-44ec-9300-d49ed3251d0e",
@@ -536,7 +617,10 @@
     "updateDate": "2023-01-20T04:41:41.402Z",
     "recipientId": "",
     "keyboard": "hebrew",
-    "deleted": false
+    "deleted": false,
+    "generation": "",
+    "memory": "",
+    "package": ""
   },
   {
     "id": "65172981-b5b5-4779-91a3-c1ce46b3192f",
@@ -556,15 +640,18 @@
     "recipientId": "",
     "createDate": "2023-01-26T07:24:01.558Z",
     "updateDate": "2023-01-26T07:24:01.564Z",
-    "deleted": false
+    "deleted": false,
+    "generation": "",
+    "memory": "",
+    "package": ""
   },
   {
     "id": "4d58753f-3f9e-48ba-8deb-5cc0742f9b3b",
     "barcode": "M123452",
     "packageBarcode": "",
     "palletBarcode": "",
-    "status": "intake",
-    "employee": null,
+    "status": "assigned",
+    "employee": "3fe1d2db-1921-4272-bc9b-b5532a8447b7",
     "keyboard": "hebrew",
     "origin": "",
     "originId": "",
@@ -575,16 +662,20 @@
     "recipient": "",
     "recipientId": "",
     "createDate": "2023-01-26T07:25:10.524Z",
-    "updateDate": "2023-01-26T07:25:10.528Z",
-    "deleted": false
+    "updateDate": "2024-02-24T09:55:43.941Z",
+    "deleted": false,
+    "generation": "3",
+    "memory": "8",
+    "package": "קטן",
+    "cpu": "i5"
   },
   {
     "id": "23ea2992-53e9-458b-85f5-b4ca62e20865",
     "barcode": "M123453",
     "packageBarcode": "",
     "palletBarcode": "",
-    "status": "intake",
-    "employee": null,
+    "status": "assigned",
+    "employee": "3fe1d2db-1921-4272-bc9b-b5532a8447b7",
     "keyboard": "hebrew",
     "origin": "",
     "originId": "",
@@ -595,7 +686,11 @@
     "recipient": "",
     "recipientId": "",
     "createDate": "2023-01-26T07:25:53.936Z",
-    "updateDate": "2023-01-26T07:25:53.943Z",
-    "deleted": false
+    "updateDate": "2024-02-24T09:54:22.623Z",
+    "deleted": false,
+    "generation": "2",
+    "memory": "",
+    "package": "",
+    "cpu": "i5"
   }
 ]
