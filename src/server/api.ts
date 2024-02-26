@@ -27,7 +27,10 @@ export const api = remultExpress({
   getUser: (request) => request.session!['user'],
   dataProvider: async () => {
     if (process.env['NODE_ENV'] === 'production')
-      return createPostgresConnection({ configuration: 'heroku' })
+      return createPostgresConnection({
+        configuration: 'heroku',
+        caseInsensitiveIdentifiers: true,
+      })
     return undefined
   },
   initApi: async () => {
