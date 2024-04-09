@@ -692,5 +692,29 @@
     "memory": "",
     "package": "",
     "cpu": "i5"
+  },
+  {
+    "id": "cb6722b5-87d0-4c65-9929-832c012f49fe",
+    "barcode": "M123454",
+    "packageBarcode": "",
+    "palletBarcode": "",
+    "status": "intake",
+    "employee": null,
+    "cpu": "i5",
+    "generation": "3",
+    "memory": "",
+    "package": "",
+    "keyboard": "hebrew",
+    "origin": "ללא",
+    "originId": "ללא",
+    "isLaptop": false,
+    "make": "",
+    "model": "",
+    "courier": "",
+    "recipient": "",
+    "recipientId": "",
+    "createDate": "2024-04-09T13:52:21.214Z",
+    "updateDate": "2024-04-09T13:52:21.217Z",
+    "deleted": false
   }
 ]

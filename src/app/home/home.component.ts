@@ -193,12 +193,7 @@ export class HomeComponent implements OnInit {
           field: this.input.$.origin,
           visible: () => this.input.status.isIntake,
         },
-        {
-          field: this.input.$.courier,
-          click: () => (this.input.courier = ''),
-          clickIcon: 'clear',
-          visible: () => this.input.status.isIntake,
-        },
+
         {
           field: this.input.$.recipient,
           visible: () => this.input.status.inputRecipient,

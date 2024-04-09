@@ -10,6 +10,7 @@ export class ComputerStatus {
   })
   static intake = new ComputerStatus('התקבל - מחשב נייח', [Roles.stockAdmin], {
     isIntake: true,
+    inputCpu: true,
     groupBy: ['origin', 'palletBarcode'],
     inputPallet: true,
   })
@@ -50,7 +51,7 @@ export class ComputerStatus {
   )
   static assigned = new ComputerStatus('שוייך לעובד', [Roles.upgradeAdmin], {
     updateEmployee: true,
-    inputCpu: true,
+
     groupBy: ['employee'],
     listFields: ['barcode', 'employee'],
     statusTableCurrentStatusOnly: true,

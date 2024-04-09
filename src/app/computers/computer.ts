@@ -191,6 +191,11 @@ export class Computer extends IdEntity {
         },
       })
     },
+    validate: (c, e) => {
+      if (c.status.isIntake) {
+        Validators.required(c, e)
+      }
+    },
   })
   origin = ''
   @DataControl({ readonly: true })

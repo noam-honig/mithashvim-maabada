@@ -6338,5 +6338,76 @@
       "memory",
       "package"
     ]
+  },
+  {
+    "id": "acf7cd59-68b7-44e4-bd85-2209e51dc589",
+    "relatedId": "cb6722b5-87d0-4c65-9929-832c012f49fe",
+    "relatedName": "",
+    "entity": "computers",
+    "appUrl": "",
+    "apiUrl": "",
+    "changeDate": "2024-04-09T13:52:21.218Z",
+    "userId": "2c4077ec-b861-474b-b5fd-62daa8c9b736",
+    "userName": "נועם",
+    "changes": [
+      {
+        "key": "barcode",
+        "newDisplayValue": "M123454",
+        "oldDisplayValue": "",
+        "newValue": "M123454",
+        "oldValue": ""
+      },
+      {
+        "key": "status",
+        "newDisplayValue": "התקבל - מחשב נייח",
+        "oldDisplayValue": "",
+        "newValue": "intake",
+        "oldValue": ""
+      },
+      {
+        "key": "cpu",
+        "newDisplayValue": "I5",
+        "oldDisplayValue": "",
+        "newValue": "i5",
+        "oldValue": ""
+      },
+      {
+        "key": "generation",
+        "newDisplayValue": "3",
+        "oldDisplayValue": "",
+        "newValue": "3",
+        "oldValue": ""
+      },
+      {
+        "key": "keyboard",
+        "newDisplayValue": "עברית/אנגלית",
+        "oldDisplayValue": "",
+        "newValue": "hebrew",
+        "oldValue": ""
+      },
+      {
+        "key": "origin",
+        "newDisplayValue": "ללא",
+        "oldDisplayValue": "",
+        "newValue": "ללא",
+        "oldValue": ""
+      },
+      {
+        "key": "originId",
+        "newDisplayValue": "ללא",
+        "oldDisplayValue": "",
+        "newValue": "ללא",
+        "oldValue": ""
+      }
+    ],
+    "changedFields": [
+      "barcode",
+      "status",
+      "cpu",
+      "generation",
+      "keyboard",
+      "origin",
+      "originId"
+    ]
   }
 ]
