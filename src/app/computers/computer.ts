@@ -32,7 +32,16 @@ import { CPUType } from './CPUType'
 import { InventoryLine, updateInventory } from './InventoryLine'
 import { KeyboardType } from './keyboardType'
 
-export const GenerationOptions = ['', '2', '3'] as const
+export const GenerationOptions = [
+  '',
+  '2',
+  '3',
+  '4',
+  '5',
+  '6',
+  '7',
+  '8',
+] as const
 export type Generation = (typeof GenerationOptions)[number]
 export const memoryOptions = ['', '4', '8', '9 ומעלה'] as const
 export type Memory = (typeof memoryOptions)[number]
