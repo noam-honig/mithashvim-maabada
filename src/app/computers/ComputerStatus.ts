@@ -51,7 +51,7 @@ export class ComputerStatus {
   )
   static assigned = new ComputerStatus('שוייך לעובד', [Roles.upgradeAdmin], {
     updateEmployee: true,
-
+    inputCpu: true,
     groupBy: ['employee'],
     listFields: ['barcode', 'employee'],
     statusTableCurrentStatusOnly: true,
